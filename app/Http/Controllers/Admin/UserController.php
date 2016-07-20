@@ -17,7 +17,11 @@ class UserController extends Controller
 
     public function index()
     {
-        //dd(URL::to(''));
         return view('admin/user.login');
+    }
+
+    public function home()
+    {
+        return view('admin/index');
     }
 }

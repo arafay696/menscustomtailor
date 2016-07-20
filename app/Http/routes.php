@@ -16,12 +16,13 @@ Route::get('/', function () {
 });
 
 
+/*
+ * -------------------- Admin Routes -------------------
+ * */
 Route::get('admin', 'Admin\UserController@index');
-//,'middleware' => ['auth']
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    // Controllers Within The "App\Http\Controllers\Admin" Namespace
 
-    Route::get('/home', 'UserController@index');
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::get('/home', 'UserController@home');
 });
 
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mct">
 
 <head>
-
+    <base href="http://localhost/mct/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,13 +35,13 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="<?php echo URL::asset('public/angular/angular/angular.min.js');?>"></script>
 </head>
 
 <body>
 
 <div id="wrapper">
-
+    <div ng-view></div>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -976,6 +976,15 @@
 
 </div>
 <!-- /#wrapper -->
+<!-- Angular -->
+<script src="<?php echo URL::asset('public/angular/js/application.js'); ?>"></script>
+<script src="<?php echo URL::asset('public/angular/js/controllers.js'); ?>"></script>
+<script src="<?php echo URL::asset('public/angular/js/directives.js'); ?>"></script>
+<script src="<?php echo URL::asset('public/angular/js/services.js'); ?>"></script>
+<script src="<?php echo URL::asset('public/angular/js/filters.js'); ?>"></script>
+<script src="<?php echo URL::asset('public/angular/angular/angular-route.min.js'); ?>"></script>
+<script src="<?php echo URL::asset('public/angular/angular/lodash.min.js'); ?>"></script>
+<script src="<?php echo URL::asset('public/angular/angular/angular-ui.min.js'); ?>"></script>
 
 <!-- jQuery -->
 <script src="<?php echo URL::asset('public/assets/admin/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
