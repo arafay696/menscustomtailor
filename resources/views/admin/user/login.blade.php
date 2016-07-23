@@ -23,6 +23,18 @@
     <!-- Custom Fonts -->
     <link href="<?php echo URL::asset('public/assets/admin/bower_components/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">
 
+    <style>
+        .errorMsgs, .successMsgs {
+            position: fixed;
+            right: 0;
+            top: 84px;
+            z-index: 99999;
+            display: none;
+            max-width: 500px;
+            min-width: 500px;
+            width: 500px;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -35,6 +47,21 @@
 <body>
 
 <div class="container">
+    @if(Session::has('globalErrMsg'))
+        <div style="display:block;" class="setOutputSession errorMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+            <span>{{ Session::get('globalErrMsg') }}</span>
+            <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
+        </div>
+
+    @endif
+
+    @if(Session::has('globalSuccessMsg'))
+        <div style="display:block;" class="setOutputSession successMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+            <span>{{ Session::get('globalSuccessMsg') }}</span>
+            <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
+        </div>
+
+    @endif
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
@@ -42,13 +69,21 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form">
+                    <form action="<?php echo URL::to('admin/auth'); ?>" method="post" role="form">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}" />
                         <fieldset>
+                            <div class="form-group">
+                                <select name="company" class="form-control">
+                                    <?php foreach($merchants as $merchant) { ?>
+                                    <option>{{$merchant->Company}}</option>
+                                    <?php } ?>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                <input class="form-control" placeholder="Password" name="password" type="password">
                             </div>
                             <div class="checkbox">
                                 <label>
@@ -56,7 +91,7 @@
                                 </label>
                             </div>
                             <!-- Change this to a button or input when using this as a form -->
-                            <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                            <input type="submit" value="Login" class="btn btn-lg btn-success btn-block">
                         </fieldset>
                     </form>
                 </div>
@@ -76,7 +111,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo URL::asset('public/assets/admin/dist/js/sb-admin-2.js'); ?>"></script>
-
+<script src="<?php echo URL::asset('public/assets/admin/js/app.js'); ?>"></script>
 </body>
 
 </html>

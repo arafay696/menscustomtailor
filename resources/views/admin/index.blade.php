@@ -41,6 +41,21 @@
 <body>
 
 <div id="wrapper">
+    @if(Session::has('globalErrMsg'))
+        <div style="display:block;" class="setOutputSession errorMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+            <span>{{ Session::get('globalErrMsg') }}</span>
+            <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
+        </div>
+
+    @endif
+
+    @if(Session::has('globalSuccessMsg'))
+        <div style="display:block;" class="setOutputSession successMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+            <span>{{ Session::get('globalSuccessMsg') }}</span>
+            <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
+        </div>
+
+    @endif
     <div ng-view></div>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -1002,6 +1017,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo URL::asset('public/assets/admin/dist/js/sb-admin-2.js'); ?>"></script>
+<script src="<?php echo URL::asset('public/assets/admin/js/app.js'); ?>"></script>
 
 </body>
 

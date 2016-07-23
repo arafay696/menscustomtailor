@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('admin', 'Admin\UserController@index');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+
+    Route::post('/auth', 'UserController@doLogin');
+
     Route::get('/home', 'UserController@home');
 });
 
