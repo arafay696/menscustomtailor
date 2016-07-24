@@ -69,6 +69,11 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <?php echo implode('', $errors->all('<div>:message</div>')); ?>
+                        </div>
+                    @endif
                     <form action="<?php echo URL::to('admin/auth'); ?>" method="post" role="form">
                         <input type="hidden" name="_token" value="{{csrf_token()}}" />
                         <fieldset>

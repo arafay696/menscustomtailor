@@ -8,20 +8,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-
-use App\Http\Controllers\Controller;
+use App\Merchants;
 use URL;
 use DB;
 use Request;
-use PhpSpec\Exception\Exception;
 use Hash;
 use Session;
 use Redirect;
 use Validator;
 use Auth;
 use Mail;
+use App\User;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
 
     public function index()
@@ -48,12 +47,8 @@ class UserController extends Controller
         return view('admin/user.login', $data);
     }
 
-    public function doLogin(Request $request)
+    public function doLogin()
     {
-        $company = $request::get('company');
-        $email = $request::get('email');
-        $password = $request::get('password');
-
         try {
 
             $rules = array(
@@ -74,26 +69,29 @@ class UserController extends Controller
 
                 // create our user data for the authentication
                 $userdata = array(
-                    'Email' => $email,
-                    'Password' => $password
+                    'Email' => Request::get('email'),
+                    'Password' => Request::get('password'),
+                    'Company' => Request::get('company'),
                 );
 
-                $user = DB::table('merchants')->where('Email', $email)->get();
+                $user = Merchants::where('Email', '=', $userdata['Email'])
+                    ->where('Company', '=', $userdata['Company'])
+                    ->first();
 
                 if (empty($user)) {
-                    return Redirect::back()->withErrors('Email Not Match.');
+                    return Redirect::back()->withErrors("Account detail's not Match.");
                 }
 
-                $uid = $user[0]->ID;
-                $uPass = $user[0]->Password;
-
-                //dd('heelo');
+                $uid = $user->ID;
+                $uPass = $user->Password;
                 if (Hash::check($userdata['Password'], $uPass)) {
                     Auth::login($user, true);
                 } else {
-                    return Redirect::back()->withErrors('Login Failed.');
+                    return Redirect::back()->withErrors("Account detail's not Match.");
                 }
                 // attempt to do the login
+
+
                 if (Auth::check()) {
                     Session::put('userID', $uid);
                     Session::put('logintime', date('Y-m-d H:i:s'));
@@ -101,28 +99,43 @@ class UserController extends Controller
                     return Redirect::to('admin/home');
                 } else {
                     // validation not successful, send back to form
-                    return Redirect::back()->withErrors('Login Failed.');
+                    return Redirect::back()->withErrors('Login Failed. Please Try again');
                 }
             }
 
         } catch (\Exception $e) {
             $error = $e->getMessage();
-            //dd($e->getTrace());
             if (env('Mode') == 'Development') {
-
-                Session::flash('globalErrMsg', $error);
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
                 Session::flash('alert-class', 'alert-danger');
             } else {
-                Session::flash('globalErrMsg', $error);
+                Session::flash('globalErrMsg', $this->errorMsg);
                 Session::flash('alert-class', 'alert-danger');
             }
             return redirect()->back();
         }
-        return view('admin/index');
+
+    }
+
+    public function logout()
+    {
+        if (!Auth::check()) {
+            return Redirect::to('admin/auth/login');
+        }
+
+        Session::forget('userID');
+        Session::forget('logintime');
+        Auth::logout(); // log the user out of our application
+        return Redirect::to('admin/auth/login'); // redirect the user to the login screen
     }
 
     public function home()
     {
+        if (!Auth::check()) {
+            return Redirect::to('admin/auth/login');
+        }
+
         return view('admin/index');
     }
 }

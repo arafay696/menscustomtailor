@@ -3,13 +3,18 @@ var mct = angular.module('mct', ['mct.filters', 'mct.services', 'mct.directives'
 mct.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
 
     $routeProvider.when('/dashboard', {
-        controller: 'root',
-        templateUrl: 'public/angular/partials/home.html'
+        controller: 'DashboardCtrl',
+        templateUrl: 'resources/views/admin/dashboard.blade.php'
+    });
+
+    $routeProvider.when('/product/new-product', {
+        controller: 'ProductCtrl',
+        templateUrl: 'public/angular/partials/product/new-product.html'
     });
 
     $routeProvider.otherwise({
         redirectTo: '/dashboard',
-        templateUrl: 'public/angular/partials/home.html'
+        templateUrl: 'resources/views/admin/dashboard'
     });
 
 }]);

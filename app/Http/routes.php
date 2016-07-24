@@ -19,13 +19,17 @@ Route::get('/', function () {
 /*
  * -------------------- Admin Routes -------------------
  * */
-Route::get('admin', 'Admin\UserController@index');
 
+Route::get('admin/auth/login', 'Admin\UserController@index');
+Route::post('admin/auth', 'Admin\UserController@doLogin');
+Route::get('admin', 'Admin\UserController@home');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
-    Route::post('/auth', 'UserController@doLogin');
 
     Route::get('/home', 'UserController@home');
+    Route::get('/product/getSettings', 'ProductController@getProductCategories');
+
+    Route::get('/logout', 'UserController@logout');
 });
 
 

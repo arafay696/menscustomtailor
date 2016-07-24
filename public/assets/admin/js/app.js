@@ -17,6 +17,6 @@ $(document).ready(function () {
      *
      * */
     if ($('.errorMsgs,.successMsgs').is(':visible')) {
-        $('.errorMsgs,.successMsgs').delay(3000).fadeOut();
+        $('.errorMsgs,.successMsgs').delay(8000).fadeOut();
     }
 });
