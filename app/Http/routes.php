@@ -28,6 +28,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
     Route::get('/home', 'UserController@home');
     Route::get('/product/getSettings', 'ProductController@getProductCategories');
+    Route::post('/product/add-product', 'ProductController@addProduct');
 
     Route::get('/logout', 'UserController@logout');
 });

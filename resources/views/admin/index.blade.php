@@ -36,9 +36,14 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="<?php echo URL::asset('public/angular/angular/angular.min.js');?>"></script>
+
 </head>
 
 <body>
+<div class="flashMsg setOutputSession alert">
+    <span class="changeText"></span>
+    <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
+</div>
 <div ng-controller="BaseCtrl"></div>
 <div id="wrapper">
     @if(Session::has('globalErrMsg'))
@@ -405,6 +410,9 @@
 <!-- /#wrapper -->
 <!-- Angular -->
 <script src="<?php echo URL::asset('public/angular/js/application.js'); ?>"></script>
+<script>
+    angular.module("mct").constant("CSRF_TOKEN", '{{ csrf_token() }}');
+</script>
 <script src="<?php echo URL::asset('public/angular/js/controllers.js'); ?>"></script>
 <script src="<?php echo URL::asset('public/angular/js/directives.js'); ?>"></script>
 <script src="<?php echo URL::asset('public/angular/js/services.js'); ?>"></script>

@@ -362,3 +362,19 @@ table.dataTable thead .sorting:after {
     margin: 12px 0;
     display: inline-block
 }
+
+.fieldset {
+    border: 1px solid #ddd;
+    margin-right: 0;
+    padding: 17px;
+}
+.errorMsg, .successMsg {
+    position: fixed;
+    right: 0;
+    top: 84px;
+    z-index: 99999;
+    display: none;
+    max-width: 340px;
+    min-width: 340px;
+    width: 340px;
+}

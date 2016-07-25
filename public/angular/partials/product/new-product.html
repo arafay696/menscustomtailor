@@ -28,21 +28,21 @@
 
                                 <div class="form-group">
                                     <label>Basic</label>
-                                    <input class="form-control">
+                                    <input class="form-control" ng-model="addProduct.Basic">
 
                                     <p class="help-block">Example block-level help text here.</p>
                                 </div>
                                 <div class="form-group">
                                     <label>Qty</label>
-                                    <input class="form-control" placeholder="Enter text">
+                                    <input class="form-control" ng-model="addProduct.Qty" placeholder="Enter text">
                                 </div>
                                 <div class="form-group">
                                     <label>Qty Sold</label>
-                                    <input class="form-control" placeholder="Enter text">
+                                    <input class="form-control" ng-model="addProduct.QtySold" placeholder="Enter text">
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="">Enable Expiry
+                                        <input type="checkbox" ng-model="addProduct.EnableExpiry" value="">Enable Expiry
                                     </label>
                                 </div>
 
@@ -51,21 +51,21 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input class="form-control">
+                                    <input class="form-control" ng-model="addProduct.Price">
 
                                     <p class="help-block">Example block-level help text here.</p>
                                 </div>
                                 <div class="form-group">
                                     <label>Weight</label>
-                                    <input class="form-control" placeholder="Enter text">
+                                    <input class="form-control" ng-model="addProduct.Weight" placeholder="Enter text">
                                 </div>
                                 <div class="form-group">
                                     <label>Code</label>
-                                    <input class="form-control" placeholder="Enter text">
+                                    <input class="form-control" ng-model="addProduct.Code" placeholder="Enter text">
                                 </div>
                                 <div class="form-group">
                                     <label>Expiry Date</label>
-                                    <input class="form-control" placeholder="Enter text">
+                                    <input class="form-control" ng-model="addProduct.EnableExpiryDate" placeholder="Enter text">
                                 </div>
 
                             </div>
@@ -79,9 +79,9 @@
                                     <div class="panel-body">
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs">
-                                            <li class="active"><a href="#description" data-toggle="tab">Description</a>
+                                            <li class="active"><a href="#description" data-toggle="tab">General</a>
                                             </li>
-                                            <li><a href="#categories" data-toggle="tab">Categories</a>
+                                            <li><a href="#categories" data-toggle="tab">Search Filters</a>
                                             </li>
                                         </ul>
 
@@ -91,69 +91,238 @@
                                                 <h4>Product Description</h4>
 
                                                 <div class="col-lg-12">
-                                                    <div class="form-group">
-                                                        <label>Name</label>
-                                                        <input class="form-control">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>Name</label>
+                                                            <input class="form-control" ng-model="addProduct.Name">
 
-                                                        <p class="help-block">Example block-level help text here.</p>
+                                                            <p class="help-block">Example block-level help text
+                                                                here.</p>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Description</label>
+                                                            <input class="form-control" ng-model="addProduct.Description" placeholder="Enter text">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Meta Title</label>
+                                                            <input class="form-control" ng-model="addProduct.MetaTitle" placeholder="Enter text">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Meta Keywords</label>
+                                                            <input class="form-control" ng-model="addProduct.MetaKeywords" placeholder="Enter text">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Meta Description</label>
+                                                            <input class="form-control" ng-model="addProduct.MetaDescription" placeholder="Enter text">
+                                                        </div>
+                                                        <h4>Product Pictures</h4>
+                                                        <div class="form-group">
+                                                            <label>File input</label>
+                                                            <input type="file">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>File input</label>
+                                                            <input type="file">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>File input</label>
+                                                            <input type="file">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>File input</label>
+                                                            <input type="file">
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Description</label>
-                                                        <input class="form-control" placeholder="Enter text">
+                                                    <div class="col-lg-6">
+                                                        <h4>Select Categories</h4>
+
+                                                        <div class="form-group">
+
+
+                                                            <div ng-repeat="category in settings.categories"
+                                                                 class="checkbox">
+                                                                <label>
+                                                                    <input type="checkbox" ng-model="agelist"
+                                                                           ng-change="addInArray(addProduct.Categories,agelist,category.ID)"
+                                                                           value="{{category.ID}}">{{category.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Meta Title</label>
-                                                        <input class="form-control" placeholder="Enter text">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Meta Keywords</label>
-                                                        <input class="form-control" placeholder="Enter text">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Meta Meta Description</label>
-                                                        <input class="form-control" placeholder="Enter text">
-                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="categories">
-                                                <h4>Other Detail's</h4>
+                                                <h4>Search Filters</h4>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 fieldset">
                                                         <div class="form-group">
-                                                            <label>Color</label>
-                                                            <select multiple class="form-control">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
+                                                            <label>Search Colors</label>
+                                                            <select class="form-control" multiple="" ng-model="colorSelected"
+                                                                    ng-change="addColor('ColorID',colorSelected)">
+                                                                <option ng-repeat="SearchColors in settings.SearchColors"
+                                                                         value="{{SearchColors.ID}}">
+                                                                    {{SearchColors.Name}}
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Contrast Colors</label>
+                                                            <select class="form-control" multiple="" ng-model="ContrastColorSelected"
+                                                                    ng-change="addColor('ContrastColorID',ContrastColorSelected)">
+                                                                <option ng-repeat="ContrastColors in settings.ContrastColors"
+                                                                        value="{{ContrastColors.ID}}">
+                                                                    {{ContrastColors.Name}}
+                                                                </option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="messages">
-                                                <h4>Messages Tab</h4>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Pattern</label>
 
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                                    culpa qui officia deserunt mollit anim id est laborum.</p>
-                                            </div>
-                                            <div class="tab-pane fade" id="settings">
-                                                <h4>Settings Tab</h4>
+                                                            <div ng-repeat="pattern in settings.Pattern"
+                                                                 class="checkbox">
+                                                                <label>
+                                                                    <input type="{{pattern.Type}}" ng-model="patternSelcted"
+                                                                           ng-change="addInArray(addProduct.Patterns,patternSelcted,pattern.ID)"
+                                                                           value="{{pattern.ID}}">{{pattern.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Threadcount</label>
 
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                                    culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                            <div ng-repeat="Threadcount in settings.Threadcount"
+                                                                 class="checkbox">
+                                                                <label>
+                                                                    <input type="{{Threadcount.Type}}" name="MP34" ng-model="addProduct.ThreadCound"
+                                                                           value="{{Threadcount.ID}}">&nbsp;{{Threadcount.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Thickness</label>
+
+                                                            <div ng-repeat="Thickness in settings.Thickness"
+                                                                 class="checkbox">
+                                                                <label>
+                                                                    <input type="{{Thickness.Type}}" name="MP35" ng-model="addProduct.Thickness"
+                                                                           value="{{Thickness.ID}}">&nbsp;{{Thickness.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Fabric Type</label>
+
+                                                            <div ng-repeat="FabricType in settings.FabricType"
+                                                                 class="checkbox">
+                                                                <label>
+                                                                    <input type="{{FabricType.Type}}" ng-model="fbtype"
+                                                                           ng-change="addInArray(addProduct.FabricType,fbtype,FabricType.ID)"
+                                                                           value="{{FabricType.ID}}">&nbsp;{{FabricType.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Opacity</label>
+
+                                                            <div ng-repeat="Opacity in settings.Opacity"
+                                                                 class="checkbox">
+                                                                <label>
+                                                                    <input type="{{Opacity.Type}}" ng-model="addProduct.Opacity" name="MP36"
+                                                                           value="{{Opacity.ID}}">&nbsp;{{Opacity.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Season</label>
+
+                                                            <div ng-repeat="Season in settings.Season" class="checkbox">
+                                                                <label>
+                                                                    <input ng-model="seasonSelcted"
+                                                                           ng-change="addInArray(addProduct.Season,seasonSelcted,Season.ID)"
+                                                                           type="{{Season.Type}}" value="{{Season.ID}}">&nbsp;{{Season.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Shirt Style</label>
+
+                                                            <div ng-repeat="ShirtStyle in settings.ShirtStyle"
+                                                                 class="checkbox">
+                                                                <label>
+                                                                    <input type="{{ShirtStyle.Type}}" ng-model="shirtStyleSelcted"
+                                                                           ng-change="addInArray(addProduct.ShirtStyle,shirtStyleSelcted,ShirtStyle.ID)"
+                                                                           value="{{ShirtStyle.ID}}">&nbsp;{{ShirtStyle.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Shine</label>
+
+                                                            <div ng-repeat="Shine in settings.Shine" class="checkbox">
+                                                                <label>
+                                                                    <input name="MP37" ng-model="addProduct.Shine" type="{{Shine.Type}}" value="{{Shine.ID}}">&nbsp;{{Shine.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Wrinkle Resistance</label>
+
+                                                            <div ng-repeat="WrinkleResistance in settings.WrinkleResistance"
+                                                                 class="checkbox">
+                                                                <label>
+                                                                    <input name="MP38" ng-model="addProduct.WrinkleResistance" type="{{WrinkleResistance.Type}}"
+                                                                           value="{{WrinkleResistance.ID}}">&nbsp;{{WrinkleResistance.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 fieldset">
+                                                        <div class="form-group">
+                                                            <label>Custom Type</label>
+
+                                                            <div ng-repeat="CustomType in settings.CustomType"
+                                                                 class="checkbox">
+                                                                <label>
+                                                                    <input type="{{CustomType.Type}}" ng-model="CustomTypeSlected"
+                                                                           ng-change="addInArray(addProduct.CustomType,CustomTypeSlected,CustomType.ID)"
+                                                                           value="{{CustomType.ID}}">&nbsp;{{CustomType.Name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -165,7 +334,7 @@
                                     <button type="reset" class="btn btn-primary pull-right" style="margin-left: 4px;">
                                         Reset Button
                                     </button>
-                                    <button type="submit" class="btn btn-success pull-right">Submit Button</button>
+                                    <button type="submit" ng-click="addProductRequest()" class="btn btn-success pull-right">Submit Button</button>
                                 </div>
                                 <!-- /.panel -->
                             </div>

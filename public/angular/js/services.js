@@ -24,6 +24,7 @@ angular.module('mct.services', [])
                 return getPromise;
             },
             post: function (url, data) {
+
                 var postPromise = $http.post(url, data);
                 return postPromise;
             }
@@ -39,29 +40,48 @@ angular.module('mct.services', [])
                 return true;
             },
             getCategories: function () {
-                HttpSrvc.get('admin/product/getSettings');
+                return HttpSrvc.get('admin/product/getSettings');
+            },
+            addProduct: function (url, data) {
+                return HttpSrvc.post(url, data);
             },
             flashMsg: function (msgType, msg) {
                 var change = 'errorMsg';
                 switch (msgType) {
                     case 'success':
                         change = 'successMsg';
+                        $('.flashMsg').addClass('successMsg');
+                        $('.flashMsg').addClass('alert-success');
                         break;
                     case 'info':
                         change = 'infoMsg';
+                        $('.flashMsg').addClass('infoMsg');
+                        $('.flashMsg').addClass('alert-info');
                         break;
                     default:
                         change = 'errorMsg';
+                        $('.flashMsg').addClass('errorMsg');
+                        $('.flashMsg').addClass('alert-danger');
                         break;
                 }
-                $('.flashMsg').addClass(change);
+
                 var ele = $('.' + change);
-                ele.empty();
+                ele.find('.changeText').empty();
                 ele.fadeIn('slow');
-                ele.html(msg);
+                ele.find('.changeText').html(msg);
                 $timeout(function () {
                     ele.fadeOut(1000);
-                    $('.flashMsg').removeClass(change);
+                    if(change === 'successMsg'){
+                        $('.flashMsg').removeClass('successMsg');
+                        $('.flashMsg').removeClass('alert-success');
+                    }else if(change === 'infoMsg'){
+                        $('.flashMsg').removeClass('infoMsg');
+                        $('.flashMsg').removeClass('alert-info');
+                    }else {
+                        $('.flashMsg').removeClass('errorMsg');
+                        $('.flashMsg').removeClass('alert-danger');
+                    }
+
                 }, 4000);
             },
             getKeyByValue: function (findArray, findBy, value) {

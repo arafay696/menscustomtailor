@@ -1,6 +1,6 @@
 var mct = angular.module('mct', ['mct.filters', 'mct.services', 'mct.directives', 'ngRoute'])
 
-mct.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
+mct.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider, CSRF_TOKEN) {
 
     $routeProvider.when('/dashboard', {
         controller: 'DashboardCtrl',
@@ -16,5 +16,10 @@ mct.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpPr
         redirectTo: '/dashboard',
         templateUrl: 'resources/views/admin/dashboard'
     });
+
+    /**
+     * adds CSRF token to header
+     */
+    $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = CSRF_TOKEN;
 
 }]);
