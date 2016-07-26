@@ -368,7 +368,7 @@ table.dataTable thead .sorting:after {
     margin-right: 0;
     padding: 17px;
 }
-.errorMsg, .successMsg {
+.errorMsg, .successMsg,.flashMsg  {
     position: fixed;
     right: 0;
     top: 84px;
@@ -377,4 +377,30 @@ table.dataTable thead .sorting:after {
     max-width: 340px;
     min-width: 340px;
     width: 340px;
+}
+form .progress {
+    line-height: 15px;
+}
+.thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
+
+.hide{
+    display: none !important;
 }

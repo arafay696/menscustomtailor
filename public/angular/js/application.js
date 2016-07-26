@@ -1,4 +1,4 @@
-var mct = angular.module('mct', ['mct.filters', 'mct.services', 'mct.directives', 'ngRoute'])
+var mct = angular.module('mct', ['mct.filters', 'mct.services', 'mct.directives', 'ngRoute', 'ngFileUpload'])
 
 mct.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider, CSRF_TOKEN) {
 
@@ -10,6 +10,11 @@ mct.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpPr
     $routeProvider.when('/product/new-product', {
         controller: 'ProductCtrl',
         templateUrl: 'public/angular/partials/product/new-product.html'
+    });
+
+    $routeProvider.when('/product/products', {
+        controller: 'ProductCtrl',
+        templateUrl: 'public/angular/partials/product/productListing.html'
     });
 
     $routeProvider.otherwise({

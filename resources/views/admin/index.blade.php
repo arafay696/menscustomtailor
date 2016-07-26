@@ -317,7 +317,7 @@
                                 <a href="admin#/product/new-product">New Product</a>
                             </li>
                             <li>
-                                <a href="morris.html">Morris.js Charts</a>
+                                <a href="admin#/product/products">Product List</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -408,6 +408,9 @@
 
 </div>
 <!-- /#wrapper -->
+<!--File Upload -->
+<script src="<?php echo URL::to('bower_components/ng-file-upload/ng-file-upload.min.js'); ?>"></script>
+
 <!-- Angular -->
 <script src="<?php echo URL::asset('public/angular/js/application.js'); ?>"></script>
 <script>

@@ -6,6 +6,7 @@ use URL;
 use DB;
 use Request;
 use Redirect;
+use Input;
 
 class ProductController extends BaseController
 {
@@ -87,10 +88,27 @@ class ProductController extends BaseController
 
         $productDetailMain = array();
         try {
+            DB::beginTransaction();
             $pid = DB::table('Products')->insertGetId($product);
 
+            foreach ($request::all() as $category) {
+                if (is_array($category) && count($category) > 0) {
+                    foreach ($category as $cat) {
+                        $productDetail = array();
+                        $productDetail['ProductID'] = $pid;
+                        $productDetail['RefTable'] = 'CP';
+                        $productDetail['RefID'] = $cat;
+                        $productDetail['Extra'] = '';
 
-            foreach ($request::get('Categories') as $category) {
+                        $productDetail['POS'] = 0;
+                        $productDetail['Def'] = '';
+
+                        array_push($productDetailMain, $productDetail);
+                    }
+                }
+            }
+
+            /*foreach ($request::get('Categories') as $category) {
                 $productDetail = array();
                 $productDetail['ProductID'] = $pid;
                 $productDetail['RefTable'] = 'CP';
@@ -155,19 +173,6 @@ class ProductController extends BaseController
                 array_push($productDetailMain, $productDetail);
             }
 
-
-            $productDetail = array();
-            $productDetail['ProductID'] = $pid;
-            $productDetail['RefTable'] = 'CP';
-            $productDetail['RefID'] = (int)$request::get('Opacity');
-            $productDetail['Extra'] = '';
-
-            $productDetail['POS'] = 0;
-            $productDetail['Def'] = '';
-
-            array_push($productDetailMain, $productDetail);
-
-
             foreach ($request::get('Patterns') as $category) {
                 $productDetail = array();
                 $productDetail['ProductID'] = $pid;
@@ -205,6 +210,45 @@ class ProductController extends BaseController
                 $productDetail['Def'] = '';
 
                 array_push($productDetailMain, $productDetail);
+            }*/
+
+            if ((int)$request::get('Opacity') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $pid;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('Opacity');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
+            if ((int)$request::get('Thickness') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $pid;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('Thickness');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
+            if ((int)$request::get('ThreadCound') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $pid;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('ThreadCound');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
             }
 
 
@@ -212,8 +256,89 @@ class ProductController extends BaseController
 
             $return['status'] = true;
             $return['msg'] = 'Product Added.';
+            $return['product'] = $pid;
+
+            DB::commit();
+            echo json_encode($return);
         } catch (\Exception $e) {
             DB::rollback();
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                $return['msg'] = $this->errorMsg;
+
+                echo json_encode($return);
+            } else {
+                $return['msg'] = $this->errorMsg;
+
+                echo json_encode($return);
+            }
+
+        }
+
+
+    }
+
+    public function UploadImages(Request $request)
+    {
+        // GET ALL THE INPUT DATA , $_GET,$_POST,$_FILES.
+        $input = Input::all();
+        $productID = Input::get('product');
+        $file = array_get($input, 'file');
+        // SET UPLOAD PATH
+        $destinationPath = 'resources/assets/images';
+        // GET THE FILE EXTENSION
+        $extension = $file->getClientOriginalExtension();
+        // RENAME THE UPLOAD WITH RANDOM NUMBER
+        $fileName = rand(11111, 99999) . '.' . $extension;
+        // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
+        $upload_success = $file->move($destinationPath, $fileName);
+
+        $productImage = array();
+        $productImage['Dat'] = date('Y-m-d H:i:s');
+        $productImage['Title'] = '';
+        $productImage['Name'] = $fileName;
+        $productImage['RefTable'] = 'Products';
+        $productImage['RefID'] = $productID;
+        $productImage['POS'] = 0;
+
+        $pid = DB::table('Images')->insertGetId($productImage);
+        // IF UPLOAD IS SUCCESSFUL SEND SUCCESS MESSAGE OTHERWISE SEND ERROR MESSAGE
+        if ($upload_success) {
+            echo json_encode(array(
+                'status' => true,
+                'msg' => 'Image uploaded successfully. '.$pid.''
+            ));
+        } else {
+            echo json_encode(array(
+                'status' => false,
+                'msg' => 'Image uploaded fail.'
+            ));
+        }
+
+    }
+
+    public function getProducts()
+    {
+        try {
+            $return = array(
+                'status' => false,
+                'msg' => ''
+            );
+
+            $products = DB::table('Products')
+                ->select('ID', 'Code', 'Name', 'Description', 'Qty', 'Price', 'Dat')
+                ->where("ProductTypeID", "=", 6)
+                ->orderBy('ID', 'desc')
+                ->take(10)
+                ->get();
+
+            $return['status'] = true;
+            $return['msg'] = 'Received';
+            $return['data'] = $products;
+
+            echo json_encode($return);
+        } catch (\Exception $e) {
             $error = $e->getMessage();
             if (env('Mode') == 'Development') {
                 $this->errorMsg = $error;
@@ -222,9 +347,7 @@ class ProductController extends BaseController
                 $return['msg'] = $this->errorMsg;
             }
 
+            echo json_encode($return);
         }
-
-        echo json_encode($return);
     }
-
 }

@@ -1,6 +1,6 @@
 angular.module('mct.services', [])
 
-    .factory('common', function ($q, $http) {
+    .factory('common', function ($q, $http, $timeout) {
         return {
             // Find in Array by Value
             findByValue: function (input, fieldName, fieldValue) {
@@ -11,39 +11,6 @@ angular.module('mct.services', [])
                     }
                 }
                 return false;
-            }
-        };
-    })
-
-    .service('HttpSrvc', function ($http) {
-        return {
-            get: function (url) {
-                // $http returns a promise
-                var getPromise = $http.get(url);
-                // Return the promise to the controller
-                return getPromise;
-            },
-            post: function (url, data) {
-
-                var postPromise = $http.post(url, data);
-                return postPromise;
-            }
-        };
-
-    })
-
-    .factory('ProductSrvc', function (HttpSrvc, $timeout) {
-
-        var ProductSrvc = {
-            branches: null,
-            init: function () {
-                return true;
-            },
-            getCategories: function () {
-                return HttpSrvc.get('admin/product/getSettings');
-            },
-            addProduct: function (url, data) {
-                return HttpSrvc.post(url, data);
             },
             flashMsg: function (msgType, msg) {
                 var change = 'errorMsg';
@@ -71,18 +38,51 @@ angular.module('mct.services', [])
                 ele.find('.changeText').html(msg);
                 $timeout(function () {
                     ele.fadeOut(1000);
-                    if(change === 'successMsg'){
+                    if (change === 'successMsg') {
                         $('.flashMsg').removeClass('successMsg');
                         $('.flashMsg').removeClass('alert-success');
-                    }else if(change === 'infoMsg'){
+                    } else if (change === 'infoMsg') {
                         $('.flashMsg').removeClass('infoMsg');
                         $('.flashMsg').removeClass('alert-info');
-                    }else {
+                    } else {
                         $('.flashMsg').removeClass('errorMsg');
                         $('.flashMsg').removeClass('alert-danger');
                     }
 
                 }, 4000);
+            }
+        };
+    })
+
+    .service('HttpSrvc', function ($http) {
+        return {
+            get: function (url) {
+                // $http returns a promise
+                var getPromise = $http.get(url);
+                // Return the promise to the controller
+                return getPromise;
+            },
+            post: function (url, data) {
+
+                var postPromise = $http.post(url, data);
+                return postPromise;
+            }
+        };
+
+    })
+
+    .factory('ProductSrvc', function (HttpSrvc) {
+
+        var ProductSrvc = {
+            branches: null,
+            init: function () {
+                return true;
+            },
+            getCategories: function () {
+                return HttpSrvc.get('admin/product/getSettings');
+            },
+            addProduct: function (url, data) {
+                return HttpSrvc.post(url, data);
             },
             getKeyByValue: function (findArray, findBy, value) {
                 var getKey = null;
