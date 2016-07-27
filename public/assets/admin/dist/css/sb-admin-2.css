@@ -404,3 +404,6 @@ form .progress {
 .hide{
     display: none !important;
 }
+.editProdImages img{
+    margin-right: 3px;
+}

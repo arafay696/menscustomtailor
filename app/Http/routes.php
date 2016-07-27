@@ -31,6 +31,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::post('/product/add-product', 'ProductController@addProduct');
     Route::post('/product/addImages', 'ProductController@UploadImages');
     Route::get('/product/getProducts', 'ProductController@getProducts');
+    Route::get('/product/delete/{id}', 'ProductController@deleteProduct');
+    Route::get('/product/product/{id}', 'ProductController@getProductByID');
+
+    Route::post('/user/add-user', 'UserController@addUser');
+    Route::get('/user/getUsers/{id}', 'UserController@getUsers');
+    Route::get('/user/get-types', 'UserController@getAllTypes');
+    Route::get('/user/checkUserLogin', 'UserController@checkUserLogin');
+    Route::get('/user/delete/{id}', 'UserController@deleteUser');
 
     Route::get('/logout', 'UserController@logout');
 });

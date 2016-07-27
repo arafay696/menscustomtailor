@@ -91,7 +91,7 @@ class ProductController extends BaseController
             DB::beginTransaction();
             $pid = DB::table('Products')->insertGetId($product);
 
-            foreach ($request::all() as $category) {
+            foreach ($request::except('Categories') as $category) {
                 if (is_array($category) && count($category) > 0) {
                     foreach ($category as $cat) {
                         $productDetail = array();
@@ -106,6 +106,19 @@ class ProductController extends BaseController
                         array_push($productDetailMain, $productDetail);
                     }
                 }
+            }
+
+            foreach ($request::get('Categories') as $category) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $pid;
+                $productDetail['RefTable'] = 'Categories';
+                $productDetail['RefID'] = $category;
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
             }
 
             /*foreach ($request::get('Categories') as $category) {
@@ -307,7 +320,7 @@ class ProductController extends BaseController
         if ($upload_success) {
             echo json_encode(array(
                 'status' => true,
-                'msg' => 'Image uploaded successfully. '.$pid.''
+                'msg' => 'Image uploaded successfully. ' . $pid . ''
             ));
         } else {
             echo json_encode(array(
@@ -323,14 +336,17 @@ class ProductController extends BaseController
         try {
             $return = array(
                 'status' => false,
-                'msg' => ''
+                'msg' => 'Fetching.......'
             );
 
-            $products = DB::table('Products')
-                ->select('ID', 'Code', 'Name', 'Description', 'Qty', 'Price', 'Dat')
-                ->where("ProductTypeID", "=", 6)
+            $products = DB::table('Products as pr')
+                ->select('pr.ID', 'pr.Code', 'pr.Name', 'pr.Description', 'pr.Qty', 'pr.Price', 'pr.Dat', 'img.Name as ImgName')
+                ->join('Images as img', 'pr.ID', '=', 'img.RefID')
+                ->where("pr.ProductTypeID", "=", 6)
+                ->where("img.RefTable", "=", 'Products')
+                ->groupBy('pr.ID')
                 ->orderBy('ID', 'desc')
-                ->take(10)
+                ->take(20)
                 ->get();
 
             $return['status'] = true;
@@ -348,6 +364,79 @@ class ProductController extends BaseController
             }
 
             echo json_encode($return);
+        }
+    }
+
+    public function getProductByID($id)
+    {
+        try {
+            $return = array(
+                'status' => false,
+                'msg' => 'Fetching.......'
+            );
+
+            $products = DB::table('Products AS pr')
+                ->select('pr.*','pd.RefID as PdRefID','img.ID as imgID','img.RefID as ImgRefID','img.Name as ImgName')
+                ->join('Images as img', 'pr.ID', '=', 'img.RefID')
+                ->join('ProductDetails AS pd', 'pr.ID', '=', 'pd.ProductID')
+                ->where("pr.ProductTypeID", "=", 6)
+                ->where("pr.ID", "=", $id)
+                ->get();
+
+            $return['status'] = true;
+            $return['msg'] = 'Received';
+            $return['data'] = $products;
+
+            echo json_encode($return);
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                $return['msg'] = $this->errorMsg;
+            } else {
+                $return['msg'] = $this->errorMsg;
+            }
+
+            echo json_encode($return);
+        }
+    }
+
+    public function deleteProduct($id)
+    {
+        try {
+
+            DB::beginTransaction();
+            $deleteStatus = DB::table('Products')->where('ID', '=', $id)->delete();
+            DB::table('Images')
+                ->where('RefID', '=', $id)
+                ->where('RefTable', '=', 'Products')
+                ->delete();
+            DB::table('ProductDetails')->where('ProductID', '=', $id)->delete();
+            DB::commit();
+
+            $data = array(
+                'status' => true,
+                'msg' => $deleteStatus
+            );
+
+            echo json_encode($data);
+        } catch (\Exception $e) {
+            DB::rollback();
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                $data = array(
+                    'status' => false,
+                    'msg' => $this->errorMsg
+                );
+            } else {
+                $data = array(
+                    'status' => false,
+                    'msg' => $this->errorMsg
+                );
+            }
+
+            echo json_encode($data);
         }
     }
 }
