@@ -190,7 +190,7 @@
                                                                  class="checkbox">
                                                                 <label>
                                                                     <input type="checkbox" ng-model="agelist"
-                                                                           ng-checked="checkCategory('PdRefID',category.ID)"
+                                                                           ng-checked="checkCategory('PdRefID','Categories',category.ID)"
                                                                            ng-change="addInArray(editProduct.Categories,agelist,category.ID)"
                                                                            value="{{category.ID}}">{{category.Name}}
                                                                 </label>
@@ -208,9 +208,9 @@
                                                         <div class="form-group">
                                                             <label>Search Colors</label>
                                                             <select class="form-control" multiple="" ng-model="colorSelected"
-                                                                    ng-change="addColor('ColorID',colorSelected)">
+                                                                    ng-change="addColorForEdit('Color',colorSelected)">
                                                                 <option ng-repeat="SearchColors in settings.SearchColors"
-                                                                        ng-selected="checkCategory('PdRefID',SearchColors.ID)"  value="{{SearchColors.ID}}">
+                                                                        ng-selected="checkCategory('PdRefID','CP',SearchColors.ID)"  value="{{SearchColors.ID}}">
                                                                     {{SearchColors.Name}}
                                                                 </option>
                                                             </select>
@@ -220,9 +220,9 @@
                                                         <div class="form-group">
                                                             <label>Contrast Colors</label>
                                                             <select class="form-control" multiple="" ng-model="ContrastColorSelected"
-                                                                    ng-change="addColor('ContrastColorID',ContrastColorSelected)">
+                                                                    ng-change="addColorForEdit('ContrastColors',ContrastColorSelected)">
                                                                 <option ng-repeat="ContrastColors in settings.ContrastColors"
-                                                                        ng-selected="checkCategory('PdRefID',ContrastColors.ID)" value="{{ContrastColors.ID}}">
+                                                                        ng-selected="checkCategory('PdRefID','CP',ContrastColors.ID)" value="{{ContrastColors.ID}}">
                                                                     {{ContrastColors.Name}}
                                                                 </option>
                                                             </select>
@@ -238,8 +238,8 @@
                                                                  class="checkbox">
                                                                 <label>
                                                                     <input type="{{pattern.Type}}" ng-model="patternSelcted"
-                                                                           ng-checked="checkCategory('PdRefID',pattern.ID)"
-                                                                           ng-change="addInArray(addProduct.Patterns,patternSelcted,pattern.ID)"
+                                                                           ng-checked="checkCategory('PdRefID','CP',pattern.ID)"
+                                                                           ng-change="addInArray(editProduct.Pattern,patternSelcted,pattern.ID)"
                                                                            value="{{pattern.ID}}">{{pattern.Name}}
                                                                 </label>
                                                             </div>
@@ -253,8 +253,8 @@
                                                                  class="checkbox">
                                                                 <label>
                                                                     <input type="{{Threadcount.Type}}" name="MP34"
-                                                                           ng-checked="checkCategory('PdRefID',Threadcount.ID)"
-                                                                           ng-model="addProduct.ThreadCound"
+                                                                           ng-checked="checkCategory('PdRefID','CP',Threadcount.ID)"
+                                                                           ng-model="editProduct.Threadcount"
                                                                            value="{{Threadcount.ID}}">&nbsp;{{Threadcount.Name}}
                                                                 </label>
                                                             </div>
@@ -269,7 +269,8 @@
                                                             <div ng-repeat="Thickness in settings.Thickness"
                                                                  class="checkbox">
                                                                 <label>
-                                                                    <input type="{{Thickness.Type}}" name="MP35" ng-checked="checkCategory('PdRefID',Thickness.ID)" ng-model="addProduct.Thickness"
+                                                                    <input type="{{Thickness.Type}}" name="MP35"
+                                                                           ng-checked="checkCategory('PdRefID','CP',Thickness.ID)" ng-model="editProduct.Thickness"
                                                                            value="{{Thickness.ID}}">&nbsp;{{Thickness.Name}}
                                                                 </label>
                                                             </div>
@@ -283,8 +284,8 @@
                                                                  class="checkbox">
                                                                 <label>
                                                                     <input type="{{FabricType.Type}}" ng-model="fbtype"
-                                                                           ng-checked="checkCategory('PdRefID',FabricType.ID)"
-                                                                           ng-change="addInArray(addProduct.FabricType,fbtype,FabricType.ID)"
+                                                                           ng-checked="checkCategory('PdRefID','CP',FabricType.ID)"
+                                                                           ng-change="addInArray(editProduct.FabricType,fbtype,FabricType.ID)"
                                                                            value="{{FabricType.ID}}">&nbsp;{{FabricType.Name}}
                                                                 </label>
                                                             </div>
@@ -299,8 +300,8 @@
                                                             <div ng-repeat="Opacity in settings.Opacity"
                                                                  class="checkbox">
                                                                 <label>
-                                                                    <input type="{{Opacity.Type}}" ng-model="addProduct.Opacity" name="MP36"
-                                                                           ng-checked="checkCategory('PdRefID',Opacity.ID)"
+                                                                    <input type="{{Opacity.Type}}" ng-model="editProduct.Opacity" name="MP36"
+                                                                           ng-checked="checkCategory('PdRefID','CP',Opacity.ID)"
                                                                            value="{{Opacity.ID}}">&nbsp;{{Opacity.Name}}
                                                                 </label>
                                                             </div>
@@ -313,8 +314,8 @@
                                                             <div ng-repeat="Season in settings.Season" class="checkbox">
                                                                 <label>
                                                                     <input ng-model="seasonSelcted"
-                                                                           ng-checked="checkCategory('PdRefID',Season.ID)"
-                                                                           ng-change="addInArray(addProduct.Season,seasonSelcted,Season.ID)"
+                                                                           ng-checked="checkCategory('PdRefID','CP',Season.ID)"
+                                                                           ng-change="addInArray(editProduct.Season,seasonSelcted,Season.ID)"
                                                                            type="{{Season.Type}}" value="{{Season.ID}}">&nbsp;{{Season.Name}}
                                                                 </label>
                                                             </div>
@@ -330,8 +331,8 @@
                                                                  class="checkbox">
                                                                 <label>
                                                                     <input type="{{ShirtStyle.Type}}" ng-model="shirtStyleSelcted"
-                                                                           ng-checked="checkCategory('PdRefID',ShirtStyle.ID)"
-                                                                           ng-change="addInArray(addProduct.ShirtStyle,shirtStyleSelcted,ShirtStyle.ID)"
+                                                                           ng-checked="checkCategory('PdRefID','CP',ShirtStyle.ID)"
+                                                                           ng-change="addInArray(editProduct.ShirtStyle,shirtStyleSelcted,ShirtStyle.ID)"
                                                                            value="{{ShirtStyle.ID}}">&nbsp;{{ShirtStyle.Name}}
                                                                 </label>
                                                             </div>
@@ -343,7 +344,7 @@
 
                                                             <div ng-repeat="Shine in settings.Shine" class="checkbox">
                                                                 <label>
-                                                                    <input name="MP37" ng-checked="checkCategory('PdRefID',Shine.ID)" ng-model="addProduct.Shine" type="{{Shine.Type}}" value="{{Shine.ID}}">&nbsp;{{Shine.Name}}
+                                                                    <input name="MP37" ng-checked="checkCategory('PdRefID','CP',Shine.ID)" ng-model="editProduct.Shine" type="{{Shine.Type}}" value="{{Shine.ID}}">&nbsp;{{Shine.Name}}
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -357,8 +358,8 @@
                                                             <div ng-repeat="WrinkleResistance in settings.WrinkleResistance"
                                                                  class="checkbox">
                                                                 <label>
-                                                                    <input name="MP38" ng-model="addProduct.WrinkleResistance" type="{{WrinkleResistance.Type}}"
-                                                                           ng-checked="checkCategory('PdRefID',WrinkleResistance.ID)" value="{{WrinkleResistance.ID}}">&nbsp;{{WrinkleResistance.Name}}
+                                                                    <input name="MP38" ng-model="editProduct.WrinkleResistance" type="{{WrinkleResistance.Type}}"
+                                                                           ng-checked="checkCategory('PdRefID','CP',WrinkleResistance.ID)" value="{{WrinkleResistance.ID}}">&nbsp;{{WrinkleResistance.Name}}
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -371,8 +372,8 @@
                                                                  class="checkbox">
                                                                 <label>
                                                                     <input type="{{CustomType.Type}}" ng-model="CustomTypeSlected"
-                                                                           ng-change="addInArray(addProduct.CustomType,CustomTypeSlected,CustomType.ID)"
-                                                                           ng-checked="checkCategory('PdRefID',CustomType.ID)" value="{{CustomType.ID}}">&nbsp;{{CustomType.Name}}
+                                                                           ng-change="addInArray(editProduct.CustomType,CustomTypeSlected,CustomType.ID)"
+                                                                           ng-checked="checkCategory('PdRefID','CP',CustomType.ID)" value="{{CustomType.ID}}">&nbsp;{{CustomType.Name}}
                                                                 </label>
                                                             </div>
                                                         </div>

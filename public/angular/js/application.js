@@ -29,8 +29,10 @@ mct.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpPr
         templateUrl: 'public/angular/partials/user/add-user.html'
     });
 
-    $routeProvider.when('/user/deleteUser/:id', {
-        controller: 'UserCtrl'
+    $routeProvider.when('/user/edit/:id', {
+        controller: 'UserCtrl',
+        templateUrl: 'public/angular/partials/user/edit-user.html'
+
     });
 
     $routeProvider.when('/user/users', {

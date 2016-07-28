@@ -294,4 +294,90 @@ class UserController extends BaseController
             echo json_encode($data);
         }
     }
+
+    public function getUser($id){
+        try {
+            $return = array(
+                'status' => false,
+                'msg' => 'Fetching.......'
+            );
+
+            $users = DB::table('merchants')
+                ->select('ID', 'Email', 'Name', 'Company', 'Country', 'Type', 'Status','Phone','Address','City','State','ZipCode')
+                ->where('ID','=',$id)
+                ->get();
+
+            $return['status'] = true;
+            $return['msg'] = 'Received';
+            $return['data'] = $users;
+
+            echo json_encode($return);
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                $return['msg'] = $this->errorMsg;
+            } else {
+                $return['msg'] = $this->errorMsg;
+            }
+
+            echo json_encode($return);
+        }
+    }
+
+    public function editUser($id,Request $request){
+        $return = array(
+            'status' => false,
+            'msg' => ''
+        );
+
+        $user = array();
+
+        $user['Dat'] = date('Y-m-d H:i:s');
+        $user['Email'] = $request::get('Email');
+        $user['Password'] = Hash::make($request::get('Password'));
+        $user['Name'] = $request::get('Name');
+
+        $user['Phone'] = $request::get('Phone');
+        $user['Company'] = $request::get('Company');
+        $user['Address'] = $request::get('Address');
+        $user['City'] = $request::get('City');
+
+        $user['State'] = $request::get('State');
+        $user['ZipCode'] = $request::get('ZipCode');
+        $user['Country'] = $request::get('Country');
+        $user['Type'] = $request::get('Type');
+        $user['Flow'] = 0;
+
+        $user['SyncURL'] = '';
+
+        $user['Status'] = 'A';
+        $user['Comments'] = '';
+
+        try {
+            DB::beginTransaction();
+            DB::table('merchants')->where('ID',$id)->update($user);
+
+            DB::commit();
+
+            $return['status'] = true;
+            $return['msg'] = 'User Updated.';
+            $return['user'] = $id;
+            echo json_encode($return);
+        } catch (\Exception $e) {
+            DB::rollback();
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                $return['msg'] = $this->errorMsg;
+
+                echo json_encode($return);
+            } else {
+                $return['msg'] = $this->errorMsg;
+
+                echo json_encode($return);
+            }
+
+        }
+    }
 }

@@ -292,6 +292,146 @@ class ProductController extends BaseController
 
     }
 
+    public function editProduct($id, Request $request)
+    {
+        $return = array(
+            'status' => false,
+            'msg' => ''
+        );
+
+        $product = array();
+
+        $product['ProductTypeID'] = $request::get('ProductTypeID');
+        $product['MerchantID'] = $request::get('MerchantID');
+        $product['Basic'] = $request::get('Basic');
+        $product['Qty'] = $request::get('Qty');
+
+        $product['QtySold'] = $request::get('QtySold');
+        $product['Price'] = $request::get('Price');
+        $product['Weight'] = $request::get('Weight');
+        $product['Code'] = $request::get('Code');
+
+        $product['Name'] = $request::get('Name');
+        $product['Description'] = $request::get('Description');
+        $product['MetaTitle'] = $request::get('MetaTitle');
+        $product['MetaKeywords'] = $request::get('MetaKeywords');
+
+        $product['MetaDescription'] = $request::get('MetaDescription');
+        $product['Dat'] = date('Y-m-d H:i:s');
+        $product['EnableExpiry'] = ($request::get('EnableExpiry')) ? 1 : 0;
+        $product['ExpiryDate'] = $request::get('EnableExpiryDate');
+
+        $product['Pos'] = $request::get('Pos');
+        $product['Status'] = $request::get('Status');
+        $product['MRID'] = $request::get('MRID');
+        $product['MRProductID'] = $request::get('MRProductID');
+
+        $product['Linked'] = $request::get('Linked');
+
+        $productDetailMain = array();
+
+        try {
+            DB::beginTransaction();
+            DB::table('ProductDetails')->where('ProductID', '=', $id)->delete();
+            DB::table('Products')->where('ID', $id)->update($product);
+
+            foreach ($request::except('Categories') as $category) {
+                if (is_array($category) && count($category) > 0) {
+                    foreach ($category as $cat) {
+                        $productDetail = array();
+                        $productDetail['ProductID'] = $id;
+                        $productDetail['RefTable'] = 'CP';
+                        $productDetail['RefID'] = $cat;
+                        $productDetail['Extra'] = '';
+
+                        $productDetail['POS'] = 0;
+                        $productDetail['Def'] = '';
+
+                        array_push($productDetailMain, $productDetail);
+                    }
+                }
+            }
+
+            foreach ($request::get('Categories') as $category) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $id;
+                $productDetail['RefTable'] = 'Categories';
+                $productDetail['RefID'] = $category;
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
+            if ((int)$request::get('Opacity') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $id;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('Opacity');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
+            if ((int)$request::get('Thickness') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $id;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('Thickness');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
+            if ((int)$request::get('ThreadCount') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $id;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('ThreadCount');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
+
+            DB::table('ProductDetails')->insert($productDetailMain);
+
+            $return['status'] = true;
+            $return['msg'] = 'Product Updated.';
+            $return['product'] = $id;
+
+            DB::commit();
+            echo json_encode($return);
+        } catch (\Exception $e) {
+            DB::rollback();
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                $return['msg'] = $this->errorMsg;
+
+                echo json_encode($return);
+            } else {
+                $return['msg'] = $this->errorMsg;
+
+                echo json_encode($return);
+            }
+
+        }
+
+
+    }
+
     public function UploadImages(Request $request)
     {
         // GET ALL THE INPUT DATA , $_GET,$_POST,$_FILES.
@@ -376,16 +516,22 @@ class ProductController extends BaseController
             );
 
             $products = DB::table('Products AS pr')
-                ->select('pr.*','pd.RefID as PdRefID','img.ID as imgID','img.RefID as ImgRefID','img.Name as ImgName')
+                ->select('pr.*', 'pd.RefID as PdRefID', 'pd.RefTable as PdRefTable', 'img.ID as imgID', 'img.RefID as ImgRefID', 'img.Name as ImgName')
                 ->join('Images as img', 'pr.ID', '=', 'img.RefID')
                 ->join('ProductDetails AS pd', 'pr.ID', '=', 'pd.ProductID')
                 ->where("pr.ProductTypeID", "=", 6)
                 ->where("pr.ID", "=", $id)
                 ->get();
 
+            $relationTables = DB::table('CP')
+                ->select('CP.ID', 'CP.MPID', 'MP.ID as MPOID', 'MP.Name')
+                ->join('MP', 'CP.MPID', '=', 'MP.ID')
+                ->get();
+
             $return['status'] = true;
             $return['msg'] = 'Received';
             $return['data'] = $products;
+            $return['relation'] = $relationTables;
 
             echo json_encode($return);
         } catch (\Exception $e) {

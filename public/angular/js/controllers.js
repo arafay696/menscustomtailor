@@ -78,11 +78,9 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
 
     $scope.editProductRequest = function () {
 
-        console.log($scope.editProduct);
-        return false;
 
         $scope.updateData = true;
-        HttpSrvc.post('admin/product/edit-product/' + $scope.productID, $scope.editProduct).then(
+        HttpSrvc.post('admin/product/edit/' + $scope.productID, $scope.editProduct).then(
             function (response) {
                 $scope.updateData = false;
                 response = response.data;
@@ -91,7 +89,7 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                     $scope.uploadPic(val, productID);
                 });
                 if (response.status) {
-                    common.flashMsg('success', 'Product Added.');
+                    common.flashMsg('success', 'Product Updated.');
                 } else {
                     common.flashMsg('error', response.msg);
                 }
@@ -145,6 +143,24 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
         );
     }
 
+    $scope.getMPName = function (refID) {
+
+        var value = null;
+        angular.forEach($scope.relationNames, function (val) {
+            if (val['ID'] === refID) {
+                value = val['Name'];
+                $scope.tempName = value;
+                if (value === 'Threadcount' || value === 'Thickness' || value === 'Opacity' || value === 'Shine' || value === 'Wrinkle Resistance') {
+                    $scope.find = false;
+                } else {
+                    $scope.find = true;
+                }
+
+            }
+        });
+
+    }
+
     $scope.getProductByID = function () {
         $scope.loadingData = true;
         var getProductList = HttpSrvc.get('admin/product/product/' + $scope.productID);
@@ -153,21 +169,36 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                 $scope.loadingData = false;
                 $scope.editProduct = response.data.data[0];
                 $scope.editProductItems = response.data.data;
-                $scope.editProduct = {
-                    Categories: [],
-                    ColorID: [],
-                    ContrastColorID: [],
-                    Patterns: [],
-                    ThreadCound: '',
-                    Thickness: '',
-                    FabricType: [],
-                    Season: [],
-                    Opacity: 0,
-                    ShirtStyle: [],
-                    Shine: 0,
-                    WrinkleResistance: 0,
-                    CustomType: []
-                };
+                $scope.relationNames = response.data.relation;
+                angular.forEach($scope.editProductItems, function (val) {
+                    if (val['PdRefTable'] === 'CP') {
+                        $scope.getMPName(val['PdRefID']);
+                        if (!$scope.find) {
+                            if (typeof $scope.editProduct[$scope.tempName] === typeof undefined) {
+                                $scope.editProduct[$scope.tempName] = val['PdRefID'];
+                            }
+                        } else {
+                            name = $scope.tempName.replace(/\s/g, '');
+                            if (typeof $scope.editProduct[name] === typeof undefined) {
+                                $scope.editProduct[name] = [];
+                                $scope.editProduct[name].push(val['PdRefID']);
+                            } else {
+                                if ($scope.editProduct[name].indexOf(val['PdRefID']) < 0) {
+                                    $scope.editProduct[name].push(val['PdRefID']);
+                                }
+                            }
+                        }
+
+                    } else {
+                        if (typeof $scope.editProduct[val['PdRefTable']] === typeof undefined) {
+                            $scope.editProduct[val['PdRefTable']] = [];
+                        }
+
+                        if ($scope.editProduct[val['PdRefTable']].indexOf(val['PdRefID']) < 0) {
+                            $scope.editProduct[val['PdRefTable']].push(val['PdRefID']);
+                        }
+                    }
+                });
             },
             function (data) {
                 // Handle error here
@@ -177,10 +208,16 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
         );
     }
 
-    $scope.checkCategory = function (PdRefID, id) {
+    $scope.addColorForEdit = function (arr, valueIs) {
+        $scope.editProduct[arr] = [];
+        $scope.editProduct[arr] = valueIs;
+
+    }
+
+    $scope.checkCategory = function (PdRefID, PdRefTable, id) {
         var find = false;
         angular.forEach($scope.editProductItems, function (val) {
-            if (val[PdRefID] === id && !find) {
+            if (val[PdRefID] === id && val['PdRefTable'] === PdRefTable && !find) {
                 find = true;
             }
         });
@@ -275,13 +312,14 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                 arr.splice(index, 1);
             }
         }
-
+        console.log(arr);
     }
 
     $scope.addColor = function (arr, valueIs) {
         $scope.addProduct[arr] = [];
         $scope.addProduct[arr] = valueIs;
     }
+
 
     $scope.pic = [];
     $scope.addPic = function (valueIs) {
@@ -290,7 +328,7 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
 });
 
 
-mct.controller('UserCtrl', function ($window, $scope, HttpSrvc, common, Upload, $timeout, $location, $route) {
+mct.controller('UserCtrl', function ($window, $scope, HttpSrvc, common, Upload, $timeout, $location, $route, $routeParams) {
 
     $scope.getUsers = function () {
         $scope.loadingData = true;
@@ -305,6 +343,23 @@ mct.controller('UserCtrl', function ($window, $scope, HttpSrvc, common, Upload, 
                 // Handle error here
                 $scope.loadingData = false;
                 common.flashMsg('error', 'Users List: Error Occurred');
+            }
+        );
+    }
+
+    $scope.getUserByID = function () {
+        $scope.loadingData = true;
+        var userID = $scope.editUserID;
+        var getUserList = HttpSrvc.get('admin/users/user/' + userID);
+        getUserList.then(
+            function (response) {
+                $scope.loadingData = false;
+                $scope.editUser = response.data.data[0];
+            },
+            function (data) {
+                // Handle error here
+                $scope.loadingData = false;
+                common.flashMsg('error', 'User Fetch: Error Occurred');
             }
         );
     }
@@ -367,10 +422,32 @@ mct.controller('UserCtrl', function ($window, $scope, HttpSrvc, common, Upload, 
 
     }
 
+    $scope.editUserRequest = function () {
+
+        $scope.updateData = true;
+        HttpSrvc.post('admin/user/edit/' + $scope.editUserID, $scope.editUser).then(
+            function (response) {
+                $scope.updateData = false;
+                response = response.data;
+                if (response.status) {
+                    common.flashMsg('success', 'User Updated.');
+                    $location.path('/user/users');
+                } else {
+                    common.flashMsg('error', response.msg);
+                }
+
+            },
+            function (data) {
+                // Handle error here
+                $scope.updateData = false;
+                common.flashMsg('error', 'User Failed.');
+            }
+        );
+
+    }
+
     var url = $location.path();
-    if (url.indexOf('new-user') <= 0) {
-        $scope.getUsers();
-    } else {
+    if (url.indexOf('new-user') > 0) {
         $scope.getUserTypes();
         $scope.addUser = {
             Name: '',
@@ -386,5 +463,11 @@ mct.controller('UserCtrl', function ($window, $scope, HttpSrvc, common, Upload, 
             Country: '',
             ZipCode: ''
         };
+
+    } else if (url.indexOf('edit') > 0) {
+        $scope.editUserID = $routeParams.id;
+        $scope.getUserByID();
+    } else {
+        $scope.getUsers();
     }
 });
