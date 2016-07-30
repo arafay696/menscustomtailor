@@ -11,13 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+/*
+* -------------------- Client Routes -------------------
+ * */
+Route::get('/', 'Client\HomeController@index');
+
+//  Fabric Routes
+Route::get('/fabric', 'Client\FabricController@index');
+Route::get('/fabric/{id}', 'Client\FabricController@customize');
+
+//  User Routes
+Route::get('/login', 'Client\UserController@index');
 
 
 /*
- * -------------------- Admin Routes -------------------
+* -------------------- Admin Routes -------------------
  * */
 
 Route::get('admin/auth/login', 'Admin\UserController@index');

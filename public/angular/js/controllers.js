@@ -30,10 +30,11 @@ mct.controller('DashboardCtrl', function ($scope) {
 
 mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, HttpSrvc, ProductSrvc, common, Upload, $timeout, $location) {
 
-    $scope.uploadPic = function (file, productID) {
+    $scope.uploadPic = function (file, zoom, productID) {
+        console.log(zoom);
         file.upload = Upload.upload({
             url: 'admin/product/addImages',
-            data: {file: file, product: productID}
+            data: {file: file, zoomImg: zoom, product: productID}
         });
 
         file.upload.then(function (response) {
@@ -49,7 +50,7 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
         });
     }
     $scope.updateData = false;
-    $scope.addProductRequest = function (picFile) {
+    $scope.addProductRequest = function () {
         $scope.updateData = true;
 
         ProductSrvc.addProduct('admin/product/add-product', $scope.addProduct).then(
@@ -58,10 +59,11 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                 response = response.data;
                 var productID = response.product;
                 angular.forEach($scope.pic, function (val) {
-                    $scope.uploadPic(val, productID);
+                    $scope.uploadPic(val['pic'], val['zoomImg'],productID);
                 });
                 if (response.status) {
                     common.flashMsg('success', 'Product Added.');
+                    $location.path('/product/products');
                 } else {
                     common.flashMsg('error', response.msg);
                 }
@@ -77,7 +79,8 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
     }
 
     $scope.editProductRequest = function () {
-
+        //console.log($scope.editProduct);
+        //return false;
 
         $scope.updateData = true;
         HttpSrvc.post('admin/product/edit/' + $scope.productID, $scope.editProduct).then(
@@ -86,10 +89,12 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                 response = response.data;
                 var productID = response.product;
                 angular.forEach($scope.pic, function (val) {
-                    $scope.uploadPic(val, productID);
+                    console.log(val['zoomImg']);
+                    $scope.uploadPic(val['pic'], val['zoomImg'],productID);
                 });
                 if (response.status) {
                     common.flashMsg('success', 'Product Updated.');
+                    $location.path('/product/products');
                 } else {
                     common.flashMsg('error', response.msg);
                 }
@@ -144,7 +149,6 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
     }
 
     $scope.getMPName = function (refID) {
-
         var value = null;
         angular.forEach($scope.relationNames, function (val) {
             if (val['ID'] === refID) {
@@ -158,7 +162,6 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
 
             }
         });
-
     }
 
     $scope.getProductByID = function () {
@@ -174,6 +177,7 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                     if (val['PdRefTable'] === 'CP') {
                         $scope.getMPName(val['PdRefID']);
                         if (!$scope.find) {
+                            $scope.tempName = $scope.tempName.replace(/\s/g, '');
                             if (typeof $scope.editProduct[$scope.tempName] === typeof undefined) {
                                 $scope.editProduct[$scope.tempName] = val['PdRefID'];
                             }
@@ -198,7 +202,9 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                             $scope.editProduct[val['PdRefTable']].push(val['PdRefID']);
                         }
                     }
+
                 });
+                console.log($scope.editProduct);
             },
             function (data) {
                 // Handle error here
@@ -312,7 +318,7 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                 arr.splice(index, 1);
             }
         }
-        console.log(arr);
+
     }
 
     $scope.addColor = function (arr, valueIs) {
@@ -322,8 +328,10 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
 
 
     $scope.pic = [];
-    $scope.addPic = function (valueIs) {
-        $scope.pic.push(valueIs);
+    $scope.addPic = function (zoom, valueIs) {
+        //$scope.pic.push(valueIs);
+        $scope.pic.push({zoomImg: zoom, pic: valueIs});
+        console.log($scope.pic);
     }
 });
 

@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Admin\BaseController;
 use URL;
 use DB;
 use Request;
@@ -264,6 +263,32 @@ class ProductController extends BaseController
                 array_push($productDetailMain, $productDetail);
             }
 
+            if ((int)$request::get('Shine') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $pid;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('Shine');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
+            if ((int)$request::get('WrinkleResistance') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $pid;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('WrinkleResistance');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
 
             DB::table('ProductDetails')->insert($productDetailMain);
 
@@ -391,11 +416,37 @@ class ProductController extends BaseController
                 array_push($productDetailMain, $productDetail);
             }
 
-            if ((int)$request::get('ThreadCount') != 0) {
+            if ((int)$request::get('Threadcount') != 0) {
                 $productDetail = array();
                 $productDetail['ProductID'] = $id;
                 $productDetail['RefTable'] = 'CP';
-                $productDetail['RefID'] = (int)$request::get('ThreadCount');
+                $productDetail['RefID'] = $request::get('Threadcount');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
+            if ((int)$request::get('Shine') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $id;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('Shine');
+                $productDetail['Extra'] = '';
+
+                $productDetail['POS'] = 0;
+                $productDetail['Def'] = '';
+
+                array_push($productDetailMain, $productDetail);
+            }
+
+            if ((int)$request::get('WrinkleResistance') != 0) {
+                $productDetail = array();
+                $productDetail['ProductID'] = $id;
+                $productDetail['RefTable'] = 'CP';
+                $productDetail['RefID'] = (int)$request::get('WrinkleResistance');
                 $productDetail['Extra'] = '';
 
                 $productDetail['POS'] = 0;
@@ -437,6 +488,7 @@ class ProductController extends BaseController
         // GET ALL THE INPUT DATA , $_GET,$_POST,$_FILES.
         $input = Input::all();
         $productID = Input::get('product');
+        $zoom = Input::get('zoomImg');
         $file = array_get($input, 'file');
         // SET UPLOAD PATH
         $destinationPath = 'resources/assets/images';
@@ -454,6 +506,7 @@ class ProductController extends BaseController
         $productImage['RefTable'] = 'Products';
         $productImage['RefID'] = $productID;
         $productImage['POS'] = 0;
+        $productImage['ZoomImg'] = $zoom;
 
         $pid = DB::table('Images')->insertGetId($productImage);
         // IF UPLOAD IS SUCCESSFUL SEND SUCCESS MESSAGE OTHERWISE SEND ERROR MESSAGE
