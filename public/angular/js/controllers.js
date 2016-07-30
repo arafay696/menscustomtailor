@@ -31,7 +31,6 @@ mct.controller('DashboardCtrl', function ($scope) {
 mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, HttpSrvc, ProductSrvc, common, Upload, $timeout, $location) {
 
     $scope.uploadPic = function (file, zoom, productID) {
-        console.log(zoom);
         file.upload = Upload.upload({
             url: 'admin/product/addImages',
             data: {file: file, zoomImg: zoom, product: productID}
@@ -79,9 +78,6 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
     }
 
     $scope.editProductRequest = function () {
-        //console.log($scope.editProduct);
-        //return false;
-
         $scope.updateData = true;
         HttpSrvc.post('admin/product/edit/' + $scope.productID, $scope.editProduct).then(
             function (response) {
@@ -89,7 +85,6 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                 response = response.data;
                 var productID = response.product;
                 angular.forEach($scope.pic, function (val) {
-                    console.log(val['zoomImg']);
                     $scope.uploadPic(val['pic'], val['zoomImg'],productID);
                 });
                 if (response.status) {
@@ -106,7 +101,6 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
                 common.flashMsg('error', 'Product Failed.');
             }
         );
-        //console.log($scope.addProduct);
     }
 
     $scope.uploadFiles = function (files, errFiles) {
@@ -329,9 +323,7 @@ mct.controller('ProductCtrl', function ($route, $routeParams, $window, $scope, H
 
     $scope.pic = [];
     $scope.addPic = function (zoom, valueIs) {
-        //$scope.pic.push(valueIs);
         $scope.pic.push({zoomImg: zoom, pic: valueIs});
-        console.log($scope.pic);
     }
 });
 
