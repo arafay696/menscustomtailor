@@ -49,6 +49,45 @@ class ProductController extends BaseController
 
     }
 
+    public function addProductView()
+    {
+        $categories = DB::table('Categories')
+            ->select('ID', 'Name')
+            ->where("ProductTypeID", "=", 6)
+            ->get();
+
+        $productCategories = DB::table('MP')
+            ->join('CP', "MP.ID", "=", "CP.MPID")
+            ->select('MP.Name as MainCategory', 'MP.Type', 'CP.Name', 'CP.ID')
+            ->where("MP.ProductTypeID", "=", 6)
+            ->get();
+
+        $returnData = array();
+        $processCategories = array();
+        foreach ($productCategories as $rs) {
+            $cat = $rs->MainCategory;
+            if (!in_array($cat, $processCategories)) {
+                $string = preg_replace('/\s+/', '', $cat);
+                $returnData[$string] = array();
+                foreach ($productCategories as $rs1) {
+                    if ($rs1->MainCategory === $cat) {
+                        array_push($returnData[$string], $rs1);
+                    }
+                }
+                array_push($processCategories, $cat);
+                unset($cat);
+            }
+        }
+
+        $data = array(
+            'categories' => $categories,
+            'productCategories' => $returnData
+        );
+
+        //dd($data);
+        return view('admin/product/new-product', $data);
+    }
+
     public function addProduct(Request $request)
     {
         $return = array(
@@ -527,10 +566,6 @@ class ProductController extends BaseController
     public function getProducts()
     {
         try {
-            $return = array(
-                'status' => false,
-                'msg' => 'Fetching.......'
-            );
 
             $products = DB::table('Products as pr')
                 ->select('pr.ID', 'pr.Code', 'pr.Name', 'pr.Description', 'pr.Qty', 'pr.Price', 'pr.Dat', 'img.Name as ImgName')
@@ -542,21 +577,21 @@ class ProductController extends BaseController
                 ->take(20)
                 ->get();
 
-            $return['status'] = true;
-            $return['msg'] = 'Received';
-            $return['data'] = $products;
-
-            echo json_encode($return);
+            $data = array(
+                'products' => $products
+            );
+            return view('admin/product/productListing', $data);
         } catch (\Exception $e) {
             $error = $e->getMessage();
             if (env('Mode') == 'Development') {
                 $this->errorMsg = $error;
-                $return['msg'] = $this->errorMsg;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             } else {
-                $return['msg'] = $this->errorMsg;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             }
-
-            echo json_encode($return);
+            return redirect()->back();
         }
     }
 
@@ -603,9 +638,8 @@ class ProductController extends BaseController
     public function deleteProduct($id)
     {
         try {
-
             DB::beginTransaction();
-            $deleteStatus = DB::table('Products')->where('ID', '=', $id)->delete();
+            DB::table('Products')->where('ID', '=', $id)->delete();
             DB::table('Images')
                 ->where('RefID', '=', $id)
                 ->where('RefTable', '=', 'Products')
@@ -613,29 +647,21 @@ class ProductController extends BaseController
             DB::table('ProductDetails')->where('ProductID', '=', $id)->delete();
             DB::commit();
 
-            $data = array(
-                'status' => true,
-                'msg' => $deleteStatus
-            );
-
-            echo json_encode($data);
+            Session::flash('globalSuccessMsg', 'Product Deleted.');
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->back();
         } catch (\Exception $e) {
             DB::rollback();
             $error = $e->getMessage();
             if (env('Mode') == 'Development') {
                 $this->errorMsg = $error;
-                $data = array(
-                    'status' => false,
-                    'msg' => $this->errorMsg
-                );
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             } else {
-                $data = array(
-                    'status' => false,
-                    'msg' => $this->errorMsg
-                );
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             }
-
-            echo json_encode($data);
+            return redirect()->back();
         }
     }
 }

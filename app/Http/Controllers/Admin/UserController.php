@@ -78,6 +78,7 @@ class UserController extends BaseController
                     ->where('Company', '=', $userdata['Company'])
                     ->first();
 
+
                 if (empty($user)) {
                     return Redirect::back()->withErrors("Account detail's not Match.");
                 }
@@ -122,6 +123,7 @@ class UserController extends BaseController
 
     public function logout()
     {
+
         if (!Auth::check()) {
             return Redirect::to('admin/auth/login');
         }
@@ -138,37 +140,39 @@ class UserController extends BaseController
             return Redirect::to('admin/auth/login');
         }
 
-        return view('admin/index');
+        return view('admin/dashboard');
     }
 
-    public function getUsers($id)
+    public function getUsers()
     {
         try {
-            $return = array(
-                'status' => false,
-                'msg' => 'Fetching.......'
-            );
 
+            $id = Session::get('userID');
             $users = DB::table('merchants')
                 ->select('ID', 'Email', 'Name', 'Company', 'Country', 'Type', 'Status')
-                ->where('ID','!=',$id)
+                ->where('ID', '!=', $id)
                 ->get();
 
             $return['status'] = true;
             $return['msg'] = 'Received';
             $return['data'] = $users;
 
-            echo json_encode($return);
+            $data = array(
+                'users' => $users
+            );
+
+            return view('admin/user/userListing', $data);
         } catch (\Exception $e) {
             $error = $e->getMessage();
             if (env('Mode') == 'Development') {
                 $this->errorMsg = $error;
-                $return['msg'] = $this->errorMsg;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             } else {
-                $return['msg'] = $this->errorMsg;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             }
-
-            echo json_encode($return);
+            return redirect()->back();
         }
     }
 
@@ -185,12 +189,13 @@ class UserController extends BaseController
         echo json_encode($data);
     }
 
+    public function addUserView()
+    {
+        return view('admin/user/add-user');
+    }
+
     public function addUser(Request $request)
     {
-        $return = array(
-            'status' => false,
-            'msg' => ''
-        );
 
         $user = array();
 
@@ -221,23 +226,22 @@ class UserController extends BaseController
 
             DB::commit();
 
-            $return['status'] = true;
-            $return['msg'] = 'User Added.';
-            $return['user'] = $uid;
-            echo json_encode($return);
+            Session::flash('globalSuccessMsg', 'User Added.');
+            Session::flash('alert-class', 'alert-success');
+
+            return Redirect::to('admin/user/users');
         } catch (\Exception $e) {
             DB::rollback();
-            $error = $e->getMessage();
             if (env('Mode') == 'Development') {
+                $error = $e->getMessage();
                 $this->errorMsg = $error;
-                $return['msg'] = $this->errorMsg;
-
-                echo json_encode($return);
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             } else {
-                $return['msg'] = $this->errorMsg;
-
-                echo json_encode($return);
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             }
+            return redirect()->back();
 
         }
     }
@@ -268,34 +272,27 @@ class UserController extends BaseController
     public function deleteUser($id)
     {
         try {
-            $deleteStatus = DB::table('merchants')->where('ID', '=', $id)->delete();
+            DB::table('merchants')->where('ID', '=', $id)->delete();
 
-            $data = array(
-                'status' => true,
-                'msg' => $deleteStatus
-            );
-
-            echo json_encode($data);
+            Session::flash('globalSuccessMsg', 'User Deleted.');
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->back();
         } catch (\Exception $e) {
             $error = $e->getMessage();
             if (env('Mode') == 'Development') {
                 $this->errorMsg = $error;
-                $data = array(
-                    'status' => false,
-                    'msg' =>  $this->errorMsg
-                );
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             } else {
-                $data = array(
-                    'status' => false,
-                    'msg' =>  $this->errorMsg
-                );
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             }
-
-            echo json_encode($data);
+            return redirect()->back();
         }
     }
 
-    public function getUser($id){
+    public function getUser($id)
+    {
         try {
             $return = array(
                 'status' => false,
@@ -303,8 +300,8 @@ class UserController extends BaseController
             );
 
             $users = DB::table('merchants')
-                ->select('ID', 'Email', 'Name', 'Company', 'Country', 'Type', 'Status','Phone','Address','City','State','ZipCode')
-                ->where('ID','=',$id)
+                ->select('ID', 'Email', 'Name', 'Company', 'Country', 'Type', 'Status', 'Phone', 'Address', 'City', 'State', 'ZipCode')
+                ->where('ID', '=', $id)
                 ->get();
 
             $return['status'] = true;
@@ -325,16 +322,21 @@ class UserController extends BaseController
         }
     }
 
-    public function editUser($id,Request $request){
-        $return = array(
-            'status' => false,
-            'msg' => ''
+    public function editUserView($id)
+    {
+        $user = Merchants::find($id)->first();
+        $data = array(
+            'user' => $user,
+            'userID' => $id
         );
+        return view('admin/user/edit-user',$data);
+    }
 
+    public function editUser($id, Request $request)
+    {
         $user = array();
 
         $user['Dat'] = date('Y-m-d H:i:s');
-        $user['Email'] = $request::get('Email');
         $user['Password'] = Hash::make($request::get('Password'));
         $user['Name'] = $request::get('Name');
 
@@ -356,27 +358,25 @@ class UserController extends BaseController
 
         try {
             DB::beginTransaction();
-            DB::table('merchants')->where('ID',$id)->update($user);
+            DB::table('merchants')->where('ID', $id)->update($user);
 
             DB::commit();
 
-            $return['status'] = true;
-            $return['msg'] = 'User Updated.';
-            $return['user'] = $id;
-            echo json_encode($return);
+            Session::flash('globalSuccessMsg', 'User Updated.');
+            Session::flash('alert-class', 'alert-success');
+
+            return Redirect::to('admin/user/users');
         } catch (\Exception $e) {
-            DB::rollback();
             $error = $e->getMessage();
             if (env('Mode') == 'Development') {
                 $this->errorMsg = $error;
-                $return['msg'] = $this->errorMsg;
-
-                echo json_encode($return);
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             } else {
-                $return['msg'] = $this->errorMsg;
-
-                echo json_encode($return);
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
             }
+            return redirect()->back();
 
         }
     }

@@ -17,6 +17,7 @@ $(document).ready(function () {
      *
      * */
     if ($('.errorMsgs,.successMsgs').is(':visible')) {
-        $('.errorMsgs,.successMsgs').delay(8000).fadeOut();
+        alert('heelo');
+        $('.errorMsgs,.successMsgs').delay(2000).fadeOut();
     }
 });

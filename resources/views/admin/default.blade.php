@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="mct">
+<html lang="en">
 
 <head>
-    <base href="<?php echo Config::get('app.url'); ?>">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,10 +11,12 @@
     <title>MCT Admin</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo URL::asset('public/assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo URL::asset('public/assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>"
+          rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="<?php echo URL::asset('public/assets/admin/bower_components/metisMenu/dist/metisMenu.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo URL::asset('public/assets/admin/bower_components/metisMenu/dist/metisMenu.min.css') ?>"
+          rel="stylesheet">
 
     <!-- Timeline CSS -->
     <link href="<?php echo URL::asset('public/assets/admin/dist/css/timeline.css') ?>" rel="stylesheet">
@@ -27,7 +28,8 @@
     <link href="<?php echo URL::asset('public/assets/admin/bower_components/morrisjs/morris.css') ?>" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="<?php echo URL::asset('public/assets/admin/bower_components/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo URL::asset('public/assets/admin/bower_components/font-awesome/css/font-awesome.min.css'); ?>"
+          rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,14 +42,11 @@
 </head>
 
 <body>
-<div class="flashMsg setOutputSession alert">
-    <span class="changeText"></span>
-    <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
-</div>
-<div ng-controller="BaseCtrl"></div>
+
 <div id="wrapper">
     @if(Session::has('globalErrMsg'))
-        <div style="display:block;" class="setOutputSession errorMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+        <div style="display:block;"
+             class="setOutputSession errorMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
             <span>{{ Session::get('globalErrMsg') }}</span>
             <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
         </div>
@@ -55,14 +54,15 @@
     @endif
 
     @if(Session::has('globalSuccessMsg'))
-        <div style="display:block;" class="setOutputSession successMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+        <div style="display:block;"
+             class="setOutputSession successMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
             <span>{{ Session::get('globalSuccessMsg') }}</span>
             <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
         </div>
 
-    @endif
+@endif
 
-    <!-- Navigation -->
+<!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -85,7 +85,7 @@
                         <a href="#">
                             <div>
                                 <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
+                                <span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
                             </div>
@@ -97,7 +97,7 @@
                         <a href="#">
                             <div>
                                 <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
+                                <span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
                             </div>
@@ -109,7 +109,7 @@
                         <a href="#">
                             <div>
                                 <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
+                                <span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
                             </div>
@@ -299,7 +299,7 @@
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
                             <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
+                            <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
                                 </button>
@@ -308,16 +308,17 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="admin#/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="<?php echo URL::to('admin/home');?>"><i class="fa fa-dashboard fa-fw"></i>
+                            Dashboard</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Products<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="admin#/product/new-product">New Product</a>
+                                <a href="<?php echo URL::to('admin/product/product');?>">New Product</a>
                             </li>
                             <li>
-                                <a href="admin#/product/products">Product List</a>
+                                <a href="<?php echo URL::to('admin/product/products');?>">Product List</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -326,10 +327,10 @@
                         <a href="#"><i class="fa fa-user fa-fw"></i> User Management<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="admin#/user/new-user">Add User</a>
+                                <a href="<?php echo URL::to('admin/user/add');?>">Add User</a>
                             </li>
                             <li>
-                                <a href="admin#/user/users">User List</a>
+                                <a href="<?php echo URL::to('admin/user/users');?>">User List</a>
                             </li>
                         </ul>
                     </li>
@@ -341,28 +342,10 @@
     </nav>
 
     <!-- Page Wrapper -->
-           <div ng-view=""></div>
-    <!-- Page Wrapper -->
+@yield('content')
+<!-- Page Wrapper -->
 
 </div>
-<!-- /#wrapper -->
-<!--File Upload -->
-<script src="<?php echo URL::to('bower_components/ng-file-upload/ng-file-upload.min.js'); ?>"></script>
-<script src="<?php echo URL::to('bower_components/angular-filter/dist/angular-filter.min.js'); ?>"></script>
-
-<!-- Angular -->
-<script src="<?php echo URL::asset('public/angular/js/application.js'); ?>"></script>
-<script>
-    angular.module("mct").constant("CSRF_TOKEN", '{{ csrf_token() }}');
-</script>
-<script src="<?php echo URL::asset('public/angular/js/controllers.js'); ?>"></script>
-<script src="<?php echo URL::asset('public/angular/js/directives.js'); ?>"></script>
-<script src="<?php echo URL::asset('public/angular/js/services.js'); ?>"></script>
-<script src="<?php echo URL::asset('public/angular/js/filters.js'); ?>"></script>
-<script src="<?php echo URL::asset('public/angular/angular/angular-route.min.js'); ?>"></script>
-<script src="<?php echo URL::asset('public/angular/angular/lodash.min.js'); ?>"></script>
-<script src="<?php echo URL::asset('public/angular/angular/angular-ui.min.js'); ?>"></script>
-
 <!-- jQuery -->
 <script src="<?php echo URL::asset('public/assets/admin/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
 
@@ -382,5 +365,4 @@
 <script src="<?php echo URL::asset('public/assets/admin/js/app.js'); ?>"></script>
 
 </body>
-
 </html>
