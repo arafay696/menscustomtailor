@@ -15,9 +15,10 @@
                     <div class="panel-heading">
                         Add New Product
                     </div>
-                    <form name="myForm" role="form" method="post"
+                    <form name="myForm" role="form" method="post" enctype="multipart/form-data"
                           action="<?php echo URL::to('admin/product/add-product'); ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        <input type="hidden" name="ProductTypeID" value="<?=$productType;?>"/>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -27,21 +28,21 @@
 
                                     <div class="form-group">
                                         <label>Basic</label>
-                                        <input class="form-control" name="Basic">
+                                        <input class="form-control" value="{{Request::old('Basic')}}" name="Basic">
 
                                         <p class="help-block">Example block-level help text here.</p>
                                     </div>
                                     <div class="form-group">
                                         <label>Qty</label>
-                                        <input class="form-control" name="Qty" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('Qty')}}" name="Qty" placeholder="Enter text">
                                     </div>
                                     <div class="form-group">
                                         <label>Qty Sold</label>
-                                        <input class="form-control" name="QtySold" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('QtySold')}}" name="QtySold" placeholder="Enter text">
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="EnableExpiry" value="">Enable Expiry
+                                            <input type="checkbox"  name="EnableExpiry" value="">Enable Expiry
                                         </label>
                                     </div>
 
@@ -50,21 +51,21 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Price</label>
-                                        <input class="form-control" name="Price">
+                                        <input class="form-control" value="{{Request::old('Price')}}" name="Price">
 
                                         <p class="help-block">Example block-level help text here.</p>
                                     </div>
                                     <div class="form-group">
                                         <label>Weight</label>
-                                        <input class="form-control" name="Weight" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('Weight')}}" name="Weight" placeholder="Enter text">
                                     </div>
                                     <div class="form-group">
                                         <label>Code</label>
-                                        <input class="form-control" name="Code" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('Code')}}" name="Code" placeholder="Enter text">
                                     </div>
                                     <div class="form-group">
                                         <label>Expiry Date</label>
-                                        <input class="form-control" name="EnableExpiryDate" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('EnableExpiryDate')}}" name="EnableExpiryDate" placeholder="Enter text">
                                     </div>
 
                                 </div>
@@ -93,45 +94,37 @@
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
                                                                 <label>Name</label>
-                                                                <input class="form-control" name="Name">
+                                                                <input class="form-control" value="{{Request::old('Name')}}" name="Name">
 
                                                                 <p class="help-block">Example block-level help text
                                                                     here.</p>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Description</label>
-                                                                <input class="form-control" name="Description"
+                                                                <input class="form-control" value="{{Request::old('Description')}}" name="Description"
                                                                        placeholder="Enter text">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Meta Title</label>
-                                                                <input class="form-control" name="MetaTitle"
+                                                                <input class="form-control" value="{{Request::old('MetaTitle')}}" name="MetaTitle"
                                                                        placeholder="Enter text">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Meta Keywords</label>
-                                                                <input class="form-control" name="MetaKeywords"
+                                                                <input class="form-control" value="{{Request::old('MetaKeywords')}}" name="MetaKeywords"
                                                                        placeholder="Enter text">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Meta Description</label>
-                                                                <input class="form-control" name="MetaDescription"
+                                                                <input class="form-control" value="{{Request::old('MetaDescription')}}" name="MetaDescription"
                                                                        placeholder="Enter text">
                                                             </div>
                                                             <h4>Product Pictures</h4>
                                                             <div class="form-group">
                                                                 <label>File input</label>
 
-                                                                <input type="file" name="picFile[]" accept="image/*">
-                                                                <br>
-                                                                <br>
-                                                                <input type="file" name="picFile[]" accept="image/*">
-                                                                <br>
-                                                                <br>
-                                                                <input type="file" name="picFile[]" accept="image/*">
-                                                                <br>
-                                                                <br>
-                                                                <input type="file" name="picFile[]" accept="image/*">
+                                                                <input type="file" name="picFile[]" accept="image/*"
+                                                                       multiple="true">
                                                                 <br>
                                                                 <br>
                                                                 <h3>Zoom Image</h3>
@@ -148,7 +141,7 @@
                                                                 <?php foreach ($categories as $category) { ?>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="category[]"
+                                                                        <input type="checkbox" name="Categories[]"
                                                                                value="<?=$category->ID;?>"><?=$category->Name;?>
                                                                     </label>
                                                                 </div>
@@ -167,20 +160,47 @@
                                                             <div class="form-group">
                                                                 <label><?=$key;?></label>
                                                                 <?php
-                                                                   // dd($productCategories[$key]);
+                                                                $var = '<select class="form-control" multiple="" name="' . $key . '">';
+                                                                $varEnd = '</select>';
                                                                 ?>
                                                                 <?php foreach ($productCategories[$key] as $k => $value) { ?>
-                                                                <?php if($value->Type == "Color" || $value->Type == "Colors2") { ?>
-                                                                <select class="form-control" multiple=""
-                                                                        name="colorSelected">
+                                                                <div class="checkbox">
+                                                                    <?php if($value->Type == "Color") { ?>
+                                                                    <?php if ($k == 0) {
+                                                                        echo $var;
+                                                                    } ?>
                                                                     <option value="<?=$value->ID?>">
                                                                         <?=$value->Name?>
                                                                     </option>
-                                                                </select>
-                                                                <?php }else {  // end if color or contrast ?>
-                                                                <label><input type="<?=$value->Type;?>" ng-model="<?=$key;?>[]"
-                                                                       value="<?=$value->ID;?>"><?=$value->Name;?></label>
-                                                                <?php } } // end if color or contrast ?>
+                                                                    <?php if (!array_key_exists($k + 1, $productCategories[$key])) {
+                                                                        echo $varEnd;
+                                                                    } ?>
+                                                                    <?php } else if($value->Type == "Colors2") {  ?>
+                                                                    <?php if ($k == 0) {
+                                                                        echo $var;
+                                                                    } ?>
+
+                                                                    <option value="<?=$value->ID?>">
+                                                                        <?=$value->Name?>
+                                                                    </option>
+                                                                    <?php if (!array_key_exists($k + 1, $productCategories[$key])) {
+                                                                        echo $varEnd;
+                                                                    } ?>
+                                                                    <?php }else if($value->Type == "Checkbox") { ?>
+                                                                    <label>
+                                                                        <input type="<?=$value->Type;?>"
+                                                                               name="<?=$key;?>[]"
+                                                                               value="<?=$value->ID;?>"> <?=$value->Name;?>
+                                                                    </label>
+                                                                    <?php } else { ?>
+                                                                        <label>
+                                                                            <input type="<?=$value->Type;?>"
+                                                                                   name="<?=$key;?>"
+                                                                                   value="<?=$value->ID;?>"> <?=$value->Name;?>
+                                                                        </label>
+                                                                    <?php } ?>
+                                                                </div>
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
                                                         <?php } ?>
@@ -198,15 +218,9 @@
                                                 style="margin-left: 4px;">
                                             Reset Button
                                         </button>
-                                        <button ng-disabled="updateData" type="submit"
-                                                ng-click="addProductRequest(picFile)"
-                                                class="btn btn-success pull-right">
+                                        <button type="submit" class="btn btn-success pull-right">
                                             Submit
                                         </button>
-                                        <div ng-show="updateData"
-                                             style="position: relative; margin-right: 9px; float: right;">
-                                            <i class="fa fa-3x fa-spinner fa-spin"></i>
-                                        </div>
                                     </div>
                                     <!-- /.panel -->
                                 </div>

@@ -1,13 +1,9 @@
-$(function() {
-
-    $('#side-menu').metisMenu();
-
-});
-
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.
 // Sets the min-height of #page-wrapper to window size
 $(function() {
+    $('#side-menu').metisMenu();
+
     $(window).bind("load resize", function() {
         topOffset = 50;
         width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
@@ -32,5 +28,27 @@ $(function() {
     }).addClass('active').parent().parent().addClass('in').parent();
     if (element.is('li')) {
         element.addClass('active');
+    }
+
+    // ------------------------ MY JS --------------------------------- //
+    /*
+     * Close Session Output
+     * */
+    $('.closeSessionOutput').click(function () {
+        if ($(this).closest('div').hasClass('errorMsgs')) {
+            $('.errorMsgs,.successMsgs').stop(true, true).fadeOut();
+        } else if ($(this).closest('div').hasClass('successMsgs')) {
+            $('.errorMsgs,.successMsgs').stop(true, true).fadeOut();
+        } else {
+            $(this).closest('.alert').slideUp('slow');
+        }
+    });
+
+    /*
+     * ------ Error Msg or Success Message timeout after 8seconds
+     *
+     * */
+    if ($('.errorMsgs,.successMsgs').is(':visible')) {
+        $('.errorMsgs,.successMsgs').delay(2000).fadeOut();
     }
 });

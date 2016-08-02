@@ -28,7 +28,7 @@ Route::get('/login', 'Client\UserController@index');
 /*
 * -------------------- Admin Routes -------------------
  * */
-
+Route::get('admin', 'Admin\UserController@index');
 Route::get('admin/auth/login', 'Admin\UserController@index');
 Route::post('admin/auth', 'Admin\UserController@doLogin');
 Route::get('admin', 'Admin\UserController@home');
@@ -37,13 +37,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // ----------- Product Routes
     Route::get('/home', 'UserController@home');
     Route::get('/product/getSettings', 'ProductController@getProductCategories');
-    Route::get('/product/product', 'ProductController@addProductView');
+    Route::get('/product/new/{id}', 'ProductController@addProductView');
     Route::post('/product/add-product', 'ProductController@addProduct');
     Route::post('/product/addImages', 'ProductController@UploadImages');
     Route::get('/product/products', 'ProductController@getProducts');
     Route::get('/product/delete/{id}', 'ProductController@deleteProduct');
     Route::get('/product/product/{id}', 'ProductController@getProductByID');
-    Route::post('/product/edit/{id}', 'ProductController@editProduct');
+    Route::get('/product/edit/{id}', 'ProductController@editProductView');
+    Route::post('/product/edit-product', 'ProductController@editProduct');
 
     // ----------- User Routes
     Route::get('/user/add', 'UserController@addUserView');

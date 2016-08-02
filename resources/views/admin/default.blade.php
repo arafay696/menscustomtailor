@@ -37,7 +37,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="<?php echo URL::asset('public/angular/angular/angular.min.js');?>"></script>
 
 </head>
 
@@ -315,7 +314,7 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Products<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo URL::to('admin/product/product');?>">New Product</a>
+                                <a href="<?php echo URL::to('admin/product/new/6');?>">New Product</a>
                             </li>
                             <li>
                                 <a href="<?php echo URL::to('admin/product/products');?>">Product List</a>
@@ -358,11 +357,8 @@
 <!-- Morris Charts JavaScript -->
 <script src="<?php echo URL::asset('public/assets/admin/bower_components/raphael/raphael-min.js'); ?>"></script>
 <script src="<?php echo URL::asset('public/assets/admin/bower_components/morrisjs/morris.min.js'); ?>"></script>
-<script src="<?php echo URL::asset('public/assets/admin/js/morris-data.js'); ?>"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo URL::asset('public/assets/admin/dist/js/sb-admin-2.js'); ?>"></script>
-<script src="<?php echo URL::asset('public/assets/admin/js/app.js'); ?>"></script>
-
 </body>
 </html>
