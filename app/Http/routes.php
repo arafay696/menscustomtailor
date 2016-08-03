@@ -45,6 +45,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/product/product/{id}', 'ProductController@getProductByID');
     Route::get('/product/edit/{id}', 'ProductController@editProductView');
     Route::post('/product/edit-product', 'ProductController@editProduct');
+    Route::get('/delete/image/{id}', 'ProductController@deleteImage');
 
     // ----------- User Routes
     Route::get('/user/add', 'UserController@addUserView');

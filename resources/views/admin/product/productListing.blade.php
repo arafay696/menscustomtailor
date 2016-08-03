@@ -34,8 +34,11 @@
                                 <?php foreach ($products as $product) { ?>
                                 <tr>
                                     <td class="center">
+                                        <a href="<?php echo URL::to('admin/product/edit/' . $product->ID . ''); ?>"
+                                           style="color: #5cb85c;">
                                         <img style="width: 100px;height: 150px"
                                              src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . ''); ?>">
+                                        </a>
                                     </td>
                                     <td class="center">
                                         <?=$product->Code;?>

@@ -383,6 +383,7 @@ table.dataTable thead .sorting:after {
 form .progress {
     line-height: 15px;
 }
+
 .thumb {
     width: 24px;
     height: 24px;
@@ -403,9 +404,24 @@ form .progress {
     width: 0;
 }
 
-.hide{
+.hide {
     display: none !important;
 }
-.editProdImages img{
+
+.editProdImages {
+    margin-top: 16px;
+}
+
+.editProdImages span .fa {
+    right: 0px;
+    position: relative;
+    color: rgb(217, 83, 79);
+    top: -97px;
+    left: 20px;
+}
+
+.editProdImages img {
     margin-right: 3px;
+    width: 120px;
+    height: 200px;
 }

@@ -18,6 +18,7 @@
                     <form name="myForm" role="form" method="post" enctype="multipart/form-data"
                           action="<?php echo URL::to('admin/product/edit-product'); ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        <input type="hidden" name="productID" value="<?=$productID;?>"/>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12 editProdImages">
@@ -26,7 +27,10 @@
                                     foreach ($productDetail as $img) {
                                     if(!in_array($img->ImgName, $image)){
                                     ?>
-                                    <img src="<?php echo URL::to('resources/assets/images/' . $img->ImgName . ''); ?>">
+                                    <span>
+                                        <a href="<?php echo URL::to('admin/delete/image/' . $img->imgID . ''); ?>" class="fa fa-times-circle fa-2x"></a>
+                                        <img src="<?php echo URL::to('resources/assets/images/' . $img->ImgName . ''); ?>">
+                                    </span>
                                     <?php
                                     }
                                     array_push($image, $img->ImgName);
@@ -189,7 +193,7 @@
                                                             <div class="form-group">
                                                                 <label><?=$key;?></label>
                                                                 <?php
-                                                                $var = '<select class="form-control" multiple="" name="' . $key . '">';
+                                                                $var = '<select class="form-control" multiple="" name="' . $key . '[]">';
                                                                 $varEnd = '</select>';
                                                                 ?>
                                                                 <?php foreach ($productCategories[$key] as $k => $value) { ?>
@@ -198,7 +202,7 @@
                                                                     <?php if ($k == 0) {
                                                                         echo $var;
                                                                     } ?>
-                                                                    <option value="<?=$value->ID?>">
+                                                                    <option value="<?=$value->ID?>" <?php echo (isset(${$key}) && in_array($value->ID,${$key})) ? 'selected' : ''; ?>>
                                                                         <?=$value->Name?>
                                                                     </option>
                                                                     <?php if (!array_key_exists($k + 1, $productCategories[$key])) {
@@ -209,23 +213,22 @@
                                                                         echo $var;
                                                                     } ?>
 
-                                                                    <option value="<?=$value->ID?>">
+                                                                    <option value="<?=$value->ID?>" <?php echo (isset(${$key}) && in_array($value->ID,${$key})) ? 'selected' : ''; ?>>
                                                                         <?=$value->Name?>
                                                                     </option>
                                                                     <?php if (!array_key_exists($k + 1, $productCategories[$key])) {
                                                                         echo $varEnd;
                                                                     } ?>
-                                                                    <?php }else if($value->Type == "Checkbox") { ?>
+                                                                    <?php }else if($value->Type == "CheckBox") { ?>
                                                                     <label>
-                                                                        <input type="<?=$value->Type;?>"
-                                                                               name="<?=$key;?>[]"
-                                                                               value="<?=$value->ID;?>"> <?=$value->Name;?>
+                                                                        <input type="<?=$value->Type;?>" name="<?=$key;?>[]"
+                                                                               value="<?=$value->ID;?>" <?php echo (isset(${$key}) && in_array($value->ID,${$key})) ? 'checked' : ''; ?>> <?=$value->Name;?>
                                                                     </label>
                                                                     <?php } else { ?>
                                                                     <label>
                                                                         <input type="<?=$value->Type;?>"
                                                                                name="<?=$key;?>"
-                                                                               value="<?=$value->ID;?>"> <?=$value->Name;?>
+                                                                               value="<?=$value->ID;?>" <?php echo (isset(${$key}) && $value->ID == ${$key}) ? 'checked' : ''; ?>> <?=$value->Name;?>
                                                                     </label>
                                                                     <?php } ?>
                                                                 </div>
@@ -243,10 +246,10 @@
                                         <!-- /.panel-body -->
                                     </div>
                                     <div class="col-lg-12">
-                                        <button type="reset" class="btn btn-primary pull-right"
+                                        <a href="<?php echo URL::to('admin/product/products');?>" class="btn btn-primary pull-right"
                                                 style="margin-left: 4px;">
-                                            Reset Button
-                                        </button>
+                                            Cancel
+                                        </a>
                                         <button type="submit" class="btn btn-success pull-right">
                                             Submit
                                         </button>

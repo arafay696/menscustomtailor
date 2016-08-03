@@ -160,7 +160,7 @@
                                                             <div class="form-group">
                                                                 <label><?=$key;?></label>
                                                                 <?php
-                                                                $var = '<select class="form-control" multiple="" name="' . $key . '">';
+                                                                $var = '<select class="form-control" multiple="" name="' . $key . '[]">';
                                                                 $varEnd = '</select>';
                                                                 ?>
                                                                 <?php foreach ($productCategories[$key] as $k => $value) { ?>
@@ -186,10 +186,9 @@
                                                                     <?php if (!array_key_exists($k + 1, $productCategories[$key])) {
                                                                         echo $varEnd;
                                                                     } ?>
-                                                                    <?php }else if($value->Type == "Checkbox") { ?>
+                                                                    <?php }else if($value->Type == "CheckBox") { ?>
                                                                     <label>
-                                                                        <input type="<?=$value->Type;?>"
-                                                                               name="<?=$key;?>[]"
+                                                                        <input type="<?=$value->Type;?>" name="<?=$key;?>[]"
                                                                                value="<?=$value->ID;?>"> <?=$value->Name;?>
                                                                     </label>
                                                                     <?php } else { ?>
@@ -214,10 +213,10 @@
                                         <!-- /.panel-body -->
                                     </div>
                                     <div class="col-lg-12">
-                                        <button type="reset" class="btn btn-primary pull-right"
-                                                style="margin-left: 4px;">
-                                            Reset Button
-                                        </button>
+                                        <a href="<?php echo URL::to('admin/product/products');?>" class="btn btn-primary pull-right"
+                                           style="margin-left: 4px;">
+                                            Cancel
+                                        </a>
                                         <button type="submit" class="btn btn-success pull-right">
                                             Submit
                                         </button>
