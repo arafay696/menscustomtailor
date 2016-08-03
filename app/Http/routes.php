@@ -57,6 +57,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/users/user/{id}', 'UserController@getUser');
     Route::get('/user/edit/{id}', 'UserController@editUserView');
     Route::post('/user/edit-user/{id}', 'UserController@editUser');
+    Route::post('/userprofile/profilepasswordupdate', 'UserController@updatepassword');
 
     Route::get('/logout', 'UserController@logout');
 });

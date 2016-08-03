@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571f70f7-552c-4b0f-b83e-670013d94818" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/assets/images/shirt.jpg" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/user/userprofile.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/dist/css/sb-admin-2.css" afterPath="$PROJECT_DIR$/public/assets/admin/dist/css/sb-admin-2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/new-product.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/new-product.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/productListing.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/productListing.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/default.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/default.blade.php" />
     </list>
     <ignored path="mct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,51 +30,32 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="47" column="67" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="67" />
+            <state relative-caret-position="374">
+              <caret line="59" column="84" selection-start-line="59" selection-start-column="84" selection-end-line="59" selection-end-column="84" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+            <state relative-caret-position="91">
+              <caret line="293" column="34" selection-start-line="293" selection-start-column="20" selection-end-line="293" selection-end-column="34" />
               <folding>
-                <element signature="e#45#53#0#PHP" expanded="true" />
-                <element signature="e#1496#2865#0#PHP" expanded="false" />
-                <element signature="e#2871#4277#0#PHP" expanded="false" />
-                <element signature="e#4283#15082#0#PHP" expanded="false" />
-                <element signature="e#7481#11283#0#PHP" expanded="false" />
-                <element signature="e#15088#20065#0#PHP" expanded="false" />
-                <element signature="e#20071#30841#0#PHP" expanded="false" />
-                <element signature="e#23211#27013#0#PHP" expanded="false" />
-                <element signature="e#30847#31157#0#PHP" expanded="false" />
-                <element signature="e#33194#34477#0#PHP" expanded="false" />
-                <element signature="e#34483#35895#0#PHP" expanded="false" />
-                <element signature="e#35901#37121#0#PHP" expanded="false" />
+                <element signature="e#136#154#0#PHP" expanded="true" />
+                <element signature="e#1009#3832#0#PHP" expanded="false" />
+                <element signature="e#5431#5705#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit-product.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php">
+      <file leaf-file-name="userprofile.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/user/userprofile.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="30" column="75" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sb-admin-2.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/admin/dist/css/sb-admin-2.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="418" column="12" selection-start-line="418" selection-start-column="12" selection-end-line="418" selection-end-column="12" />
+            <state relative-caret-position="260">
+              <caret line="159" column="44" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -96,7 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Merchants.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/user/login.blade.php" />
         <option value="$PROJECT_DIR$/public/angular/partials/home.html" />
@@ -135,18 +112,19 @@
         <option value="$PROJECT_DIR$/resources/views/admin/user/userListing.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/user/add-user.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/user/edit-user.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
         <option value="$PROJECT_DIR$/public/assets/admin/js/morris-data.js" />
         <option value="$PROJECT_DIR$/public/assets/admin/js/app.js" />
-        <option value="$PROJECT_DIR$/resources/views/admin/default.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/admin/dist/js/sb-admin-2.js" />
         <option value="$PROJECT_DIR$/public/angular/js/controllers.js" />
         <option value="$PROJECT_DIR$/resources/views/admin/product/new-product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/product/productListing.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/admin/dist/css/sb-admin-2.css" />
         <option value="$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/default.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/user/userprofile.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -278,7 +256,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="product" />
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -293,20 +271,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -406,19 +370,19 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\wamp\www\mct\app\Http\Controllers\Client" />
-      <recent name="E:\wamp\www\mct\public\assets" />
-      <recent name="E:\wamp\www\mct\public\angular\partials\user" />
-      <recent name="E:\wamp\www\mct\public\angular\partials\product" />
-      <recent name="E:\wamp\www\mct\app\Http\Controllers\Admin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\wamp\www\mct\app\Http\Controllers\Client" />
       <recent name="E:\wamp\www\mct\public\assets\client" />
       <recent name="E:\wamp\www\mct\app\Http\Controllers\Admin" />
       <recent name="D:\wamp\www\mct\resources\views\admin\user" />
       <recent name="D:\wamp\www\mct\app\Http\Controllers\Admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\wamp\www\mct\resources\views\admin\user" />
+      <recent name="E:\wamp\www\mct\app\Http\Controllers\Client" />
+      <recent name="E:\wamp\www\mct\public\assets" />
+      <recent name="E:\wamp\www\mct\public\angular\partials\user" />
+      <recent name="E:\wamp\www\mct\public\angular\partials\product" />
     </key>
   </component>
   <component name="RunManager">
@@ -489,7 +453,7 @@
       <workItem from="1469900906432" duration="2036000" />
       <workItem from="1470069432090" duration="7919000" />
       <workItem from="1470148834382" duration="13256000" />
-      <workItem from="1470241691329" duration="5795000" />
+      <workItem from="1470241691329" duration="7918000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Console Logs">
       <created>1469903070985</created>
@@ -512,11 +476,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470160618197</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Product Edit Complete :)">
+      <created>1470247596447</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1470247596447</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29006000" />
+    <option name="totallyTimeSpent" value="31129000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -561,7 +532,8 @@
     <MESSAGE value="Remove Console Logs" />
     <MESSAGE value="Removing AngularJS - Working Product Add" />
     <MESSAGE value="Removing AngularJS - Working Product Edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing AngularJS - Working Product Edit" />
+    <MESSAGE value="Product Edit Complete :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Product Edit Complete :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -570,13 +542,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -854,18 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="9" />
-          <folding>
-            <element signature="e#1009#3832#0#PHP" expanded="false" />
-            <element signature="e#5431#5705#0#PHP" expanded="false" />
-            <element signature="e#8770#9698#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/angular/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -878,14 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="562">
           <caret line="222" column="60" selection-start-line="222" selection-start-column="60" selection-end-line="222" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/default.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="319" column="88" selection-start-line="319" selection-start-column="41" selection-end-line="319" selection-end-column="88" />
           <folding />
         </state>
       </provider>
@@ -919,28 +864,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="660">
           <caret line="30" column="75" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/default.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="47" column="67" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="67" />
+        <state relative-caret-position="284">
+          <caret line="281" column="79" selection-start-line="281" selection-start-column="79" selection-end-line="281" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+        <state relative-caret-position="182">
+          <caret line="133" column="56" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="56" />
           <folding>
             <element signature="e#45#53#0#PHP" expanded="true" />
             <element signature="e#1496#2865#0#PHP" expanded="false" />
-            <element signature="e#2871#4277#0#PHP" expanded="false" />
             <element signature="e#4283#15082#0#PHP" expanded="false" />
             <element signature="e#7481#11283#0#PHP" expanded="false" />
             <element signature="e#15088#20065#0#PHP" expanded="false" />
@@ -951,6 +895,34 @@
             <element signature="e#34483#35895#0#PHP" expanded="false" />
             <element signature="e#35901#37121#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="293" column="34" selection-start-line="293" selection-start-column="20" selection-end-line="293" selection-end-column="34" />
+          <folding>
+            <element signature="e#136#154#0#PHP" expanded="true" />
+            <element signature="e#1009#3832#0#PHP" expanded="false" />
+            <element signature="e#5431#5705#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="59" column="84" selection-start-line="59" selection-start-column="84" selection-end-line="59" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/user/userprofile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="159" column="44" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>

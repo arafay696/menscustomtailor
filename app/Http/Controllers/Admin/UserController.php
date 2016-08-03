@@ -291,24 +291,92 @@ class UserController extends BaseController
         }
     }
 
+    public function updatepassword()
+    {
+        $userID = Request::get('uID');
+        $password = Request::get('cpassword');
+
+        DB::setFetchMode(\PDO::FETCH_ASSOC);
+        $getUser = DB::table('merchants')->where('ID', $userID)
+            ->get();
+        DB::setFetchMode(\PDO::FETCH_CLASS);
+
+        foreach ($getUser as $userData) {
+            $currentPassword = $userData['Password'];
+        }
+
+        if (!(Hash::check($password, $currentPassword)) || $password == "") {
+            return Redirect::back()->withErrors("Current Password Not Matched");
+        }
+
+
+        $newPassword = Request::get('npassword');
+        $RePassword = Request::get('repassword');
+
+        if ($newPassword != $RePassword) {
+            return Redirect::back()->withErrors("New Password Not Match");
+        }
+
+        $updatePassword = Hash::make($newPassword);
+
+        $updatedata = array();
+        foreach ($getUser as $data) {
+            $updatedata = $data;
+            $updatedata['Password'] = $updatePassword;
+        }
+
+        try {
+            DB::table('merchants')
+                ->where('ID', $userID)
+                ->update(array('Password' => $updatePassword));
+
+            DB::commit();
+
+            $returnResult = "Success";
+            // all good
+        } catch (\Exception $e) {
+            DB::rollback();
+            Session::flash('globalErrMsg', $this->errorMsg);
+            Session::flash('alert-class', 'alert-danger');
+            return redirect()->back();
+        }
+
+        if ($returnResult == "Success") {
+            Session::flash('passwordupdate', 'Password Successfully Updated');
+            Session::flash('alert-class', 'alert-success');
+            return Redirect::back();
+            //return Redirect::to('admin/userprofile/'.$userID.'');
+        } else {
+            return $returnResult;
+        }
+    }
+
     public function getUser($id)
     {
+        if (!Auth::check()) {
+            return Redirect::to('admin/auth/login');
+        }
+
         try {
-            $return = array(
-                'status' => false,
-                'msg' => 'Fetching.......'
+            DB::setFetchMode(\PDO::FETCH_ASSOC);
+            $user = DB::table('merchants')
+                ->select('ID', 'Dat', 'Email', 'Name', 'Company', 'Country', 'Type', 'Status', 'Phone', 'Address', 'City', 'State', 'ZipCode')
+                ->where('ID', '=', $id)
+                ->first();
+            DB::setFetchMode(\PDO::FETCH_CLASS);
+
+            if (count($user) == 0) {
+                Session::flash('globalErrMsg', 'User Not Exist');
+                Session::flash('alert-class', 'alert-danger');
+                return redirect()->back();
+            }
+            //dd($user['ID']);
+            $data = array(
+                'userData' => $user,
+                'loginUserID' => $id
             );
 
-            $users = DB::table('merchants')
-                ->select('ID', 'Email', 'Name', 'Company', 'Country', 'Type', 'Status', 'Phone', 'Address', 'City', 'State', 'ZipCode')
-                ->where('ID', '=', $id)
-                ->get();
-
-            $return['status'] = true;
-            $return['msg'] = 'Received';
-            $return['data'] = $users;
-
-            echo json_encode($return);
+            return view('admin/user/userprofile', $data);
         } catch (\Exception $e) {
             $error = $e->getMessage();
             if (env('Mode') == 'Development') {
@@ -329,7 +397,7 @@ class UserController extends BaseController
             'user' => $user,
             'userID' => $id
         );
-        return view('admin/user/edit-user',$data);
+        return view('admin/user/edit-user', $data);
     }
 
     public function editUser($id, Request $request)
