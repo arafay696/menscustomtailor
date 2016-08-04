@@ -16,7 +16,7 @@
                     </div>
                     <form name="myForm" role="form" method="post"
                           action="<?php echo URL::to('admin/user/add-user'); ?>">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -38,14 +38,16 @@
                                     <div class="form-group">
                                         <label>Company</label>
                                         <select class="form-control" name="Company">
-                                            <option>Production</option>
-                                            <option>Main Store</option>
-                                            <option>Giorgenti Township</option>
-                                            <option>Alfateh</option>
-                                            <option>Ammar Belal</option>
-                                            <option>BCS</option>
-                                            <option>Mall of Lahore</option>
+                                            <?php foreach ($usercompany as $st) { ?>
+                                            <option value="<?=$st->id;?>">
+                                                <?=$st->Name;?>
+                                            </option>
+                                            <?php } ?>
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ZipCode</label>
+                                        <input class="form-control" name="ZipCode" placeholder="Enter text">
                                     </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -65,7 +67,16 @@
                                         <label>Phone</label>
                                         <input class="form-control" name="Phone" placeholder="Enter text">
                                     </div>
-
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select class="form-control" name="status">
+                                            <?php foreach ($status as $st) { ?>
+                                            <option value="<?=$st->ID;?>">
+                                                <?=$st->Name;?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-12">
@@ -94,10 +105,6 @@
                                     <div class="form-group">
                                         <label>Country</label>
                                         <input class="form-control" name="Country" placeholder="Enter text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>ZipCode</label>
-                                        <input class="form-control" name="ZipCode" placeholder="Enter text">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

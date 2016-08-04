@@ -157,8 +157,13 @@ class UserController extends BaseController
             $return['msg'] = 'Received';
             $return['data'] = $users;
 
+            $StatusByID = $this->getAllStatus();
+            $getAllCompanies = $this->getAllCompanies();
+
             $data = array(
-                'users' => $users
+                'users' => $users,
+                'StatusByID' => $StatusByID,
+                'getAllCompanies' => $getAllCompanies
             );
 
             return view('admin/user/userListing', $data);
@@ -191,11 +196,27 @@ class UserController extends BaseController
 
     public function addUserView()
     {
-        return view('admin/user/add-user');
+        $status = DB::table('userstatus')
+            ->select('ID', 'Name')
+            ->get();
+
+        $usercompany = DB::table('usercompany')
+            ->select('id', 'Name')
+            ->get();
+
+        $data = array(
+            'status' => $status,
+            'usercompany' => $usercompany
+        );
+        return view('admin/user/add-user', $data);
     }
 
     public function addUser(Request $request)
     {
+
+        if (!Auth::check()) {
+            return Redirect::to('admin/auth/login');
+        }
 
         $user = array();
 
@@ -217,7 +238,7 @@ class UserController extends BaseController
 
         $user['SyncURL'] = '';
 
-        $user['Status'] = 'A';
+        $user['Status'] = $request::get('status');
         $user['Comments'] = '';
 
         try {
@@ -271,6 +292,10 @@ class UserController extends BaseController
 
     public function deleteUser($id)
     {
+        if (!Auth::check()) {
+            return Redirect::to('admin/auth/login');
+        }
+
         try {
             DB::table('merchants')->where('ID', '=', $id)->delete();
 
@@ -289,6 +314,68 @@ class UserController extends BaseController
             }
             return redirect()->back();
         }
+    }
+
+    public function updateuser()
+    {
+        if (!Auth::check()) {
+            return Redirect::to('admin/auth/login');
+        }
+
+        $userID = Request::get('userID');
+
+        DB::setFetchMode(\PDO::FETCH_ASSOC);
+        $getUser = DB::table('merchants')->where('ID', $userID)
+            ->get();
+        DB::setFetchMode(\PDO::FETCH_CLASS);
+
+
+        $updatedata = array();
+        foreach ($getUser as $data) {
+            $updatedata = $data;
+            $updatedata['Name'] = Request::get('Name');
+            $updatedata['Phone'] = Request::get('Phone');
+            $updatedata['Address'] = Request::get('Address');
+
+            $updatedata['City'] = Request::get('City');
+            $updatedata['State'] = Request::get('State');
+            $updatedata['Country'] = Request::get('Country');
+            $updatedata['ZipCode'] = Request::get('ZipCode');
+        }
+
+
+        try {
+            DB::table('merchants')
+                ->where('ID', $userID)
+                ->update($updatedata);
+
+            DB::commit();
+
+            $returnResult = "Success";
+            // all good
+        } catch (\Exception $e) {
+            DB::rollback();
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+        }
+
+        if ($returnResult == "Success") {
+            Session::flash('message', 'Successfully Updated');
+            Session::flash('alert-class', 'alert-success');
+
+            return Redirect::to('admin/users/user/' . $userID . '');
+        } else {
+            return $returnResult;
+        }
+
     }
 
     public function updatepassword()
@@ -392,12 +479,71 @@ class UserController extends BaseController
 
     public function editUserView($id)
     {
-        $user = Merchants::find($id)->first();
+        $user = DB::table('merchants')
+            ->select('*')
+            ->where('ID', $id)
+            ->first();
+
+        //dd($user);
+        $status = DB::table('userstatus')
+            ->select('ID', 'Name')
+            ->get();
+
+        $getAllCompanies = DB::table('usercompany')
+            ->select('id', 'Name')
+            ->get();
+
+        $selectedStatus = $user->Status;
+        $selectedCompany = $user->Company;
         $data = array(
             'user' => $user,
-            'userID' => $id
+            'userID' => $id,
+            'status' => $status,
+            'getAllCompanies' => $getAllCompanies,
+            'selectedStatus' => $selectedStatus,
+            'selectedCompany' => $selectedCompany,
         );
         return view('admin/user/edit-user', $data);
+    }
+
+    public function getAllStatus()
+    {
+
+        DB::setFetchMode(\Pdo::FETCH_ASSOC);
+        $getAllStatus = DB::table('userstatus')
+            ->get();
+        DB::setFetchMode(\Pdo::FETCH_CLASS);
+
+        /*
+        * Set Array key as Status ID
+        * Easy to find by ID
+        * e.g: $StatusByID[6][0]['Status'] will return Status ID = 6 and
+        * Text for this ID
+        * */
+        foreach ($getAllStatus as $key => $value) {
+            $StatusByID[$value['ID']][] = $value;
+        }
+        return $StatusByID;
+    }
+
+    public function getAllCompanies()
+    {
+
+        DB::setFetchMode(\Pdo::FETCH_ASSOC);
+        $getAllStatus = DB::table('usercompany')
+            ->get();
+        DB::setFetchMode(\Pdo::FETCH_CLASS);
+
+        /*
+        * Set Array key as Status ID
+        * Easy to find by ID
+        * e.g: $StatusByID[6][0]['Status'] will return Status ID = 6 and
+        * Text for this ID
+        * */
+        foreach ($getAllStatus as $key => $value) {
+            $StatusByID[$value['id']][] = $value;
+        }
+        return $StatusByID;
     }
 
     public function editUser($id, Request $request)
@@ -421,7 +567,7 @@ class UserController extends BaseController
 
         $user['SyncURL'] = '';
 
-        $user['Status'] = 'A';
+        $user['Status'] = $request::get('status');
         $user['Comments'] = '';
 
         try {

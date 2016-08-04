@@ -102,6 +102,10 @@ class ProductController extends BaseController
             ->where("ProductTypeID", "=", 6)
             ->get();
 
+        $status = DB::table('productstatus')
+            ->select('ID', 'Name')
+            ->get();
+
         $productCategories = DB::table('MP')
             ->join('CP', "MP.ID", "=", "CP.MPID")
             ->select('MP.Name as MainCategory', 'MP.Type', 'CP.Name', 'CP.ID')
@@ -128,7 +132,8 @@ class ProductController extends BaseController
         $data = array(
             'categories' => $categories,
             'productCategories' => $returnData,
-            'productType' => $productTypeID
+            'productType' => $productTypeID,
+            'status' => $status
         );
 
         return view('admin/product/new-product', $data);
@@ -163,7 +168,7 @@ class ProductController extends BaseController
         $product['ExpiryDate'] = $request::get('EnableExpiryDate');
 
         $product['Pos'] = 0;
-        $product['Status'] = 'A';
+        $product['Status'] = $request::get('status');
         $product['MRID'] = 0;
         $product['MRProductID'] = 0;
 
@@ -425,6 +430,26 @@ class ProductController extends BaseController
 
     }
 
+    public function getAllStatus()
+    {
+
+        DB::setFetchMode(\Pdo::FETCH_ASSOC);
+        $getAllStatus = DB::table('productstatus')
+            ->get();
+        DB::setFetchMode(\Pdo::FETCH_CLASS);
+
+        /*
+        * Set Array key as Status ID
+        * Easy to find by ID
+        * e.g: $StatusByID[6][0]['Status'] will return Status ID = 6 and
+        * Text for this ID
+        * */
+        foreach ($getAllStatus as $key => $value) {
+            $StatusByID[$value['ID']][] = $value;
+        }
+        return $StatusByID;
+    }
+
     public function editProductView($id)
     {
         if (!Auth::check()) {
@@ -454,6 +479,10 @@ class ProductController extends BaseController
         $categories = DB::table('Categories')
             ->select('ID', 'Name')
             ->where("ProductTypeID", "=", 6)
+            ->get();
+
+        $status = DB::table('productstatus')
+            ->select('ID', 'Name')
             ->get();
 
         $productCategories = DB::table('MP')
@@ -531,7 +560,7 @@ class ProductController extends BaseController
 
         }
 
-        //dd($product);
+        $selectedStatus = $product[0]->Status;
         $data = array(
             'categories' => $categories,
             'productCategories' => $returnData,
@@ -551,6 +580,8 @@ class ProductController extends BaseController
             'Season' => $Season,
             'SearchColors' => $SearchColors,
             'ContrastColors' => $ContrastColors,
+            'status' => $status,
+            'selectedStatus' => $selectedStatus
         );
         return view('admin/product/edit-product', $data);
     }
@@ -582,6 +613,7 @@ class ProductController extends BaseController
         $product['Dat'] = date('Y-m-d H:i:s');
         $product['EnableExpiry'] = ($request::get('EnableExpiry')) ? 1 : 0;
         $product['ExpiryDate'] = $request::get('EnableExpiryDate');
+        $product['Status'] = $request::get('status');
 
         $productDetailMain = array();
         try {
@@ -911,7 +943,7 @@ class ProductController extends BaseController
         try {
 
             $products = DB::table('Products as pr')
-                ->select('pr.ID', 'pr.Code', 'pr.Name', 'pr.Description', 'pr.Qty', 'pr.Price', 'pr.Dat', 'img.Name as ImgName')
+                ->select('pr.ID', 'pr.Status', 'pr.Code', 'pr.Name', 'pr.Description', 'pr.Qty', 'pr.Price', 'pr.Dat', 'img.Name as ImgName')
                 ->join('Images as img', 'pr.ID', '=', 'img.RefID')
                 ->where("pr.ProductTypeID", "=", 6)
                 ->where("img.RefTable", "=", 'Products')
@@ -920,8 +952,10 @@ class ProductController extends BaseController
                 ->take(20)
                 ->get();
 
+            $statusByID = $this->getAllStatus();
             $data = array(
-                'products' => $products
+                'products' => $products,
+                'statusByID' => $statusByID
             );
             return view('admin/product/productListing', $data);
         } catch (\Exception $e) {

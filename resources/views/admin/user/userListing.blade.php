@@ -42,18 +42,20 @@
                                         <?=$user->Email;?>
                                     </td>
                                     <td>
-                                        <?=$user->Company;?>
+                                        <?=$getAllCompanies[$user->Company][0]['Name'];?>
                                     </td>
                                     <td>
                                         <?=$user->Country;?>
                                     </td>
                                     <td class="center">
-                                        <?=$user->Status;?>
+                                        <?=$StatusByID[$user->Status][0]['Name'];?>
                                     </td>
                                     <td>
-                                        <a href="<?php echo URL::to('admin/user/edit/'.$user->ID.''); ?>" class="fa fa-pencil"
+                                        <a href="<?php echo URL::to('admin/user/edit/' . $user->ID . ''); ?>"
+                                           class="fa fa-pencil"
                                            style="color: #5cb85c;"></a>
-                                        <a href="<?php echo URL::to('admin/user/delete/'.$user->ID.''); ?>" class="fa fa-times"
+                                        <a href="<?php echo URL::to('admin/user/delete/' . $user->ID . ''); ?>"
+                                           class="fa fa-times"
                                            style="color: #d9534f;"></a>
                                     </td>
                                 </tr>

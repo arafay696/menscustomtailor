@@ -67,7 +67,16 @@
                                         <label>Expiry Date</label>
                                         <input class="form-control" value="{{Request::old('EnableExpiryDate')}}" name="EnableExpiryDate" placeholder="Enter text">
                                     </div>
-
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select class="form-control" name="status">
+                                            <?php foreach ($status as $st) { ?>
+                                            <option value="<?=$st->ID;?>">
+                                                <?=$st->Name;?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-12">
@@ -155,8 +164,19 @@
                                                     <h4>Search Filters</h4>
 
                                                     <div class="col-lg-12">
-                                                        <?php foreach ($productCategories as $key => $cp) { ?>
-                                                        <div class="col-lg-6 fieldset">
+                                                        <?php
+                                                        $i = 0;
+                                                        foreach ($productCategories as $key => $cp) { ?>
+                                                        <?php
+                                                            if($i % 2 == 0){
+                                                                echo '</div><div class="col-lg-12">';
+                                                            }
+                                                        $setting = '';
+                                                        if($key == 'FabricType'){
+                                                            $setting = 'style="height:381px;"';
+                                                        }
+                                                        ?>
+                                                        <div class="col-lg-6 fieldset" <?=$setting;?>>
                                                             <div class="form-group">
                                                                 <label><?=$key;?></label>
                                                                 <?php
@@ -202,7 +222,7 @@
                                                                 <?php } ?>
                                                             </div>
                                                         </div>
-                                                        <?php } ?>
+                                                        <?php $i++; } ?>
                                                     </div>
 
                                                 </div>

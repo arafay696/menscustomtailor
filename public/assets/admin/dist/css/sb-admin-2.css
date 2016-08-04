@@ -364,7 +364,7 @@ table.dataTable thead .sorting:after {
 }
 
 .fieldset {
-    border: 1px solid #ddd;
+    border: 1px solid #f1f1f1;
     margin-right: 0;
     padding: 17px;
 }

@@ -68,71 +68,64 @@ extract($userData);
                                 <div class="col-md-6">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">Name</span>
-                                        <input name="name" id="name" type="text" class="form-control"
+                                        <input name="Name" id="name" type="text" class="form-control"
                                                value="<?=$Name;?>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">Email</span>
-                                        <input name="email" id="email" type="text" class="form-control"
-                                               value="<?=$Email;?>">
+                                        <input name="Email" id="email" type="text" class="form-control"
+                                               value="<?=$Email;?>" readonly>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">Phone</span>
-                                        <input name="cellnumber" id="cellnumber" type="text" class="form-control"
-                                               value="<?=$Phone;?>">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group input-group">
-                                        <span class="input-group-addon">Phone</span>
-                                        <input name="cellnumber" id="cellnumber" type="text" class="form-control"
+                                        <input name="Phone" id="cellnumber" type="text" class="form-control"
                                                value="<?=$Phone;?>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">Company</span>
-                                        <input name="cellnumber" id="cellnumber" type="text" class="form-control"
-                                               value="<?=$Company;?>">
+                                        <input name="Company" id="cellnumber" type="text" class="form-control"
+                                               value="<?=$Company;?>" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">Address</span>
-                                        <input name="cellnumber" id="cellnumber" type="text" class="form-control"
+                                        <input name="Address" id="cellnumber" type="text" class="form-control"
                                                value="<?=$Address;?>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">City</span>
-                                        <input name="cellnumber" id="cellnumber" type="text" class="form-control"
+                                        <input name="City" id="cellnumber" type="text" class="form-control"
                                                value="<?=$City;?>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">State</span>
-                                        <input name="cellnumber" id="cellnumber" type="text" class="form-control"
+                                        <input name="State" id="cellnumber" type="text" class="form-control"
                                                value="<?=$State;?>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">Country</span>
-                                        <input name="cellnumber" id="cellnumber" type="text" class="form-control"
+                                        <input name="Country" id="cellnumber" type="text" class="form-control"
                                                value="<?=$Country;?>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">Zip Code</span>
-                                        <input name="cellnumber" id="cellnumber" type="text" class="form-control"
+                                        <input name="ZipCode" id="cellnumber" type="text" class="form-control"
                                                value="<?=$ZipCode;?>">
                                     </div>
                                 </div>

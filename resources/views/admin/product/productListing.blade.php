@@ -23,7 +23,7 @@
                                     <th></th>
                                     <th>Code</th>
                                     <th>Name</th>
-                                    <th>Description</th>
+                                    <th>Status</th>
                                     <th>Qty</th>
                                     <th>Price</th>
                                     <th>Date</th>
@@ -47,7 +47,7 @@
                                         <?=$product->Name;?>
                                     </td>
                                     <td>
-                                        <?=$product->Description;?>
+                                        <?=$statusByID[$product->Status][0]['Name'];?>
                                     </td>
                                     <td class="center">
                                         <?=$product->Qty;?>
@@ -56,7 +56,7 @@
                                         <?=$product->Price;?>
                                     </td>
                                     <td class="center">
-                                        <?=$product->Dat;?>
+                                        <?php echo date('d F Y', strtotime($product->Dat));?>
                                     </td>
                                     <td>
                                         <a href="<?php echo URL::to('admin/product/edit/' . $product->ID . ''); ?>"

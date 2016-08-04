@@ -15,7 +15,7 @@
                         Edit User
                     </div>
                     <form name="myForm" role="form" method="post"
-                          action="<?php echo URL::to('admin/user/edit-user/'.$userID.''); ?>">
+                          action="<?php echo URL::to('admin/user/edit-user/' . $userID . ''); ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <div class="panel-body">
                             <div class="row">
@@ -37,15 +37,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Company</label>
-                                        <select class="form-control" value="<?=$user->Company;?>">
-                                            <option>Production</option>
-                                            <option>Main Store</option>
-                                            <option>Giorgenti Township</option>
-                                            <option>Alfateh</option>
-                                            <option>Ammar Belal</option>
-                                            <option>BCS</option>
-                                            <option>Mall of Lahore</option>
+                                        <select class="form-control" name="Company">
+                                            <?php foreach ($getAllCompanies as $st) { ?>
+                                            <option value="<?=$st->id;?>" <?php echo ($selectedCompany == $st->id) ? 'selected="selected"' : '';?>>
+                                                <?=$st->Name;?>
+                                            </option>
+                                            <?php } ?>
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ZipCode</label>
+                                        <input class="form-control" name="ZipCode" value="<?=$user->ZipCode;?>"
+                                               placeholder="Enter text">
                                     </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -67,7 +70,16 @@
                                         <input class="form-control" name="Phone" value="<?=$user->Phone;?>"
                                                placeholder="Enter text">
                                     </div>
-
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select class="form-control" name="status">
+                                            <?php foreach ($status as $st) { ?>
+                                            <option value="<?=$st->ID;?>" <?php echo ($selectedStatus == $st->ID) ? 'selected="selected"' : '';?>>
+                                                <?=$st->Name;?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-12">
@@ -100,11 +112,7 @@
                                         <input class="form-control" name="Country" value="<?=$user->Country;?>"
                                                placeholder="Enter text">
                                     </div>
-                                    <div class="form-group">
-                                        <label>ZipCode</label>
-                                        <input class="form-control" name="ZipCode" value="<?=$user->ZipCode;?>"
-                                               placeholder="Enter text">
-                                    </div>
+
                                 </div>
                                 <div class="col-lg-12">
                                     <button type="reset" class="btn btn-primary pull-right" style="margin-left: 4px;">
