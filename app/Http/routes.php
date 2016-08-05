@@ -20,6 +20,7 @@ Route::get('/', 'Client\HomeController@index');
 //  Fabric Routes
 Route::get('/fabric', 'Client\FabricController@index');
 Route::get('/fabric/{id}', 'Client\FabricController@customize');
+Route::post('/fabric/customize', 'Client\FabricController@setCustomizeValues');
 
 //  User Routes
 Route::get('/login', 'Client\UserController@index');

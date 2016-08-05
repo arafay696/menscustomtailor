@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Client;
 
 use DB;
 use Redirect;
+use Request;
 
 class FabricController extends BaseController
 {
@@ -43,7 +44,13 @@ class FabricController extends BaseController
 
     }
 
-    public function customize($id){
+    public function customize($id)
+    {
         return view('client.customize');
+    }
+
+    public function setCustomizeValues(Request $request)
+    {
+        print_r($request::all());
     }
 }
