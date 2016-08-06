@@ -52,16 +52,16 @@ $(document).ready(function (e) {
 
 
     $(".artistProducer label").click(function (e) {
-        $(".artistProducer label").removeClass('select');
         $(this).addClass('select');
+        $(this).closest('.customization_item').siblings('.customization_item').each(function () {
+            $(this).find('label').removeClass('select');
+        });
     });
 
 
     $(".servicesTerm label,.whiteCollar label,.whiteCuff label").click(function (e) {
         $(this).toggleClass('active');
     });
-
-
 
 
 });

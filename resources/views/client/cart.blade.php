@@ -21,7 +21,7 @@
                         <div class="cart_listing">
                             <ul>
                                 <?php
-                                foreach ($cart as $cartItem) { ?>
+                                foreach ($cart as $key => $cartItem) { ?>
                                     <li class="clearfix">
                                     <div class="shirt_colmn_list">
                                         <img src="<?php echo URL::to('resources/assets/images/' . $cartItem['ProductImage']); ?>"
@@ -41,7 +41,7 @@
                                         <h5>$250</h5>
                                     </div>
                                     <div class="del_icon">
-                                        <a href="javascript:void(0)">&nbsp;</a>
+                                        <a href="<?=URL::to('cart/remove/'.$key.'');?>">&nbsp;</a>
                                     </div>
                                 </li>
                                 <?php } ?>
