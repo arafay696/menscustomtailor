@@ -1,0 +1,63 @@
+.customize_setting h3 {
+    float: left !important;
+    width: 75% !important;
+}
+
+.customize_setting .actions {
+    background: rgba(0, 0, 0, 0) url("../images/border_double2.png") repeat-x scroll center bottom;
+    display: block;
+    float: right !important;
+    margin-top: 5px;
+    padding-bottom: 24px;
+    width: 25% !important;
+}
+
+.customize_setting .actions a:first-child {
+    background: #000;
+    color: #fff;
+    border: none;
+}
+
+.customize_setting .actions a:last-child {
+    margin-right: 2px !important;;
+}
+
+.customize_slider li {
+    display: none;
+}
+
+.customize_slider .active-customize {
+    display: block;
+    transition: width .5s ease, background-color .5s ease;
+}
+
+.neck_dtail select {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #9f9f9f;
+    color: #000;
+    font-family: "ralewaylight";
+    font-size: 18px;
+    height: 40px;
+    margin: auto;
+    padding: 6px 10px;
+    text-align: left;
+    width: 100%;
+}
+
+.cartEmpty {
+     background: none !important;
+     border: 1px solid #9f9f9f;
+ }
+
+.cartEmpty ul li .shirt_colmn_list {
+    width: 100% !important;
+}
+
+.cartEmpty ul li div {
+    font-size: 18px;
+    text-align: center;
+}
+
+.shirt_colmn_list {
+    padding: 15px 0 15px 11px !important;
+}

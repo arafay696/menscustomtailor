@@ -9,14 +9,18 @@
 namespace App\Http\Controllers\Client;
 
 
+use App\Http\Controllers\Client\CommonFunction;
 use App\Http\Controllers\Controller;
 
 
-class BaseController extends Controller {
+class BaseController extends Controller
+{
 
+    use CommonFunction;
     public $errorMsg;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->errorMsg = 'Whoops! There were some problems with your input.';
     }

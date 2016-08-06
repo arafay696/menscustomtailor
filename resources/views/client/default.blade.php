@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>MEN'S CUSTOM TAILOR </title>
     <link rel="stylesheet" type="text/css" href="<?php echo URL::asset('public/assets/client/css/style.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo URL::asset('public/assets/client/css/my_style.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo URL::asset('public/assets/client/css/responsive.css'); ?>">
     <link rel="stylesheet" type="text/css"
           href="<?php echo URL::asset('public/assets/client/css/owl.carousel.css'); ?>">
@@ -36,10 +37,10 @@
             }
 
             if ($('.customize_slider').length > 0) {
-                $('.customize_slider').bxSlider({
+                /*$('.customize_slider').bxSlider({
                     minSlides: 1,
                     maxSlides: 1
-                });
+                });*/
             }
         });
     </script>
@@ -47,6 +48,7 @@
 
 </head>
 <body class="page--filtering" data-page="filtering" data-page-id="home">
+<input type="hidden" id="baseUrl" value="<?=URL::to('/');?>" />
 <div id="wrapper" data-js-module="filtering-demo" role="main" class="page-container current-page">
     <div class="header">
         <div class="auto_content">
@@ -95,7 +97,7 @@
                             <h5>TOTAL</h5>
                             <span>  $1,375.65</span>
                         </div>
-                        <a href="javascript:void(0)" class="check_bttn">CHECKOUT</a>
+                        <a href="<?php echo URL::to('/cart');?>" class="check_bttn">CHECKOUT</a>
                     </div>
                 </div>
 
