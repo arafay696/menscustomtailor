@@ -23,6 +23,7 @@ Route::get('/fabric/{id}', 'Client\FabricController@customize');
 Route::post('/fabric/customize', 'Client\FabricController@setCustomizeValues');
 Route::get('/cart', 'Client\CartController@index');
 Route::get('cart/remove/{key}', 'Client\CartController@RemoveItem');
+Route::get('cart/save', 'Client\CartController@SaveData');
 
 //  User Routes
 Route::get('/login', 'Client\UserController@index');

@@ -287,9 +287,9 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
-                                                <input name="neckSize" type="text" value=""
+                                                <input name="NeckSize" type="text" value=""
                                                        placeholder="Neck size in/ cm"/>
-                                                <select style="margin-top: 4px;" name="neckHeight">
+                                                <select style="margin-top: 4px;" name="NeckHeight">
                                                     <option>Select Neck Height</option>
                                                     <option>Short</option>
                                                     <option>Average</option>
@@ -789,7 +789,7 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
-                                                <select name="chestSize">
+                                                <select name="Chest">
                                                     <option value="">Select Chest Size</option>
                                                     <option value="30">30</option>
                                                     <option value="30 1/4">30 1/4</option>
@@ -980,7 +980,7 @@
                                                     <option value="76 1/2">76 1/2</option>
                                                     <option value="76 3/4">76 3/4</option>
                                                 </select>
-                                                <select style="margin-top: 4px;" name="chestDescription">
+                                                <select style="margin-top: 4px;" name="ChestDescription">
                                                     <option>Select Chect Description</option>
                                                     <option>Slender</option>
                                                     <option>Regular Build</option>
@@ -1038,7 +1038,7 @@
                                                     <option value="8">8</option>
                                                     <option value="9">9</option>
                                                 </select>
-                                                <select size="1"
+                                                <select name="HeightInches" size="1"
                                                         style="display: inline-block; clear: none; margin-left: 2px; width: 49%;">
                                                     <option selected="" value="0">0</option>
                                                     <option value="1">1</option>
@@ -1631,7 +1631,7 @@
                                                     <option value="Rounded">Rounded</option>
                                                     <option value="Stout">Stout</option>
                                                 </select>
-                                                <select name="armType" style="margin-top: 4px;">
+                                                <select name="ArmType" style="margin-top: 4px;">
                                                     <option selected="" value="-1">Select Arm Type</option>
                                                     <option value="Slender">Slender</option>
                                                     <option value="Average">Average</option>
@@ -1639,14 +1639,14 @@
                                                     <option value="Heavy">Heavy</option>
                                                 </select>
                                                 <select style="margin-top: 4px;" title="Weight" size="1"
-                                                        name="bodyShape">
+                                                        name="BodyShape">
                                                     <option selected="" value="-1">Select Body Shape</option>
                                                     <option value="Average">Average</option>
                                                     <option value="Athletic">Athletic</option>
                                                     <option value="Portly">Portly</option>
                                                 </select>
                                                 <select style="margin-top: 4px;" title="Waist" size="1"
-                                                        name="bodyProportion">
+                                                        name="BodyProportion">
                                                     <option selected="" value="-1">Select Body proportion</option>
                                                     <option value="Evenly Proportioned">Evenly Proportioned</option>
                                                     <option value="Short Torso / Long Legs">Short Torso / Long Legs
@@ -1655,7 +1655,7 @@
                                                     </option>
                                                 </select>
                                                 <select style="margin-top: 4px;" title="Waist" size="1"
-                                                        name="shoulderType">
+                                                        name="Shoulder">
                                                     <option selected="" value="-1">Select Shoulder Type</option>
                                                     <option value="Sloping">Sloping</option>
                                                     <option value="Average">Average</option>
