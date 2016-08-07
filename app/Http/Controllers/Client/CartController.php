@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use Request;
 use Session;
 use Redirect;
 use DB;
@@ -31,17 +32,42 @@ class CartController extends BaseController
         return Redirect::back();
     }
 
-    public function SaveData()
+    public function checkOption($array, $findValue)
+    {
+        $find = false;
+        foreach ($array as $value) {
+            if (isset($value[$findValue])) {
+                if ($value[$findValue] && !$find) {
+                    $find = true;
+                }
+            }
+
+        }
+
+        return $find;
+    }
+
+    public function SaveData(Request $request)
     {
         try {
+            //dd($request::except('_token'));
+            DB::beginTransaction();
             $data = $this->getCartData();
+            //dd($data);
             $userId = Session::get('customerID');
+            $CustomerEmail = Session::get('CustomerEmail');
+            $CustomerName = Session::get('CustomerName');
             $userId = 1;
+            $CustomerEmail = 'arafay696@gmail.com';
+            $CustomerName = 'Abdul Rafay';
             $getSize = DB::table('size')
                 ->select('ID', 'CustomerID')
                 ->where("CustomerID", "=", $userId)
                 ->first();
 
+            $orderID = null;
+
+            // Save Size
             foreach ($data as $value) {
                 $sizeDetail = array();
                 $sizeDetail['CustomerID'] = 1;
@@ -92,20 +118,154 @@ class CartController extends BaseController
                 $sizeDetail['ShirtLength'] = '';
                 $sizeDetail['MidSection'] = '';
                 $sizeDetail['BiggestChallenge'] = '';
+
             }
-            DB::beginTransaction();
 
             if (count($getSize) <= 0 && !is_array($getSize)) {
                 $sizeID = DB::table('size')->insertGetId($sizeDetail);
-                dd('New Inserted'. $sizeID);
             } else {
                 $CustomerID = $getSize->CustomerID;
-                DB::table('Products')->where('CustomerID', $CustomerID)->update($sizeDetail);
-                dd('Updated');
+                $sizeID = $getSize->ID;
+                DB::table('size')->where('CustomerID', $CustomerID)->update($sizeDetail);
             }
 
+            $OrderDetail = $request::except('_token');
+            //dd('Value is ' . $aa['TotalPrice']);
+            /*
+             * --- Save Order
+             * */
+            $orderDetail = array();
+            $orderDetail['CustomerID'] = $userId;
+            $orderDetail['GOrderNo'] = mt_rand(1, 5000);
+            $orderDetail['Code'] = mt_rand(1, 5000);
+            $orderDetail['OrderType'] = '';
+            $orderDetail['PlacedFor'] = '';
+            $orderDetail['Price'] = $OrderDetail['TotalPrice'];
+            $orderDetail['OtherItem'] = '';
+            $orderDetail['SalesTax'] = 2;
+            $orderDetail['Discount'] = 2;
+            $orderDetail['Shiping'] = $OrderDetail['Shipping'];
+            $orderDetail['Deal'] = '';
+            $orderDetail['Mono'] = 0;
+            $orderDetail['WhiteCollar'] = ($this->checkOption($data, 'whiteCollar')) ? 5 : 0;
+            $orderDetail['WhiteCuff'] = ($this->checkOption($data, 'whiteCuff')) ? 5 : 0;
+            $orderDetail['PleatedFront'] = 0;
+            $orderDetail['TuxFront'] = 0;
+            $orderDetail['LessShirt'] = '';
+            $orderDetail['Custom'] = '';
+            $orderDetail['OverSize'] = '';
+            $orderDetail['Pocket'] = 0;
+            $orderDetail['Rush'] = '';
+            $orderDetail['Sleeve'] = '';
+            $orderDetail['Tail'] = '';
+            $orderDetail['DiffCollar'] = ($this->checkOption($data, 'whiteCollar')) ? 5 : 0;
+            $orderDetail['Amount'] = $OrderDetail['Amount'];
+            $orderDetail['Paid'] = 0;
+            $orderDetail['TransferTo'] = $CustomerName;
+            $orderDetail['Status'] = 1;
+            $orderDetail['TrackingNo'] = mt_rand(1, 5000);
+            $orderDetail['OnTime'] = '';
+            $orderDetail['Must'] = '';
+            $orderDetail['Comments'] = '';
+            $orderDetail['Description'] = '';
+            $orderDetail['StatusText'] = '';
+            $orderDetail['OrderDate'] = date('Y-m-d H:i:s');
+            $orderDetail['PromiseDate'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
+            $orderDetail['DeliveryDate'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
+            $orderDetail['TentitiveShipDate'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
+            $orderDetail['ProductionDate'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
+            $orderDetail['ShipDate'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
+            $orderDetail['CallDate'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 8 days'));
+            $orderDetail['ActionTaken'] = '';
+            $orderDetail['SalesPerson'] = '';
+            $orderDetail['SubmittedBy'] = 'MCT';
+            $orderDetail['Level1Status'] = '';
+            $orderDetail['ShipMethod'] = '';
+            $orderDetail['CustomerName'] = $CustomerName;
+            $orderDetail['ShippingAddress'] = '';
+            $orderDetail['SizeID'] = $sizeID;
+            $orderDetail['Site'] = 'MCT';
+            $orderDetail['DirectShipment'] = '';
+            $orderDetail['NotSure'] = '';
+            $orderDetail['MailingID'] = $CustomerEmail;
+            $orderDetail['Extra'] = '';
+            $orderDetail['ExtraCharges'] = '';
+
+            $orderID = DB::table('orders')->insertGetId($orderDetail);
+
+            /*
+             * --- Save Shirt Detail
+             * */
+            $total = 0;
             $shirtDetail = array();
-            $shirtDetail[] = '';
+            foreach ($data as $value) {
+                $total += $value['Price'];
+                $shirtDetailItem = array();
+                $shirtDetailItem['OrderID'] = $orderID;
+                $shirtDetailItem['SizeID'] = $sizeID;
+                $shirtDetailItem['FabricCode'] = mt_rand(0, 9999);
+                $shirtDetailItem['FabricColor'] = 'Black';
+                $shirtDetailItem['FabricContents'] = 'FabricContents';
+                $shirtDetailItem['Qty'] = 1;
+                $shirtDetailItem['FabricPrice'] = $value['Price'];
+                $shirtDetailItem['Total'] = $total;
+                $shirtDetailItem['ExtraCharges'] = 0;
+                $shirtDetailItem['Discount'] = 0;
+                $shirtDetailItem['CollarStyle'] = $value['collarType'];
+                $shirtDetailItem['CollarLength'] = $value['NeckHeight'];
+                $shirtDetailItem['CollarHeight'] = $value['NeckHeight'];
+                $shirtDetailItem['WhiteCollar'] = isset($value['whiteCollar']) ? $value['whiteCollar'] : 0;
+                $shirtDetailItem['CollarTieSpace'] = '';
+                $shirtDetailItem['CollarStays'] = '';
+                $shirtDetailItem['CollarLining'] = '';
+                $shirtDetailItem['CollarStitch'] = '';
+                $shirtDetailItem['FrontStyle'] = $value['frontStyle'];
+                $shirtDetailItem['FrontClosure'] = '';
+                $shirtDetailItem['BackStyle'] = '';
+                $shirtDetailItem['ShirtBottomStyle'] = '';
+                $shirtDetailItem['CuffStyle'] = $value['cuffStyle'];
+                $shirtDetailItem['WhiteCuffs'] = isset($value['whiteCuff']) ? $value['whiteCuff'] : 0;
+                $shirtDetailItem['CuffLining'] = '';
+                $shirtDetailItem['CuffStitch'] = '';
+                $shirtDetailItem['HalfSleeve'] = '';
+                $shirtDetailItem['Monogram'] = $value['monogramStyle'];
+                $shirtDetailItem['MonoPosition'] = $value['monogramLocation'];
+                $shirtDetailItem['MonoColor'] = $value['monogramColor'];
+                $shirtDetailItem['MonoInitials'] = $value['monogramIntials'];
+                $shirtDetailItem['PocketStyle'] = $value['pocketStyle'];
+                $shirtDetailItem['NumberOfPockets'] = $value['noOfPocket'];
+                $shirtDetailItem['PleatedPocket'] = '';
+                $shirtDetailItem['PocketFlaps'] = '';
+                $shirtDetailItem['ShirtType'] = $value['shirtType'];
+                $shirtDetailItem['Deal'] = '';
+                $shirtDetailItem['StyleComments'] = '';
+                $shirtDetailItem['Dat'] = date('Y-m-d H:i:s');
+                $shirtDetailItem['Fit'] = '';
+                $shirtDetailItem['FedEx'] = '';
+                $shirtDetailItem['TransferToLevel1'] = '';
+                $shirtDetailItem['TransferDate1'] = '';
+                $shirtDetailItem['Level1PromiseDate'] = '';
+                $shirtDetailItem['Level1TentitiveDate'] = '';
+                $shirtDetailItem['Level1Ship'] = '';
+                $shirtDetailItem['ShipDate1'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
+                $shirtDetailItem['TransferToLevel2'] = '';
+                $shirtDetailItem['TransferDate2'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
+                $shirtDetailItem['Level2Ship'] = '';
+                $shirtDetailItem['ShipDate2'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
+                $shirtDetailItem['ShipToCustomer'] = $CustomerName;
+                $shirtDetailItem['CustomerShipDate'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
+                $shirtDetailItem['StatusID'] = 1;
+                $shirtDetailItem['ShirtStatus'] = 1;
+                $shirtDetailItem['Status'] = 1;
+                $shirtDetailItem['SleevePlacketButton'] = '';
+                $shirtDetailItem['Label'] = '';
+                $shirtDetailItem['Class'] = '';
+                array_push($shirtDetail, $shirtDetailItem);
+            }
+
+            $shirtdetailStatus = DB::table('shirtdetail')->insert($shirtDetail);
+            DB::commit();
+
         } catch (\Exception $e) {
             DB::rollback();
             $error = $e->getMessage();

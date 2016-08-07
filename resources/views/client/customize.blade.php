@@ -1702,10 +1702,10 @@
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
                                                 <div style="padding-bottom: 0px;" class="servicesTerm whiteCollar">
-                                                    <label class="active"><input name="whiteCollar" type="checkbox"></label><p>White Collar</p>
+                                                    <label class="active"><input name="whiteCollar" type="checkbox" value="1" checked></label><p>White Collar</p>
                                                 </div>
                                                 <div style="padding-bottom: 0px;" class="servicesTerm whiteCuff">
-                                                    <label class="active"><input name="whiteCuff" type="checkbox"></label><p>White Cuff</p>
+                                                    <label class="active"><input name="whiteCuff" type="checkbox" value="1" checked></label><p>White Cuff</p>
                                                 </div>
                                                 <select style="margin-top: 4px;" name="shirtTailType">
                                                     <option selected="" value="-1">Shirt Tail Type</option>

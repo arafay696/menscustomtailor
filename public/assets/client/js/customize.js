@@ -23,7 +23,7 @@ $(document).ready(function (e) {
                         $('.customize_slider .in').removeClass('in');
                     });
                 } else {
-                    window.location.href = baseUrl + '/cart';
+                    //window.location.href = baseUrl + '/cart';
                 }
             }, error: function () {
                 alert('Error Occured');
