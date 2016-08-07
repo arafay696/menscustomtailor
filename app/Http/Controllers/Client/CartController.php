@@ -50,22 +50,21 @@ class CartController extends BaseController
     public function SaveData(Request $request)
     {
         try {
-            //dd($request::except('_token'));
             DB::beginTransaction();
+            // Get Session Data
             $data = $this->getCartData();
-            //dd($data);
-            $userId = Session::get('customerID');
+            $userId = Session::get('CustomerID');
             $CustomerEmail = Session::get('CustomerEmail');
             $CustomerName = Session::get('CustomerName');
             $userId = 1;
             $CustomerEmail = 'arafay696@gmail.com';
             $CustomerName = 'Abdul Rafay';
+
+            // Check Already Size exist - Insert Or update
             $getSize = DB::table('size')
                 ->select('ID', 'CustomerID')
                 ->where("CustomerID", "=", $userId)
                 ->first();
-
-            $orderID = null;
 
             // Save Size
             foreach ($data as $value) {
@@ -129,8 +128,9 @@ class CartController extends BaseController
                 DB::table('size')->where('CustomerID', $CustomerID)->update($sizeDetail);
             }
 
-            $OrderDetail = $request::except('_token');
-            //dd('Value is ' . $aa['TotalPrice']);
+            // Get Price,Amount & Other Charges
+            $OrderDetailItems = $request::except('_token');
+
             /*
              * --- Save Order
              * */
@@ -140,11 +140,11 @@ class CartController extends BaseController
             $orderDetail['Code'] = mt_rand(1, 5000);
             $orderDetail['OrderType'] = '';
             $orderDetail['PlacedFor'] = '';
-            $orderDetail['Price'] = $OrderDetail['TotalPrice'];
+            $orderDetail['Price'] = $OrderDetailItems['TotalPrice'];
             $orderDetail['OtherItem'] = '';
             $orderDetail['SalesTax'] = 2;
             $orderDetail['Discount'] = 2;
-            $orderDetail['Shiping'] = $OrderDetail['Shipping'];
+            $orderDetail['Shiping'] = $OrderDetailItems['Shipping'];
             $orderDetail['Deal'] = '';
             $orderDetail['Mono'] = 0;
             $orderDetail['WhiteCollar'] = ($this->checkOption($data, 'whiteCollar')) ? 5 : 0;
@@ -159,7 +159,7 @@ class CartController extends BaseController
             $orderDetail['Sleeve'] = '';
             $orderDetail['Tail'] = '';
             $orderDetail['DiffCollar'] = ($this->checkOption($data, 'whiteCollar')) ? 5 : 0;
-            $orderDetail['Amount'] = $OrderDetail['Amount'];
+            $orderDetail['Amount'] = $OrderDetailItems['Amount'];
             $orderDetail['Paid'] = 0;
             $orderDetail['TransferTo'] = $CustomerName;
             $orderDetail['Status'] = 1;
@@ -263,13 +263,16 @@ class CartController extends BaseController
                 array_push($shirtDetail, $shirtDetailItem);
             }
 
-            $shirtdetailStatus = DB::table('shirtdetail')->insert($shirtDetail);
+            DB::table('shirtdetail')->insert($shirtDetail);
             DB::commit();
 
+            Session::flash('globalSuccessMsg', 'Order Saved.');
+            Session::flash('alert-class', 'alert-success');
+
+            return Redirect::to('/');
         } catch (\Exception $e) {
             DB::rollback();
             $error = $e->getMessage();
-            dd($error);
             if (env('Mode') == 'Development') {
                 $this->errorMsg = $error;
                 Session::flash('globalErrMsg', $this->errorMsg);
@@ -281,5 +284,10 @@ class CartController extends BaseController
             return redirect()->back();
 
         }
+    }
+
+    public function checkout()
+    {
+        return view('client/checkout');
     }
 }

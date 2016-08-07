@@ -38,9 +38,9 @@
 
             if ($('.customize_slider').length > 0) {
                 /*$('.customize_slider').bxSlider({
-                    minSlides: 1,
-                    maxSlides: 1
-                });*/
+                 minSlides: 1,
+                 maxSlides: 1
+                 });*/
             }
         });
     </script>
@@ -48,14 +48,31 @@
 
 </head>
 <body class="page--filtering" data-page="filtering" data-page-id="home">
-<input type="hidden" id="baseUrl" value="<?=URL::to('/');?>" />
+<input type="hidden" id="baseUrl" value="<?=URL::to('/');?>"/>
+@if(Session::has('globalErrMsg'))
+    <div style="display:block;"
+         class="setOutputSession errorMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+        <span>{{ Session::get('globalErrMsg') }}</span>
+        <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
+    </div>
+
+@endif
+
+@if(Session::has('globalSuccessMsg'))
+    <div style="display:block;"
+         class="setOutputSession successMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+        <span>{{ Session::get('globalSuccessMsg') }}</span>
+        <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
+    </div>
+@endif
 <div id="wrapper" data-js-module="filtering-demo" role="main" class="page-container current-page">
     <div class="header">
         <div class="auto_content">
             <div class="header_dtail clearfix">
                 <div class="men_logo">
-                    <a href="<?php echo URL::to('/');?>""><img src="<?php echo URL::to('public/assets/client/images/header_logo.png');?>"
-                                     alt="#"/></a>
+                    <a href="<?php echo URL::to('/');?>""><img
+                            src="<?php echo URL::to('public/assets/client/images/header_logo.png');?>"
+                            alt="#"/></a>
                 </div>
 
                 <div class="menu_cart_outer clearfix">
@@ -75,8 +92,25 @@
                     <div class="cart_and_search clearfix">
                         <a href="javascript:void(0)" class="icon_search">&nbsp;</a>
                         <a href="javascript:void(0)" class="icon_cart">&nbsp;</a>
+                        @if(!Session::has('CustomerID'))
                         <a href="<?php echo URL::to('/login');?>" class="icon_login">&nbsp;</a>
+                        @endif
                     </div>
+
+                    @if(Session::has('CustomerID'))
+                        <div class="login_profile clearfix">
+                            <span>
+                                <img src="<?= URL::to('public/assets/client/images/login_img.png'); ?>" alt="#"/>
+                            </span>
+                            <a href="#">User Name</a>
+                            <ul>
+                                <li><a href="#">lovely</a></li>
+                                <li><a href="#">Setting</a></li>
+                                <li><a href="<?php echo URL::to('/logout');?>">Log Out</a></li>
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="card_popup">
                         <h4>Cart Summary</h4>
                         <ul>

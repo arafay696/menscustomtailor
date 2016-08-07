@@ -885,7 +885,7 @@ body{width:100%;  font-size:14px;font-family: 'latoregular'; background:#fff;  }
 
 .login_profile a { display:inline-block; float:left; color:#5b5b5b; font-size:14px; background:url(../images/menu1_aero.png) right center no-repeat; margin-top:7px; padding-right:20px;}
 
-.login_profile ul { position:absolute; left:15px; top:38px; background:#fff; padding:5px 0px;  width:100%; box-shadow: 0 0 3px #eb9229;-moz-box-shadow: 0 0 3px #eb9229;-ms-box-shadow: 0 0 3px #eb9229;-o-box-shadow: 0 0 3px #eb9229;-webkit-box-shadow: 0 0 3px #eb9229; display:none;}
+.login_profile ul { position:absolute; left:15px; top:38px; background:#fff; padding:5px 0px;  width:100%; box-shadow: 0 0 3px #eb9229;-moz-box-shadow: 0 0 3px #eb9229;-ms-box-shadow: 0 0 3px #eb9229;-o-box-shadow: 0 0 3px #eb9229;-webkit-box-shadow: 0 0 3px #eb9229; display:none;z-index: 1;}
 
 .login_profile ul li { padding-bottom:3px;}
 

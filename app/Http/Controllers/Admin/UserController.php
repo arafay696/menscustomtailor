@@ -25,18 +25,6 @@ class UserController extends BaseController
 
     public function index()
     {
-        /*$users = DB::table('INFORMATION_SCHEMA.TABLES')
-            ->select('TABLE_NAME')
-            ->where('TABLE_SCHEMA', 'mct')
-            ->where('ENGINE', 'MyISAM')->get();
-			dd(count($users));
-        foreach ($users as $user)
-        {
-            $tbl = $user->TABLE_NAME;
-            //$tbl($tbl);
-            $sql = DB::select( DB::raw("ALTER TABLE `$tbl` ENGINE=INNODB"));
-            //dd($sql);
-        }*/
 
         $merchants = DB::table('merchants')
             ->select('Company')

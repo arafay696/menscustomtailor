@@ -58,8 +58,7 @@
             <span>{{ Session::get('globalSuccessMsg') }}</span>
             <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
         </div>
-
-@endif
+    @endif
 
 <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">

@@ -61,3 +61,14 @@
 .shirt_colmn_list {
     padding: 15px 0 15px 11px !important;
 }
+
+.errorMsgs, .successMsgs {
+    position: fixed;
+    right: 0;
+    top: 84px;
+    z-index: 99999;
+    display: none;
+    max-width: 340px;
+    min-width: 340px;
+    width: 340px;
+}
