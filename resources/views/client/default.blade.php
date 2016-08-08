@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo URL::asset('public/assets/client/css/responsive.css'); ?>">
     <link rel="stylesheet" type="text/css"
           href="<?php echo URL::asset('public/assets/client/css/owl.carousel.css'); ?>">
-
+    <link rel="stylesheet" href="<?php echo URL::asset('public/assets/client/css/font-awesome-4.6.3/css/font-awesome.min.css'); ?>">
     <script type="text/javascript"
             src="<?php echo URL::asset('public/assets/client/js/jquery-1.11.1.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo URL::asset('public/assets/client/js/my_script.js'); ?>"></script>
@@ -93,7 +93,7 @@
                         <a href="javascript:void(0)" class="icon_search">&nbsp;</a>
                         <a href="javascript:void(0)" class="icon_cart">&nbsp;</a>
                         @if(!Session::has('CustomerID'))
-                        <a href="<?php echo URL::to('/login');?>" class="icon_login">&nbsp;</a>
+                        <a id="top_login" href="<?php echo URL::to('/login');?>" class="icon_login">&nbsp;</a>
                         @endif
                     </div>
 

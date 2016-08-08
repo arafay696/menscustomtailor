@@ -23,7 +23,8 @@ class UserController extends BaseController
 
     public function index()
     {
-        return view('client.loginRegister');
+        $returnUrl = Request::get('returnUrl');
+        return view('client.loginRegister')->with('returnUrl', $returnUrl);
     }
 
     public function doLogin()
@@ -62,6 +63,7 @@ class UserController extends BaseController
                 $uPass = $user->Password;
                 $uName = $user->Name;
                 $uEmail = $user->Email;
+                
                 if (Hash::check($userdata['Password'], $uPass)) {
                     Auth::login($user, true);
                 } else {
@@ -76,7 +78,11 @@ class UserController extends BaseController
                     Session::put('CustomerEmail', $uEmail);
                     Session::put('CustomerLogintime', date('Y-m-d H:i:s'));
 
-                    return Redirect::to('/');
+                    if (Request::get('returnUrl') == "") {
+                        return Redirect::to('/');
+                    } else {
+                        return Redirect::to(Request::get('returnUrl'));
+                    }
                 } else {
                     // validation not successful, send back to form
                     return Redirect::back()->withErrors('Login Failed. Please Try again');

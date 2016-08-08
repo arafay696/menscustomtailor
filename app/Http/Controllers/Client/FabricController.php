@@ -12,6 +12,8 @@ use DB;
 use Redirect;
 use Request;
 use Session;
+use Auth;
+use URL;
 
 class FabricController extends BaseController
 {
@@ -59,6 +61,10 @@ class FabricController extends BaseController
 
     public function customize($id)
     {
+        if (!Session::has('CustomerID')) {
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric/' . $id)) . '');
+        }
+
         $product = $this->validProduct($id);
         if (count($product) > 0) {
             $data = array(
@@ -76,9 +82,10 @@ class FabricController extends BaseController
         $productId = $request::get('productID');
         $product = $this->validProduct($productId);
         if (count($product) > 0) {
-            $getCartData = $this->getCartData();
-            $findKey = $this->findInArrayByValue($productId, 'productID', $getCartData);
-            if (is_bool($findKey) === true) {
+            $data = $this->getCartData();
+            $findKey = $this->findInArrayByValue($productId, 'productID', $data);
+            $getCount = count($data);
+            if ($getCount <= 0 && !is_array($data)) {
                 $data = array();
                 $data[0]['ProductImage'] = $product[0]->ImgName;
                 $data[0]['ProductName'] = $product[0]->Name;
@@ -86,8 +93,15 @@ class FabricController extends BaseController
                 foreach ($request::except('_token') as $key => $value) {
                     $data[0][$key] = $value;
                 }
+            } else if (!is_int($findKey)) {
+                $data[$getCount] = array();
+                $data[$getCount]['ProductImage'] = $product[0]->ImgName;
+                $data[$getCount]['ProductName'] = $product[0]->Name;
+                $data[$getCount]['Price'] = $product[0]->Price;
+                foreach ($request::except('_token') as $key => $value) {
+                    $data[$getCount][$key] = $value;
+                }
             } else {
-                $data = $getCartData;
                 foreach ($request::except('_token') as $key => $value) {
                     $data[$findKey][$key] = $value;
                 }

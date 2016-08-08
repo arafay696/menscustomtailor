@@ -17,6 +17,7 @@
                         @endif
                         <form action="<?=URL::to('/doLogin');?>" method="post">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                            <input type="hidden" name="returnUrl" value="<?=$returnUrl;?>">
                             <div class="login_dtail">
                                 <h4>Returning customer? </h4>
 

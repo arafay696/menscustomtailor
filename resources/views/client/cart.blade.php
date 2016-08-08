@@ -18,7 +18,9 @@
                                 <div class="product_colmn q_colmn"><h5>Quantity</h5></div>
                                 <div class="product_colmn total_colmn"><h5>Total</h5></div>
                             </div>
-                            <?php if(is_array($cart) && !empty($cart)) { ?>
+                            <?php
+                            $TotalPrice = 0;
+                            if(is_array($cart) && !empty($cart)) { ?>
                             <div class="cart_listing">
                                 <ul>
                                     <?php
@@ -33,13 +35,17 @@
                                             <p>lorem 1 + 3.5 ipswm, 25 ipswm </p>
                                         </div>
                                         <div class="product_colmn_list price_colmn_list">
-                                            <b>$<?=$cartItem['Price'];?></b>
+                                            <b>
+                                                $<?php
+                                                $TotalPrice += $cartItem['Price'];
+                                                echo $cartItem['Price'];
+                                                ?></b>
                                         </div>
                                         <div class="product_colmn_list q_colmn_list">
                                             <input type="number" value="1"/>
                                         </div>
                                         <div class="product_colmn_list total_colmn_list">
-                                            <h5>$250</h5>
+                                            <h5>$<?=$cartItem['Price'];?></h5>
                                         </div>
                                         <div class="del_icon">
                                             <a href="<?=URL::to('cart/remove/' . $key . '');?>">&nbsp;</a>
@@ -60,13 +66,13 @@
                             </div>
                             <?php } ?>
                             <div class="shopping_total clearfix">
-                                <a href="#">Continue Shopping</a>
+                                <a href="<?php echo URL::to('fabric');?>">Continue Shopping</a>
 
                                 <div class="subtotal_dtail">
                                     <ul>
                                         <li class="clearfix">
                                             <span>Subtotal</span>
-                                            <strong>$750</strong>
+                                            <strong>$<?=$TotalPrice;?></strong>
                                         </li>
                                         <li class="clearfix">
                                             <span>Shipping</span>
@@ -75,7 +81,7 @@
                                         <li class="clearfix">
                                             <span>TOTAL</span>
                                             <strong>
-                                                $750
+                                                $<?=$TotalPrice;?>
                                                 <input type="hidden" name="TotalPrice" value="750">
                                                 <input type="hidden" name="Amount" value="750">
                                                 <input type="hidden" name="Shipping" value="15">

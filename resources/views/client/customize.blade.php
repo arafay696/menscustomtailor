@@ -6,7 +6,7 @@
             <div class="auto_content">
                 <div class="cart_pageDtail">
                     <div class="cart_head clearfix customize_setting">
-                        <h3>CUSTOMIZE Your Shirts </h3>
+                        <h3>CUSTOMIZE Your Shirts <i class="fa fa-spinner fa-spin savingCustomize" style="display:none;"></i></h3>
                         <div class="actions">
                             <a class="previousSection" href="javascript:void(0);" style="">Previous</a>
                             <a class="nextSection" href="javascript:void(0);" style="margin-right: 2px">Next</a>
@@ -109,6 +109,15 @@
                                             </div>
                                         </div>
                                         <div class="customize_rightSection">
+                                            <div class="swathces_images clearfix">
+                                                <ul>
+                                                    <li><span><img alt="#" src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"></span></li>
+                                                    <li><span><img alt="#" src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"></span></li>
+                                                    <li><span class="active_swatch"><img alt="#" src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"></span></li>
+                                                    <li><span><img alt="#" src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"></span></li>
+
+                                                </ul>
+                                            </div>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>

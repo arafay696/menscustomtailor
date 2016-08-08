@@ -72,3 +72,9 @@
     min-width: 340px;
     width: 340px;
 }
+
+.savingCustomize {
+    float: right;
+    margin-top: 7px;
+    display: none;
+}

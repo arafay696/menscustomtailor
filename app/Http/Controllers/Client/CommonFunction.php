@@ -47,7 +47,7 @@ trait CommonFunction
                 }
             }
         }
-        return false;
+        return 'null';
     }
 
 }

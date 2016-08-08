@@ -893,7 +893,32 @@ body{width:100%;  font-size:14px;font-family: 'latoregular'; background:#fff;  }
 
 .login_profile ul li:hover a { color:#fff; background:#eb9229;}
 
- 
+.swathces_images {
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.swathces_images ul li {
+    float: left;
+    margin-bottom: -8px;
+    margin-right: 5px;
+    display: block;
+}
+
+.swathces_images ul li span {
+    border: 1px solid #000;
+    display: block;
+    height: 88px;
+    overflow: hidden;
+    transform: scale(0.9);
+    width: 88px;
+}
+
+.swathces_images ul li span img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
 
 
 
