@@ -153,7 +153,7 @@
                                     <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
                                          alt="#"/>
                                 </a>
-                                    <span>
+                                <span>
                                     	<a href="<?php echo URL::to('fabric');?>">
                                             <?=$product->Name;?>
                                         </a>

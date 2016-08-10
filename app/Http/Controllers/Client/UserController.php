@@ -63,7 +63,7 @@ class UserController extends BaseController
                 $uPass = $user->Password;
                 $uName = $user->Name;
                 $uEmail = $user->Email;
-                
+
                 if (Hash::check($userdata['Password'], $uPass)) {
                     Auth::login($user, true);
                 } else {

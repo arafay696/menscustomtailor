@@ -1,12 +1,22 @@
 @extends('client.default')
 @section('content')
     <!-- Page Wrapper -->
+    <?php
+
+    $slectedItems = '<div class="swathces_images clearfix"><ul>';
+    foreach ($cartData as $item) {
+        $slectedItems .= '<li><a href="' . URL::to('fabric/' . $item['productID'] . '') . '"><span><img alt="#" src="' . URL::to('public/assets/client/images/colrr_full_img.png') . '"></span></a></li>';
+    }
+    $slectedItems .= '</ul></div>';
+    ?>
+
     <div class="container">
         <div class="cart_container back_background">
             <div class="auto_content">
                 <div class="cart_pageDtail">
                     <div class="cart_head clearfix customize_setting">
-                        <h3>CUSTOMIZE Your Shirts <i class="fa fa-spinner fa-spin savingCustomize" style="display:none;"></i></h3>
+                        <h3>CUSTOMIZE Your Shirts <i class="fa fa-spinner fa-spin savingCustomize"
+                                                     style="display:none;"></i></h3>
                         <div class="actions">
                             <a class="previousSection" href="javascript:void(0);" style="">Previous</a>
                             <a class="nextSection" href="javascript:void(0);" style="margin-right: 2px">Next</a>
@@ -17,12 +27,13 @@
                             <li class="active-customize">
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                    <input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="productID" value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label class="select"><input type="radio" name="shirtType" value="Dress" checked="checked">&nbsp;
+                                                    <label class="select"><input type="radio" name="shirtType"
+                                                                                 value="Dress" checked="checked">&nbsp;
                                                     </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
@@ -65,7 +76,9 @@
                                             <div style="clear: both;">
                                                 <div class="customization_item">
                                                     <div class="artistProducer clearfix">
-                                                        <label class="select"><input type="radio" name="frontStyle" value="Tab Front" checked="checked">&nbsp;
+                                                        <label class="select"><input type="radio" name="frontStyle"
+                                                                                     value="Tab Front"
+                                                                                     checked="checked">&nbsp;
                                                         </label>
                                                     </div>
                                                     <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
@@ -109,15 +122,7 @@
                                             </div>
                                         </div>
                                         <div class="customize_rightSection">
-                                            <div class="swathces_images clearfix">
-                                                <ul>
-                                                    <li><span><img alt="#" src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"></span></li>
-                                                    <li><span><img alt="#" src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"></span></li>
-                                                    <li><span class="active_swatch"><img alt="#" src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"></span></li>
-                                                    <li><span><img alt="#" src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"></span></li>
-
-                                                </ul>
-                                            </div>
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -141,13 +146,14 @@
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                    <input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="productID" value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
                                                     <label class="select"><input type="radio" name="collarType"
-                                                                  value="Traditional Point" checked="checked">&nbsp;</label>
+                                                                                 value="Traditional Point"
+                                                                                 checked="checked">&nbsp;</label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
                                                      alt="#"/>
@@ -272,6 +278,7 @@
                                             </div>
                                         </div>
                                         <div class="customize_rightSection">
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -312,12 +319,14 @@
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                    <input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="productID" value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label class="select"><input type="radio" name="cuffStyle" value="One Button Cuff" checked="checked">&nbsp;
+                                                    <label class="select"><input type="radio" name="cuffStyle"
+                                                                                 value="One Button Cuff"
+                                                                                 checked="checked">&nbsp;
                                                     </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
@@ -415,6 +424,7 @@
                                             </div>
                                         </div>
                                         <div class="customize_rightSection">
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -438,7 +448,9 @@
                             </li>
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
+                                                                                                        name="productID"
+                                                                                                        value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
@@ -458,7 +470,8 @@
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
                                                     <label class="select"><input type="radio" name="sleeveStyle"
-                                                                  value="Plain Short Sleeve" checked="checked">&nbsp;</label>
+                                                                                 value="Plain Short Sleeve"
+                                                                                 checked="checked">&nbsp;</label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
                                                      alt="#"/>
@@ -471,6 +484,7 @@
                                             </div>
                                         </div>
                                         <div class="customize_rightSection">
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -593,13 +607,16 @@
                             </li>
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
+                                                                                                        name="productID"
+                                                                                                        value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
                                                     <label class="select"><input type="radio" name="pocketStyle"
-                                                                  value="No Pocket" checked="checked">&nbsp;</label>
+                                                                                 value="No Pocket" checked="checked">&nbsp;
+                                                    </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
                                                      alt="#"/>
@@ -640,6 +657,7 @@
                                             </div>
                                         </div>
                                         <div class="customize_rightSection">
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -673,7 +691,9 @@
                             </li>
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
+                                                                                                        name="productID"
+                                                                                                        value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
@@ -693,7 +713,8 @@
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
                                                     <label class="select"><input type="radio" name="monogramStyle"
-                                                                  value="Block Letter" checked="checked">&nbsp;</label>
+                                                                                 value="Block Letter" checked="checked">&nbsp;
+                                                    </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
                                                      alt="#"/>
@@ -720,6 +741,7 @@
                                             </div>
                                         </div>
                                         <div class="customize_rightSection">
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -765,7 +787,9 @@
                             </li>
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
+                                                                                                        name="productID"
+                                                                                                        value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
@@ -774,6 +798,7 @@
 
 
                                         <div class="customize_rightSection">
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -1003,7 +1028,9 @@
                             </li>
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
+                                                                                                        name="productID"
+                                                                                                        value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
@@ -1012,6 +1039,7 @@
 
 
                                         <div class="customize_rightSection">
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -1600,7 +1628,9 @@
                             </li>
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
+                                                                                                        name="productID"
+                                                                                                        value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
@@ -1609,6 +1639,7 @@
 
 
                                         <div class="customize_rightSection">
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -1677,7 +1708,9 @@
                             </li>
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden" name="productID" value="<?=$productID;?>" />
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
+                                                                                                        name="productID"
+                                                                                                        value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_itemz_outer">
@@ -1686,6 +1719,7 @@
                                             </div>
                                         </div>
                                         <div class="customize_rightSection">
+                                            <?=$slectedItems;?>
                                             <div class="customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
@@ -1711,10 +1745,14 @@
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
                                                 <div style="padding-bottom: 0px;" class="servicesTerm whiteCollar">
-                                                    <label class="active"><input name="whiteCollar" type="checkbox" value="1" checked></label><p>White Collar</p>
+                                                    <label class="active"><input name="whiteCollar" type="checkbox"
+                                                                                 value="1" checked></label>
+                                                    <p>White Collar</p>
                                                 </div>
                                                 <div style="padding-bottom: 0px;" class="servicesTerm whiteCuff">
-                                                    <label class="active"><input name="whiteCuff" type="checkbox" value="1" checked></label><p>White Cuff</p>
+                                                    <label class="active"><input name="whiteCuff" type="checkbox"
+                                                                                 value="1" checked></label>
+                                                    <p>White Cuff</p>
                                                 </div>
                                                 <select style="margin-top: 4px;" name="shirtTailType">
                                                     <option selected="" value="-1">Shirt Tail Type</option>

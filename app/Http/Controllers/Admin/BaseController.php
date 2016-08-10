@@ -12,11 +12,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 
-class BaseController extends Controller {
+class BaseController extends Controller
+{
 
     public $errorMsg;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->errorMsg = 'Whoops! There were some problems with your input.';
     }

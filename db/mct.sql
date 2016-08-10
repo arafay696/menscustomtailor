@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2016 at 02:07 PM
+-- Generation Time: Aug 10, 2016 at 06:42 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -491,6 +491,32 @@ INSERT INTO `CP` (`ID`, `MPID`, `Name`, `Pos`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customers`
+--
+
+CREATE TABLE IF NOT EXISTS `customers` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Dat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Email` varchar(100) DEFAULT '' COMMENT 'Email Address',
+  `Password` varchar(100) DEFAULT NULL COMMENT 'Password',
+  `Name` varchar(100) DEFAULT '' COMMENT 'Full Name',
+  `Status` int(11) NOT NULL DEFAULT '1' COMMENT 'Status',
+  `remember_token` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`,`Status`),
+  UNIQUE KEY `Email` (`Email`),
+  KEY `status_key_idx` (`Status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Merchants, Suppliers, ETC' AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`ID`, `Dat`, `Email`, `Password`, `Name`, `Status`, `remember_token`) VALUES
+(14, '2016-08-04 17:44:04', 'arafay@gmail.com', '$2y$10$bANt78a3CVmEMs/5fVDt9eYNwbY37zs4osR/hBVCaqiw9L.NrBf5y', 'Abdul Rafay', 1, 'oAFBRbR4lmPbouBas473Q7BSPFViqrcWNFTmZXwDeMfGN5QCdxnv6ZzrUrms');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
@@ -639,7 +665,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `Amount` decimal(19,4) DEFAULT NULL,
   `Paid` decimal(19,4) DEFAULT NULL,
   `TransferTo` int(11) DEFAULT NULL,
-  `Status` varchar(10) DEFAULT NULL,
+  `Status` int(11) DEFAULT NULL,
   `TrackingNo` varchar(200) DEFAULT NULL,
   `OnTime` varchar(200) DEFAULT NULL,
   `Must` varchar(10) DEFAULT NULL,
@@ -667,8 +693,39 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `MailingID` int(11) DEFAULT NULL,
   `Extra` decimal(19,4) DEFAULT NULL,
   `ExtraCharges` decimal(19,4) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `status_key_orderstatus_idx` (`Status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`ID`, `CustomerID`, `GOrderNo`, `Code`, `OrderType`, `PlacedFor`, `Price`, `OtherItem`, `SalesTax`, `Discount`, `Shiping`, `Deal`, `Mono`, `WhiteCollar`, `WhiteCuff`, `PleatedFront`, `TuxFront`, `LessShirt`, `Custom`, `OverSize`, `Pocket`, `Rush`, `Sleeve`, `Tail`, `DiffCollar`, `Amount`, `Paid`, `TransferTo`, `Status`, `TrackingNo`, `OnTime`, `Must`, `Comments`, `Description`, `StatusText`, `OrderDate`, `PromiseDate`, `DeliveryDate`, `TentitiveShipDate`, `ProductionDate`, `ShipDate`, `CallDate`, `ActionTaken`, `SalesPerson`, `SubmittedBy`, `Level1Status`, `ShipMethod`, `CustomerName`, `ShippingAddress`, `SizeID`, `Site`, `DirectShipment`, `NotSure`, `MailingID`, `Extra`, `ExtraCharges`) VALUES
+(9, 1, '1989', 1875, '', '', '750.0000', '0.0000', '2.0000', '2.0000', '15.0000', '0.0000', '0.0000', '5.0000', '5.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '5.0000', '750.0000', '0.0000', 0, 1, '3396', '', '', '', '', '', '2016-08-07 09:48:27.000000', '2016-08-17 09:48:27.000000', '2016-08-17 09:48:27.000000', '2016-08-17 09:48:27.000000', '2016-08-17 09:48:27.000000', '2016-08-17 09:48:27.000000', '2016-08-15 09:48:27.000000', '', '', 'MCT', '', '', 'Abdul Rafay', '', 2, 0, '', '', 0, '0.0000', '0.0000'),
+(12, 1, '4350', 2438, '', '', '750.0000', '0.0000', '2.0000', '2.0000', '15.0000', '0.0000', '0.0000', '5.0000', '5.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '5.0000', '750.0000', '0.0000', 0, 1, '4225', '', '', '', '', '', '2016-08-07 11:38:10.000000', '2016-08-17 11:38:10.000000', '2016-08-17 11:38:10.000000', '2016-08-17 11:38:10.000000', '2016-08-17 11:38:10.000000', '2016-08-17 11:38:10.000000', '2016-08-15 11:38:10.000000', '', '', 'MCT', '', '', 'Abdul Rafay', '', 2, 0, '', '', 0, '0.0000', '0.0000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderstatus`
+--
+
+CREATE TABLE IF NOT EXISTS `orderstatus` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) NOT NULL,
+  `Description` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `orderstatus`
+--
+
+INSERT INTO `orderstatus` (`ID`, `Name`, `Description`) VALUES
+(1, 'Paid', ''),
+(2, 'Unpaid', ''),
+(3, 'Save For Later', '');
 
 -- --------------------------------------------------------
 
@@ -798,7 +855,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Code` (`MerchantID`,`Code`),
   KEY `status_key_idx` (`Status`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Products' AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Products' AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `products`
@@ -901,7 +958,15 @@ CREATE TABLE IF NOT EXISTS `shirtdetail` (
   `Label` varchar(30) DEFAULT '',
   `Class` varchar(255) DEFAULT '',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `shirtdetail`
+--
+
+INSERT INTO `shirtdetail` (`ID`, `OrderID`, `SizeID`, `FabricCode`, `FabricColor`, `FabricContents`, `Qty`, `FabricPrice`, `Total`, `ExtraCharges`, `Discount`, `CollarStyle`, `CollarLength`, `CollarHeight`, `WhiteCollar`, `CollarTieSpace`, `CollarStays`, `CollarLining`, `CollarStitch`, `FrontStyle`, `FrontClosure`, `BackStyle`, `ShirtBottomStyle`, `CuffStyle`, `WhiteCuffs`, `CuffLining`, `CuffStitch`, `HalfSleeve`, `Monogram`, `MonoPosition`, `MonoColor`, `MonoInitials`, `PocketStyle`, `NumberOfPockets`, `PleatedPocket`, `PocketFlaps`, `ShirtType`, `Deal`, `StyleComments`, `Dat`, `Fit`, `FedEx`, `TransferToLevel1`, `TransferDate1`, `Level1PromiseDate`, `Level1TentitiveDate`, `Level1Ship`, `ShipDate1`, `TransferToLevel2`, `TransferDate2`, `Level2Ship`, `ShipDate2`, `ShipToCustomer`, `CustomerShipDate`, `StatusID`, `ShirtStatus`, `Status`, `SleevePlacketButton`, `Label`, `Class`) VALUES
+(1, 9, 2, '332', 'Black', 'FabricContents', 1, '32.0000', '32.0000', '0.0000', '0.0000', 'Button Down', 'Short', 'Short', '1', '', '', '', '', 'Fly Front', '', '', '', 'Square French Cuff', '1', '', '', '', 'Block Letter', 'Cuff', 'Black', 'AR', 'Regular Pocket', 1, '', '', 'Dress', '', '', '2016-08-07 04:48:27', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2016-08-17 04:48:27', 0, '2016-08-17 04:48:27', 0, '2016-08-17 04:48:27', 0, '2016-08-17 04:48:27', 1, '1', '1', '', '', ''),
+(2, 12, 2, '1214', 'Black', 'FabricContents', 1, '32.0000', '32.0000', '0.0000', '0.0000', 'Button Down', 'Short', 'Short', '1', '', '', '', '', 'Fly Front', '', '', '', 'Square French Cuff', '1', '', '', '', 'Block Letter', 'Cuff', 'Black', 'AR', 'Regular Pocket', 1, '', '', 'Dress', '', '', '2016-08-07 06:38:10', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2016-08-17 06:38:10', 0, '2016-08-17 06:38:10', 0, '2016-08-17 06:38:10', 0, '2016-08-17 06:38:10', 1, '1', '1', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -960,7 +1025,14 @@ CREATE TABLE IF NOT EXISTS `size` (
   `MidSection` varchar(30) DEFAULT '',
   `BiggestChallenge` longtext,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `size`
+--
+
+INSERT INTO `size` (`ID`, `CustomerID`, `SizeOption`, `HeightInches`, `HeightFeet`, `Weight`, `NeckHeight`, `NeckSize`, `LeftSleeve`, `RightSleeve`, `Chest`, `Waist`, `Hips`, `Yoke`, `Tail`, `LeftCuff`, `RightCuff`, `FittingOption`, `Posture`, `ChestDescription`, `ArmType`, `BodyShape`, `BodyProportion`, `ShoulderLine`, `Shoulder`, `ExtraShirtTail`, `ShorterShirtTail`, `FitAroundChestShoulder`, `FitAroundWaist`, `CoatSize`, `PantSize`, `Inseam`, `Status`, `Comments`, `Dat`, `CoatLength`, `Confirm`, `SleeveFullnessInBicep`, `ArmHole`, `RaiseCollar`, `SleeveFullnessIntoCuff`, `BackDart`, `ScoopFrontNeck`, `SalesPerson`, `DecideOn`, `ShirtNeckSize`, `ShirtLength`, `MidSection`, `BiggestChallenge`) VALUES
+(2, 1, 0, '1', '3', '91', 'Short', '12', '', '', '30', '25', '', '', '', '', '', '', 'Flat', 'Slender', 'Slender', 'Average', 'Evenly Proportioned', '', 'Sloping', '', '', '', '', '', '', '', 'A', '', '2016-08-07 06:38:10', '', '', '', '', '', '', '', '', '', '', '12', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1036,11 +1108,23 @@ INSERT INTO `userstatus` (`ID`, `Name`, `Description`) VALUES
 --
 
 --
+-- Constraints for table `customers`
+--
+ALTER TABLE `customers`
+  ADD CONSTRAINT `status_key_foreign_customer` FOREIGN KEY (`Status`) REFERENCES `userstatus` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `merchants`
 --
 ALTER TABLE `merchants`
   ADD CONSTRAINT `campany_foreign_key` FOREIGN KEY (`Company`) REFERENCES `usercompany` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `status_key_foreign` FOREIGN KEY (`Status`) REFERENCES `userstatus` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `status_key_orderstatus` FOREIGN KEY (`Status`) REFERENCES `orderstatus` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `products`

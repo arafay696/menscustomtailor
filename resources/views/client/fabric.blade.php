@@ -81,31 +81,34 @@
                             </div>
                         </div>
 
-
-                        <div class="popular_choices_list clearfix">
-                            <ul class="grid">
-                                <?php foreach($products as $key => $product) {
-                                $type = array('metal', 'transition', 'alkali');
-                                $v = $type[$key];
-                                ?>
-                                <li class="element-item transition <?=$v;?>" data-category="<?=$v;?>">
-                                    <a href="<?php echo URL::to('fabric/' . $product->ID . '');?>">
-                                        <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
-                                             alt="#"/>
-                                        <img src="<?php echo URL::to('public/assets/client/images/fabric_zoomImg.png');?>"
-                                             alt="#" class="zoom_pic"/>
-                                    </a>
-                                    <span>
+                        <form name="form" method="post" action="<?php echo URL::to('fabric/customize/new');?>">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                            <div class="popular_choices_list clearfix">
+                                <ul class="grid">
+                                    <?php foreach($products as $key => $product) {
+                                    $type = array('metal', 'transition', 'alkali');
+                                    $v = $type[$key];
+                                    ?>
+                                    <li class="element-item transition <?=$v;?>" data-category="<?=$v;?>">
+                                        <a href="<?php echo URL::to('fabric/' . $product->ID . '');?>">
+                                            <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
+                                                 alt="#"/>
+                                            <img src="<?php echo URL::to('public/assets/client/images/fabric_zoomImg.png');?>"
+                                                 alt="#" class="zoom_pic"/>
+                                        </a>
+                                        <span>
+                                        <input type="checkbox" name="chooseFab[]" value="<?=$product->ID;?>">
                                     	<b>premium</b>
                                         <a href="#"><?=$product->Name;?></a>
                                         $<?=$product->Price;?>
                                     </span>
-                                </li>
-                                <?php } ?>
-                            </ul>
+                                    </li>
+                                    <?php } ?>
+                                </ul>
 
-                        </div>
-
+                            </div>
+                            <input type="submit" value="Submit">
+                        </form>
                     </div>
 
 

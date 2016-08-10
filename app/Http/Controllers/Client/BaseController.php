@@ -8,10 +8,8 @@
 
 namespace App\Http\Controllers\Client;
 
-
-use App\Http\Controllers\Client\CommonFunction;
 use App\Http\Controllers\Controller;
-
+use View;
 
 class BaseController extends Controller
 {
@@ -21,7 +19,11 @@ class BaseController extends Controller
 
     public function __construct()
     {
-
         $this->errorMsg = 'Whoops! There were some problems with your input.';
+        $itemSelected = $this->getCartData();
+        $ShareData = array(
+            'itemSelected' => $itemSelected
+        );
+        View::share('ShareData', $ShareData);
     }
 }

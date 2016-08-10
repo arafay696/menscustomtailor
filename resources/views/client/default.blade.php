@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo URL::asset('public/assets/client/css/responsive.css'); ?>">
     <link rel="stylesheet" type="text/css"
           href="<?php echo URL::asset('public/assets/client/css/owl.carousel.css'); ?>">
-    <link rel="stylesheet" href="<?php echo URL::asset('public/assets/client/css/font-awesome-4.6.3/css/font-awesome.min.css'); ?>">
+    <link rel="stylesheet"
+          href="<?php echo URL::asset('public/assets/client/css/font-awesome-4.6.3/css/font-awesome.min.css'); ?>">
     <script type="text/javascript"
             src="<?php echo URL::asset('public/assets/client/js/jquery-1.11.1.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo URL::asset('public/assets/client/js/my_script.js'); ?>"></script>
@@ -93,7 +94,7 @@
                         <a href="javascript:void(0)" class="icon_search">&nbsp;</a>
                         <a href="javascript:void(0)" class="icon_cart">&nbsp;</a>
                         @if(!Session::has('CustomerID'))
-                        <a id="top_login" href="<?php echo URL::to('/login');?>" class="icon_login">&nbsp;</a>
+                            <a id="top_login" href="<?php echo URL::to('/login');?>" class="icon_login">&nbsp;</a>
                         @endif
                     </div>
 
@@ -114,24 +115,37 @@
                     <div class="card_popup">
                         <h4>Cart Summary</h4>
                         <ul>
+                            <?php
+                            $TotalPrice = 0;
+                            $showTotal = false;
+                            if(is_array($ShareData['itemSelected']) && !empty($ShareData['itemSelected'])) {
+                            $showTotal = true;
+                            foreach ($ShareData['itemSelected'] as $key => $item) { ?>
                             <li class="clearfix">
-                                <a href="javascript:void(0)" class="list_close">&nbsp;</a>
-                                <img src="<?php echo URL::to('public/assets/client/images/shirt_img.png');?>" alt="#"/>
-                                <label>Shirt<b>Large x 1</b></label>
-                                <strong> $625.65</strong>
+                                <a href="<?=URL::to('cart/remove/' . $key . '');?>" class="list_close">&nbsp;</a>
+                                <img src="<?php echo URL::to('resources/assets/images/' . $item['ProductImage']); ?>"
+                                     alt="#"/>
+                                <label style="width: 163px;"><?=$item['ProductName'];?></label>
+                                <strong> $<?php
+                                    $TotalPrice += $item['Price'];
+                                    echo $item['Price'];
+                                    ?></strong>
                             </li>
+                            <?php } ?>
+                            <?php } else { ?>
                             <li class="clearfix">
-                                <a href="javascript:void(0)" class="list_close">&nbsp;</a>
-                                <img src="<?php echo URL::to('public/assets/client/images/shirt_img.png');?>" alt="#"/>
-                                <label>Shirt<b>Large x 1</b></label>
-                                <strong> $625.65</strong>
+                                <p style="text-align:center;">no item selected.</p>
                             </li>
+                            <?php } ?>
                         </ul>
+
+                        <?php if($showTotal){ ?>
                         <div class="total_cart clearfix">
                             <h5>TOTAL</h5>
-                            <span>  $1,375.65</span>
+                            <span>  $<?=$TotalPrice;?></span>
                         </div>
                         <a href="<?php echo URL::to('/cart');?>" class="check_bttn">CHECKOUT</a>
+                        <?php } ?>
                     </div>
                 </div>
 

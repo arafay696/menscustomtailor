@@ -14,6 +14,7 @@ use Request;
 use Session;
 use Auth;
 use URL;
+use View;
 
 class FabricController extends BaseController
 {
@@ -59,13 +60,79 @@ class FabricController extends BaseController
         return $product;
     }
 
-    public function customize($id)
+    public function customizebyID($id)
     {
-        if (!Session::has('CustomerID')) {
-            return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric/' . $id)) . '');
+        $cartData = $this->getCartData();
+        if (count($cartData) <= 0) {
+            return Redirect::to('fabric');
         }
 
-        $product = $this->validProduct($id);
+        $productId = (int)$id;
+        $sendData = array(
+            'productID' => $productId,
+            'cartData' => $cartData
+        );
+
+        return view('client.customize', $sendData);
+    }
+
+    public function customize(Request $request)
+    {
+        if (!Session::has('CustomerID')) {
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric')) . '');
+        }
+        $choosen = 0;
+        foreach ($request::get('chooseFab') as $key => $value) {
+
+            $id = $value;
+            $productId = (int)$id;
+            if ($key <= 0) {
+                $choosen = $productId;
+            }
+            $product = $this->validProduct($productId);
+
+            if (count($product) > 0) {
+
+                $data = $this->getCartData();
+
+                $findKey = $this->findInArrayByValue($productId, 'productID', $data);
+
+                $getCount = count($data);
+
+                if ($getCount <= 0) {
+                    $data = array();
+                    $data[0]['ProductImage'] = $product[0]->ImgName;
+                    $data[0]['ProductName'] = $product[0]->Name;
+                    $data[0]['Price'] = $product[0]->Price;
+                    $data[0]['productID'] = $product[0]->ID;
+                } else if (!is_int($findKey)) {
+                    $data[$getCount] = array();
+                    $data[$getCount]['ProductImage'] = $product[0]->ImgName;
+                    $data[$getCount]['ProductName'] = $product[0]->Name;
+                    $data[$getCount]['Price'] = $product[0]->Price;
+                    $data[$getCount]['productID'] = $product[0]->ID;
+
+                } else {
+
+                }
+                $this->setCartData('CartData', $data);
+
+
+            }
+        }
+
+        $sendData = array(
+            'productID' => $choosen,
+            'cartData' => $this->getCartData()
+        );
+        $itemSelected = $this->getCartData();
+
+        $ShareData = array(
+            'itemSelected' => $itemSelected
+        );
+        View::share('ShareData', $ShareData);
+        return view('client.customize', $sendData);
+        /*$product = $this->validProduct($id);
         if (count($product) > 0) {
             $data = array(
                 'productID' => $id
@@ -73,13 +140,16 @@ class FabricController extends BaseController
             return view('client.customize', $data);
         } else {
             return Redirect::to('/fabric');
-        }
+        }*/
+
+        //------------
 
     }
 
+
     public function setCustomizeValues(Request $request)
     {
-        $productId = $request::get('productID');
+        $productId = (int)$request::get('productID');
         $product = $this->validProduct($productId);
         if (count($product) > 0) {
             $data = $this->getCartData();
@@ -91,7 +161,7 @@ class FabricController extends BaseController
                 $data[0]['ProductName'] = $product[0]->Name;
                 $data[0]['Price'] = $product[0]->Price;
                 foreach ($request::except('_token') as $key => $value) {
-                    $data[0][$key] = $value;
+                    $data[0][$key] = ($key == 'productID') ? (int)$value : $value;
                 }
             } else if (!is_int($findKey)) {
                 $data[$getCount] = array();
@@ -99,18 +169,18 @@ class FabricController extends BaseController
                 $data[$getCount]['ProductName'] = $product[0]->Name;
                 $data[$getCount]['Price'] = $product[0]->Price;
                 foreach ($request::except('_token') as $key => $value) {
-                    $data[$getCount][$key] = $value;
+                    $data[$getCount][$key] = ($key == 'productID') ? (int)$value : $value;
                 }
             } else {
                 foreach ($request::except('_token') as $key => $value) {
-                    $data[$findKey][$key] = $value;
+                    $data[$findKey][$key] = ($key == 'productID') ? (int)$value : $value;
                 }
             }
             $this->setCartData('CartData', $data);
-            //print_r($this->getCartData());
             echo json_encode(array(
                 'status' => true,
-                'message' => $this->getCartData()
+                'message' => $this->getCartData(),
+                'total' => $getCount
             ));
         } else {
             echo json_encode(array(
