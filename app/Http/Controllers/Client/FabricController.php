@@ -79,10 +79,20 @@ class FabricController extends BaseController
     public function customize(Request $request)
     {
         if (!Session::has('CustomerID')) {
-            return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric')) . '');
+            Session::put('chooseFabs', $request::get('chooseFab'));
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric/customize/new')) . '');
         }
+
+        $chooseFabs = array();
+        if (Request::isMethod('post')) {
+            $chooseFabs = $request::get('chooseFab');
+        } else {
+            $chooseFabs = Session::get('chooseFabs');
+            Session::forget('chooseFabs');
+        }
+
         $choosen = 0;
-        foreach ($request::get('chooseFab') as $key => $value) {
+        foreach ($chooseFabs as $key => $value) {
 
             $id = $value;
             $productId = (int)$id;
@@ -132,17 +142,6 @@ class FabricController extends BaseController
         );
         View::share('ShareData', $ShareData);
         return view('client.customize', $sendData);
-        /*$product = $this->validProduct($id);
-        if (count($product) > 0) {
-            $data = array(
-                'productID' => $id
-            );
-            return view('client.customize', $data);
-        } else {
-            return Redirect::to('/fabric');
-        }*/
-
-        //------------
 
     }
 

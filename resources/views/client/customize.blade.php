@@ -5,7 +5,8 @@
 
     $slectedItems = '<div class="swathces_images clearfix"><ul>';
     foreach ($cartData as $item) {
-        $slectedItems .= '<li><a href="' . URL::to('fabric/' . $item['productID'] . '') . '"><span><img alt="#" src="' . URL::to('public/assets/client/images/colrr_full_img.png') . '"></span></a></li>';
+        $class = ($productID == $item['productID']) ? 'active_swatch' : '';
+        $slectedItems .= '<li><a href="' . URL::to('fabric/' . $item['productID'] . '') . '"><span class="'.$class.'"><img alt="#" src="' . URL::to('resources/assets/images/' . $item['ProductImage']) . '"></span></a></li>';
     }
     $slectedItems .= '</ul></div>';
     ?>

@@ -920,6 +920,9 @@ body{width:100%;  font-size:14px;font-family: 'latoregular'; background:#fff;  }
     width: 100%;
 }
 
+.swathces_images ul li span.active_swatch { border:1px solid #eb9229; transform:scale(1);-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);-webkit-transform:scale(1);}
+
+
 
 
 
