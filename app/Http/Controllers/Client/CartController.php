@@ -17,6 +17,12 @@ class CartController extends BaseController
 {
     public function index()
     {
+        $userId = Session::get('CustomerID');
+        $getSize = DB::table('size')
+            ->select('*')
+            ->where("CustomerID", "=", $userId)
+            ->first();
+        dd($getSize);
         $cartData = $this->getCartData();
         $data = array(
             'cart' => $cartData
@@ -56,9 +62,6 @@ class CartController extends BaseController
             $userId = Session::get('CustomerID');
             $CustomerEmail = Session::get('CustomerEmail');
             $CustomerName = Session::get('CustomerName');
-            $userId = 1;
-            $CustomerEmail = 'arafay696@gmail.com';
-            $CustomerName = 'Abdul Rafay';
 
             // Check Already Size exist - Insert Or update
             $getSize = DB::table('size')

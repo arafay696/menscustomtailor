@@ -1,5 +1,5 @@
-$(function() {
-    if($('.morris-area-chart,#morris-area-chart').length > 0){
+$(function () {
+    if ($('.morris-area-chart,#morris-area-chart').length > 0) {
         Morris.Area({
             element: 'morris-area-chart',
             data: [{
@@ -62,7 +62,7 @@ $(function() {
         });
     }
 
-    if($('.morris-donut-chart,#morris-donut-chart').length > 0) {
+    if ($('.morris-donut-chart,#morris-donut-chart').length > 0) {
         Morris.Donut({
             element: 'morris-donut-chart',
             data: [{
@@ -79,7 +79,7 @@ $(function() {
         });
     }
 
-    if($('.morris-bar-chart,#morris-bar-chart').length > 0) {
+    if ($('.morris-bar-chart,#morris-bar-chart').length > 0) {
         Morris.Bar({
             element: 'morris-bar-chart',
             data: [{

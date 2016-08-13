@@ -32,6 +32,10 @@ Route::get('about-us', 'Client\HomeController@aboutus');
 //  User Routes
 Route::get('/login', 'Client\UserController@index');
 Route::get('/logout', 'Client\UserController@logout');
+Route::get('profile', 'Client\UserController@profile');
+Route::get('order-history', 'Client\UserController@orderHistory');
+Route::get('newsletter', 'Client\UserController@newsletter');
+Route::get('change-password', 'Client\UserController@changePassword');
 Route::post('doLogin', 'Client\UserController@doLogin');
 
 

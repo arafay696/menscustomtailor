@@ -34,15 +34,17 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Qty</label>
-                                        <input class="form-control" value="{{Request::old('Qty')}}" name="Qty" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('Qty')}}" name="Qty"
+                                               placeholder="Enter text">
                                     </div>
                                     <div class="form-group">
                                         <label>Qty Sold</label>
-                                        <input class="form-control" value="{{Request::old('QtySold')}}" name="QtySold" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('QtySold')}}" name="QtySold"
+                                               placeholder="Enter text">
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox"  name="EnableExpiry" value="">Enable Expiry
+                                            <input type="checkbox" name="EnableExpiry" value="">Enable Expiry
                                         </label>
                                     </div>
 
@@ -57,15 +59,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Weight</label>
-                                        <input class="form-control" value="{{Request::old('Weight')}}" name="Weight" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('Weight')}}" name="Weight"
+                                               placeholder="Enter text">
                                     </div>
                                     <div class="form-group">
                                         <label>Code</label>
-                                        <input class="form-control" value="{{Request::old('Code')}}" name="Code" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('Code')}}" name="Code"
+                                               placeholder="Enter text">
                                     </div>
                                     <div class="form-group">
                                         <label>Expiry Date</label>
-                                        <input class="form-control" value="{{Request::old('EnableExpiryDate')}}" name="EnableExpiryDate" placeholder="Enter text">
+                                        <input class="form-control" value="{{Request::old('EnableExpiryDate')}}"
+                                               name="EnableExpiryDate" placeholder="Enter text">
                                     </div>
                                     <div class="form-group">
                                         <label>Status</label>
@@ -103,29 +108,38 @@
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
                                                                 <label>Name</label>
-                                                                <input class="form-control" value="{{Request::old('Name')}}" name="Name">
+                                                                <input class="form-control"
+                                                                       value="{{Request::old('Name')}}" name="Name">
 
                                                                 <p class="help-block">Example block-level help text
                                                                     here.</p>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Description</label>
-                                                                <input class="form-control" value="{{Request::old('Description')}}" name="Description"
+                                                                <input class="form-control"
+                                                                       value="{{Request::old('Description')}}"
+                                                                       name="Description"
                                                                        placeholder="Enter text">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Meta Title</label>
-                                                                <input class="form-control" value="{{Request::old('MetaTitle')}}" name="MetaTitle"
+                                                                <input class="form-control"
+                                                                       value="{{Request::old('MetaTitle')}}"
+                                                                       name="MetaTitle"
                                                                        placeholder="Enter text">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Meta Keywords</label>
-                                                                <input class="form-control" value="{{Request::old('MetaKeywords')}}" name="MetaKeywords"
+                                                                <input class="form-control"
+                                                                       value="{{Request::old('MetaKeywords')}}"
+                                                                       name="MetaKeywords"
                                                                        placeholder="Enter text">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Meta Description</label>
-                                                                <input class="form-control" value="{{Request::old('MetaDescription')}}" name="MetaDescription"
+                                                                <input class="form-control"
+                                                                       value="{{Request::old('MetaDescription')}}"
+                                                                       name="MetaDescription"
                                                                        placeholder="Enter text">
                                                             </div>
                                                             <h4>Product Pictures</h4>
@@ -168,11 +182,11 @@
                                                         $i = 0;
                                                         foreach ($productCategories as $key => $cp) { ?>
                                                         <?php
-                                                            if($i % 2 == 0){
-                                                                echo '</div><div class="col-lg-12">';
-                                                            }
+                                                        if ($i % 2 == 0) {
+                                                            echo '</div><div class="col-lg-12">';
+                                                        }
                                                         $setting = '';
-                                                        if($key == 'FabricType'){
+                                                        if ($key == 'FabricType') {
                                                             $setting = 'style="height:381px;"';
                                                         }
                                                         ?>
@@ -208,15 +222,16 @@
                                                                     } ?>
                                                                     <?php }else if($value->Type == "CheckBox") { ?>
                                                                     <label>
-                                                                        <input type="<?=$value->Type;?>" name="<?=$key;?>[]"
+                                                                        <input type="<?=$value->Type;?>"
+                                                                               name="<?=$key;?>[]"
                                                                                value="<?=$value->ID;?>"> <?=$value->Name;?>
                                                                     </label>
                                                                     <?php } else { ?>
-                                                                        <label>
-                                                                            <input type="<?=$value->Type;?>"
-                                                                                   name="<?=$key;?>"
-                                                                                   value="<?=$value->ID;?>"> <?=$value->Name;?>
-                                                                        </label>
+                                                                    <label>
+                                                                        <input type="<?=$value->Type;?>"
+                                                                               name="<?=$key;?>"
+                                                                               value="<?=$value->ID;?>"> <?=$value->Name;?>
+                                                                    </label>
                                                                     <?php } ?>
                                                                 </div>
                                                                 <?php } ?>
@@ -233,7 +248,8 @@
                                         <!-- /.panel-body -->
                                     </div>
                                     <div class="col-lg-12">
-                                        <a href="<?php echo URL::to('admin/product/products');?>" class="btn btn-primary pull-right"
+                                        <a href="<?php echo URL::to('admin/product/products');?>"
+                                           class="btn btn-primary pull-right"
                                            style="margin-left: 4px;">
                                             Cancel
                                         </a>

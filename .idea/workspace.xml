@@ -1,19 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="571f70f7-552c-4b0f-b83e-670013d94818" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/client/css/style-.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/aboutus.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/checkout.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/contactus.blade.php" />
+    <list default="true" id="571f70f7-552c-4b0f-b83e-670013d94818" name="Default" comment="Showing Current Size if saved.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/changePassword.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/newsletter.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/orderhistory.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/profile.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.css" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.less" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.scss" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap/Gruntfile.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap/package.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap/package.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/datatables-responsive/bower.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/datatables-responsive/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/datatables/bower.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/datatables/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/component.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/component.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/examples/examples.css" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/examples/examples.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/examples/index.html" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/examples/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/excanvas.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/excanvas.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/flot.jquery.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/flot.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.colorhelpers.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.colorhelpers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.canvas.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.canvas.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.categories.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.categories.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.crosshair.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.crosshair.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.errorbars.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.errorbars.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.fillbetween.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.fillbetween.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.image.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.image.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.navigate.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.navigate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.pie.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.pie.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.resize.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.resize.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.selection.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.selection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.stack.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.stack.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.symbol.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.symbol.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.threshold.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.threshold.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.time.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.time.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/package.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/font-awesome/bower.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/font-awesome/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/holderjs/composer.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/holderjs/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/holderjs/gulpfile.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/holderjs/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/dist/jquery.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/dist/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/dist/jquery.min.map" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/dist/jquery.min.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/ajax.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/ajax.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/attributes.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/attributes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/callbacks.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/callbacks.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/core.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/core.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/css.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/css.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/data.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/data.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/deferred.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/deferred.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/deprecated.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/deprecated.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/dimensions.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/dimensions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/effects.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/effects.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/event.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/event.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/intro.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/intro.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/jquery.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/manipulation.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/manipulation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/offset.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/offset.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/outro.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/outro.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/queue.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/queue.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector-native.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector-native.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector-sizzle.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector-sizzle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/serialize.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/serialize.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/traversing.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/traversing.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/wrap.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/wrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/metisMenu/Gruntfile.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/metisMenu/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/mocha/mocha.css" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/mocha/mocha.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/mocha/mocha.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/mocha/mocha.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/morrisjs/Gruntfile.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/morrisjs/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/morrisjs/morris.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/morrisjs/morris.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/raphael/dev/index.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/raphael/dev/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/raphael/raphael.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/raphael/raphael.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/dist/css/timeline.css" afterPath="$PROJECT_DIR$/public/assets/admin/dist/css/timeline.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/dist/js/sb-admin-2.js" afterPath="$PROJECT_DIR$/public/assets/admin/dist/js/sb-admin-2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/index.html" afterPath="$PROJECT_DIR$/public/assets/admin/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/js/flot-data.js" afterPath="$PROJECT_DIR$/public/assets/admin/js/flot-data.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/js/morris-data.js" afterPath="$PROJECT_DIR$/public/assets/admin/js/morris-data.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/less/sb-admin-2.less" afterPath="$PROJECT_DIR$/public/assets/admin/less/sb-admin-2.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/blank.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/blank.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/buttons.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/buttons.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/flot.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/flot.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/forms.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/forms.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/grid.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/grid.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/icons.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/icons.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/index.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/login.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/morris.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/morris.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/notifications.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/notifications.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/panels-wells.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/panels-wells.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/tables.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/tables.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/typography.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/typography.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-bla-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-bla-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-blaita-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-blaita-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-bol-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-bol-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-bolita-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-bolita-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-lig-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-lig-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-ligita-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-ligita-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-reg-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-reg-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-regita-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-regita-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/raleway-light-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/raleway-light-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/raleway-regular-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/raleway-regular-demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/my_style.css" afterPath="$PROJECT_DIR$/public/assets/client/css/my_style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/owl.carousel.css" afterPath="$PROJECT_DIR$/public/assets/client/css/owl.carousel.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/responsive.css" afterPath="$PROJECT_DIR$/public/assets/client/css/responsive.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/style-.css" afterPath="$PROJECT_DIR$/public/assets/client/css/style-.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/style.css" afterPath="$PROJECT_DIR$/public/assets/client/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/js/customize.js" afterPath="$PROJECT_DIR$/public/assets/client/js/customize.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/js/jquery.bxslider.js" afterPath="$PROJECT_DIR$/public/assets/client/js/jquery.bxslider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/js/owl.carousel.js" afterPath="$PROJECT_DIR$/public/assets/client/js/owl.carousel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/default.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/default.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/new-product.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/new-product.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/productListing.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/productListing.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/user/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/user/login.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/user/userListing.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/user/userListing.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/cart.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/cart.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/checkout.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/checkout.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/customize.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/customize.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/default.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/default.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/fabric.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/fabric.blade.php" />
@@ -41,6 +150,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/js/owl.carousel.js" afterPath="$PROJECT_DIR$/resources/views/client/final/js/owl.carousel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/login_register.html" afterPath="$PROJECT_DIR$/resources/views/client/final/login_register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/mens_home.html" afterPath="$PROJECT_DIR$/resources/views/client/final/mens_home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/errors/503.blade.php" afterPath="$PROJECT_DIR$/resources/views/errors/503.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
     </list>
     <ignored path="mct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,82 +172,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="contactus.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/contactus.blade.php">
+      <file leaf-file-name="FabricController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="19" />
+            <state relative-caret-position="531">
+              <caret line="135" column="14" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
               <folding>
-                <marker date="1471114092460" expanded="true" signature="1582:2371" ph="..." />
-                <marker date="1471114092460" expanded="true" signature="1680:1924" ph="..." />
-                <marker date="1471114092460" expanded="true" signature="1962:2336" ph="..." />
+                <element signature="e#137#144#0#PHP" expanded="true" />
+                <element signature="e#268#1194#0#PHP" expanded="false" />
+                <element signature="e#5165#7055#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <file leaf-file-name="customize.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/client/customize.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="29" column="53" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aboutus.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/aboutus.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="15" column="41" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about_us.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/final/about_us.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="121" column="14" selection-start-line="89" selection-start-column="7" selection-end-line="121" selection-end-column="14" />
+            <state relative-caret-position="311">
+              <caret line="306" column="90" selection-start-line="306" selection-start-column="90" selection-end-line="306" selection-end-column="90" />
               <folding>
-                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#1434#10213#0#HTML" expanded="false" />
+                <marker date="1471118877136" expanded="true" signature="142:149" ph="..." />
+                <marker date="1471118877136" expanded="true" signature="146:149" ph="..." />
+                <marker date="1471118877136" expanded="true" signature="298:312" ph="..." />
+                <marker date="1471118877136" expanded="true" signature="22911:22956" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/default.blade.php">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/assets/client/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+            <state relative-caret-position="279">
+              <caret line="1948" column="20" selection-start-line="1948" selection-start-column="20" selection-end-line="1948" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contact_us.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/final/contact_us.html">
+      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="143" column="14" selection-start-line="89" selection-start-column="8" selection-end-line="143" selection-end-column="14" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="506">
+              <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -162,11 +243,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/client/layout/footer.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/client/index.blade.php" />
-        <option value="$PROJECT_DIR$/public/angular/partials/product/productListing.html" />
-        <option value="$PROJECT_DIR$/public/angular/partials/product/new-product.html" />
-        <option value="$PROJECT_DIR$/public/angular/partials/product/edit-product.html" />
         <option value="$PROJECT_DIR$/resources/views/client/final/fabric.html" />
         <option value="$PROJECT_DIR$/resources/views/client/final/login_register.html" />
         <option value="$PROJECT_DIR$/resources/views/client/final/customize.html" />
@@ -191,28 +267,33 @@
         <option value="$PROJECT_DIR$/resources/views/admin/default.blade.php" />
         <option value="$PROJECT_DIR$/app/Customer.php" />
         <option value="$PROJECT_DIR$/resources/views/client/loginRegister.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" />
         <option value="$PROJECT_DIR$/public/assets/client/css/my_style.css" />
         <option value="$PROJECT_DIR$/public/assets/client/js/customize.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/CommonFunction.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/BaseController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/user/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/user/userListing.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/fabric.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/client/customize.blade.php" />
         <option value="$USER_HOME$/Desktop/mine/style.css" />
-        <option value="$PROJECT_DIR$/public/assets/client/css/style.css" />
-        <option value="$PROJECT_DIR$/resources/views/client/cart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/checkout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/contactus.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/final/about_us.html" />
         <option value="$PROJECT_DIR$/resources/views/client/aboutus.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/default.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/final/profile.html" />
+        <option value="$PROJECT_DIR$/resources/views/client/orderhistory.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/newsletter.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/changePassword.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/cart.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/customize.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/client/css/style.css" />
       </list>
     </option>
   </component>
@@ -233,8 +314,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="735" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -243,7 +325,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -292,86 +374,6 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="final" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -384,72 +386,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -563,7 +499,7 @@
       <workItem from="1470675973098" duration="5023000" />
       <workItem from="1470848078220" duration="6281000" />
       <workItem from="1470932444055" duration="4315000" />
-      <workItem from="1471109302077" duration="4349000" />
+      <workItem from="1471109302077" duration="8520000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Console Logs">
       <created>1469903070985</created>
@@ -649,21 +585,29 @@
       <option name="project" value="LOCAL" />
       <updated>1470936192175</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Integerating New template  changes + New Template html">
+      <created>1471114498790</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1471114498790</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87913000" />
+    <option name="totallyTimeSpent" value="92084000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1378" height="735" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17988253" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17935579" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -676,7 +620,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -706,7 +649,8 @@
     <MESSAGE value="User Login Return to Back URL + Cart" />
     <MESSAGE value="Multiple Selection &amp; Show data in Cart (Menu)" />
     <MESSAGE value="Bug Fix - Login on shirt selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug Fix - Login on shirt selection" />
+    <MESSAGE value="Integerating New template  changes + New Template html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integerating New template  changes + New Template html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -715,45 +659,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Merchants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/phrase.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="270" column="55" selection-start-line="270" selection-start-column="53" selection-end-line="270" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/admin/bower_components/metisMenu/dist/metisMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-924">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/admin/js/morris-data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="81" column="45" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/admin/js/app.js" />
-    <entry file="file://$PROJECT_DIR$/public/angular/partials/product/edit-product.html" />
-    <entry file="file://$PROJECT_DIR$/public/angular/js/controllers.js" />
     <entry file="file://$PROJECT_DIR$/public/angular/partials/product/new-product.html" />
     <entry file="file://$PROJECT_DIR$/resources/views/admin/user/userprofile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -836,6 +741,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="16" column="33" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -858,7 +764,7 @@
         <state relative-caret-position="462">
           <caret line="26" column="45" selection-start-line="23" selection-start-column="8" selection-end-line="26" selection-end-column="45" />
           <folding>
-            <element signature="e#136#172#0#PHP" expanded="true" />
+            <element signature="e#136#172#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -868,7 +774,7 @@
         <state relative-caret-position="191">
           <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
           <folding>
-            <element signature="e#129#165#0#PHP" expanded="true" />
+            <element signature="e#129#165#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -880,24 +786,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8844">
           <caret line="410" column="59" selection-start-line="409" selection-start-column="12" selection-end-line="410" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -912,6 +805,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -962,26 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/client/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="2490" column="20" selection-start-line="2490" selection-start-column="20" selection-end-line="2490" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/customize.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-          <folding>
-            <marker date="1471113198182" expanded="true" signature="142:149" ph="..." />
-            <marker date="1471113198182" expanded="true" signature="146:149" ph="..." />
-            <marker date="1471113198182" expanded="true" signature="298:312" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/final/customize.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2852">
@@ -997,27 +871,6 @@
         <state relative-caret-position="278">
           <caret line="131" column="50" selection-start-line="125" selection-start-column="44" selection-end-line="131" selection-end-column="50" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5564">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/cart.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="29" column="74" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="74" />
-          <folding>
-            <marker date="1471113513706" expanded="true" signature="4635:4686" ph="..." />
-            <marker date="1471113513706" expanded="true" signature="5316:5444" ph="..." />
-            <marker date="1471113513706" expanded="true" signature="6125:6246" ph="..." />
-            <marker date="1471113513706" expanded="true" signature="6566:6683" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1044,10 +897,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/checkout.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/client/final/about_us.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="166" column="97" selection-start-line="166" selection-start-column="56" selection-end-line="166" selection-end-column="97" />
+        <state relative-caret-position="20">
+          <caret line="121" column="14" selection-start-line="89" selection-start-column="7" selection-end-line="121" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/aboutus.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1072,10 +935,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/final/about_us.html">
+    <entry file="file://$PROJECT_DIR$/resources/views/client/final/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="121" column="14" selection-start-line="89" selection-start-column="7" selection-end-line="121" selection-end-column="14" />
+        <state relative-caret-position="195">
+          <caret line="177" column="10" selection-start-line="89" selection-start-column="3" selection-end-line="177" selection-end-column="10" />
           <folding>
             <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1083,26 +946,220 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/aboutus.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/client/checkout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="41" />
+          <caret line="147" column="143" selection-start-line="147" selection-start-column="102" selection-end-line="147" selection-end-column="143" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/final/order_history.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="357" column="14" selection-start-line="99" selection-start-column="8" selection-end-line="357" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/orderhistory.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="12" column="71" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="71" />
+          <folding>
+            <marker date="1471118874042" expanded="true" signature="1856:2057" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="2143:2238" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="2315:2416" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="2476:2688" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="2780:4007" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="2847:3068" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="3137:3338" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="3424:3519" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="3596:3697" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="3757:3969" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="4061:5288" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="4128:4349" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="4418:4619" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="4705:4800" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="4877:4978" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="5038:5250" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="5342:6569" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="5409:5630" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="5699:5900" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="5986:6081" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="6158:6259" ph="..." />
+            <marker date="1471118874042" expanded="true" signature="6319:6531" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/final/newsletter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="137" column="14" selection-start-line="89" selection-start-column="8" selection-end-line="137" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/default.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="108" column="45" selection-start-line="108" selection-start-column="45" selection-end-line="108" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/newsletter.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="29" column="53" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="53" />
+        <state relative-caret-position="352">
+          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/default.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/client/profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+        <state relative-caret-position="308">
+          <caret line="14" column="29" selection-start-line="10" selection-start-column="24" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <marker date="1471115758060" expanded="true" signature="919:3983" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="970:3463" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="1070:3432" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="1107:1274" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="1311:1477" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="1514:1679" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="1716:1878" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="1915:2542" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="2036:2504" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="2143:2461" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="2579:2747" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="2784:2947" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="2984:3144" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="3181:3398" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="3522:3956" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="3583:3924" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="3620:3889" ph="..." />
+            <marker date="1471115758060" expanded="true" signature="4031:4165" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/final/change_password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="136" column="14" selection-start-line="89" selection-start-column="7" selection-end-line="136" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/changePassword.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="39" column="81" selection-start-line="39" selection-start-column="81" selection-end-line="39" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/cart.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+          <folding>
+            <marker date="1471116550477" expanded="true" signature="2865:3042" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="2913:3042" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="3312:3436" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="3526:3589" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="3715:3780" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="4142:4532" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="4179:4497" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="4237:4459" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="4308:4417" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="4637:4698" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="4795:6058" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="4836:4887" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="4836:6019" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="4898:5090" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="5152:5339" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="5401:5977" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="5517:5645" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="5517:5931" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="6192:7445" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="6248:7236" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="6285:7201" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="6326:6447" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="6326:6725" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="6474:6683" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="6767:6884" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="6767:7163" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="6911:7121" ph="..." />
+            <marker date="1471116550477" expanded="true" signature="7296:7414" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="75" column="53" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="135" column="14" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
+          <folding>
+            <element signature="e#137#144#0#PHP" expanded="true" />
+            <element signature="e#268#1194#0#PHP" expanded="false" />
+            <element signature="e#5165#7055#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/customize.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="306" column="90" selection-start-line="306" selection-start-column="90" selection-end-line="306" selection-end-column="90" />
+          <folding>
+            <element signature="e#1434#10213#0#HTML" expanded="false" />
+            <marker date="1471118877136" expanded="true" signature="142:149" ph="..." />
+            <marker date="1471118877136" expanded="true" signature="146:149" ph="..." />
+            <marker date="1471118877136" expanded="true" signature="298:312" ph="..." />
+            <marker date="1471118877136" expanded="true" signature="22911:22956" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/client/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="1948" column="20" selection-start-line="1948" selection-start-column="20" selection-end-line="1948" selection-end-column="20" />
           <folding />
         </state>
       </provider>

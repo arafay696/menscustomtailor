@@ -202,11 +202,11 @@
                                                         $i = 0;
                                                         foreach ($productCategories as $key => $cp) { ?>
                                                         <?php
-                                                        if($i % 2 == 0){
+                                                        if ($i % 2 == 0) {
                                                             echo '</div><div class="col-lg-12">';
                                                         }
                                                         $setting = '';
-                                                        if($key == 'FabricType'){
+                                                        if ($key == 'FabricType') {
                                                             $setting = 'style="height:381px;"';
                                                         }
                                                         ?>

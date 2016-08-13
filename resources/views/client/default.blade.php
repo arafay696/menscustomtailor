@@ -72,8 +72,8 @@
             <div class="header_dtail clearfix">
                 <div class="men_logo">
                     <a href="<?php echo URL::to('/');?>"><img
-                            src="<?php echo URL::to('public/assets/client/images/header_logo.png');?>"
-                            alt="#"/></a>
+                                src="<?php echo URL::to('public/assets/client/images/header_logo.png');?>"
+                                alt="#"/></a>
                 </div>
 
                 <div class="menu_cart_outer clearfix">
@@ -105,8 +105,8 @@
                             </span>
                             <a href="#">User Name</a>
                             <ul>
-                                <li><a href="#">lovely</a></li>
-                                <li><a href="#">Setting</a></li>
+                                <li><a href="<?php echo URL::to('profile');?>">Profile</a></li>
+                                <li><a href="<?php echo URL::to('order-history');?>">Order History</a></li>
                                 <li><a href="<?php echo URL::to('/logout');?>">Log Out</a></li>
                             </ul>
                         </div>

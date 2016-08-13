@@ -27,7 +27,7 @@ class UserController extends BaseController
     {
 
         $merchants = DB::table('usercompany')
-            ->select('id','Name')
+            ->select('id', 'Name')
             ->get();
         $data = array(
             'merchants' => $merchants

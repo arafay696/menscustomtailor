@@ -34,10 +34,12 @@
                                             <label><?=$cartItem['ProductName'];?></label>
                                             <p>lorem 1 + 3.5 ipswm, 25 ipswm </p>
                                             <div class="diffrent_icon clearfix">
-                                                <a href="#">delete</a>
-                                                <a href="#">delete</a>
-                                                <a href="#">delete</a>
-                                                <a href="#">delete</a>
+                                                <a href="<?php echo URL::to('fabric/' . $cartItem['productID'] . '');?>">
+                                                    Change Style
+                                                </a>
+                                                <a href="<?php echo URL::to('fabric/' . $cartItem['productID'] . '');?>">
+                                                    Change Shirt Size
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="product_colmn_list price_colmn_list">

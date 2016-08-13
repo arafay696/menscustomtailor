@@ -114,4 +114,24 @@ class UserController extends BaseController
         Auth::logout(); // log the user out of our application
         return Redirect::to('/login'); // redirect the user to the login screen
     }
+
+    public function profile()
+    {
+        return view('client.profile');
+    }
+
+    public function orderHistory()
+    {
+        return view('client.orderhistory');
+    }
+
+    public function newsletter()
+    {
+        return view('client.newsletter');
+    }
+
+    public function changePassword()
+    {
+        return view('client.changePassword');
+    }
 }

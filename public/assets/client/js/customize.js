@@ -11,11 +11,11 @@ $(document).ready(function (e) {
             data: $('.customize_slider .active-customize').find('form').serialize(),
             url: baseUrl + "/fabric/customize",
             beforeSend: function () {
-                $('.savingCustomize').css('display','block');
+                $('.savingCustomize').css('display', 'block');
             },
             success: function (result) {
                 //console.log(result);
-                $('.savingCustomize').css('display','none');
+                $('.savingCustomize').css('display', 'none');
                 if (hasNext) {
                     $('.customize_slider .active-customize').addClass('in');
                     $('.customize_slider .in').animate({marginLeft: "-1000px", opacity: 0}, 800, "linear", function () {
@@ -73,13 +73,13 @@ $(document).ready(function (e) {
      *
      * */
 
-    $('#top_login').click(function(){
+    $('#top_login').click(function () {
         getUrl = window.location.href;
 
-        if(getUrl.indexOf('auth/login') > 0){
+        if (getUrl.indexOf('auth/login') > 0) {
             //alert('dont add');
-        }else{
-            $(this).attr('href',baseUrl + '/login?returnUrl=' + encodeURIComponent(getUrl))
+        } else {
+            $(this).attr('href', baseUrl + '/login?returnUrl=' + encodeURIComponent(getUrl))
         }
     });
 });

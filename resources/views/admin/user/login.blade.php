@@ -12,16 +12,19 @@
     <title>MCT Admin - Login</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo URL::asset('public/assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo URL::asset('public/assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>"
+          rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="<?php echo URL::asset('public/assets/admin/bower_components/metisMenu/dist/metisMenu.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo URL::asset('public/assets/admin/bower_components/metisMenu/dist/metisMenu.min.css') ?>"
+          rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?php echo URL::asset('public/assets/admin/dist/css/sb-admin-2.css') ?>" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="<?php echo URL::asset('public/assets/admin/bower_components/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo URL::asset('public/assets/admin/bower_components/font-awesome/css/font-awesome.min.css') ?>"
+          rel="stylesheet" type="text/css">
 
     <style>
         .errorMsgs, .successMsgs {
@@ -48,7 +51,8 @@
 
 <div class="container">
     @if(Session::has('globalErrMsg'))
-        <div style="display:block;" class="setOutputSession errorMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+        <div style="display:block;"
+             class="setOutputSession errorMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
             <span>{{ Session::get('globalErrMsg') }}</span>
             <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
         </div>
@@ -56,7 +60,8 @@
     @endif
 
     @if(Session::has('globalSuccessMsg'))
-        <div style="display:block;" class="setOutputSession successMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
+        <div style="display:block;"
+             class="setOutputSession successMsgs alert {{ Session::get('alert-class', 'alert-info') }}">
             <span>{{ Session::get('globalSuccessMsg') }}</span>
             <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
         </div>
@@ -75,7 +80,7 @@
                         </div>
                     @endif
                     <form action="<?php echo URL::to('admin/auth'); ?>" method="post" role="form">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <fieldset>
                             <div class="form-group">
                                 <select name="company" class="form-control">

@@ -58,7 +58,7 @@
             <span>{{ Session::get('globalSuccessMsg') }}</span>
             <span class="fa fa-1x fa-times pull-right closeSessionOutput"></span>
         </div>
-    @endif
+@endif
 
 <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -278,7 +278,8 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <?php $userID = \Illuminate\Support\Facades\Session::get('userID'); ?>
-                    <li><a href="<?php echo URL::to('admin/users/user/'.$userID.'');?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="<?php echo URL::to('admin/users/user/' . $userID . '');?>"><i
+                                    class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>

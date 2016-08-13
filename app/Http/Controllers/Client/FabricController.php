@@ -88,9 +88,17 @@ class FabricController extends BaseController
             $chooseFabs = $request::get('chooseFab');
         } else {
             $chooseFabs = Session::get('chooseFabs');
-            Session::forget('chooseFabs');
+            //Session::forget('chooseFabs');
         }
 
+        // Check Already Size exist - Insert Or update
+        $userId = Session::get('CustomerID');
+        DB::setFetchMode(\Pdo::FETCH_ASSOC);
+        $getSize = DB::table('size')
+            ->select('*')
+            ->where("CustomerID", "=", $userId)
+            ->first();
+        DB::setFetchMode(\Pdo::FETCH_CLASS);
         $choosen = 0;
         foreach ($chooseFabs as $key => $value) {
 
@@ -115,6 +123,14 @@ class FabricController extends BaseController
                     $data[0]['ProductName'] = $product[0]->Name;
                     $data[0]['Price'] = $product[0]->Price;
                     $data[0]['productID'] = $product[0]->ID;
+                    // Init Size if Size saved already
+                    if (count($getSize) > 0) {
+                        foreach ($getSize as $sizeKey => $size) {
+                            $data[0][$sizeKey] = $size;
+                        }
+                    }
+                    // Init Size if Size saved already End
+
                 } else if (!is_int($findKey)) {
                     $data[$getCount] = array();
                     $data[$getCount]['ProductImage'] = $product[0]->ImgName;
@@ -122,6 +138,13 @@ class FabricController extends BaseController
                     $data[$getCount]['Price'] = $product[0]->Price;
                     $data[$getCount]['productID'] = $product[0]->ID;
 
+                    // Init Size if Size saved already
+                    if (count($getSize) > 0) {
+                        foreach ($getSize as $sizeKey => $size) {
+                            $data[$getCount][$sizeKey] = $size;
+                        }
+                    }
+                    // Init Size if Size saved already End
                 } else {
 
                 }

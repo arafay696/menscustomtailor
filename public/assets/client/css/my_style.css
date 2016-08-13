@@ -45,9 +45,9 @@
 }
 
 .cartEmpty {
-     background: none !important;
-     border: 1px solid #9f9f9f;
- }
+    background: none !important;
+    border: 1px solid #9f9f9f;
+}
 
 .cartEmpty ul li .shirt_colmn_list {
     width: 100% !important;

@@ -1952,7 +1952,7 @@ body {
     margin: auto;
     padding: 10px;
     height: 40px;
-    text-align: right;
+    text-align: left;
 }
 
 .customize_page .bx-pager {
@@ -2368,6 +2368,7 @@ body {
     -o-box-shadow: 0 0 3px #eb9229;
     -webkit-box-shadow: 0 0 3px #eb9229;
     display: none;
+    z-index: 1;
 }
 
 .login_profile ul li {

@@ -6,7 +6,8 @@
             <div class="auto_content">
                 <div class="fabric_bannerDtail">
                     <h1>Shirts</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet mi <br> sit amet venenatis iaculis</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet mi <br> sit amet venenatis
+                        iaculis</p>
                 </div>
             </div>
         </div>
@@ -15,7 +16,7 @@
             <div class="auto_content">
                 <div class="cart_pageDtail">
 
-                    <div class="our_woRks clearfix" >
+                    <div class="our_woRks clearfix">
 
                         <div class="catigLeft_nav_out clearfix">
                             <div class="colours_pattern clearfix">
@@ -63,10 +64,18 @@
 
                             <div class="catigLeft_nav_inn filter-button-group button-group js-radio-button-group clearfix">
                                 <ul>
-                                    <li><button class="button is-checked" data-filter="*">ALL</button></li>
-                                    <li><button class="button" data-filter=".metal">DRESS</button></li>
-                                    <li><button class="button" data-filter=".transition">PREMIUM</button></li>
-                                    <li><button class="button" data-filter=".alkali">TUXEDO</button></li>
+                                    <li>
+                                        <button class="button is-checked" data-filter="*">ALL</button>
+                                    </li>
+                                    <li>
+                                        <button class="button" data-filter=".metal">DRESS</button>
+                                    </li>
+                                    <li>
+                                        <button class="button" data-filter=".transition">PREMIUM</button>
+                                    </li>
+                                    <li>
+                                        <button class="button" data-filter=".alkali">TUXEDO</button>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -74,45 +83,47 @@
 
                         <form name="form" method="post" action="<?php echo URL::to('fabric/customize/new');?>">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                        <div class="popular_choices_list some_change clearfix">
-                            <ul class="grid">
-                                <?php foreach($products as $key => $product) {
-                                $type = array('metal', 'transition', 'alkali');
-                                $v = $type[$key];
-                                ?>
+                            <div class="popular_choices_list some_change clearfix">
+                                <ul class="grid">
+                                    <?php foreach($products as $key => $product) {
+                                    $type = array('metal', 'transition', 'alkali');
+                                    $v = $type[$key];
+                                    ?>
                                     <li class="element-item transition <?=$v;?>" data-category="<?=$v;?>">
                                         <a href="<?php echo URL::to('fabric/' . $product->ID . '');?>">
                                             <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
                                                  alt="#"/>
-                                        <img src="<?php echo URL::to('public/assets/client/images/fabric_zoomImg.png');?>"
-                                             alt="#" class="zoom_pic"/>
-                                        <img src="<?php echo URL::to('public/assets/client/images/new_img.png');?>" alt="#" class="new_icon" />
-                                    </a>
-                                    <span>
+                                            <img src="<?php echo URL::to('public/assets/client/images/fabric_zoomImg.png');?>"
+                                                 alt="#" class="zoom_pic"/>
+                                            <img src="<?php echo URL::to('public/assets/client/images/new_img.png');?>"
+                                                 alt="#" class="new_icon"/>
+                                        </a>
+                                        <span>
                                     	<b>premium</b>
                                         <a href="#"><?=$product->Name;?></a>
 
                                     </span>
-                                    <div class="check_quentity clearfix">
-                                        <div class="servicesTerm">
-                                            <label><input type="checkbox" name="chooseFab[]" value="<?=$product->ID;?>"></label>
-                                        </div>
+                                        <div class="check_quentity clearfix">
+                                            <div class="servicesTerm">
+                                                <label><input type="checkbox" name="chooseFab[]"
+                                                              value="<?=$product->ID;?>"></label>
+                                            </div>
 
-                                        <div class="customselect">
-                                            <span>Qty</span>
-                                            <select>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                            </select>
+                                            <div class="customselect">
+                                                <span>Qty</span>
+                                                <select>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>
+                                            </div>
+                                            <i>$<?=$product->Price;?></i>
                                         </div>
-                                        <i>$<?=$product->Price;?></i>
-                                    </div>
-                                </li>
+                                    </li>
                                     <?php } ?>
-                            </ul>
+                                </ul>
 
-                        </div>
+                            </div>
                             <div class="fixed_bottom">
                                 <button tyle="submit">next</button>
                             </div>

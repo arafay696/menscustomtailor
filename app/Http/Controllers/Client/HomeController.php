@@ -25,11 +25,14 @@ class HomeController extends BaseController
 
         return view('client.home', $return);
     }
-    public function contactus(){
+
+    public function contactus()
+    {
         return view('client.contactus');
     }
 
-    public function aboutus(){
+    public function aboutus()
+    {
         return view('client.aboutus');
     }
 }
