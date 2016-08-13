@@ -39,6 +39,7 @@
                                 <ul>
                                     <li><a href="<?php echo URL::to('profile');?>"> Edit Your Account Information</a>
                                     </li>
+                                    <li><a class="secl_page" href="<?php echo URL::to('change-password');?>">Change Your Password</a></li>
                                 </ul>
                             </div>
 

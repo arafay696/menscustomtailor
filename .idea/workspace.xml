@@ -1,102 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="571f70f7-552c-4b0f-b83e-670013d94818" name="Default" comment="Showing Current Size if saved.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/changePassword.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/newsletter.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/orderhistory.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/profile.blade.php" />
+    <list default="true" id="571f70f7-552c-4b0f-b83e-670013d94818" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.css" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.less" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.scss" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap-social/bootstrap-social.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap/Gruntfile.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap/package.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/bootstrap/package.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/datatables-responsive/bower.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/datatables-responsive/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/datatables/bower.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/datatables/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/component.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/component.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/examples/examples.css" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/examples/examples.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/examples/index.html" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/excanvas.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/excanvas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/flot.jquery.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/flot.jquery.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.colorhelpers.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.colorhelpers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.canvas.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.canvas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.categories.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.categories.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.crosshair.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.crosshair.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.errorbars.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.errorbars.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.fillbetween.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.fillbetween.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.image.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.image.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.navigate.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.navigate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.pie.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.pie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.resize.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.resize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.selection.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.selection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.stack.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.stack.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.symbol.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.symbol.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.threshold.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.threshold.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.time.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.flot.time.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/package.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/flot/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/font-awesome/bower.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/font-awesome/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/holderjs/composer.json" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/holderjs/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/holderjs/gulpfile.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/holderjs/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/dist/jquery.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/dist/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/dist/jquery.min.map" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/dist/jquery.min.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/ajax.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/ajax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/attributes.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/attributes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/callbacks.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/callbacks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/core.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/css.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/css.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/data.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/deferred.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/deferred.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/deprecated.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/deprecated.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/dimensions.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/dimensions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/effects.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/effects.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/event.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/intro.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/intro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/jquery.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/manipulation.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/manipulation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/offset.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/offset.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/outro.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/outro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/queue.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/queue.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector-native.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector-native.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector-sizzle.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector-sizzle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/selector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/serialize.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/serialize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/traversing.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/traversing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/wrap.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/jquery/src/wrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/metisMenu/Gruntfile.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/metisMenu/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/mocha/mocha.css" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/mocha/mocha.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/mocha/mocha.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/mocha/mocha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/morrisjs/Gruntfile.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/morrisjs/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/morrisjs/morris.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/morrisjs/morris.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/raphael/dev/index.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/raphael/dev/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/bower_components/raphael/raphael.js" afterPath="$PROJECT_DIR$/public/assets/admin/bower_components/raphael/raphael.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/dist/css/timeline.css" afterPath="$PROJECT_DIR$/public/assets/admin/dist/css/timeline.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/dist/js/sb-admin-2.js" afterPath="$PROJECT_DIR$/public/assets/admin/dist/js/sb-admin-2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/index.html" afterPath="$PROJECT_DIR$/public/assets/admin/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/js/flot-data.js" afterPath="$PROJECT_DIR$/public/assets/admin/js/flot-data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/js/morris-data.js" afterPath="$PROJECT_DIR$/public/assets/admin/js/morris-data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/less/sb-admin-2.less" afterPath="$PROJECT_DIR$/public/assets/admin/less/sb-admin-2.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/blank.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/blank.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/buttons.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/buttons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/flot.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/flot.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/forms.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/forms.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/grid.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/grid.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/icons.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/icons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/index.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/login.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/morris.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/morris.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/notifications.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/notifications.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/panels-wells.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/panels-wells.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/tables.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/pages/typography.html" afterPath="$PROJECT_DIR$/public/assets/admin/pages/typography.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-bla-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-bla-demo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-blaita-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-blaita-demo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-bol-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-bol-demo.html" />
@@ -107,51 +13,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/lato-regita-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/lato-regita-demo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/raleway-light-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/raleway-light-demo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/font/raleway-regular-demo.html" afterPath="$PROJECT_DIR$/public/assets/client/css/font/raleway-regular-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/my_style.css" afterPath="$PROJECT_DIR$/public/assets/client/css/my_style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/owl.carousel.css" afterPath="$PROJECT_DIR$/public/assets/client/css/owl.carousel.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/responsive.css" afterPath="$PROJECT_DIR$/public/assets/client/css/responsive.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/style-.css" afterPath="$PROJECT_DIR$/public/assets/client/css/style-.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/style.css" afterPath="$PROJECT_DIR$/public/assets/client/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/js/customize.js" afterPath="$PROJECT_DIR$/public/assets/client/js/customize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/js/jquery.bxslider.js" afterPath="$PROJECT_DIR$/public/assets/client/js/jquery.bxslider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/js/owl.carousel.js" afterPath="$PROJECT_DIR$/public/assets/client/js/owl.carousel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/default.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/default.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/new-product.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/new-product.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/productListing.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/productListing.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/user/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/user/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/user/userListing.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/user/userListing.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/cart.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/cart.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/checkout.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/checkout.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/customize.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/customize.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/default.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/default.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/fabric.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/fabric.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/cart.html" afterPath="$PROJECT_DIR$/resources/views/client/final/cart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/checkout.html" afterPath="$PROJECT_DIR$/resources/views/client/final/checkout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-bla-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-bla-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-blaita-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-blaita-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-bol-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-bol-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-bolita-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-bolita-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-lig-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-lig-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-ligita-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-ligita-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-reg-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-reg-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-regita-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/lato-regita-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/raleway-light-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/raleway-light-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/raleway-regular-demo.html" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/raleway-regular-demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/specimen_files/grid_12-825-55-15.css" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/specimen_files/grid_12-825-55-15.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/font/specimen_files/specimen_stylesheet.css" afterPath="$PROJECT_DIR$/resources/views/client/final/css/font/specimen_files/specimen_stylesheet.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/owl.carousel.css" afterPath="$PROJECT_DIR$/resources/views/client/final/css/owl.carousel.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/responsive.css" afterPath="$PROJECT_DIR$/resources/views/client/final/css/responsive.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/css/style.css" afterPath="$PROJECT_DIR$/resources/views/client/final/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/customize.html" afterPath="$PROJECT_DIR$/resources/views/client/final/customize.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/fabric.html" afterPath="$PROJECT_DIR$/resources/views/client/final/fabric.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/js/jquery.bxslider.js" afterPath="$PROJECT_DIR$/resources/views/client/final/js/jquery.bxslider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/js/my_script.js" afterPath="$PROJECT_DIR$/resources/views/client/final/js/my_script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/js/owl.carousel.js" afterPath="$PROJECT_DIR$/resources/views/client/final/js/owl.carousel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/login_register.html" afterPath="$PROJECT_DIR$/resources/views/client/final/login_register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/final/mens_home.html" afterPath="$PROJECT_DIR$/resources/views/client/final/mens_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/errors/503.blade.php" afterPath="$PROJECT_DIR$/resources/views/errors/503.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/changePassword.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/changePassword.blade.php" />
     </list>
     <ignored path="mct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -172,51 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FabricController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php">
+      <file leaf-file-name="changePassword.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/client/changePassword.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="135" column="14" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
-              <folding>
-                <element signature="e#137#144#0#PHP" expanded="true" />
-                <element signature="e#268#1194#0#PHP" expanded="false" />
-                <element signature="e#5165#7055#0#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customize.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/customize.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="306" column="90" selection-start-line="306" selection-start-column="90" selection-end-line="306" selection-end-column="90" />
-              <folding>
-                <element signature="e#1434#10213#0#HTML" expanded="false" />
-                <marker date="1471118877136" expanded="true" signature="142:149" ph="..." />
-                <marker date="1471118877136" expanded="true" signature="146:149" ph="..." />
-                <marker date="1471118877136" expanded="true" signature="298:312" ph="..." />
-                <marker date="1471118877136" expanded="true" signature="22911:22956" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/assets/client/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="1948" column="20" selection-start-line="1948" selection-start-column="20" selection-end-line="1948" selection-end-column="20" />
+            <state relative-caret-position="223">
+              <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
+      <file leaf-file-name="profile.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/client/profile.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+            <state relative-caret-position="289">
+              <caret line="73" column="69" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -288,12 +122,12 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/profile.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/client/changePassword.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/cart.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/customize.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/client/css/style.css" />
+        <option value="$PROJECT_DIR$/resources/views/client/changePassword.blade.php" />
       </list>
     </option>
   </component>
@@ -358,6 +192,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mct" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mct" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mct" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mct" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mct" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -499,7 +373,7 @@
       <workItem from="1470675973098" duration="5023000" />
       <workItem from="1470848078220" duration="6281000" />
       <workItem from="1470932444055" duration="4315000" />
-      <workItem from="1471109302077" duration="8520000" />
+      <workItem from="1471109302077" duration="9089000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Console Logs">
       <created>1469903070985</created>
@@ -592,18 +466,25 @@
       <option name="project" value="LOCAL" />
       <updated>1471114498790</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Showing Current Size if saved.">
+      <created>1471119047528</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1471119047528</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92084000" />
+    <option name="totallyTimeSpent" value="92653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17935579" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17935579" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -650,7 +531,9 @@
     <MESSAGE value="Multiple Selection &amp; Show data in Cart (Menu)" />
     <MESSAGE value="Bug Fix - Login on shirt selection" />
     <MESSAGE value="Integerating New template  changes + New Template html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integerating New template  changes + New Template html" />
+    <MESSAGE value="Showing Current Size if saved." />
+    <MESSAGE value="Add Responsive CSS + Working on size current&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Responsive CSS + Working on size current&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -798,6 +681,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="82" column="55" selection-start-line="82" selection-start-column="55" selection-end-line="82" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,33 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="29" selection-start-line="10" selection-start-column="24" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <marker date="1471115758060" expanded="true" signature="919:3983" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="970:3463" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="1070:3432" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="1107:1274" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="1311:1477" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="1514:1679" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="1716:1878" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="1915:2542" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="2036:2504" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="2143:2461" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="2579:2747" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="2784:2947" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="2984:3144" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="3181:3398" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="3522:3956" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="3583:3924" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="3620:3889" ph="..." />
-            <marker date="1471115758060" expanded="true" signature="4031:4165" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/final/change_password.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -1066,14 +923,6 @@
             <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/changePassword.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="39" column="81" selection-start-line="39" selection-start-column="81" selection-end-line="39" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,14 +971,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="531">
@@ -1160,6 +1001,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="1948" column="20" selection-start-line="1948" selection-start-column="20" selection-end-line="1948" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="73" column="69" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/changePassword.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding />
         </state>
       </provider>
