@@ -39,7 +39,8 @@
                                         <?=$user->Name;?>
                                     </td>
                                     <td class="center">
-                                        <?=$user->Email;?>
+                                        <a href="<?php echo URL::to('admin/user/edit/' . $user->ID . ''); ?>"
+                                           ><?=$user->Email;?></a>
                                     </td>
                                     <td>
                                         <?=$getAllCompanies[$user->Company][0]['Name'];?>

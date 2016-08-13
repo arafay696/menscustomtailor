@@ -80,7 +80,7 @@
                             <div class="form-group">
                                 <select name="company" class="form-control">
                                     <?php foreach($merchants as $merchant) { ?>
-                                    <option>{{$merchant->Company}}</option>
+                                    <option value="{{$merchant->id}}">{{$merchant->Name}}</option>
                                     <?php } ?>
                                 </select>
                             </div>

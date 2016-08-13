@@ -71,7 +71,7 @@
         <div class="auto_content">
             <div class="header_dtail clearfix">
                 <div class="men_logo">
-                    <a href="<?php echo URL::to('/');?>""><img
+                    <a href="<?php echo URL::to('/');?>"><img
                             src="<?php echo URL::to('public/assets/client/images/header_logo.png');?>"
                             alt="#"/></a>
                 </div>
@@ -81,11 +81,11 @@
                         <b>X</b>
                         <ul>
                             <li><a href="<?php echo URL::to('/');?>">Home</a></li>
-                            <li><a href="#">About</a></li>
+                            <li><a href="<?php echo URL::to('about-us');?>">About</a></li>
                             <li><a href="<?php echo URL::to('fabric');?>">Fabric</a></li>
                             <li><a href="#">Style</a></li>
                             <li><a href="#">Measurements</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="<?php echo URL::to('contact-us');?>">Contact Us</a></li>
                         </ul>
                     </div>
                     <a href="javascript:void(0)" class="menuIcon">&nbsp;</a>

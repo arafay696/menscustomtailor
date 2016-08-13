@@ -1,104 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" /> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>MEN'S CUSTOM TAILOR </title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/responsive.css">  
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.css"> 
- 
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/my_script.js"></script>   
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="js/jquery.bxslider.js"></script>
-
-<script type="text/javascript">
- 
-$(document).ready(function(e) { 
-  
-
-});	 
- 
-</script>
- 
-
-</head>
-<body>
- 
-     <div id="wrapper">
-     	<div class="header">
-        	<div class="auto_content">
-            	<div class="header_dtail clearfix">
-                	<div class="men_logo">
-                    	<a href="#"><img src="images/header_logo.png" alt="#" /></a>
-                    </div>
-                    
-                    <div class="menu_cart_outer clearfix">
-                    	<div class="mens_menu clearfix">
-                        	<b>X</b>
-                        	<ul>
-                            	<li><a href="#">Home</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Fabric</a></li>
-                                <li><a href="#">Style</a></li>
-                                <li><a href="#">Measurements</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                            </ul>
-                        </div>
-                        <a href="javascript:void(0)" class="menuIcon">&nbsp;</a>
-                        
-                        <div class="cart_and_search clearfix">
-                        	<a href="javascript:void(0)" class="icon_search">&nbsp;</a>
-                            <a href="javascript:void(0)" class="icon_cart">&nbsp;</a>
-                             
-                        </div>
-                        <div class="card_popup">
-                            <h4>Cart Summary</h4>
-                            <ul>
-                                <li class="clearfix">
-                                    <a href="javascript:void(0)" class="list_close">&nbsp;</a>
-                                    <img src="images/shirt_img.png" alt="#" />
-                                    <label>Shirt<b>Large x 1</b></label>
-                                    <strong>  $625.65</strong>
-                                </li>
-                                <li class="clearfix">
-                                    <a href="javascript:void(0)" class="list_close">&nbsp;</a>
-                                    <img src="images/shirt_img.png" alt="#" />
-                                    <label>Shirt<b>Large x 1</b></label>
-                                    <strong>  $625.65</strong>
-                                </li>
-                            </ul>
-                            <div class="total_cart clearfix">
-                            	<h5>TOTAL</h5>
-                                <span>  $1,375.65</span>
-                            </div>
-                            <a href="javascript:void(0)" class="check_bttn">CHECKOUT</a>
-                        </div>
-                    </div>
-                    
-                    <div class="search_div">
-                        <a href="javascript:void(0)">&nbsp;</a>
-                        <input type="search" value="" placeholder="Search..." />
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-     	
-        
-        <div class="container">
+@extends('client.default')
+@section('content')
+ <div class="container">
         	 <div class="cart_container back_background">
              	<div class="auto_content">
                 	<div class="cart_pageDtail">
                     	<div class="cart_head clearfix">
-                        	<h3>Checkout </h3> 
-                        </div> 
-                        
+                        	<h3>Checkout </h3>
+                        </div>
+
                         <div class="login_register_outer clearfix">
                         	<div class="login_dtail">
                             	<h4>Returning customer? </h4>
-                                <p>If you have shopped with us before, please enter your details in the boxes below. If 
+                                <p>If you have shopped with us before, please enter your details in the boxes below. If
 you are a new customer please proceed to the Billing &amp; Shipping section.</p>
 
 							<div class="login_form">
@@ -107,24 +20,24 @@ you are a new customer please proceed to the Billing &amp; Shipping section.</p>
                                     <li><input type="password" value="" placeholder="Password *" /></li>
                                 </ul>
                             </div>
-                            
-                            
+
+
                             <div class="login_pasww clearfix">
                             	<input type="submit" value="Login" />
                                 <a href="#">Lost your password?</a>
                             </div>
                             </div>
-                            
-                            
+
+
                             <div class="login_dtail fr_section">
                             	<h4>New User</h4>
-                                <p>If you have shopped with us before, please enter your details in the boxes below. If 
+                                <p>If you have shopped with us before, please enter your details in the boxes below. If
 you are a new customer please proceed to the Billing &amp; Shipping section.</p>
- 
+
                             <br>
-                            
+
                             <div class="login_pasww clearfix">
-                            	<input type="submit" value="Register Now" /> 
+                            	<input type="submit" value="Register Now" />
                             </div>
                             <br>
                             <br>
@@ -133,14 +46,14 @@ you are a new customer please proceed to the Billing &amp; Shipping section.</p>
                             <br>
                             <br>
                             </div>
-                        </div> 
-                        
-                        
-                        
-                        
+                        </div>
+
+
+
+
                         <div class="login_register_outer borderBlack clearfix">
                         	<div class="login_dtail">
-                            	<h4>BILLING DETAILS</h4> 
+                            	<h4>BILLING DETAILS</h4>
 
 							<div class="checkOut_form">
                             	<ul>
@@ -158,7 +71,7 @@ you are a new customer please proceed to the Billing &amp; Shipping section.</p>
                                     	<div class="custom_chkout_input">
                                         	<label>COMPANY NAME</label>
                                             <input type="text" value="" placeholder="" />
-                                        </div> 
+                                        </div>
                                     </li>
                                     <li class="clearfix">
                                     	<div class="custom_chkout_input">
@@ -184,7 +97,7 @@ you are a new customer please proceed to the Billing &amp; Shipping section.</p>
                                     	<div class="custom_chkout_input">
                                         	<label>ADDRESS * *</label>
                                             <input type="text" value="" placeholder="" />
-                                        </div> 
+                                        </div>
                                     </li>
                                     <li class="clearfix">
                                     	<div class="custom_chkout_input">
@@ -205,55 +118,55 @@ you are a new customer please proceed to the Billing &amp; Shipping section.</p>
                                         	<label>POSTCODE / ZIP *</label>
                                             <input type="text" value="" placeholder="" />
                                         </div>
-                                    </li> 
+                                    </li>
                                 </ul>
-                            </div> 
-                            
+                            </div>
+
                             <div class="ship_to_adress">
                             	<div class="servicesTerm">
                                     <p> SHIP TO A DIFFERENT ADDRESS?</p>
                                     <label><input type="checkbox"></label>
                                  </div>
-                                 
+
                                  <div class="order_notes">
                                  	<label>ORDER NOTES</label>
                                     <textarea></textarea>
                                  </div>
-                                 
-                                 <h4>payment</h4> 
+
+                                 <h4>payment</h4>
                                  <div class="check_oyr_paypal">
                                  	<div class="artistProducer clearfix">
-                                        <label><input type="radio" name="producer"> Cheque Payment</label> 
-                                        
+                                        <label><input type="radio" name="producer"> Cheque Payment</label>
+
                                         <div class="paypal_txt">
                                         	<p>Please send your cheque to Store Name, Store Street, Store Town, Store  State / County, Store Postcode. </p>
                                             <i>&nbsp;</i>
                                         </div>
                                      </div>
-                                     
+
                                      <div class="artistProducer clearfix">
-                                        <label><input type="radio" name="producer">  PayPal <img src="images/paypal_img.png" alt="#" /></label> 
+                                        <label><input type="radio" name="producer">  PayPal <img src="<?php echo URL::to('public/assets/client/images/paypal_img.png');?>" alt="#" /></label>
                                      </div>
                                  </div>
-                                 
-                                 
+
+
                                  <div class="placeOrder">
                                  	<a href="#">Place order</a>
                                  </div>
                             </div>
                             </div>
-                            
-                            
-                            
+
+
+
                             <div class="login_dtail fr_section">
-                            	<h4>YOUR ORDER</h4> 
-  								
+                            	<h4>YOUR ORDER</h4>
+
                                 <div class="my_orderDtail_outr clearfix">
-                                
+
                                 	<div class="order_pic">
-                                    	<span><img src="images/colrr_full_img.png" alt="#" /></span>
+                                    	<span><img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png');?>" alt="#" /></span>
                                     </div>
-                                
+
                                 	<div class="my_orderDtail">
                                 	<ul>
                                     	<li class="clearfix">
@@ -263,15 +176,15 @@ you are a new customer please proceed to the Billing &amp; Shipping section.</p>
                                         <li class="clearfix">
                                         	<p>Shirt Sample PRo</p>
                                             <strong>$100</strong>
-                                        </li> 
+                                        </li>
                                         <li class="clearfix">
                                         	<p>Shirt Sample PRo</p>
                                             <strong>$100</strong>
-                                        </li> 
+                                        </li>
                                         <li class="clearfix">
                                         	<p>Shirt Sample PRo</p>
                                             <strong>$100</strong>
-                                        </li> 
+                                        </li>
                                         <li class="clearfix">
                                         	<p>Shirt Sample PRo</p>
                                             <strong>$100</strong>
@@ -287,75 +200,18 @@ you are a new customer please proceed to the Billing &amp; Shipping section.</p>
                                         <li class="clearfix">
                                         	<h5>Order Total</h5>
                                             <h6>$400</h6>
-                                        </li> 
+                                        </li>
                                     </ul>
                                 </div>
                                 </div>
-                                
-                                
+
+
                             </div>
                         </div>
-                        
-                        
-                   </div>       
+
+
+                   </div>
                 </div>
              </div>
         </div>
-        
-        
-        <div class="footer">
-        	<div class="footer_top">
-            	<div class="auto_content">
-                	<div class="footer_top_dtail clearfix">
-                    	<div class="footer_logo">
-                        	<a href="#"><img src="images/header_logo.png" alt="#" /></a>
-                            <p>Lorem Ipsum available but the have 
-                                suffered alteration in some form orem 
-                                Ipsum is that it has a more-or-less 
-                                normal distribution of letters, as 
-                                opposed making it look like readable.</p>
-                        </div>
-                        
-                        <div class="footer_links">
-                        	<ul>
-                            	<li><a href="#">Home </a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Fabric</a></li>
-                                <li><a href="#">Style</a></li>
-                                <li><a href="#">Measurements</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer_links">
-                        	<ul>
-                            	<li><a href="#">Home </a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Fabric</a></li>
-                                <li><a href="#">Style</a></li>
-                                <li><a href="#">Measurements</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="footer_socialLinks">
-                        	<ul>
-                            	<li><a href="#"><img src="images/fb_icon.png" alt="#" /></a></li>
-                                <li><a href="#"><img src="images/twit_icon.png" alt="#" /></a></li>
-                                <li><a href="#"><img src="images/google_icon.png" alt="#" /></a></li>
-                                <li><a href="#"><img src="images/linked_icon.png" alt="#" /></a></li>
-                                <li><a href="#"><img src="images/insta_icon.png" alt="#" /></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="copyright">
-            	<p>© Copyright 2016 men’s custom tailor. All Rights Reserved.</p>
-            </div>
-        </div>  
-        
-     </div>
-    
-</body>
-</html>
+@endsection

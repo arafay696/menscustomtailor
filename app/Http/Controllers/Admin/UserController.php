@@ -26,8 +26,8 @@ class UserController extends BaseController
     public function index()
     {
 
-        $merchants = DB::table('merchants')
-            ->select('Company')
+        $merchants = DB::table('usercompany')
+            ->select('id','Name')
             ->get();
         $data = array(
             'merchants' => $merchants
