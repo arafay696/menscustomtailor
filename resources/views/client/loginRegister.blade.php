@@ -46,20 +46,22 @@
 
                             <p>If you have shopped with us before, please enter your details in the boxes below. If
                                 you are a new customer please proceed to the Billing &amp; Shipping section.</p>
+                            <form action="<?=URL::to('/doRegister');?>" method="post">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                <div class="login_form">
+                                    <ul>
+                                        <li><input name="Name" type="text" placeholder="Full Name" value="{{Request::old('Name')}}"/></li>
+                                        <li><input name="Email" type="email" placeholder="Email address *" value="{{Request::old('Email')}}"/></li>
+                                        <li><input name="Password" type="password" value="" placeholder="Password *" /></li>
+                                        <li><input name="ConfirmPassword" type="password" value="" placeholder="Retype Password *" /></li>
+                                    </ul>
+                                </div>
 
-                            <div class="login_form">
-                                <ul>
-                                    <li><input type="text" value="" placeholder="Full Name"/></li>
-                                    <li><input type="email" value="" placeholder="Email address *"/></li>
-                                    <li><input type="password" value="" placeholder="Password *"/></li>
-                                    <li><input type="password" value="" placeholder="Retype Password *"/></li>
-                                </ul>
-                            </div>
 
-
-                            <div class="login_pasww clearfix">
-                                <input type="submit" value="Register"/>
-                            </div>
+                                <div class="login_pasww clearfix">
+                                    <input type="submit" value="Register"/>
+                                </div>
+                            </form>
                         </div>
                     </div>
 

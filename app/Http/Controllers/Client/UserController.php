@@ -17,6 +17,7 @@ use Session;
 use Redirect;
 use Validator;
 use Auth;
+use Input;
 
 class UserController extends BaseController
 {
@@ -63,6 +64,7 @@ class UserController extends BaseController
                 $uPass = $user->Password;
                 $uName = $user->Name;
                 $uEmail = $user->Email;
+                $uImg = $user->UserImg;
 
                 if (Hash::check($userdata['Password'], $uPass)) {
                     Auth::login($user, true);
@@ -77,6 +79,7 @@ class UserController extends BaseController
                     Session::put('CustomerName', $uName);
                     Session::put('CustomerEmail', $uEmail);
                     Session::put('CustomerLogintime', date('Y-m-d H:i:s'));
+                    Session::put('CustomerImg', $uImg);
 
                     if (Request::get('returnUrl') == "") {
                         return Redirect::to('/');
@@ -117,7 +120,21 @@ class UserController extends BaseController
 
     public function profile()
     {
-        return view('client.profile');
+        if (!Session::has('CustomerID')) {
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('profile')) . '');
+        }
+
+        DB::setFetchMode(\PDO::FETCH_ASSOC);
+        $getUser = DB::table('customers')
+            ->select('Email', 'Name', 'City', 'Country', 'Phone', 'Company', 'Gender', 'Address', 'UserImg')
+            ->where('ID', Session::get('CustomerID'))
+            ->first();
+        DB::setFetchMode(\PDO::FETCH_CLASS);
+
+        $data = array(
+            'userDetail' => $getUser
+        );
+        return view('client.profile', $data);
     }
 
     public function orderHistory()
@@ -134,4 +151,187 @@ class UserController extends BaseController
     {
         return view('client.changePassword');
     }
+
+    public function addUser(Request $request)
+    {
+
+        $user = array();
+
+        $user['Dat'] = date('Y-m-d H:i:s');
+        $user['Email'] = $request::get('Email');
+        $user['Password'] = Hash::make($request::get('Password'));
+        $user['Name'] = $request::get('Name');
+        $user['Status'] = 1;
+
+        if ($request::get('Password') != $request::get('ConfirmPassword')) {
+            Session::flash('globalErrMsg', "Password not match");
+            Session::flash('alert-class', 'alert-danger');
+            return redirect()->back()->withInput();
+        }
+
+        try {
+            DB::beginTransaction();
+            $uid = DB::table('customers')->insertGetId($user);
+
+            DB::commit();
+
+            Session::flash('globalSuccessMsg', 'User Added.');
+            Session::flash('alert-class', 'alert-success');
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            DB::rollback();
+            if (env('Mode') == 'Development') {
+                $error = $e->getMessage();
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+
+        }
+    }
+
+    public function updateuser()
+    {
+        $userID = Session::get('CustomerID');
+
+        DB::setFetchMode(\PDO::FETCH_ASSOC);
+        $getUser = DB::table('customers')->where('ID', $userID)
+            ->get();
+        DB::setFetchMode(\PDO::FETCH_CLASS);
+
+        $fileName = false;
+        if (Request::hasFile('UserImg')) {
+            $files = Input::file('UserImg');
+            $fileName = $this->UploadImages($files);
+        }
+
+
+        $updatedata = array();
+        foreach ($getUser as $data) {
+            $updatedata = $data;
+            $updatedata['Name'] = Request::get('Name');
+            $updatedata['Phone'] = Request::get('Phone');
+            $updatedata['Address'] = Request::get('Address');
+
+            $updatedata['City'] = Request::get('City');
+            $updatedata['Country'] = Request::get('Country');
+            $updatedata['Gender'] = Request::get('Gender');
+            $updatedata['Company'] = Request::get('Company');
+
+            if (Request::hasFile('UserImg')) {
+                $updatedata['UserImg'] = $fileName;
+            }
+        }
+
+
+        try {
+            DB::table('customers')
+                ->where('ID', $userID)
+                ->update($updatedata);
+
+            DB::commit();
+
+            Session::flash('globalSuccessMsg', 'Updated.');
+            Session::flash('alert-class', 'alert-success');
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            DB::rollback();
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+        }
+
+    }
+
+    public function updatepassword()
+    {
+        $userID = Session::get('CustomerID');
+        $password = Request::get('Password');
+
+        DB::setFetchMode(\PDO::FETCH_ASSOC);
+        $getUser = DB::table('customers')->where('ID', $userID)
+            ->get();
+        DB::setFetchMode(\PDO::FETCH_CLASS);
+
+        foreach ($getUser as $userData) {
+            $currentPassword = $userData['Password'];
+        }
+
+        if (!(Hash::check($password, $currentPassword)) || $password == "") {
+            Session::flash('globalErrMsg', "Current Password Not Matched");
+            Session::flash('alert-class', 'alert-danger');
+            return Redirect::back();
+        }
+
+
+        $newPassword = Request::get('NewPassword');
+        $RePassword = Request::get('ConfirmPassword');
+
+        if ($newPassword != $RePassword) {
+            Session::flash('globalErrMsg', "New Password Not Match");
+            Session::flash('alert-class', 'alert-danger');
+            return Redirect::back()->withErrors("New Password Not Match");
+        }
+
+        $updatePassword = Hash::make($newPassword);
+
+        $updatedata = array();
+        foreach ($getUser as $data) {
+            $updatedata = $data;
+            $updatedata['Password'] = $updatePassword;
+        }
+
+        try {
+            DB::table('customers')
+                ->where('ID', $userID)
+                ->update(array('Password' => $updatePassword));
+
+            DB::commit();
+
+            Session::flash('globalSuccessMsg', 'Password Successfully Updated');
+            Session::flash('alert-class', 'alert-success');
+
+            return Redirect::back();
+        } catch (\Exception $e) {
+            DB::rollback();
+            Session::flash('globalErrMsg', $this->errorMsg);
+            Session::flash('alert-class', 'alert-danger');
+            return redirect()->back();
+        }
+    }
+
+    public function UploadImages($files)
+    {
+        // SET UPLOAD PATH
+        $destinationPath = 'resources/assets/userimages';
+
+        $file = $files;
+        // GET THE FILE EXTENSION
+        $extension = $file->getClientOriginalExtension();
+        // RENAME THE UPLOAD WITH RANDOM NUMBER
+        $fileName = rand(11111, 99999) . '.' . $extension;
+        // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
+        $upload_success = $file->move($destinationPath, $fileName);
+
+        if ($upload_success) {
+            return $fileName;
+        } else {
+            return false;
+        }
+    }
+
+
 }

@@ -101,7 +101,12 @@
                     @if(Session::has('CustomerID'))
                         <div class="login_profile clearfix">
                             <span>
+                                <?php if(Session::get('CustomerImg') != "") { ?>
+                                <img src="<?php echo URL::to('resources/assets/userimages/' . Session::get('CustomerImg'));?>"
+                                     alt="#"/>
+                                <?php } else { ?>
                                 <img src="<?= URL::to('public/assets/client/images/login_img.png'); ?>" alt="#"/>
+                                <?php } ?>
                             </span>
                             <a href="#">User Name</a>
                             <ul>

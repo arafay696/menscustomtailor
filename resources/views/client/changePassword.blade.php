@@ -14,22 +14,24 @@
                         </ul>
                     </div>
 
+                    <form action="<?=URL::to('/changePassword');?>" method="post">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <div class="contact_container profile_form clearfix">
                         <div class="contact_form width_inc">
                             <h4>CHANGE YOUR PERSONAL DETAILS</h4>
 
                             <ul>
                                 <li>
-                                    <label>Email</label>
-                                    <input type="email" value=""/>
+                                    <label>Current Password</label>
+                                    <input name="Password" type="password" value=""/>
                                 </li>
                                 <li>
-                                    <label>Password</label>
-                                    <input type="password" value=""/>
+                                    <label>New Password</label>
+                                    <input name="NewPassword" type="password" value=""/>
                                 </li>
                                 <li>
                                     <label>Retype Password</label>
-                                    <input type="password" value=""/>
+                                    <input name="ConfirmPassword" type="password" value=""/>
                                 </li>
                             </ul>
                         </div>
@@ -50,6 +52,7 @@
                     <div class="cancel_save">
                         <input type="submit" value="Save"/>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

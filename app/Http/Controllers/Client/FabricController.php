@@ -91,7 +91,7 @@ class FabricController extends BaseController
             //Session::forget('chooseFabs');
         }
 
-        // Check Already Size exist - Insert Or update
+        // Init Size if Size saved already
         $userId = Session::get('CustomerID');
         DB::setFetchMode(\Pdo::FETCH_ASSOC);
         $getSize = DB::table('size')
@@ -99,6 +99,14 @@ class FabricController extends BaseController
             ->where("CustomerID", "=", $userId)
             ->first();
         DB::setFetchMode(\Pdo::FETCH_CLASS);
+        if (count($getSize) > 0) {
+            Session::put('currentSize', $getSize);
+        } else {
+            Session::put('currentSize', false);
+        }
+
+        // Init Size if Size saved already End
+
         $choosen = 0;
         foreach ($chooseFabs as $key => $value) {
 
@@ -123,13 +131,6 @@ class FabricController extends BaseController
                     $data[0]['ProductName'] = $product[0]->Name;
                     $data[0]['Price'] = $product[0]->Price;
                     $data[0]['productID'] = $product[0]->ID;
-                    // Init Size if Size saved already
-                    if (count($getSize) > 0) {
-                        foreach ($getSize as $sizeKey => $size) {
-                            $data[0][$sizeKey] = $size;
-                        }
-                    }
-                    // Init Size if Size saved already End
 
                 } else if (!is_int($findKey)) {
                     $data[$getCount] = array();
@@ -137,14 +138,6 @@ class FabricController extends BaseController
                     $data[$getCount]['ProductName'] = $product[0]->Name;
                     $data[$getCount]['Price'] = $product[0]->Price;
                     $data[$getCount]['productID'] = $product[0]->ID;
-
-                    // Init Size if Size saved already
-                    if (count($getSize) > 0) {
-                        foreach ($getSize as $sizeKey => $size) {
-                            $data[$getCount][$sizeKey] = $size;
-                        }
-                    }
-                    // Init Size if Size saved already End
                 } else {
 
                 }

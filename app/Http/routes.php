@@ -37,6 +37,9 @@ Route::get('order-history', 'Client\UserController@orderHistory');
 Route::get('newsletter', 'Client\UserController@newsletter');
 Route::get('change-password', 'Client\UserController@changePassword');
 Route::post('doLogin', 'Client\UserController@doLogin');
+Route::post('doRegister', 'Client\UserController@addUser');
+Route::post('doEditUser', 'Client\UserController@updateuser');
+Route::post('changePassword', 'Client\UserController@updatepassword');
 
 
 /*

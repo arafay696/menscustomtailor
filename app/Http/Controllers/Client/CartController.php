@@ -17,12 +17,6 @@ class CartController extends BaseController
 {
     public function index()
     {
-        $userId = Session::get('CustomerID');
-        $getSize = DB::table('size')
-            ->select('*')
-            ->where("CustomerID", "=", $userId)
-            ->first();
-        dd($getSize);
         $cartData = $this->getCartData();
         $data = array(
             'cart' => $cartData
@@ -79,8 +73,8 @@ class CartController extends BaseController
                 $sizeDetail['Weight'] = $value['Weight'];
                 $sizeDetail['NeckHeight'] = $value['NeckHeight'];
                 $sizeDetail['NeckSize'] = $value['NeckSize'];
-                $sizeDetail['LeftSleeve'] = '';
-                $sizeDetail['RightSleeve'] = '';
+                $sizeDetail['LeftSleeve'] = $value['sleeveLength'];
+                $sizeDetail['RightSleeve'] = $value['sleeveLength'];
                 $sizeDetail['Chest'] = $value['Chest'];
                 $sizeDetail['Waist'] = $value['Waist'];
                 $sizeDetail['Hips'] = '';
