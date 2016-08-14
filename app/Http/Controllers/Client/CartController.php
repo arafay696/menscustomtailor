@@ -18,6 +18,7 @@ class CartController extends BaseController
     public function index()
     {
         $cartData = $this->getCartData();
+        //dd($cartData);
         $data = array(
             'cart' => $cartData
         );
