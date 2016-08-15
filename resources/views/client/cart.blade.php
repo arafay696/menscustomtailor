@@ -44,16 +44,18 @@
                                         </div>
                                         <div class="product_colmn_list price_colmn_list">
                                             <b>
-                                                $<?php
-                                                $TotalPrice += $cartItem['Price'];
-                                                echo $cartItem['Price'];
-                                                ?></b>
+                                                $<?=$cartItem['Price'];?>
+                                            </b>
                                         </div>
                                         <div class="product_colmn_list q_colmn_list">
-                                            <input type="number" value="1"/>
+                                            <input type="number" value="<?=$cartItem['Qty'];?>"/>
                                         </div>
                                         <div class="product_colmn_list total_colmn_list">
-                                            <h5>$<?=$cartItem['Price'];?></h5>
+                                            <h5>$<?php
+                                                $pr = $cartItem['Price']*$cartItem['Qty'];
+                                                $TotalPrice += $pr;
+                                                echo $pr;
+                                                ?></h5>
                                         </div>
                                         <div class="del_icon">
                                             <a href="<?=URL::to('cart/remove/' . $key . '');?>">&nbsp;</a>

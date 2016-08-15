@@ -105,16 +105,21 @@
                                     </span>
                                         <div class="check_quentity clearfix">
                                             <div class="servicesTerm">
-                                                <label><input type="checkbox" name="chooseFab[]"
-                                                              value="<?=$product->ID;?>"></label>
+                                                <label>
+                                                    <input type="checkbox" name="chooseFab[]"
+                                                              value="<?=$product->ID;?>">
+                                                </label>
                                             </div>
 
                                             <div class="customselect">
-                                                <span>Qty</span>
-                                                <select>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
+                                                <span>1</span>
+                                                <select name="Qty_<?=$product->ID;?>">
+                                                   <?php for($i=1;$i<=12;$i++){ ?>
+                                                       <?php if($i == 1){ ?>
+                                                       <option selected="selected"><?=$i;?></option>
+                                                       <?php }else {  ?>
+                                                       <option><?=$i;?></option>
+                                                   <?php } } ?>
                                                 </select>
                                             </div>
                                             <i>$<?=$product->Price;?></i>

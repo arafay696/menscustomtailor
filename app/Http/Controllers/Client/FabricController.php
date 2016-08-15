@@ -78,11 +78,12 @@ class FabricController extends BaseController
 
     public function customize(Request $request)
     {
+
         if (!Session::has('CustomerID')) {
             Session::put('chooseFabs', $request::get('chooseFab'));
+            Session::put('chooseQty', $request::all());
             return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric/customize/new')) . '');
         }
-
         $chooseFabs = array();
         if (Request::isMethod('post')) {
             $chooseFabs = $request::get('chooseFab');
@@ -91,6 +92,7 @@ class FabricController extends BaseController
             //Session::forget('chooseFabs');
         }
 
+        //dd($chooseFabs);
         // Init Size if Size saved already
         $userId = Session::get('CustomerID');
         DB::setFetchMode(\Pdo::FETCH_ASSOC);
@@ -131,6 +133,7 @@ class FabricController extends BaseController
                     $data[0]['ProductName'] = $product[0]->Name;
                     $data[0]['Price'] = $product[0]->Price;
                     $data[0]['productID'] = $product[0]->ID;
+                    $data[0]['Qty'] = Session::get('chooseQty')['Qty_' . $productId];
 
                 } else if (!is_int($findKey)) {
                     $data[$getCount] = array();
@@ -138,12 +141,11 @@ class FabricController extends BaseController
                     $data[$getCount]['ProductName'] = $product[0]->Name;
                     $data[$getCount]['Price'] = $product[0]->Price;
                     $data[$getCount]['productID'] = $product[0]->ID;
+                    $data[$getCount]['Qty'] = Session::get('chooseQty')['Qty_' . $productId];
                 } else {
 
                 }
                 $this->setCartData('CartData', $data);
-
-
             }
         }
 
