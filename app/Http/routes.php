@@ -41,6 +41,18 @@ Route::post('doRegister', 'Client\UserController@addUser');
 Route::post('doEditUser', 'Client\UserController@updateuser');
 Route::post('changePassword', 'Client\UserController@updatepassword');
 
+//-------------- Cart
+Route::post('payment', array(
+    'as' => 'payment',
+    'uses' => 'Client\PayPalController@postPayment',
+));
+
+// this is after make the payment, PayPal redirect back to your site
+Route::get('payment/status', array(
+    'as' => 'payment.status',
+    'uses' => 'Client\PayPalController@getPaymentStatus',
+));
+
 
 /*
 * -------------------- Admin Routes -------------------

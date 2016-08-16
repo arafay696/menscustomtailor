@@ -8,6 +8,7 @@
                         <h3>Cart</h3>
                         <a href="#">update cart</a>
                     </div>
+                    <!-- cart/save -->
                     <form method="post" class="form" action="<?php echo URL::to('cart/save') ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <div class="cart_listing_outer">
