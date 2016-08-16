@@ -90,7 +90,7 @@
                                     $v = $type[$key];
                                     ?>
                                     <li class="element-item transition <?=$v;?>" data-category="<?=$v;?>">
-                                        <a href="<?php echo URL::to('fabric/' . $product->ID . '');?>">
+                                        <a class="selectFabric" href="javascript:void(0);">
                                             <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
                                                  alt="#"/>
                                             <img src="<?php echo URL::to('public/assets/client/images/fabric_zoomImg.png');?>"
@@ -106,7 +106,7 @@
                                         <div class="check_quentity clearfix">
                                             <div class="servicesTerm">
                                                 <label>
-                                                    <input type="checkbox" name="chooseFab[]"
+                                                    <input class="chkFab" type="checkbox" name="chooseFab[]"
                                                               value="<?=$product->ID;?>">
                                                 </label>
                                             </div>

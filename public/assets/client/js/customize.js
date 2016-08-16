@@ -1,5 +1,7 @@
 var baseUrl = $('#baseUrl').val();
 $(document).ready(function (e) {
+
+    // Save data in Session - Style/Size Page
     $('.nextSection').click(function () {
         var hasNext = false;
         if ($('.customize_slider .active-customize').next().length > 0) {
@@ -34,6 +36,7 @@ $(document).ready(function (e) {
 
     });
 
+    // Previous Section on Size/Measurement Page
     $('.previousSection').click(function () {
         if ($('.customize_slider .active-customize').prev().length > 0) {
             $('.customize_slider .active-customize').addClass('in');
@@ -82,4 +85,11 @@ $(document).ready(function (e) {
             $(this).attr('href', baseUrl + '/login?returnUrl=' + encodeURIComponent(getUrl))
         }
     });
+
+    // Select Shirt on click on Fabric - Fabric Page
+    $('.selectFabric').click(function () {
+        $(this).siblings('.check_quentity').find('label').addClass('active');
+        $(this).siblings('.check_quentity').find('.chkFab').prop('checked', true);
+    });
+
 });
