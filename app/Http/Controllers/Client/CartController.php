@@ -269,7 +269,7 @@ class CartController extends BaseController
             Session::flash('globalSuccessMsg', 'Order Saved.');
             Session::flash('alert-class', 'alert-success');
 
-            return Redirect::to('/');
+            return Redirect::to('checkout');
         } catch (\Exception $e) {
             DB::rollback();
             $error = $e->getMessage();

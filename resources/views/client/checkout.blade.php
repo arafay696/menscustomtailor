@@ -48,7 +48,8 @@
                         </div>
                     </div>
 
-
+                    <form method="post" class="form" action="<?php echo URL::to('payment') ?>">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <div class="login_register_outer borderBlack clearfix">
                         <div class="login_dtail">
                             <h4>BILLING DETAILS</h4>
@@ -152,7 +153,7 @@
 
 
                                 <div class="placeOrder">
-                                    <a href="#">Place order</a>
+                                    <button type="submit">Place order</button>
                                 </div>
                             </div>
                         </div>
@@ -209,6 +210,7 @@
 
                         </div>
                     </div>
+                    </form>
 
 
                 </div>

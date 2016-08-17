@@ -39,7 +39,24 @@ class PayPalController extends BaseController
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
-        $item_1 = new Item();
+        $data = $this->getCartData();
+        $itemsArr = array();
+        $total = 0;
+        foreach ($data as $key => $rs) {
+            if ($rs['Price'] > 0) {
+                $total += ($rs['Price']*$rs['Qty']);
+                ${'file_' . $key} = new Item();
+
+                ${'file_' . $key}->setName("" . $rs['ProductName'] . "")// item name
+                ->setCurrency('USD')
+                    ->setQuantity($rs['Qty'])
+                    ->setPrice("" . $rs['Price'] . ""); // unit price
+                array_push($itemsArr, ${'file_' . $key});
+            }
+        }
+
+
+        /*$item_1 = new Item();
         $item_1->setName('Item 1')// item name
         ->setCurrency('USD')
             ->setQuantity(2)
@@ -55,15 +72,15 @@ class PayPalController extends BaseController
         $item_3->setName('Item 3')
             ->setCurrency('USD')
             ->setQuantity(1)
-            ->setPrice('20');
+            ->setPrice('20');*/
 
         // add item to list
         $item_list = new ItemList();
-        $item_list->setItems(array($item_1, $item_2, $item_3));
+        $item_list->setItems($itemsArr);
 
         $amount = new Amount();
         $amount->setCurrency('USD')
-            ->setTotal(78);
+            ->setTotal($total);
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)
@@ -142,6 +159,9 @@ class PayPalController extends BaseController
         exit; // DEBUG RESULT, remove it later
 
         if ($result->getState() == 'approved') { // payment made
+            Session::flash('globalSuccessMsg', 'Order Successfull :) Thank you for your order.');
+            Session::flash('alert-class', 'alert-success');
+            return Redirect::to('/');
             return Redirect::route('original.route')
                 ->with('success', 'Payment success');
         }
