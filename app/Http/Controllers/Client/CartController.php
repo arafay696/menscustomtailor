@@ -162,7 +162,7 @@ class CartController extends BaseController
             $orderDetail['Amount'] = $OrderDetailItems['Amount'];
             $orderDetail['Paid'] = 0;
             $orderDetail['TransferTo'] = $CustomerName;
-            $orderDetail['Status'] = 1;
+            $orderDetail['Status'] = 2;
             $orderDetail['TrackingNo'] = mt_rand(1, 5000);
             $orderDetail['OnTime'] = '';
             $orderDetail['Must'] = '';
@@ -269,6 +269,9 @@ class CartController extends BaseController
             Session::flash('globalSuccessMsg', 'Order Saved.');
             Session::flash('alert-class', 'alert-success');
 
+
+            // Save Order ID for future use
+            Sessin::put('ProcessOrderId', $orderID);
             return Redirect::to('checkout');
         } catch (\Exception $e) {
             DB::rollback();

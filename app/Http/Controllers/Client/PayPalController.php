@@ -20,6 +20,7 @@ use Auth;
 use Config;
 use Log;
 use Input;
+use DB;
 
 class PayPalController extends BaseController
 {
@@ -44,7 +45,7 @@ class PayPalController extends BaseController
         $total = 0;
         foreach ($data as $key => $rs) {
             if ($rs['Price'] > 0) {
-                $total += ($rs['Price']*$rs['Qty']);
+                $total += ($rs['Price'] * $rs['Qty']);
                 ${'file_' . $key} = new Item();
 
                 ${'file_' . $key}->setName("" . $rs['ProductName'] . "")// item name
@@ -130,43 +131,56 @@ class PayPalController extends BaseController
 
     public function getPaymentStatus()
     {
-        // Get the payment ID before session clear
-        $payment_id = Session::get('paypal_payment_id');
+        if (Request::has('PayerID')) {
+            // Get the payment ID before session clear
+            $payment_id = Session::get('paypal_payment_id');
 
-        // clear the session payment ID
-        Session::forget('paypal_payment_id');
+            // clear the session payment ID
+            Session::forget('paypal_payment_id');
 
-        if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
+            if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
+                return Redirect::route('original.route')
+                    ->with('error', 'Payment failed');
+            }
+
+            $payment = Payment::get($payment_id, $this->_api_context);
+
+            // PaymentExecution object includes information necessary
+            // to execute a PayPal account payment.
+            // The payer_id is added to the request query parameters
+            // when the user is redirected from paypal back to your site
+            $execution = new PaymentExecution();
+            $execution->setPayerId(Input::get('PayerID'));
+
+            //Execute the payment
+            $result = $payment->execute($execution, $this->_api_context);
+
+            /*echo '<pre>';
+            print_r($result);
+            echo '</pre>';
+            exit; // DEBUG RESULT, remove it later*/
+
+            if ($result->getState() == 'approved') { // payment made
+                $this->emptyCart();
+
+                // Change Status to Paid if Payment Complete
+                $updatedata = array();
+                $updatedata['Status'] = 1;
+                DB::table('orders')
+                    ->where('ID', Session::get('ProcessOrderId'))
+                    ->update($updatedata);
+
+                Session::forget('ProcessOrderId');
+                Session::flash('globalSuccessMsg', 'Order Successfull :) Thank you for your order.');
+                Session::flash('alert-class', 'alert-success');
+                return Redirect::to('/');
+                return Redirect::route('original.route')
+                    ->with('success', 'Payment success');
+            }
             return Redirect::route('original.route')
                 ->with('error', 'Payment failed');
         }
 
-        $payment = Payment::get($payment_id, $this->_api_context);
-
-        // PaymentExecution object includes information necessary
-        // to execute a PayPal account payment.
-        // The payer_id is added to the request query parameters
-        // when the user is redirected from paypal back to your site
-        $execution = new PaymentExecution();
-        $execution->setPayerId(Input::get('PayerID'));
-
-        //Execute the payment
-        $result = $payment->execute($execution, $this->_api_context);
-
-        echo '<pre>';
-        print_r($result);
-        echo '</pre>';
-        exit; // DEBUG RESULT, remove it later
-
-        if ($result->getState() == 'approved') { // payment made
-            Session::flash('globalSuccessMsg', 'Order Successfull :) Thank you for your order.');
-            Session::flash('alert-class', 'alert-success');
-            return Redirect::to('/');
-            return Redirect::route('original.route')
-                ->with('success', 'Payment success');
-        }
-        return Redirect::route('original.route')
-            ->with('error', 'Payment failed');
     }
 
 }
