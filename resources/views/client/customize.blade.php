@@ -337,7 +337,7 @@
                                                                                  checked="checked">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -351,7 +351,7 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Round French Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -365,7 +365,7 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Square French Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -379,7 +379,7 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Convertible Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -393,7 +393,7 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Angled One Button Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -407,7 +407,7 @@
                                                     <label><input type="radio" name="cuffStyle" value="Two Button Cuff">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -421,7 +421,7 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Angled French Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">

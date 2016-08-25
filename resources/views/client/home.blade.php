@@ -10,7 +10,7 @@
                         <span><img src="<?php echo URL::to('public/assets/client/images/slider_img.png');?>"
                                    alt="#"/></span>
 
-                        <div class="banner_div_txt">
+                        <div class="banner_div_txt hide">
                             <div class="auto_content">
                                 <div class="banner_heading">
                                     <h3>Custom Made to the <br>Highest Standards.
@@ -28,7 +28,7 @@
                         <span><img src="<?php echo URL::to('public/assets/client/images/slider_img.png');?>"
                                    alt="#"/></span>
 
-                        <div class="banner_div_txt">
+                        <div class="banner_div_txt hide">
                             <div class="auto_content">
                                 <div class="banner_heading">
                                     <h3>Custom Made to the <br>Highest Standards.
@@ -46,7 +46,7 @@
                         <span><img src="<?php echo URL::to('public/assets/client/images/slider_img.png');?>"
                                    alt="#"/></span>
 
-                        <div class="banner_div_txt">
+                        <div class="banner_div_txt hide">
                             <div class="auto_content">
                                 <div class="banner_heading">
                                     <h3>Custom Made to the <br>Highest Standards.
@@ -147,7 +147,9 @@
 
                     <div class="popular_choices_list clearfix">
                         <ul>
-                            <?php foreach($products as $key => $product) { ?>
+                            <?php
+                            if(!is_array($products)){
+                            foreach($products as $key => $product) { ?>
                             <li>
                                 <a href="<?php echo URL::to('fabric');?>">
                                     <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
@@ -157,10 +159,54 @@
                                     	<a href="<?php echo URL::to('fabric');?>">
                                             <?=$product->Name;?>
                                         </a>
-                                        $<?=$product->Price;?>
+                                        {{--$<?$product->Price;?>--}}
                                     </span>
                             </li>
-                            <?php } ?>
+                            <?php } }?>
+                                <li>
+                                    <a href="<?php echo URL::to('fabric');?>">
+                                        <img src="<?php echo URL::to('resources/assets/images/38948.png');?>"
+                                             alt="#"/>
+                                    </a>
+                                    <span>
+                                    	<a href="<?php echo URL::to('fabric');?>">
+                                            Dress Shirt
+                                        </a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <a href="<?php echo URL::to('fabric');?>">
+                                        <img src="<?php echo URL::to('resources/assets/images/95157.png');?>"
+                                             alt="#"/>
+                                    </a>
+                                    <span>
+                                    	<a href="<?php echo URL::to('fabric');?>">
+                                            Casual Shirt
+                                        </a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <a href="<?php echo URL::to('fabric');?>">
+                                        <img src="<?php echo URL::to('resources/assets/images/Tuxedo.jpg');?>"
+                                             alt="#"/>
+                                    </a>
+                                    <span>
+                                    	<a href="<?php echo URL::to('fabric');?>">
+                                            Tuxedo Shirt
+                                        </a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <a href="<?php echo URL::to('/');?>">
+                                        <img src="<?php echo URL::to('public/assets/client/images/gift.jpg');?>"
+                                             alt="#"/>
+                                    </a>
+                                    <span>
+                                    	<a href="<?php echo URL::to('/');?>">
+                                            Gift Certificate
+                                        </a>
+                                    </span>
+                                </li>
                         </ul>
                     </div>
                 </div>

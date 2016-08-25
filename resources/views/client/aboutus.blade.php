@@ -9,37 +9,27 @@
                     </div>
 
                     <div class="how_work">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet mi sit amet venenatis
-                            iaculis. Donec nec gravida nisi. Suspendisse dapibus, ipsum ut luctus
-                            lobortis, libero tellus euismod augue, sit amet dapibus sapien nulla id leo. Proin at nunc
-                            eu ligula venenatis accumsan et eget lorem. Nulla id euismod ipsum. Suspe.</p>
-                        <p>Quisque condimentum, quam vel eleifend faucibus, felis nulla porttitor enim, ac auctor turpis
-                            velit a massa. Vivamus tempor, augue id commodo fringilla, diam mas
-                            sa aliquam enim, vitae dignissim leo metus dictum nisi. Morbi in mauris sit amet libero
-                            mattis malesuada. Sed eu ultricies risus. Curabitur viverra accumsan elit, eget .
-                            fermentum tortor, vitae fermentum felis. Aenean semper in odio quis elementum. Proin
-                            vestibulum tempus metus. Nunc vel nisi condimentum augue porta volutpat
-                            sed sollicitudin elit. Fusce tincidunt risus quis erat venenatis porttitor. Etiam non cursus
-                            ligula, eget porttitor mauris.</p>
-                        <p>Ut porta posuere nibh, in lobortis felis egestas ac. In accumsan consectetur massa. Nulla
-                            eros ligula, dapibus ac lacus in, accumsan semper metus. Aliquam moles
-                            tie nulla malesuada sollicitudin pulvinar. </p>
-                        <p>Quisque condimentum, quam vel eleifend faucibus, felis nulla porttitor enim, ac auctor turpis
-                            velit a massa. Vivamus tempor, augue id commodo fringilla, diam mas
-                            sa aliquam enim, vitae dignissim leo metus dictum nisi. Morbi in mauris sit amet libero
-                            mattis malesuada. Sed eu ultricies risus. Curabitur viverra accumsan elit, eget .
-                            fermentum tortor, vitae fermentum felis. Aenean semper in odio quis elementum. Proin
-                            vestibulum tempus metus. Nunc vel nisi condimentum augue porta volutpat
-                            sed sollicitudin elit. Fusce tincidunt risus quis erat venenatis porttitor. Etiam non cursus
-                            ligula, eget porttitor mauris.</p>
-                        <p>Quisque condimentum, quam vel eleifend faucibus, felis nulla porttitor enim, ac auctor turpis
-                            velit a massa. Vivamus tempor, augue id commodo fringilla, diam mas
-                            sa aliquam enim, vitae dignissim leo metus dictum nisi. Morbi in mauris sit amet libero
-                            mattis malesuada. Sed eu ultricies risus. Curabitur viverra accumsan elit, eget .
-                            fermentum tortor, vitae fermentum felis. Aenean semper in odio quis elementum. Proin
-                            vestibulum tempus metus. Nunc vel nisi condimentum augue porta volutpat
-                            sed sollicitudin elit. Fusce tincidunt risus quis erat venenatis porttitor. Etiam non cursus
-                            ligula, eget porttitor mauris.</p>
+                        <p>Mens Custom Tailor provides a cutting edge technology platform for those men who are after
+                            individuality through custom apparel.</p>
+                        <p>Our hundreds of different textiles range from premium European fabrics for the man who
+                            demands the ultimate sophistication, down to the style conscious man who wants value for
+                            money.</p>
+                        <p>Most men wear dress shirts that do not fit them properly. The problem is that ready-made
+                            garments are made to fit many; as a result, they fit no one perfectly. We all compromise
+                            somewhere if a shirt fits us in the neck it fails us in the sleeve length; if it fits well
+                            in the sleeves,
+                            it billows out around the stomach.</p>
+                        <p>Our website is pretty sleek and easy to navigate, which is a huge boon right away—you don&#39;t
+                            want your confidence in the process diminished by some sloppy U.I. or any sense of confusion
+                            in
+                            ordering. You begin by selecting a fabric from the dozens and dozens of available swaths,
+                            which
+                            cover a fairly predictable, though certainly appealing, spectrum of colors and patterns.</p>
+                        <p>Turnaround time: First-time customers should expect the process to take three to four weeks.
+                            For
+                            existing customers, it&#39;s usually a two-week turnaround. (But if you&#39;ve got an event
+                            on your
+                            calendar, as many of our clients do, they can get it to you in a week.)</p>
                     </div>
 
 
