@@ -49,6 +49,27 @@ $(document).ready(function (e) {
         }
     });
 
+    // Disable No. of Pocket Radio Button on No Pocket -
+    $('input[type=radio][name=pocketStyle]').change(function () {
+        if (this.value == 'No Pocket') {
+            $('.selectPocketNo').css('display', 'none');
+        }
+        else {
+            $('.selectPocketNo').css('display', 'block');
+        }
+    });
+
+    // Disable Monogram Description Radio Button on No Monog -
+    $('input[type=radio][name=monogramStyle]').change(function () {
+        if (this.value == 'None') {
+            $('.monogramDescription').css('display', 'none');
+        }
+        else {
+            $('.monogramDescription').css('display', 'block');
+        }
+    });
+
+
     // ------------------------ MY JS --------------------------------- //
     /*
      * Close Session Output

@@ -19,8 +19,8 @@
                         <h3>CUSTOMIZE Your Shirts <i class="fa fa-spinner fa-spin savingCustomize"
                                                      style="display:none;"></i></h3>
                         <div class="actions">
-                            <a class="previousSection" href="javascript:void(0);" style="">Previous</a>
                             <a class="nextSection" href="javascript:void(0);" style="margin-right: 2px">Next</a>
+                            <a class="previousSection" href="javascript:void(0);" style="">Previous</a>
                         </div>
                     </div>
                     <div class="customize_page">
@@ -463,7 +463,9 @@
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label><input type="radio" name="sleeveStyle" value="Full Sleeve">&nbsp;
+                                                    <label class="select">
+                                                        <input type="radio" name="sleeveStyle" value="Full Sleeve"
+                                                               checked="checked">&nbsp;
                                                     </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
@@ -477,9 +479,10 @@
                                             </div>
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label class="select"><input type="radio" name="sleeveStyle"
-                                                                                 value="Plain Short Sleeve"
-                                                                                 checked="checked">&nbsp;</label>
+                                                    <label>
+                                                        <input type="radio" name="sleeveStyle"
+                                                               value="Plain Short Sleeve">&nbsp;
+                                                    </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
                                                      alt="#"/>
@@ -798,23 +801,10 @@
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label class="select"><input type="radio" name="pocketStyle"
-                                                                                 value="No Pocket" checked="checked">&nbsp;
+                                                    <label class="select">
+                                                        <input type="radio" name="pocketStyle" value="Regular Pocket"
+                                                               checked="checked">&nbsp;
                                                     </label>
-                                                </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
-
-                                                <div class="customization_dropdown">
-                                                    <div class="customselect_customize">
-                                                        <span>No Pocket</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="customization_item">
-                                                <div class="artistProducer clearfix">
-                                                    <label><input type="radio" name="pocketStyle"
-                                                                  value="Regular Pocket">&nbsp;</label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
                                                      alt="#"/>
@@ -839,6 +829,22 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="customization_item">
+                                                <div class="artistProducer clearfix">
+                                                    <label>
+                                                        <input type="radio" name="pocketStyle" value="No Pocket">&nbsp;
+                                                    </label>
+                                                </div>
+                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                     alt="#"/>
+
+                                                <div class="customization_dropdown">
+                                                    <div class="customselect_customize">
+                                                        <span>No Pocket</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
@@ -859,15 +865,14 @@
                                                     tie-knot.</p>
                                             </div>
 
-                                            <div class="neck_dtail">
+                                            <div class="neck_dtail selectPocketNo">
                                                 <label>No. Of Pocket:</label>
 
                                                 <p>The neck measurement is taken around the neck with the
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
-                                                <input name="noOfPocket" type="text" value=""
-                                                       placeholder="No. Of Pocket"/>
+                                                <input name="noOfPocket" type="number" value="1" min="1" max="2" maxlength="1" />
                                             </div>
                                         </div>
                                     </div>
@@ -882,8 +887,10 @@
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label><input type="radio" name="monogramStyle" value="None"
-                                                                  checked="checked">&nbsp;</label>
+                                                    <label class="select">
+                                                        <input type="radio" name="monogramStyle" value="None"
+                                                               checked="checked">&nbsp;
+                                                    </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
                                                      alt="#"/>
@@ -896,8 +903,8 @@
                                             </div>
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label class="select"><input type="radio" name="monogramStyle"
-                                                                                 value="Block Letter" checked="checked">&nbsp;
+                                                    <label><input type="radio" name="monogramStyle"
+                                                                  value="Block Letter" checked="checked">&nbsp;
                                                     </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
@@ -943,14 +950,14 @@
                                                     tie-knot.</p>
                                             </div>
 
-                                            <div class="neck_dtail">
+                                            <div class="neck_dtail monogramDescription">
                                                 <label>Monogram Detail:</label>
 
                                                 <p>The neck measurement is taken around the neck with the
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
-                                                <input name="monogramIntials" type="text" value=""
+                                                <input name="monogramIntials" type="text" maxlength="3" value=""
                                                        placeholder="Monogram Intials"/>
                                                 <select style="margin-top: 4px;" name="monogramColor">
                                                     <option selected="" value="-1">Select Monogram Color</option>
@@ -1659,7 +1666,7 @@
                                                 </select>
                                                 <select name="HeightInches" size="1"
                                                         style="display: inline-block; clear: none; margin-left: 2px; width: 49%;">
-                                                    <option selected="" value="0">0</option>
+                                                    <option value="0" selected="">Height Inches</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['HeightInches']) && Session::get('currentSize')['HeightInches'] == "1") ? "selected='selected'" : "" ?> value="1">
                                                         1
                                                     </option>
@@ -2301,9 +2308,15 @@
                                                 <select style="margin-top: 4px;" title="Waist" size="1"
                                                         name="Shoulder">
                                                     <option selected="" value="-1">Select Shoulder Type</option>
-                                                    <option <?php echo (isset(Session::get('currentSize')['Shoulder']) && Session::get('currentSize')['Shoulder'] == "Sloping") ? "selected='selected'" : "" ?> value="Sloping">Sloping</option>
-                                                    <option <?php echo (isset(Session::get('currentSize')['Shoulder']) && Session::get('currentSize')['Shoulder'] == "Average") ? "selected='selected'" : "" ?> value="Average">Average</option>
-                                                    <option <?php echo (isset(Session::get('currentSize')['Shoulder']) && Session::get('currentSize')['Shoulder'] == "Square") ? "selected='selected'" : "" ?> value="Square">Square</option>
+                                                    <option <?php echo (isset(Session::get('currentSize')['Shoulder']) && Session::get('currentSize')['Shoulder'] == "Sloping") ? "selected='selected'" : "" ?> value="Sloping">
+                                                        Sloping
+                                                    </option>
+                                                    <option <?php echo (isset(Session::get('currentSize')['Shoulder']) && Session::get('currentSize')['Shoulder'] == "Average") ? "selected='selected'" : "" ?> value="Average">
+                                                        Average
+                                                    </option>
+                                                    <option <?php echo (isset(Session::get('currentSize')['Shoulder']) && Session::get('currentSize')['Shoulder'] == "Square") ? "selected='selected'" : "" ?> value="Square">
+                                                        Square
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
