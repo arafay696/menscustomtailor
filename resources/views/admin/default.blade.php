@@ -327,7 +327,7 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Orders<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo URL::to('admin/product/new/6');?>">Create Order</a>
+                                <a href="<?php echo URL::to('admin/home');?>">Create Order</a>
                             </li>
                             <li>
                                 <a href="<?php echo URL::to('admin/orders');?>">Order List</a>

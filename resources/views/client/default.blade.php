@@ -108,7 +108,7 @@
                                 <img src="<?= URL::to('public/assets/client/images/login_img.png'); ?>" alt="#"/>
                                 <?php } ?>
                             </span>
-                            <a href="#">User Name</a>
+                            <a href="#">{{Session::get('CustomerName')}}</a>
                             <ul>
                                 <li><a href="<?php echo URL::to('profile');?>">Profile</a></li>
                                 <li><a href="<?php echo URL::to('order-history');?>">Order History</a></li>
