@@ -872,7 +872,8 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
-                                                <input name="noOfPocket" type="number" value="1" min="1" max="2" maxlength="1" />
+                                                <input name="noOfPocket" type="number" value="1" min="1" max="2"
+                                                       maxlength="1"/>
                                             </div>
                                         </div>
                                     </div>
@@ -960,13 +961,13 @@
                                                 <input name="monogramIntials" type="text" maxlength="3" value=""
                                                        placeholder="Monogram Intials"/>
                                                 <select style="margin-top: 4px;" name="monogramColor">
-                                                    <option selected="" value="-1">Select Monogram Color</option>
+                                                    <option selected="" value="">Select Monogram Color</option>
                                                     <option>Black</option>
                                                     <option>Brown</option>
                                                     <option>White</option>
                                                 </select>
                                                 <select style="margin-top: 4px;" name="monogramLocation">
-                                                    <option selected="" value="-1">Select Monogram Location</option>
+                                                    <option selected="" value="">Select Monogram Location</option>
                                                     <option>Cuff</option>
                                                     <option>Chest</option>
                                                     <option>Pocket</option>
@@ -2250,7 +2251,7 @@
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
                                                 <select name="Posture">
-                                                    <option selected="" value="-1">Posture</option>
+                                                    <option selected="" value="">Posture</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['Posture']) && Session::get('currentSize')['Posture'] == "Flat") ? "selected='selected'" : "" ?> value="Flat">
                                                         Flat
                                                     </option>
@@ -2265,7 +2266,7 @@
                                                     </option>
                                                 </select>
                                                 <select name="ArmType" style="margin-top: 4px;">
-                                                    <option selected="" value="-1">Select Arm Type</option>
+                                                    <option selected="" value="">Select Arm Type</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['ArmType']) && Session::get('currentSize')['ArmType'] == "Slender") ? "selected='selected'" : "" ?> value="Slender">
                                                         Slender
                                                     </option>
@@ -2281,7 +2282,7 @@
                                                 </select>
                                                 <select style="margin-top: 4px;" title="Weight" size="1"
                                                         name="BodyShape">
-                                                    <option selected="" value="-1">Select Body Shape</option>
+                                                    <option selected="" value="">Select Body Shape</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['BodyShape']) && Session::get('currentSize')['BodyShape'] == "Average") ? "selected='selected'" : "" ?> value="Average">
                                                         Average
                                                     </option>
@@ -2294,7 +2295,7 @@
                                                 </select>
                                                 <select style="margin-top: 4px;" title="Waist" size="1"
                                                         name="BodyProportion">
-                                                    <option selected="" value="-1">Select Body proportion</option>
+                                                    <option selected="" value="">Select Body proportion</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['BodyProportion']) && Session::get('currentSize')['BodyProportion'] == "Evenly Proportioned") ? "selected='selected'" : "" ?> value="Evenly Proportioned">
                                                         Evenly Proportioned
                                                     </option>
@@ -2307,7 +2308,7 @@
                                                 </select>
                                                 <select style="margin-top: 4px;" title="Waist" size="1"
                                                         name="Shoulder">
-                                                    <option selected="" value="-1">Select Shoulder Type</option>
+                                                    <option selected="" value="">Select Shoulder Type</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['Shoulder']) && Session::get('currentSize')['Shoulder'] == "Sloping") ? "selected='selected'" : "" ?> value="Sloping">
                                                         Sloping
                                                     </option>
@@ -2372,7 +2373,7 @@
                                                     <p>White Cuff</p>
                                                 </div>
                                                 <select style="margin-top: 4px;" name="shirtTailType">
-                                                    <option selected="" value="-1">Shirt Tail Type</option>
+                                                    <option selected="" value="">Shirt Tail Type</option>
                                                     <option value="Full Cut">Full Cut</option>
                                                     <option value="Traditional Cut">Traditional Cut</option>
                                                     <option value="Trim Fit">Trim Fit</option>
@@ -2389,6 +2390,68 @@
                 </div>
             </div>
         </div>
+        <button id="myBtn" class="hide">Open Modal</button>
     </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">×</span>
+                <h2>Shirt Size</h2>
+            </div>
+            <div class="modal-body">
+                <div style="padding-bottom: 0px;">
+                    <label class="active">
+                        <input name="shirtSizeOption" type="radio" value="1" checked>
+                    </label>
+                    <p>Last Size Fit</p>
+                </div>
+                <div style="padding-bottom: 0px;">
+                    <label class="active">
+                        <input name="shirtSizeOption" type="radio" value="1">
+                    </label>
+                    <p>Change Size</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a style="float:right;">Done</a>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        /*
+         * --------- Modal JS
+         *
+         * */
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        // -------------------------- Modal JS End -------------------//
+    </script>
     <!-- Page Wrapper -->
 @endsection

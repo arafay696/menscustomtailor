@@ -139,7 +139,7 @@ class CartController extends BaseController
             $orderDetail['GOrderNo'] = mt_rand(1, 5000);
             $orderDetail['Code'] = mt_rand(1, 5000);
             $orderDetail['OrderType'] = '';
-            $orderDetail['PlacedFor'] = '';
+            $orderDetail['PlacedFor'] = 'MCT';
             $orderDetail['Price'] = $OrderDetailItems['TotalPrice'];
             $orderDetail['OtherItem'] = '';
             $orderDetail['SalesTax'] = 2;
@@ -168,7 +168,7 @@ class CartController extends BaseController
             $orderDetail['Must'] = '';
             $orderDetail['Comments'] = '';
             $orderDetail['Description'] = '';
-            $orderDetail['StatusText'] = '';
+            $orderDetail['StatusText'] = 'New Order';
             $orderDetail['OrderDate'] = date('Y-m-d H:i:s');
             $orderDetail['PromiseDate'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
             $orderDetail['DeliveryDate'] = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 10 days'));
@@ -219,11 +219,11 @@ class CartController extends BaseController
                 $shirtDetailItem['CollarStays'] = (isset($value['CollarStays'])) ? $value['CollarStays'] : 0;
                 $shirtDetailItem['CollarLining'] = (isset($value['CollarLining'])) ? $value['CollarLining'] : 0;
                 $shirtDetailItem['CollarStitch'] = (isset($value['CollarStitch'])) ? $value['CollarStitch'] : 0;
-                $shirtDetailItem['FrontStyle'] = (isset($value['FrontStyle'])) ? $value['frontStyle'] : '';
+                $shirtDetailItem['FrontStyle'] = (isset($value['frontStyle'])) ? $value['frontStyle'] : '';
                 $shirtDetailItem['FrontClosure'] = (isset($value['FrontClosure'])) ? $value['FrontClosure'] : '';
                 $shirtDetailItem['BackStyle'] = (isset($value['BackStyle'])) ? $value['BackStyle'] : '';
                 $shirtDetailItem['ShirtBottomStyle'] = (isset($value['ShirtBottomStyle'])) ? $value['ShirtBottomStyle'] : '';
-                $shirtDetailItem['CuffStyle'] = (isset($value['ShirtBottomStyle'])) ? $value['cuffStyle'] : '';
+                $shirtDetailItem['CuffStyle'] = (isset($value['cuffStyle'])) ? $value['cuffStyle'] : '';
                 $shirtDetailItem['WhiteCuffs'] = (isset($value['whiteCuff'])) ? $value['whiteCuff'] : 0;
                 $shirtDetailItem['CuffLining'] = (isset($value['CuffLining'])) ? $value['CuffLining'] : 0;
                 $shirtDetailItem['CuffStitch'] = (isset($value['CuffStitch'])) ? $value['CuffStitch'] : 0;
@@ -271,7 +271,7 @@ class CartController extends BaseController
 
 
             // Save Order ID for future use
-            Sessin::put('ProcessOrderId', $orderID);
+            Session::put('ProcessOrderId', $orderID);
             return Redirect::to('checkout');
         } catch (\Exception $e) {
             DB::rollback();

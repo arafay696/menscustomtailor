@@ -139,6 +139,9 @@ class UserController extends BaseController
 
     public function orderHistory()
     {
+        if (!Session::has('CustomerID')) {
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('order-history')) . '');
+        }
         return view('client.orderhistory');
     }
 

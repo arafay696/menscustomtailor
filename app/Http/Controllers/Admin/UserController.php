@@ -49,7 +49,6 @@ class UserController extends BaseController
 
             // if the validator fails, redirect back to the form
             if ($validator->fails()) {
-
                 return Redirect::back()
                     ->withErrors($validator)// send back all errors to the login form
                     ->withInput(Request::except('password')); // send back the input (not the password) so that we can repopulate the form
@@ -76,6 +75,7 @@ class UserController extends BaseController
                 $uName = $user->Name;
                 if (Hash::check($userdata['Password'], $uPass)) {
                     Auth::login($user, true);
+                    //dd(Auth::attempt(['Email' => $userdata['Email'], 'Password' => $userdata['Password']]));
                 } else {
                     return Redirect::back()->withErrors("Account detail's not Match.");
                 }

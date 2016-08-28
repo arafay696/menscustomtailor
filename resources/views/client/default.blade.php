@@ -167,7 +167,7 @@
         <div class="footer_top">
             <div class="auto_content">
                 <div class="footer_top_dtail clearfix">
-                    <div class="footer_logo">
+                    <div class="footer_logo hide">
                         <a href="#">
                             <img src="<?php echo URL::to('public/assets/client/images/header_logo.png');?>"
                                  alt="Logo"/>
@@ -179,25 +179,24 @@
                             normal distribution of letters, as
                             opposed making it look like readable.</p>
                     </div>
-
                     <div class="footer_links">
                         <ul>
                             <li><a href="<?php echo URL::to('/');?>">Home </a></li>
-                            <li><a href="#">About</a></li>
+                            <li><a href="<?php echo URL::to('about-us');?>">About</a></li>
                             <li><a href="<?php echo URL::to('fabric');?>">Fabric</a></li>
-                            <li><a href="#">Style</a></li>
-                            <li><a href="#">Measurements</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="<?php echo URL::to('contact-us');?>">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="footer_links">
                         <ul>
-                            <li><a href="#">Home </a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Fabric</a></li>
-                            <li><a href="#">Style</a></li>
-                            <li><a href="#">Measurements</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="<?php echo URL::to('profile');?>">Account </a></li>
+                            <li><a href="<?php echo URL::to('order-history');?>">Order History</a></li>
+                            <li><a href="<?php echo URL::to('cart');?>">Shopping Cart</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_links">
+                        <ul>
+                            <li><a href="#">Gift Cards </a></li>
                         </ul>
                     </div>
 

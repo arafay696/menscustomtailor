@@ -79,7 +79,6 @@
     display: none;
 }
 
-
 .alert-success {
     background-color: #dff0d8;
     border-color: #d6e9c6;
@@ -114,6 +113,137 @@
 .hide {
     display: none !important;
 }
+
 .monogramDescription {
     display: none;
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 19px 16px;
+    background-color: #eb9229;
+    color: white;
+}
+
+.modal-body {
+    margin: 5px !important;
+    padding: 15px 16px;
+}
+
+.modal-body input{
+    -webkit-appearance: inherit !important;
+    appearance: normal;
+    outline: normal;
+}
+
+.modal-footer {
+    padding: 19px 16px;
+    background-color: #f1f1f1;
+    color: white;
+    overflow: hidden;
+}
+
+.modal-footer a {
+    width: 144px;
+    height: 44px;
+    border: 2px solid #eb9229;
+    background: #eb9229;
+    text-align: center;
+    line-height: 40px;
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'ralewaylight';
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    float: right;
+}
+
+.modal-footer a:hover {
+    background: none;
+    color: #eb9229;
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+}
+
+
+/* -------------- Modal End ------------------------ */

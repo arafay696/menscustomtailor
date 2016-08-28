@@ -20,6 +20,7 @@ class Merchants extends Model implements AuthenticatableContract, CanResetPasswo
 
     protected $primaryKey = 'ID';
 
+
     /**
      * The attributes that are mass assignable.
      *

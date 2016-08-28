@@ -76,6 +76,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::post('/product/edit-product', 'ProductController@editProduct');
     Route::get('/delete/image/{id}', 'ProductController@deleteImage');
 
+    // ---------------- Orders
+    Route::get('/orders', 'OrderController@orders');
+    Route::get('/order/{orderID}/{customerID}', 'OrderController@orderDetail');
+
     // ----------- User Routes
     Route::get('/user/add', 'UserController@addUserView');
     Route::post('/user/add-user', 'UserController@addUser');
