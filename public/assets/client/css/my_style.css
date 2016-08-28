@@ -197,10 +197,21 @@
     padding: 15px 16px;
 }
 
-.modal-body input{
-    -webkit-appearance: inherit !important;
-    appearance: normal;
-    outline: normal;
+.modal-body p{
+    padding: 12px;
+}
+
+.modal-body .activeOption {
+    background-color: #5b5b5b;
+    color: #FFFFFF;
+}
+
+.modal-body .fa {
+    display: none;
+}
+
+.modal-body .activeOption .fa {
+    display: inline-block;
 }
 
 .modal-footer {
@@ -211,6 +222,7 @@
 }
 
 .modal-footer a {
+    cursor: pointer;
     width: 144px;
     height: 44px;
     border: 2px solid #eb9229;
@@ -236,8 +248,8 @@
 }
 
 .modal-footer a:hover {
-    background: none;
-    color: #eb9229;
+    cursor: pointer;
+    color: #FFFFFF;
     transition: all .5s;
     -moz-transition: all .5s;
     -ms-transition: all .5s;

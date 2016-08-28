@@ -113,4 +113,22 @@ $(document).ready(function (e) {
         $(this).siblings('.check_quentity').find('.chkFab').prop('checked', true);
     });
 
+    $('.sizeFitorNot').click(function () {
+        $('.sizeFitorNot').removeClass('activeOption');
+        $(this).addClass('activeOption');
+        if ($(this).attr('id') == 'lastSizeFit') {
+            $('#setCanChangeSize').val(0);
+        } else {
+            $('#setCanChangeSize').val(1);
+        }
+    });
+
+    $('.continueStyling').click(function () {
+        $('#myModal').css('display', 'none');
+        if ($('#setCanChangeSize').val() == 0) {
+            $('.canChangeSize select,.canChangeSize input').attr('disabled', 'disabled');
+        }
+
+    });
+
 });

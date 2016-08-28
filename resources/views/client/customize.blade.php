@@ -12,6 +12,8 @@
     ?>
 
     <div class="container">
+        <input type="hidden" id="openModalCondi" value="<?php echo (is_array(Session::get('currentSize')) && count(Session::get('currentSize')) > 0) ? 'open' : 'closed'; ?>">
+        <input type="hidden" id="setCanChangeSize" value="0">
         <div class="cart_container back_background">
             <div class="auto_content">
                 <div class="cart_pageDtail">
@@ -297,7 +299,7 @@
                                                     tie-knot.</p>
                                             </div>
 
-                                            <div class="neck_dtail">
+                                            <div class="neck_dtail canChangeSize">
                                                 <label>Neck Detail:</label>
 
                                                 <p>The neck measurement is taken around the neck with the
@@ -513,7 +515,7 @@
                                                     tie-knot.</p>
                                             </div>
 
-                                            <div class="neck_dtail">
+                                            <div class="neck_dtail canChangeSize">
                                                 <label>Neck Detail:</label>
 
                                                 <p>The neck measurement is taken around the neck with the
@@ -1008,7 +1010,7 @@
                                                     tie-knot.</p>
                                             </div>
 
-                                            <div class="neck_dtail">
+                                            <div class="neck_dtail canChangeSize">
                                                 <label>Neck:</label>
 
                                                 <p>The neck measurement is taken around the neck with the
@@ -1633,7 +1635,7 @@
                                                     tie-knot.</p>
                                             </div>
 
-                                            <div class="neck_dtail">
+                                            <div class="neck_dtail canChangeSize">
                                                 <label>Neck:</label>
 
                                                 <p>The neck measurement is taken around the neck with the
@@ -2243,7 +2245,7 @@
                                                     tie-knot.</p>
                                             </div>
 
-                                            <div class="neck_dtail">
+                                            <div class="neck_dtail canChangeSize">
                                                 <label>Neck:</label>
 
                                                 <p>The neck measurement is taken around the neck with the
@@ -2402,21 +2404,20 @@
                 <h2>Shirt Size</h2>
             </div>
             <div class="modal-body">
-                <div style="padding-bottom: 0px;">
-                    <label class="active">
-                        <input name="shirtSizeOption" type="radio" value="1" checked>
-                    </label>
-                    <p>Last Size Fit</p>
+                <h2>Choose Option</h2>
+                <div style="margin-top:8px;padding-bottom: 0px;">
+                    <p id="lastSizeFit" class="sizeFitorNot activeOption">
+                        <i class="fa fa-check" style="color:#FFFFFF;"></i>&nbsp;Last Size Fit
+                    </p>
                 </div>
                 <div style="padding-bottom: 0px;">
-                    <label class="active">
-                        <input name="shirtSizeOption" type="radio" value="1">
-                    </label>
-                    <p>Change Size</p>
+                    <p id="Modify" class="sizeFitorNot">
+                        <i class="fa fa-check" style="color:#FFFFFF;"></i>&nbsp;Change Size
+                    </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <a style="float:right;">Done</a>
+                <a class="continueStyling" style="float:right;">Done</a>
             </div>
         </div>
 
@@ -2450,6 +2451,10 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+
+        if($('#openModalCondi').val() == 'open'){
+            modal.style.display = "block";
         }
         // -------------------------- Modal JS End -------------------//
     </script>
