@@ -21,9 +21,18 @@ class HomeController extends BaseController
             ->groupBy('pr.ID')
             ->get();
 
-        $return['products'] = $products;
+        $reviews = DB::table('customer_reviews AS cr')
+            ->select('c.Name', 'cr.Review','c.UserImg')
+            ->join('customers as c', 'c.ID', '=', 'cr.CustomerID')
+            ->get();
 
-        return view('client.home', $return);
+        //dd($reviews);
+        $data = array(
+            'products' => $products,
+            'reviews' => $reviews
+        );
+
+        return view('client.home', $data);
     }
 
     public function contactus()

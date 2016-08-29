@@ -31,6 +31,11 @@
     <link href="<?php echo URL::asset('public/assets/admin/bower_components/font-awesome/css/font-awesome.min.css'); ?>"
           rel="stylesheet" type="text/css">
 
+
+    <!-- JQUERY UI CSS -->
+    <link href="<?php echo URL::asset('public/assets/admin/bower_components/jquery-ui-1.12.0/jquery-ui.min.css'); ?>"
+          rel="stylesheet" type="text/css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -327,10 +332,22 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Orders<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo URL::to('admin/home');?>">Create Order</a>
+                                <a href="<?php echo URL::to('admin/order/new');?>">Create Order</a>
                             </li>
                             <li>
                                 <a href="<?php echo URL::to('admin/orders');?>">Order List</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Discount Code<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo URL::to('admin/discount/generate');?>">Generate</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo URL::to('admin/discount/list');?>">Discount List</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -373,5 +390,13 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo URL::asset('public/assets/admin/dist/js/sb-admin-2.js'); ?>"></script>
+
+<script src="<?php echo URL::asset('public/assets/admin/bower_components/jquery-ui-1.12.0/jquery-ui.min.js'); ?>"></script>
+<script>
+    $( function() {
+        $( "#startdate" ).datepicker();
+        $( "#enddate" ).datepicker();
+    } );
+</script>
 </body>
 </html>

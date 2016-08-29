@@ -79,6 +79,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // ---------------- Orders
     Route::get('/orders', 'OrderController@orders');
     Route::get('/order/{orderID}/{customerID}', 'OrderController@orderDetail');
+    Route::get('/order/new', 'OrderController@newOrderView');
+
+    // -------------------- Discount Code
+    Route::get('/discount/generate', 'OrderController@addDiscountView');
+    Route::post('/discount/generateIt', 'OrderController@generateDiscount');
+    Route::get('/discount/list', 'OrderController@getDiscountList');
+    Route::get('/discount/{status}/{id}', 'OrderController@changeStatusDiscount');
 
     // ----------- User Routes
     Route::get('/user/add', 'UserController@addUserView');
