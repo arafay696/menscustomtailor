@@ -20,7 +20,7 @@ Route::get('/', 'Client\HomeController@index');
 //  Fabric Routes
 Route::get('/fabric', 'Client\FabricController@index');
 Route::get('/fabric/{id}', 'Client\FabricController@customizebyID');
-Route::match(['get', 'post'],'/fabric/customize/new', 'Client\FabricController@customize');
+Route::match(['get', 'post'], '/fabric/customize/new', 'Client\FabricController@customize');
 Route::post('/fabric/customize', 'Client\FabricController@setCustomizeValues');
 Route::get('/cart', 'Client\CartController@index');
 Route::get('cart/remove/{key}', 'Client\CartController@RemoveItem');
@@ -65,6 +65,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
     // ----------- Product Routes
     Route::get('/home', 'UserController@home');
+    Route::get('/products', 'ProductController@getProductList');
     Route::get('/product/getSettings', 'ProductController@getProductCategories');
     Route::get('/product/new/{id}', 'ProductController@addProductView');
     Route::post('/product/add-product', 'ProductController@addProduct');
@@ -88,6 +89,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/discount/{status}/{id}', 'OrderController@changeStatusDiscount');
 
     // ----------- User Routes
+    Route::get('/customers', 'UserController@getCustomers');
     Route::get('/user/add', 'UserController@addUserView');
     Route::post('/user/add-user', 'UserController@addUser');
     Route::get('/user/users', 'UserController@getUsers');

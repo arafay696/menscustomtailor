@@ -46,7 +46,7 @@
 </head>
 
 <body>
-
+<input type="hidden" id="baseUrl" value="<?=URL::to('/');?>"/>
 <div id="wrapper">
     @if(Session::has('globalErrMsg'))
         <div style="display:block;"
@@ -398,5 +398,6 @@
         $( "#enddate" ).datepicker();
     } );
 </script>
+<script type="text/javascript" src="<?php echo URL::to('public/assets/admin/dist/js/new-order.js'); ?>"></script>
 </body>
 </html>

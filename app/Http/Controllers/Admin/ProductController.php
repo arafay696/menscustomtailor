@@ -935,6 +935,28 @@ class ProductController extends BaseController
 
     }
 
+    public function getProductList()
+    {
+        try {
+            $users = DB::table('products')
+                ->select('ID', 'Code', 'Price')
+                ->get();
+
+            $data = array(
+                'status' => true,
+                'products' => $users
+            );
+
+            echo json_encode($data);
+        } catch (\Exception $e) {
+            $data = array(
+                'status' => false
+            );
+
+            echo json_encode($data);
+        }
+    }
+
     public function getProducts()
     {
         if (!Auth::check()) {

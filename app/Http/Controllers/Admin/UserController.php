@@ -169,6 +169,28 @@ class UserController extends BaseController
         }
     }
 
+    public function getCustomers()
+    {
+        try {
+            $users = DB::table('customers')
+                ->select('ID', 'Email', 'Name', 'Phone')
+                ->get();
+
+            $data = array(
+                'status' => true,
+                'users' => $users
+            );
+
+            echo json_encode($data);
+        } catch (\Exception $e) {
+            $data = array(
+                'status' => false
+            );
+
+            echo json_encode($data);
+        }
+    }
+
     public function getAllTypes()
     {
         $merchants = DB::table('merchants')
