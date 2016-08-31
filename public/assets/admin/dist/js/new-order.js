@@ -25,6 +25,7 @@ $(document).ready(function () {
                         $("#customersearch").autocomplete({
                             source: availableCustomrs,
                             select: function (event, ui) {
+                                $('.setCustomerID').val(ui.item.id);
                                 $('#firstName').val(ui.item.name);
                                 $('#phone').val(ui.item.phone);
                                 $('#email').val(ui.item.email);
@@ -59,6 +60,7 @@ $(document).ready(function () {
                         $("#chooseProduct").autocomplete({
                             source: availableProducts,
                             select: function (event, ui) {
+                                $('.setProductID').val(ui.item.id);
                                 $('#customerPrice').val(ui.item.price);
                                 $('#qty').val(1);
                                 $('#dealerPrice').val(ui.item.price);
@@ -85,6 +87,20 @@ $(document).ready(function () {
                 $('#ProductDetail').addClass('in active');
                 NewOrder.initProductDetail();
             }
+        }, nextToSizeDetail: function (event) {
+            if ($('#chooseProduct').val() == "" || $('#qty').val() == "" || $('#customerPrice').val() == "") {
+                $('#errorMsg').removeClass('hide');
+                $('#errorMsg').text('All fields(Product,Quantitym & Customer Price) Required.');
+                NewOrder.hideMsg('errorMsg');
+            } else {
+                $('.tablist li').removeClass('active');
+                $('#SizeEnable').addClass('active');
+                $('#SizeEnable a').attr('href', '#Size');
+                $('#SizeEnable a').attr('data-toggle', 'tab');
+                $('.contentlist .tab-pane').removeClass('in active');
+                $('#Size').addClass('in active');
+                //NewOrder.initProductDetail();
+            }
         }, hideMsg: function (msg) {
             setTimeout(function () {
                 $('#' + msg).addClass('hide');
@@ -96,5 +112,9 @@ $(document).ready(function () {
 
     $('#nextToProductDetail').click(function () {
         NewOrder.nextToProductDetail(this);
+    });
+
+    $('#nextToSizeDetail').click(function () {
+        NewOrder.nextToSizeDetail(this);
     });
 });

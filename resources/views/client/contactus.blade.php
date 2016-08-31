@@ -42,8 +42,8 @@
 
                                 <ul>
                                     <li><b>Address :</b>3379, Peachtree Rd Atlanta, GA 30326</li>
-                                    <li><b>E-mail :</b> <a href="#">email@domain.com</a></li>
-                                    <li><b>Phone :</b> +1 111-888-000</li>
+                                    <li><b>E-mail :</b> <a href="#"> info@menscustomtailor.com</a></li>
+                                    <li><b>Phone :</b> Telephone (678) 740-3530</li>
                                     <li><b>Fax : </b> +1 111-888-0001</li>
                                 </ul>
                             </div>

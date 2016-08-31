@@ -202,12 +202,19 @@
 
                     <div class="footer_socialLinks">
                         <ul>
-                            <li><a href="#"><img src="<?php echo URL::to('public/assets/client/images/fb_icon.png');?>"
-                                                 alt="#"/></a></li>
-                            <li><a href="#"><img
+                            <li>
+                                <a href="https://www.facebook.com/MensCustomTailor-752451578190499/" target="_blank">
+                                    <img src="<?php echo URL::to('public/assets/client/images/fb_icon.png');?>"
+                                                 alt="#"/>
+                                </a>
+                            </li>
+                            <li><a href="https://twitter.com/@cs06908547" target="_blank"><img
                                             src="<?php echo URL::to('public/assets/client/images/twit_icon.png');?>"
                                             alt="#"/></a></li>
-                            <li><a href="#"><img
+                            <li><a href="https://www.pinterest.com/menscustomtailo/" target="_blank"><img width="41" height="41"
+                                            src="<?php echo URL::to('public/assets/client/images/pi_icon.png');?>"
+                                            alt="#"/></a></li>
+                            <li><a href="#" target="_blank"><img
                                             src="<?php echo URL::to('public/assets/client/images/google_icon.png');?>"
                                             alt="#"/></a></li>
                             <li><a href="#"><img
