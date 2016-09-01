@@ -81,6 +81,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/orders', 'OrderController@orders');
     Route::get('/order/{orderID}/{customerID}', 'OrderController@orderDetail');
     Route::get('/order/new', 'OrderController@newOrderView');
+    Route::get('/customer/size/{id}', 'OrderController@getSizeByCID');
+    Route::post('/order/save', 'OrderController@saveSizeAndOrder');
+    Route::post('/order/style/save', 'OrderController@saveStyle');
 
     // -------------------- Discount Code
     Route::get('/discount/generate', 'OrderController@addDiscountView');

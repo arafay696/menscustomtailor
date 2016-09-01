@@ -957,6 +957,7 @@ class ProductController extends BaseController
         }
     }
 
+
     public function getProducts()
     {
         if (!Auth::check()) {

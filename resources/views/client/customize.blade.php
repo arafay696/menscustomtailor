@@ -2328,9 +2328,8 @@
                             </li>
                             <li>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
-                                                                                                        name="productID"
-                                                                                                        value="<?=$productID;?>"/>
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                    <input type="hidden" name="productID" value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_itemz_outer">
