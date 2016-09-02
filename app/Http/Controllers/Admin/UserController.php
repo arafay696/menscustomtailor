@@ -169,6 +169,40 @@ class UserController extends BaseController
         }
     }
 
+    public function getCustomersList()
+    {
+        try {
+
+            $users = DB::table('customers')
+                ->select('ID', 'Email', 'Name', 'Company', 'Country','Phone', 'Status')
+                ->get();
+
+            $return['status'] = true;
+            $return['msg'] = 'Received';
+            $return['data'] = $users;
+
+            $StatusByID = $this->getAllStatus();
+
+            $data = array(
+                'users' => $users,
+                'StatusByID' => $StatusByID
+            );
+
+            return view('admin/customer/listing', $data);
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+        }
+    }
+
     public function getCustomers()
     {
         try {
@@ -219,6 +253,67 @@ class UserController extends BaseController
             'usercompany' => $usercompany
         );
         return view('admin/user/add-user', $data);
+    }
+
+    public function addCustomerView()
+    {
+        $status = DB::table('userstatus')
+            ->select('ID', 'Name')
+            ->get();
+
+        $data = array(
+            'status' => $status
+        );
+        return view('admin/customer/add', $data);
+    }
+
+    public function addCustomer(Request $request)
+    {
+        if (!Auth::check()) {
+            return Redirect::to('admin/auth/login');
+        }
+
+        $customer = array();
+
+        $customer['Dat'] = date('Y-m-d H:i:s');
+        $customer['Email'] = $request::get('Email');
+        $customer['Password'] = Hash::make($request::get('Password'));
+        $customer['Name'] = $request::get('Name');
+
+        $customer['Phone'] = $request::get('Phone');
+        $customer['Company'] = $request::get('Company');
+        $customer['Address'] = $request::get('Address');
+        $customer['City'] = $request::get('City');
+
+        $customer['Country'] = $request::get('Country');
+
+        $customer['Gender'] = $request::get('Gender');
+        $customer['Status'] = $request::get('status');
+
+        try {
+            DB::beginTransaction();
+            $uid = DB::table('customers')->insertGetId($customer);
+
+            DB::commit();
+
+            Session::flash('globalSuccessMsg', 'Customer Added.');
+            Session::flash('alert-class', 'alert-success');
+
+            return Redirect::to('admin/customer/customers');
+        } catch (\Exception $e) {
+            DB::rollback();
+            if (env('Mode') == 'Development') {
+                $error = $e->getMessage();
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+
+        }
     }
 
     public function addUser(Request $request)

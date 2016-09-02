@@ -391,7 +391,8 @@ class OrderController extends BaseController
             $data = array(
                 'status' => true,
                 'orderID' => $orderID,
-                'sizeID' => $sizeID
+                'sizeID' => $sizeID,
+                'OrderDate' => date('d F Y', strtotime(date('Y-m-d')))
             );
 
             echo json_encode($data);

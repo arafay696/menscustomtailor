@@ -364,6 +364,17 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-user fa-fw"></i> Customer Management<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo URL::to('admin/customer/add');?>">New Customer</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo URL::to('admin/customer/customers');?>">Customer List</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

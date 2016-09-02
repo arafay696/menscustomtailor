@@ -91,6 +91,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/discount/list', 'OrderController@getDiscountList');
     Route::get('/discount/{status}/{id}', 'OrderController@changeStatusDiscount');
 
+    //-------------- Customer Router admin
+    Route::get('/customer/add', 'UserController@addCustomerView');
+    Route::post('/customer/new', 'UserController@addCustomer');
+    Route::get('/customer/customers', 'UserController@getCustomersList');
+
     // ----------- User Routes
     Route::get('/customers', 'UserController@getCustomers');
     Route::get('/user/add', 'UserController@addUserView');

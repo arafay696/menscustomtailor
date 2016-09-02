@@ -30,8 +30,10 @@ $(document).ready(function () {
                                 $('.setCustomerName').val(ui.item.name);
                                 $('.setCustomerEmail').val(ui.item.email);
                                 $('#phone').val(ui.item.phone);
+                                $('#InPhoneNo').text(ui.item.phone);
                                 $('#email').val(ui.item.email);
                                 $('#lastName').val(ui.item.name);
+                                $('#InCustomerName').text(ui.item.name);
                             }
                         });
                     } else {
@@ -63,11 +65,17 @@ $(document).ready(function () {
                             source: availableProducts,
                             select: function (event, ui) {
                                 $('.setProductID').val(ui.item.id);
+                                $('#InProductCode').text(ui.item.id);
                                 $('#customerPrice').val(ui.item.price);
+                                $('#InProductPrice').text(ui.item.price);
+                                $('#InProductTotal').text(ui.item.price);
                                 $('.setPrice').val(ui.item.price);
                                 $('#qty').val(1);
+                                $('#InProductQty').text(1);
                                 $('.setQty').val(1);
                                 $('#dealerPrice').val(ui.item.price);
+                                $('#InSubTotal').text(ui.item.price);
+                                $('#InTotal').text(ui.item.price);
                             }
                         });
                     } else {
@@ -156,6 +164,8 @@ $(document).ready(function () {
                     $('.savingCustomize').css('display', 'none');
                     if (rs.status) {
                         $('#setOrderID').val(rs.orderID);
+                        $('#InOrderNo').text(rs.orderID);
+                        $('#InOrderDate').text(rs.OrderDate);
                         $('#setSizeID').val(rs.sizeID);
                         $('#successMsg').removeClass('hide');
                         $('#successMsg').text('Order Saved :). Fill Shirt Style.');
