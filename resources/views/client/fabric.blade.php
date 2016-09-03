@@ -138,7 +138,7 @@
                                         continue;
                                     }
 
-                                    $classByCat = $patternByID[$product->ID];
+                                    $classByCat = (array_key_exists($product->ID,$patternByID)) ? $patternByID[$product->ID] : '';
                                     array_push($uniqProduct, $product->ID);
                                     $colors = "";
                                     if (array_key_exists($product->ID, $productColor)) {

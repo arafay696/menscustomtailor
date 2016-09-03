@@ -23,7 +23,7 @@
                             $TotalPrice = 0;
                             if(is_array($cart) && !empty($cart)) { ?>
                             <div class="cart_listing">
-                                <ul>
+                                <ul class="cartItems">
                                     <?php
                                     foreach ($cart as $key => $cartItem) { ?>
                                     <li class="clearfix">
@@ -45,18 +45,20 @@
                                         </div>
                                         <div class="product_colmn_list price_colmn_list">
                                             <b>
-                                                $<?=$cartItem['Price'];?>
+                                                $<span class="ActualPrice"><?=$cartItem['Price'];?></span>
                                             </b>
                                         </div>
                                         <div class="product_colmn_list q_colmn_list">
-                                            <input type="number" value="<?=$cartItem['Qty'];?>"/>
+                                            <input class="updateQty" type="number" value="<?=$cartItem['Qty'];?>"/>
                                         </div>
                                         <div class="product_colmn_list total_colmn_list">
                                             <h5>$<?php
                                                 $pr = $cartItem['Price']*$cartItem['Qty'];
                                                 $TotalPrice += $pr;
-                                                echo $pr;
-                                                ?></h5>
+                                                ?><span class="TotalProductPrice">
+                                                    <?=number_format($pr,2);?>
+                                                </span>
+                                            </h5>
                                         </div>
                                         <div class="del_icon">
                                             <a href="<?=URL::to('cart/remove/' . $key . '');?>">&nbsp;</a>
@@ -83,7 +85,7 @@
                                     <ul>
                                         <li class="clearfix">
                                             <span>Subtotal</span>
-                                            <strong>$<?=$TotalPrice;?></strong>
+                                            <strong id="SubTotal">$<?=number_format($TotalPrice,2);?></strong>
                                         </li>
                                         <li class="clearfix">
                                             <span>Shipping</span>
@@ -92,7 +94,7 @@
                                         <li class="clearfix">
                                             <span>TOTAL</span>
                                             <strong>
-                                                $<?=$TotalPrice;?>
+                                                $<b id="TotalAmount"><?=number_format($TotalPrice,2);?></b>
                                                 <input type="hidden" name="TotalPrice" value="750">
                                                 <input type="hidden" name="Amount" value="750">
                                                 <input type="hidden" name="Shipping" value="15">

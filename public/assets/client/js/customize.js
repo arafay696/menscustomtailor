@@ -246,6 +246,32 @@ $(document).ready(function (e) {
         }
         filterProducts.filterExec();
     });
+    /* END: Fabric Page Filters Price Sort,Color && Pattern Type*/
 
+    // ----------------------------Cart JS----------------------------//
+    var Cart = {
+        updateQty: function (e) {
+            var qty = $(e).val();
+            var actualPrice = $(e).closest('.q_colmn_list').siblings('.price_colmn_list').find('.ActualPrice').text();
+            var price = (qty * actualPrice).toFixed(2);
+            $(e).closest('.q_colmn_list').siblings('.total_colmn_list').find('.TotalProductPrice').text(price);
+        }, updateCart: function () {
+            var total = 0;
+            $('.cartItems li').each(function () {
+                total += parseFloat($(this).find('.TotalProductPrice').text().trim().replace(',', ''));
+            });
+            $('#SubTotal').text(total.toFixed(2));
+            $('#TotalAmount').text(total.toFixed(2));
+        }
+    };
 
+    $('.updateQty').change(function (e) {
+        if($(this).val() <= 0){
+            $(this).val(1);
+            return false;
+        }
+        Cart.updateQty(this);
+        Cart.updateCart();
+    });
+    // ----------------------------Cart JS END----------------------------//
 });
