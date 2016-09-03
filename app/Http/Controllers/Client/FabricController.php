@@ -22,16 +22,54 @@ class FabricController extends BaseController
     public function index()
     {
         try {
-
             $products = DB::table('Products AS pr')
-                ->select('pr.ID', 'pr.Name', 'pr.Price', 'img.Name as ImgName', 'img.ZoomImg')
+                ->select('pr.ID', 'pr.Name', 'pr.Price', 'img.Name as ImgName', 'img.ZoomImg', 'pd.RefID as PatternType')
                 ->join('Images AS img', 'pr.ID', '=', 'img.RefID')
-                ->groupBy('pr.ID')
+                ->join('ProductDetails as pd', 'pd.ProductID', '=', 'pr.ID')
+                //->whereIn('pd.RefID', [614, 148, 616])
+                ->groupBy('pd.RefID')
                 ->get();
 
-            $return['products'] = $products;
+            $patternById = array();
+            $patterNameByID = array(
+                148 => 'Stripes',
+                614 => 'Solids',
+                616 => 'Checks'
+            );
 
-            return view('client.fabric', $return);
+            $allColors = DB::table('CP')
+                ->select('*')
+                ->where('MPID', 28)
+                ->get();
+            $colorById = array();
+            foreach ($allColors as $color) {
+                $colorById[$color->ID] = $color->Name;
+            }
+
+            //dd($colorById);
+            $productColor = array();
+            foreach ($products as $product) {
+                if ($product->PatternType == 148 || $product->PatternType == 614 || $product->PatternType == 616) {
+                    $patternById[$product->ID] = $patterNameByID[$product->PatternType];
+                } else {
+                    if (array_key_exists((int)$product->PatternType, $colorById)) {
+                        if(array_key_exists($product->ID,$productColor)){
+                            array_push($productColor[$product->ID],$colorById[$product->PatternType]);
+                        }else{
+                            $productColor[$product->ID] = array($colorById[$product->PatternType]);
+                        }
+
+                    }
+                }
+            }
+            dd($productColor);
+            //dd($patternById);
+
+            $data = array(
+                'products' => $products,
+                'patternByID' => $patternById
+            );
+            return view('client.fabric', $data);
         } catch (\Exception $e) {
             $error = $e->getMessage();
             if (env('Mode') == 'Development') {

@@ -197,7 +197,7 @@
     padding: 15px 16px;
 }
 
-.modal-body p{
+.modal-body p {
     padding: 12px;
 }
 
@@ -257,5 +257,43 @@
     -webkit-transition: all .5s;
 }
 
-
 /* -------------- Modal End ------------------------ */
+
+@-webkit-keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.productGallery .Hide {
+    -webkit-animation: fadeOut 1s;
+    animation: fadeOut 1s;
+    pointer-events: none;
+    transition: opacity 1s ease-out;
+    display: none;
+
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.productGallery .Show {
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+.productGallery li {
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}

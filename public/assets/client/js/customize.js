@@ -131,4 +131,53 @@ $(document).ready(function (e) {
 
     });
 
+    var filterProducts = {
+        choosePattern: "element-item",
+        chooseColor: [],
+        choosePrice: null,
+        passProducts: [],
+        filterExec: function () {
+            $('.productGallery li').removeClass('Show');
+            $('.productGallery li').removeClass('Hide');
+            $('.productGallery li').removeClass('secondTestPass');
+            $('.productGallery li').each(function (key, value) {
+                if ($(this).hasClass(filterProducts.choosePattern)) {
+                    $(this).addClass('firstTestPass');
+                }
+            });
+
+            if (filterProducts.choosePrice !== null) {
+                $('.productGallery .firstTestPass').each(function () {
+                    if ($(this).hasClass(filterProducts.choosePrice)) {
+                        $(this).addClass("secondTestPass");
+                    }
+                });
+            } else {
+                $('.productGallery .firstTestPass').addClass("secondTestPass");
+            }
+
+            $('.productGallery li').removeClass('firstTestPass');
+
+            $('.productGallery .secondTestPass').each(function () {
+                $(this).addClass("Show");
+            });
+
+            $('.productGallery li').each(function () {
+                if (!$(this).hasClass("Show")) {
+                    $(this).addClass("Hide");
+                }
+            });
+
+        }
+    };
+
+    $('#filterPattern').change(function (e) {
+        var active = $(this).val();
+        filterProducts.choosePattern = "element-item";
+        if (active !== 'All') {
+            filterProducts.choosePattern = active;
+        }
+        filterProducts.filterExec();
+    });
+
 });

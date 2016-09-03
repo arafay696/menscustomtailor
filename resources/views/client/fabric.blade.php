@@ -40,10 +40,11 @@
                                     <div class="pattern_dropdown">
                                         <div class="customselect">
                                             <span>Pattern</span>
-                                            <select>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
+                                            <select id="filterPattern">
+                                                <option value="All">All Pattern</option>
+                                                <option value="Solids">Solids</option>
+                                                <option value="Checks">Checks</option>
+                                                <option value="Stripes">Stripes</option>
                                             </select>
                                         </div>
                                     </div>
@@ -67,13 +68,13 @@
                                     <li>
                                         <button class="button is-checked" data-filter="*">ALL</button>
                                     </li>
-                                    <li>
+                                    <li class="hide">
                                         <button class="button" data-filter=".metal">DRESS</button>
                                     </li>
-                                    <li>
+                                    <li class="hide">
                                         <button class="button" data-filter=".transition">PREMIUM</button>
                                     </li>
-                                    <li>
+                                    <li class="hide">
                                         <button class="button" data-filter=".alkali">TUXEDO</button>
                                     </li>
                                 </ul>
@@ -84,12 +85,24 @@
                         <form name="form" method="post" action="<?php echo URL::to('fabric/customize/new');?>">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="popular_choices_list some_change clearfix">
-                                <ul class="grid">
+                                <ul class="productGallery grid1">
+                                    <?php
+                                    $uniqProduct = array();
+                                    ?>
                                     <?php foreach($products as $key => $product) {
                                     $type = array('metal', 'transition', 'alkali');
+                                    $key = array_rand($type);
                                     $v = $type[$key];
+
+                                    if (in_array($product->ID, $uniqProduct)) {
+                                        continue;
+                                    }
+
+                                    $classByCat = $patternByID[$product->ID];
+                                    array_push($uniqProduct, $product->ID);
                                     ?>
-                                    <li class="element-item transition <?=$v;?>" data-category="<?=$v;?>">
+                                    <li class="<?=$classByCat;?> element-item transition <?=$v;?>"
+                                        data-category="<?=$v;?>">
                                         <a class="selectFabric" href="javascript:void(0);">
                                             <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
                                                  alt="#"/>
@@ -107,25 +120,25 @@
                                             <div class="servicesTerm">
                                                 <label>
                                                     <input class="chkFab" type="checkbox" name="chooseFab[]"
-                                                              value="<?=$product->ID;?>">
+                                                           value="<?=$product->ID;?>">
                                                 </label>
                                             </div>
 
                                             <div class="customselect">
                                                 <span>1</span>
                                                 <select name="Qty_<?=$product->ID;?>">
-                                                   <?php for($i=1;$i<=12;$i++){ ?>
-                                                       <?php if($i == 1){ ?>
-                                                       <option selected="selected"><?=$i;?></option>
-                                                       <?php }else {  ?>
-                                                       <option><?=$i;?></option>
-                                                   <?php } } ?>
+                                                    <?php for($i = 1;$i <= 12;$i++){ ?>
+                                                    <?php if($i == 1){ ?>
+                                                    <option selected="selected"><?=$i;?></option>
+                                                    <?php }else {  ?>
+                                                    <option><?=$i;?></option>
+                                                    <?php } } ?>
                                                 </select>
                                             </div>
                                             <i>$<?=$product->Price;?></i>
                                         </div>
                                     </li>
-                                    <?php } ?>
+                                    <?php $classByCat = ''; } ?>
                                 </ul>
 
                             </div>
