@@ -23,16 +23,56 @@
                                 <div class="colours_pickers clearfix">
                                     <label>ALL COLORS</label>
                                     <ul>
-                                        <li><span style="background:#000;">&nbsp;</span></li>
-                                        <li><span style="background:#444b5f;">&nbsp;</span></li>
-                                        <li><span style="background:#989ca2;">&nbsp;</span></li>
-                                        <li><span style="background:#e86830;">&nbsp;</span></li>
-                                        <li><span style="background:#f0086c;">&nbsp;</span></li>
-                                        <li><span style="background:#f5f5dc;">&nbsp;</span></li>
-                                        <li><span style="background:#eee966;">&nbsp;</span></li>
-                                        <li><span style="background:#8930e8;">&nbsp;</span></li>
-                                        <li><span style="background:#a9474c;">&nbsp;</span></li>
-                                        <li><span style="background:#8ea097;">&nbsp;</span></li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#000;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">Black</span>
+                                        </li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#444b5f;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">Blue</span>
+                                        </li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#989ca2;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">Gray</span>
+                                        </li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#e86830;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">Orange</span>
+                                        </li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#f0086c;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">Pink</span>
+                                        </li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#f5f5dc;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">White</span>
+                                        </li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#eee966;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">Yellow</span>
+                                        </li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#8930e8;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">Purple</span>
+                                        </li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#a9474c;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">Red</span>
+                                        </li>
+                                        <li class="colorFilter tooltip">
+                                            <span style="background:#8ea097;">&nbsp;</span>
+                                            <i class="fa fa-check"></i>
+                                            <span class="tooltiptext">Green</span>
+                                        </li>
                                     </ul>
                                 </div>
 
@@ -100,9 +140,13 @@
 
                                     $classByCat = $patternByID[$product->ID];
                                     array_push($uniqProduct, $product->ID);
+                                    $colors = "";
+                                    if (array_key_exists($product->ID, $productColor)) {
+                                        $colors = implode(",", $productColor[$product->ID]);
+                                    }
                                     ?>
                                     <li class="<?=$classByCat;?> element-item transition <?=$v;?>"
-                                        data-category="<?=$v;?>">
+                                        data-color="<?= $colors; ?>" data-category="<?=$v;?>">
                                         <a class="selectFabric" href="javascript:void(0);">
                                             <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
                                                  alt="#"/>

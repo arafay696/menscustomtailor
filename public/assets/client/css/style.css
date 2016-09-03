@@ -1706,6 +1706,7 @@ body {
     margin-right: 6px;
     float: left;
     padding-right: 0px;
+    cursor: pointer;
 }
 
 .colours_pickers ul li span {

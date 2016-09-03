@@ -139,7 +139,7 @@ $(document).ready(function (e) {
         filterExec: function () {
             $('.productGallery li').removeClass('Show');
             $('.productGallery li').removeClass('Hide');
-            $('.productGallery li').removeClass('secondTestPass');
+            $('.productGallery li').removeClass('thirdTestPass');
             $('.productGallery li').each(function (key, value) {
                 if ($(this).hasClass(filterProducts.choosePattern)) {
                     $(this).addClass('firstTestPass');
@@ -158,8 +158,28 @@ $(document).ready(function (e) {
 
             $('.productGallery li').removeClass('firstTestPass');
 
-            $('.productGallery .secondTestPass').each(function () {
-                $(this).addClass("Show");
+            if (filterProducts.chooseColor.length > 0) {
+                $('.productGallery .secondTestPass').each(function () {
+                    var getColors = $(this).attr("data-color").split(",");
+                    var ele = $(this);
+                    var find = false;
+                    $.each(filterProducts.chooseColor, function (key) {
+                        if (getColors.indexOf(filterProducts.chooseColor[key]) >= 0) {
+                            if (!find) {
+                                ele.addClass("thirdTestPass");
+                                find = true;
+                            }
+                        }
+                    });
+                });
+            } else {
+                $('.productGallery .secondTestPass').addClass("thirdTestPass");
+            }
+
+            $('.productGallery li').removeClass('secondTestPass');
+
+            $('.productGallery .thirdTestPass').each(function () {
+                var getColors = $(this).addClass("Show");
             });
 
             $('.productGallery li').each(function () {
@@ -168,6 +188,15 @@ $(document).ready(function (e) {
                 }
             });
 
+        }, removeByValue: function (arr) {
+            var what, a = arguments, L = a.length, ax;
+            while (L > 1 && arr.length) {
+                what = a[--L];
+                while ((ax = arr.indexOf(what)) !== -1) {
+                    arr.splice(ax, 1);
+                }
+            }
+            return arr;
         }
     };
 
@@ -179,5 +208,20 @@ $(document).ready(function (e) {
         }
         filterProducts.filterExec();
     });
+
+    $('.colours_pickers li').click(function () {
+        var val = $(this).find('span:last').text();
+        if (!$(this).hasClass('selected')) {
+            filterProducts.chooseColor.push(val);
+            $(this).find('.fa').css('visibility', 'visible');
+            $(this).addClass('selected');
+        } else {
+            filterProducts.removeByValue(filterProducts.chooseColor, val);
+            $(this).find('.fa').css('visibility', 'hidden');
+            $(this).removeClass('selected');
+        }
+        filterProducts.filterExec();
+    });
+
 
 });

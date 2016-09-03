@@ -62,12 +62,13 @@ class FabricController extends BaseController
                     }
                 }
             }
-            dd($productColor);
+            //dd($productColor);
             //dd($patternById);
 
             $data = array(
                 'products' => $products,
-                'patternByID' => $patternById
+                'patternByID' => $patternById,
+                'productColor' => $productColor
             );
             return view('client.fabric', $data);
         } catch (\Exception $e) {
