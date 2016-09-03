@@ -131,57 +131,69 @@ $(document).ready(function (e) {
 
     });
 
+    /* Fabric Page Filters Price Sort,Color && Pattern Type*/
     var filterProducts = {
         choosePattern: "element-item",
         chooseColor: [],
-        choosePrice: null,
+        choosePriceSort: null,
         passProducts: [],
         filterExec: function () {
+
+            // Reset Filters
             $('.productGallery li').removeClass('Show');
             $('.productGallery li').removeClass('Hide');
-            $('.productGallery li').removeClass('thirdTestPass');
+            $('.productGallery li').removeClass('secondTestPass');
+
+            // Check Patterns if has, will passed First Test
             $('.productGallery li').each(function (key, value) {
                 if ($(this).hasClass(filterProducts.choosePattern)) {
                     $(this).addClass('firstTestPass');
                 }
             });
 
-            if (filterProducts.choosePrice !== null) {
-                $('.productGallery .firstTestPass').each(function () {
-                    if ($(this).hasClass(filterProducts.choosePrice)) {
-                        $(this).addClass("secondTestPass");
-                    }
-                });
-            } else {
-                $('.productGallery .firstTestPass').addClass("secondTestPass");
-            }
-
-            $('.productGallery li').removeClass('firstTestPass');
-
+            // If Color filter On, will check Color and Pass Second Test
             if (filterProducts.chooseColor.length > 0) {
-                $('.productGallery .secondTestPass').each(function () {
+                $('.productGallery .firstTestPass').each(function () {
                     var getColors = $(this).attr("data-color").split(",");
                     var ele = $(this);
                     var find = false;
                     $.each(filterProducts.chooseColor, function (key) {
                         if (getColors.indexOf(filterProducts.chooseColor[key]) >= 0) {
                             if (!find) {
-                                ele.addClass("thirdTestPass");
+                                ele.addClass("secondTestPass");
                                 find = true;
                             }
                         }
                     });
                 });
             } else {
-                $('.productGallery .secondTestPass').addClass("thirdTestPass");
+                $('.productGallery .firstTestPass').addClass("secondTestPass");
             }
 
-            $('.productGallery li').removeClass('secondTestPass');
+            // Remove First Test Check
+            $('.productGallery .secondTestPass').removeClass('firstTestPass');
 
-            $('.productGallery .thirdTestPass').each(function () {
+            // Sort By Price, High to Low && Low to High
+            if (filterProducts.choosePriceSort !== null) {
+                if (filterProducts.choosePriceSort == "LH") {
+                    var $wrapper = $('.productGallery');
+                    $wrapper.find('li').sort(function (a, b) {
+                        return +a.dataset.percentage - +b.dataset.percentage;
+                    }).appendTo($wrapper);
+                } else {
+                    var $wrapper = $('.productGallery');
+                    $wrapper.find('li').sort(function (a, b) {
+                        return +b.dataset.percentage - +a.dataset.percentage;
+                    }).appendTo($wrapper);
+                }
+            }
+
+            // Do Fun - Add Show Class
+            $('.productGallery .secondTestPass').each(function () {
                 var getColors = $(this).addClass("Show");
             });
 
+            // Hide Other element, which don't Pass test
             $('.productGallery li').each(function () {
                 if (!$(this).hasClass("Show")) {
                     $(this).addClass("Hide");
@@ -200,6 +212,7 @@ $(document).ready(function (e) {
         }
     };
 
+    /* Filter by Pattern */
     $('#filterPattern').change(function (e) {
         var active = $(this).val();
         filterProducts.choosePattern = "element-item";
@@ -209,6 +222,17 @@ $(document).ready(function (e) {
         filterProducts.filterExec();
     });
 
+    /* Sort By Price */
+    $('#sortByPrice').change(function (e) {
+        var activePriceSort = $(this).val();
+        filterProducts.choosePriceSort = "element-item";
+        if (activePriceSort !== 'Default') {
+            filterProducts.choosePriceSort = activePriceSort;
+        }
+        filterProducts.filterExec();
+    });
+
+    /* Color Filters: Click add to array and Filter exec */
     $('.colours_pickers li').click(function () {
         var val = $(this).find('span:last').text();
         if (!$(this).hasClass('selected')) {

@@ -3,9 +3,12 @@ $(document).ready(function (e) {
 
     $('.customselect select').change(function (e) {
         var menuVal = $(this).val();
+        if ($(this).hasClass('customselectPriceSort')) {
+            menuVal = "Price";
+        }
         $(this).parent().find('span').text(menuVal);
         return false
-    })
+    });
 
 
     $('.customselect_customize select').change(function (e) {

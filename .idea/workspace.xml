@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="571f70f7-552c-4b0f-b83e-670013d94818" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/my_style.css" afterPath="$PROJECT_DIR$/public/assets/client/css/my_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/style.css" afterPath="$PROJECT_DIR$/public/assets/client/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/js/customize.js" afterPath="$PROJECT_DIR$/public/assets/client/js/customize.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/js/my_script.js" afterPath="$PROJECT_DIR$/public/assets/client/js/my_script.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/fabric.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/fabric.blade.php" />
     </list>
     <ignored path="mct.iws" />
@@ -31,7 +29,7 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="242">
               <caret line="20" column="52" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="52" />
               <folding />
             </state>
@@ -41,7 +39,7 @@
       <file leaf-file-name="FabricController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
+            <state relative-caret-position="1166">
               <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
               <folding />
             </state>
@@ -51,13 +49,9 @@
       <file leaf-file-name="fabric.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/client/fabric.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="148" column="40" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="50" />
-              <folding>
-                <element signature="e#1068#1092#0#HTML" expanded="true" />
-                <element signature="e#1431#1458#0#HTML" expanded="true" />
-                <element signature="e#2893#2920#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="264">
+              <caret line="94" column="97" selection-start-line="94" selection-start-column="86" selection-end-line="94" selection-end-column="97" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,8 +59,18 @@
       <file leaf-file-name="customize.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/client/js/customize.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="161" column="46" selection-start-line="161" selection-start-column="46" selection-end-line="161" selection-end-column="46" />
+            <state relative-caret-position="562">
+              <caret line="249" column="0" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_script.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/client/js/my_script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -75,7 +79,7 @@
       <file leaf-file-name="my_style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/client/css/my_style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
+            <state relative-caret-position="7920">
               <caret line="360" column="23" selection-start-line="360" selection-start-column="23" selection-end-line="360" selection-end-column="23" />
               <folding />
             </state>
@@ -106,7 +110,6 @@
         <option value="$PROJECT_DIR$/resources/views/admin/product/edit-product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/product/new-product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/final/cart.html" />
-        <option value="$PROJECT_DIR$/public/assets/client/js/my_script.js" />
         <option value="$PROJECT_DIR$/app/Customer.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/BaseController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/user/login.blade.php" />
@@ -153,6 +156,7 @@
         <option value="$PROJECT_DIR$/public/assets/client/css/my_style.css" />
         <option value="$PROJECT_DIR$/public/assets/client/css/style.css" />
         <option value="$PROJECT_DIR$/resources/views/client/fabric.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/client/js/my_script.js" />
         <option value="$PROJECT_DIR$/public/assets/client/js/customize.js" />
       </list>
     </option>
@@ -442,7 +446,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../admin" />
-    <property name="SearchEverywhereHistoryKey" value="style.&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;custo&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;defa&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;mys&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/my_script.js&#10;new&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/new-order.js&#10;custom&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;new-&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/new-order.js&#10;def&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/default.blade.php&#10;cust&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/customize.blade.php&#10;c&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/customize.blade.php&#10;defau&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;contactus&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/contactus.blade.php&#10;Cart&#9;FILE&#9;file://E:/wamp/www/mct/app/Http/Controllers/Client/CartController.php&#10;panels&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/pages/panels-wells.html&#10;jquery-ui&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/bower_components/flot/examples/shared/jquery-ui/jquery-ui.min.css&#10;style&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;home&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/home.blade.php&#10;m&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;cu&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;cus&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/customize.blade.php&#10;my_&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/my_script.js&#10;my&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;Mer&#9;null&#9;null&#10;st&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;check&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/checkout.blade.php&#10;sty&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;my_s&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;.js&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;sb&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;style.css&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;style.cs&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;my_st&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;sb-a&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;app.&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/js/app.js&#10;app.js&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/js/app.js&#10;sb-&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/sb-admin-2.js&#10;app&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/js/app.js&#10;SB&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;sb-adm&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;Auth&#9;FILE&#9;file://E:/wamp/www/mct/config/auth.php" />
+    <property name="SearchEverywhereHistoryKey" value="my_sc&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/my_script.js&#10;style.&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;custo&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;defa&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;mys&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/my_script.js&#10;new&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/new-order.js&#10;custom&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;new-&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/new-order.js&#10;def&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/default.blade.php&#10;cust&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/customize.blade.php&#10;c&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/customize.blade.php&#10;defau&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;contactus&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/contactus.blade.php&#10;Cart&#9;FILE&#9;file://E:/wamp/www/mct/app/Http/Controllers/Client/CartController.php&#10;panels&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/pages/panels-wells.html&#10;jquery-ui&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/bower_components/flot/examples/shared/jquery-ui/jquery-ui.min.css&#10;style&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;home&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/home.blade.php&#10;m&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;cu&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;cus&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/customize.blade.php&#10;my_&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/my_script.js&#10;my&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;Mer&#9;null&#9;null&#10;st&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;check&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/checkout.blade.php&#10;sty&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;my_s&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;.js&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;sb&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;style.css&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;style.cs&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;my_st&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;sb-a&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;app.&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/js/app.js&#10;app.js&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/js/app.js&#10;sb-&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/sb-admin-2.js&#10;app&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/js/app.js&#10;SB&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;sb-adm&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;Auth&#9;FILE&#9;file://E:/wamp/www/mct/config/auth.php" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -554,7 +558,8 @@
       <workItem from="1472660644112" duration="5751000" />
       <workItem from="1472747493831" duration="9926000" />
       <workItem from="1472834788626" duration="5742000" />
-      <workItem from="1472890980840" duration="14430000" />
+      <workItem from="1472890980840" duration="14644000" />
+      <workItem from="1472930016618" duration="2195000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Console Logs">
       <created>1469903070985</created>
@@ -773,14 +778,21 @@
       <option name="project" value="LOCAL" />
       <updated>1472903717759</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Working on Fabric page filters - Color &amp; Pattern Done">
+      <created>1472907143380</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1472907143380</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188340000" />
+    <option name="totallyTimeSpent" value="190749000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -819,8 +831,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Admin User Profile" />
-    <MESSAGE value="Admin User Profile + Add New Tables Status" />
     <MESSAGE value="DB + Working on Order + Shirt Customization" />
     <MESSAGE value="User Login + Working on Order + Shirt Customization" />
     <MESSAGE value="User Login Return to Back URL + Cart" />
@@ -844,7 +854,9 @@
     <MESSAGE value="Start Working on Order Manual" />
     <MESSAGE value="Order Manual Complete + New Customer/Customer Listing&#10;" />
     <MESSAGE value="Working on Fabric page filters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on Fabric page filters" />
+    <MESSAGE value="Working on Fabric page filters - Color &amp; Pattern Done" />
+    <MESSAGE value="Working on Fabric page filters - Color &amp; Pattern,Price Sort Done All" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on Fabric page filters - Color &amp; Pattern,Price Sort Done All" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1142,7 +1154,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="242">
           <caret line="20" column="52" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="52" />
           <folding />
         </state>
@@ -1152,15 +1164,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
           <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/client/js/my_script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,7 +1171,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1189,7 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1205,7 +1206,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
+        <state relative-caret-position="1166">
           <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
           <folding />
         </state>
@@ -1219,30 +1220,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/fabric.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/assets/client/css/my_style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="148" column="40" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="50" />
-          <folding>
-            <element signature="e#1068#1092#0#HTML" expanded="true" />
-            <element signature="e#1431#1458#0#HTML" expanded="true" />
-            <element signature="e#2893#2920#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="7920">
+          <caret line="360" column="23" selection-start-line="360" selection-start-column="23" selection-end-line="360" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/client/css/my_style.css">
+    <entry file="file://$PROJECT_DIR$/resources/views/client/fabric.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="360" column="23" selection-start-line="360" selection-start-column="23" selection-end-line="360" selection-end-column="23" />
+        <state relative-caret-position="264">
+          <caret line="94" column="97" selection-start-line="94" selection-start-column="86" selection-end-line="94" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/client/js/my_script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/client/js/customize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="161" column="46" selection-start-line="161" selection-start-column="46" selection-end-line="161" selection-end-column="46" />
+        <state relative-caret-position="562">
+          <caret line="249" column="0" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
           <folding />
         </state>
       </provider>

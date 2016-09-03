@@ -91,11 +91,11 @@
 
                                     <div class="pattern_dropdown priceDrop">
                                         <div class="customselect">
-                                            <span>price</span>
-                                            <select>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
+                                            <span>Price</span>
+                                            <select class="customselectPriceSort" id="sortByPrice">
+                                                <option value="Default">Default</option>
+                                                <option value="LH">Low to High</option>
+                                                <option value="HL">High to Low</option>
                                             </select>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                                         $colors = implode(",", $productColor[$product->ID]);
                                     }
                                     ?>
-                                    <li class="<?=$classByCat;?> element-item transition <?=$v;?>"
+                                    <li class="<?=$classByCat;?> element-item transition <?=$v;?>" data-percentage="<?=$product->Price;?>"
                                         data-color="<?= $colors; ?>" data-category="<?=$v;?>">
                                         <a class="selectFabric" href="javascript:void(0);">
                                             <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
