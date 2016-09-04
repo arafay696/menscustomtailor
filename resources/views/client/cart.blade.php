@@ -5,8 +5,17 @@
             <div class="auto_content">
                 <div class="cart_pageDtail">
                     <div class="cart_head clearfix">
-                        <h3>Cart</h3>
-                        <a href="#">update cart</a>
+                        <h3>Cart <i style=";" class="updateCartSpin hide fa fa-spinner fa-spin"></i></h3>
+                        <a class="updateCart disableUpdateCart" href="javascript:void(0);   ">update cart</a>
+                        <form id="DurationForm" method="post" action="<?=URL::to('cart/update-price');?>">
+                            <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
+                        </form>
+                    </div>
+                    <div class="saveChangesMsg hide alert alert-warning fade in">
+                        <strong>Alert!</strong> Please update your cart to save current changes.
+                    </div>
+                    <div class="saveChangesSuccesMsg hide alert alert-success fade in">
+                        <strong>Thank you!</strong> Your setting saved.
                     </div>
                     <!-- cart/save -->
                     <form method="post" class="form" action="<?php echo URL::to('cart/save') ?>">
@@ -50,13 +59,14 @@
                                         </div>
                                         <div class="product_colmn_list q_colmn_list">
                                             <input class="updateQty" type="number" value="<?=$cartItem['Qty'];?>"/>
+                                            <input name="ProductQty[]" type="hidden" value="<?=$cartItem['Qty'];?>"/>
                                         </div>
                                         <div class="product_colmn_list total_colmn_list">
                                             <h5>$<?php
-                                                $pr = $cartItem['Price']*$cartItem['Qty'];
+                                                $pr = $cartItem['Price'] * $cartItem['Qty'];
                                                 $TotalPrice += $pr;
                                                 ?><span class="TotalProductPrice">
-                                                    <?=number_format($pr,2);?>
+                                                    <?=number_format($pr, 2);?>
                                                 </span>
                                             </h5>
                                         </div>
@@ -85,7 +95,7 @@
                                     <ul>
                                         <li class="clearfix">
                                             <span>Subtotal</span>
-                                            <strong id="SubTotal">$<?=number_format($TotalPrice,2);?></strong>
+                                            <strong id="SubTotal">$<?=number_format($TotalPrice, 2);?></strong>
                                         </li>
                                         <li class="clearfix">
                                             <span>Shipping</span>
@@ -94,10 +104,10 @@
                                         <li class="clearfix">
                                             <span>TOTAL</span>
                                             <strong>
-                                                $<b id="TotalAmount"><?=number_format($TotalPrice,2);?></b>
-                                                <input type="hidden" name="TotalPrice" value="750">
-                                                <input type="hidden" name="Amount" value="750">
-                                                <input type="hidden" name="Shipping" value="15">
+                                                $<b id="TotalAmount"><?=number_format($TotalPrice, 2);?></b>
+                                                <input id="TotalAmountHidden" type="hidden" name="Amount"
+                                                       value="<?=number_format($TotalPrice, 2);?>">
+                                                <input type="hidden" name="Shipping" value="0">
                                             </strong>
                                         </li>
                                     </ul>

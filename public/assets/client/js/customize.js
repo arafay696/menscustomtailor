@@ -252,6 +252,9 @@ $(document).ready(function (e) {
     var Cart = {
         updateQty: function (e) {
             var qty = $(e).val();
+            $(e).next().val(qty);
+            $('.updateCart').removeClass('disableUpdateCart');
+            $('.saveChangesMsg').removeClass('hide');
             var actualPrice = $(e).closest('.q_colmn_list').siblings('.price_colmn_list').find('.ActualPrice').text();
             var price = (qty * actualPrice).toFixed(2);
             $(e).closest('.q_colmn_list').siblings('.total_colmn_list').find('.TotalProductPrice').text(price);
@@ -262,16 +265,48 @@ $(document).ready(function (e) {
             });
             $('#SubTotal').text(total.toFixed(2));
             $('#TotalAmount').text(total.toFixed(2));
+            $('#TotalAmountHidden').val(total.toFixed(2));
         }
     };
 
     $('.updateQty').change(function (e) {
-        if($(this).val() <= 0){
+        if ($(this).val() <= 0) {
             $(this).val(1);
             return false;
         }
         Cart.updateQty(this);
         Cart.updateCart();
+    });
+
+    $('.updateCart').click(function () {
+        var Qty = new Array();
+        var token = $('#_token').val();
+        $('input[name^="ProductQty"]').each(function () {
+            Qty.push($(this).val());
+        });
+
+        $.ajax({
+            context: this,
+            type: "POST",
+            url: "" + baseUrl + "/cart/update",
+            data: "Qty=" + Qty + "&_token=" + token,
+            beforeSend: function () {
+                $('.updateCartSpin').removeClass('hide');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.response + 'error ' + ajaxOptions);
+            },
+            success: function (result) {
+                $('.updateCartSpin').addClass('hide');
+                $(this).addClass('disableUpdateCart');
+                $('.saveChangesMsg').addClass('hide');
+                $('.saveChangesSuccesMsg').removeClass('hide');
+                $('.saveChangesSuccesMsg').delay(2000).fadeOut(function () {
+                    $('.saveChangesSuccesMsg').addClass('hide');
+                });
+            }
+
+        });
     });
     // ----------------------------Cart JS END----------------------------//
 });

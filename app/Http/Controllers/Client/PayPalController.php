@@ -34,8 +34,28 @@ class PayPalController extends BaseController
         $this->_api_context->setConfig($paypal_conf['settings']);
     }
 
-    public function postPayment()
+    public function postPayment(Request $request)
     {
+        $orderID = Session::get('ProcessOrderId');
+        DB::setFetchMode(\PDO::FETCH_ASSOC);
+        $getOrder = DB::table('orders')->where('ID', $orderID)
+            ->get();
+        DB::setFetchMode(\PDO::FETCH_CLASS);
+
+        $updatedata = array();
+        foreach ($getOrder as $data) {
+            $updatedata = $data;
+            $updatedata['CustomerName'] = $request::get('FirstName') . ' ' . $request::get('LastName');
+            $updatedata['ShippingAddress'] = $request::get('Address');
+            $updatedata['Comments'] = $request::get('Comments');
+            $updatedata['ShipMethod'] = $request::get('ShipMethod');
+        }
+
+
+        DB::table('orders')
+            ->where('ID', $orderID)
+            ->update($updatedata);
+
 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
@@ -56,7 +76,7 @@ class PayPalController extends BaseController
             }
         }
 
-
+        Session::put('TotalAmountIS', $total);
         /*$item_1 = new Item();
         $item_1->setName('Item 1')// item name
         ->setCurrency('USD')
@@ -166,6 +186,7 @@ class PayPalController extends BaseController
                 // Change Status to Paid if Payment Complete
                 $updatedata = array();
                 $updatedata['Status'] = 1;
+                $updatedata['Paid'] = Session::get('TotalAmountIS');
                 DB::table('orders')
                     ->where('ID', Session::get('ProcessOrderId'))
                     ->update($updatedata);

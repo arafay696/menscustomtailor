@@ -90,7 +90,7 @@ class FabricController extends BaseController
     public function validProduct($id)
     {
         $product = DB::table('Products AS pr')
-            ->select('pr.ID', 'pr.Name', 'pr.Price', 'img.Name as ImgName')
+            ->select('pr.ID', 'pr.Name', 'pr.Price', 'img.Name as ImgName','pr.Code')
             ->join('Images AS img', 'pr.ID', '=', 'img.RefID')
             ->where('pr.ID', '=', $id)
             ->where('img.ZoomImg', '=', 0)
@@ -131,7 +131,7 @@ class FabricController extends BaseController
             //Session::forget('chooseFabs');
         }
 
-        //dd($chooseFabs);
+        //dd(Session::get('chooseQty'));
         // Init Size if Size saved already
         $userId = Session::get('CustomerID');
         DB::setFetchMode(\Pdo::FETCH_ASSOC);
@@ -172,6 +172,7 @@ class FabricController extends BaseController
                     $data[0]['ProductName'] = $product[0]->Name;
                     $data[0]['Price'] = $product[0]->Price;
                     $data[0]['productID'] = $product[0]->ID;
+                    $data[0]['ProductCode'] = $product[0]->Code;
                     $data[0]['Qty'] = Session::get('chooseQty')['Qty_' . $productId];
 
                 } else if (!is_int($findKey)) {
@@ -180,6 +181,7 @@ class FabricController extends BaseController
                     $data[$getCount]['ProductName'] = $product[0]->Name;
                     $data[$getCount]['Price'] = $product[0]->Price;
                     $data[$getCount]['productID'] = $product[0]->ID;
+                    $data[0]['ProductCode'] = $product[0]->Code;
                     $data[$getCount]['Qty'] = Session::get('chooseQty')['Qty_' . $productId];
                 } else {
 
@@ -193,7 +195,7 @@ class FabricController extends BaseController
             'cartData' => $this->getCartData()
         );
         $itemSelected = $this->getCartData();
-
+        //dd($itemSelected);
         $ShareData = array(
             'itemSelected' => $itemSelected
         );

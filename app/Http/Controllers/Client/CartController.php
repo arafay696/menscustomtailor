@@ -25,6 +25,18 @@ class CartController extends BaseController
         return view('client/cart', $data);
     }
 
+    public function UpdateData(Request $request)
+    {
+        $getQty = $request::input('Qty');
+        $CartData = $this->getCartData();
+        foreach ($CartData as $key => $val) {
+            $quotaIS = (int)$getQty[$key];
+            $CartData[$key]['Qty'] = $quotaIS;
+        }
+        $this->setCartData('CartData', $CartData);
+        return json_encode(array('status' => true, 'data' => $CartData));
+    }
+
     public function RemoveItem($key)
     {
         $data = $this->getCartData();
@@ -140,10 +152,10 @@ class CartController extends BaseController
             $orderDetail['Code'] = mt_rand(1, 5000);
             $orderDetail['OrderType'] = '';
             $orderDetail['PlacedFor'] = 'MCT';
-            $orderDetail['Price'] = $OrderDetailItems['TotalPrice'];
+            $orderDetail['Price'] = $OrderDetailItems['Amount'];
             $orderDetail['OtherItem'] = '';
-            $orderDetail['SalesTax'] = 2;
-            $orderDetail['Discount'] = 2;
+            $orderDetail['SalesTax'] = 0;
+            $orderDetail['Discount'] = 0;
             $orderDetail['Shiping'] = $OrderDetailItems['Shipping'];
             $orderDetail['Deal'] = '';
             $orderDetail['Mono'] = 0;
@@ -203,12 +215,12 @@ class CartController extends BaseController
                 $shirtDetailItem = array();
                 $shirtDetailItem['OrderID'] = $orderID;
                 $shirtDetailItem['SizeID'] = $sizeID;
-                $shirtDetailItem['FabricCode'] = mt_rand(0, 9999);
+                $shirtDetailItem['FabricCode'] = $value['ProductCode'];
                 $shirtDetailItem['FabricColor'] = 'Black';
                 $shirtDetailItem['FabricContents'] = 'FabricContents';
                 $shirtDetailItem['Qty'] = $value['Qty'];
                 $shirtDetailItem['FabricPrice'] = $value['Price'];
-                $shirtDetailItem['Total'] = $total;
+                $shirtDetailItem['Total'] = number_format($value['Qty'] * $value['Price'], 2);
                 $shirtDetailItem['ExtraCharges'] = 0;
                 $shirtDetailItem['Discount'] = 0;
                 $shirtDetailItem['CollarStyle'] = (isset($value['collarType'])) ? $value['collarType'] : '';
@@ -291,6 +303,12 @@ class CartController extends BaseController
 
     public function checkout()
     {
-        return view('client/checkout');
+        $CartData = $this->getCartData();
+        //dd($CartData);
+        $data = array(
+            'CartData' => $CartData
+        );
+        return view('client/checkout', $data);
     }
+
 }

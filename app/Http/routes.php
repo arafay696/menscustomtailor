@@ -25,6 +25,7 @@ Route::post('/fabric/customize', 'Client\FabricController@setCustomizeValues');
 Route::get('/cart', 'Client\CartController@index');
 Route::get('cart/remove/{key}', 'Client\CartController@RemoveItem');
 Route::post('cart/save', 'Client\CartController@SaveData');
+Route::post('cart/update', 'Client\CartController@UpdateData');
 Route::get('checkout', 'Client\CartController@checkout');
 Route::get('contact-us', 'Client\HomeController@contactus');
 Route::get('about-us', 'Client\HomeController@aboutus');

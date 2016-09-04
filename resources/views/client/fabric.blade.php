@@ -138,14 +138,15 @@
                                         continue;
                                     }
 
-                                    $classByCat = (array_key_exists($product->ID,$patternByID)) ? $patternByID[$product->ID] : '';
+                                    $classByCat = (array_key_exists($product->ID, $patternByID)) ? $patternByID[$product->ID] : '';
                                     array_push($uniqProduct, $product->ID);
                                     $colors = "";
                                     if (array_key_exists($product->ID, $productColor)) {
                                         $colors = implode(",", $productColor[$product->ID]);
                                     }
                                     ?>
-                                    <li class="<?=$classByCat;?> element-item transition <?=$v;?>" data-percentage="<?=$product->Price;?>"
+                                    <li class="<?=$classByCat;?> element-item transition <?=$v;?>"
+                                        data-percentage="<?=$product->Price;?>"
                                         data-color="<?= $colors; ?>" data-category="<?=$v;?>">
                                         <a class="selectFabric" href="javascript:void(0);">
                                             <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
