@@ -250,7 +250,27 @@ $(document).ready(function (e) {
 
     // ----------------------------Cart JS----------------------------//
     var Cart = {
-        updateQty: function (e) {
+        ShipMethod: "USPS Priority",
+        USPSPriority: [9.50, 13.50, 16.50, 23.50, 29.50, 32.50, 35.50, 37.50, 39.50, 40.50, 55.50],
+        USPSNextDay: [25, 35, 40, 65, 65, 65, 95],
+        International: [25, 38, 45, 45, 45, 75, 75, 75, 150],
+        calShipCharges: function () {
+            var getQty = 0;
+            var charges = 0;
+            $('input[name^="ProductQty"]').each(function () {
+                getQty += parseInt($(this).val());
+            });
+            if (Cart.ShipMethod == "USPS Priority") {
+                charges = (typeof Cart.USPSPriority[getQty - 1] !== typeof undefined) ? Cart.USPSPriority[getQty - 1] : 55.50;
+            } else if (Cart.ShipMethod == "USPS Next Day") {
+                charges = (typeof Cart.USPSNextDay[getQty - 1] !== typeof undefined) ? Cart.USPSNextDay[getQty - 1] : 95;
+            } else {
+                charges = (typeof Cart.International[getQty - 1] !== typeof undefined) ? Cart.International[getQty - 1] : 150;
+            }
+            //alert('Is ' + Cart.ShipMethod + ' Charges' + charges);
+            $('#ShippingHidden').val();
+            return charges;
+        }, updateQty: function (e) {
             var qty = $(e).val();
             $(e).next().val(qty);
             $('.updateCart').removeClass('disableUpdateCart');
@@ -264,8 +284,11 @@ $(document).ready(function (e) {
                 total += parseFloat($(this).find('.TotalProductPrice').text().trim().replace(',', ''));
             });
             $('#SubTotal').text(total.toFixed(2));
-            $('#TotalAmount').text(total.toFixed(2));
-            $('#TotalAmountHidden').val(total.toFixed(2));
+            var getShipCharges = Cart.calShipCharges();
+            $('#ShippCharges').text(getShipCharges);
+            var TotalPlusShip = (total + getShipCharges).toFixed(2);
+            $('#TotalAmount').text(TotalPlusShip);
+            $('#TotalAmountHidden').val(TotalPlusShip);
         }
     };
 
@@ -275,6 +298,12 @@ $(document).ready(function (e) {
             return false;
         }
         Cart.updateQty(this);
+        Cart.updateCart();
+    });
+
+    $('#ShipMethod').change(function (e) {
+        Cart.ShipMethod = $(this).val();
+        $('#ShippingMethodHidden').val($(this).val());
         Cart.updateCart();
     });
 

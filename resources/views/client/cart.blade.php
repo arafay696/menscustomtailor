@@ -30,11 +30,14 @@
                             </div>
                             <?php
                             $TotalPrice = 0;
+                            $qty = 0;
                             if(is_array($cart) && !empty($cart)) { ?>
                             <div class="cart_listing">
                                 <ul class="cartItems">
                                     <?php
-                                    foreach ($cart as $key => $cartItem) { ?>
+                                    foreach ($cart as $key => $cartItem) {
+                                    $qty += $cartItem['Qty'];
+                                    ?>
                                     <li class="clearfix">
                                         <div class="shirt_colmn_list">
                                             <img src="<?php echo URL::to('resources/assets/images/' . $cartItem['ProductImage']); ?>"
@@ -98,8 +101,25 @@
                                             <strong id="SubTotal">$<?=number_format($TotalPrice, 2);?></strong>
                                         </li>
                                         <li class="clearfix">
+                                            <span>Shipping Method</span>
+                                            <div class="customselect">
+                                                <span style="border-right: none;">USPS Priority</span>
+                                                <select id="ShipMethod" size="1" name="ShipMethod">
+                                                    <option value="USPS Priority">USPS Priority</option>
+                                                    <option value="USPS Next Day">USPS Next Day</option>
+                                                    <option value="International Global Priority">
+                                                        International Global Priority
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix">
                                             <span>Shipping</span>
-                                            <strong>Free Shipping</strong>
+                                            <strong id="ShippCharges"><?php
+                                                $shippingCharges = $USPSPriority[$qty - 1];
+                                                $TotalPrice = $TotalPrice + $shippingCharges;
+                                                echo $shippingCharges;
+                                                ?></strong>
                                         </li>
                                         <li class="clearfix">
                                             <span>TOTAL</span>
@@ -107,7 +127,10 @@
                                                 $<b id="TotalAmount"><?=number_format($TotalPrice, 2);?></b>
                                                 <input id="TotalAmountHidden" type="hidden" name="Amount"
                                                        value="<?=number_format($TotalPrice, 2);?>">
-                                                <input type="hidden" name="Shipping" value="0">
+                                                <input id="ShippingHidden" type="hidden" name="ShippingHidden"
+                                                       value="<?=$shippingCharges;?>">
+                                                <input id="ShippingMethodHidden" type="hidden" name="ShippingMethodHidden"
+                                                       value="USPS Priority">
                                             </strong>
                                         </li>
                                     </ul>

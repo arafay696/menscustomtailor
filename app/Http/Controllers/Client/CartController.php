@@ -20,7 +20,10 @@ class CartController extends BaseController
         $cartData = $this->getCartData();
         //dd($cartData);
         $data = array(
-            'cart' => $cartData
+            'cart' => $cartData,
+            'USPSPriority' => [9.50, 13.50, 16.50, 23.50, 29.50, 32.50, 35.50, 37.50, 39.50, 40.50, 55.50],
+            'USPSNextDay' => [25, 35, 40, 65, 65, 65, 95],
+            'International' => [25, 38, 45, 45, 45, 75, 75, 75, 150]
         );
         return view('client/cart', $data);
     }
@@ -28,6 +31,7 @@ class CartController extends BaseController
     public function UpdateData(Request $request)
     {
         $getQty = $request::input('Qty');
+        $getQty = explode(",", $getQty);
         $CartData = $this->getCartData();
         foreach ($CartData as $key => $val) {
             $quotaIS = (int)$getQty[$key];
@@ -156,7 +160,7 @@ class CartController extends BaseController
             $orderDetail['OtherItem'] = '';
             $orderDetail['SalesTax'] = 0;
             $orderDetail['Discount'] = 0;
-            $orderDetail['Shiping'] = $OrderDetailItems['Shipping'];
+            $orderDetail['Shiping'] = $OrderDetailItems['ShippingHidden'];
             $orderDetail['Deal'] = '';
             $orderDetail['Mono'] = 0;
             $orderDetail['WhiteCollar'] = ($this->checkOption($data, 'whiteCollar')) ? 5 : 0;
@@ -171,7 +175,7 @@ class CartController extends BaseController
             $orderDetail['Sleeve'] = '';
             $orderDetail['Tail'] = '';
             $orderDetail['DiffCollar'] = ($this->checkOption($data, 'whiteCollar')) ? 5 : 0;
-            $orderDetail['Amount'] = $OrderDetailItems['Amount'];
+            $orderDetail['Amount'] = $OrderDetailItems['Amount'] + $OrderDetailItems['ShippingHidden'];
             $orderDetail['Paid'] = 0;
             $orderDetail['TransferTo'] = $CustomerName;
             $orderDetail['Status'] = 2;
@@ -192,7 +196,7 @@ class CartController extends BaseController
             $orderDetail['SalesPerson'] = '';
             $orderDetail['SubmittedBy'] = 'MCT';
             $orderDetail['Level1Status'] = '';
-            $orderDetail['ShipMethod'] = '';
+            $orderDetail['ShipMethod'] = $OrderDetailItems['ShippingMethodHidden'];
             $orderDetail['CustomerName'] = $CustomerName;
             $orderDetail['ShippingAddress'] = '';
             $orderDetail['SizeID'] = $sizeID;

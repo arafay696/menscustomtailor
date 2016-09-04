@@ -48,7 +48,6 @@ class PayPalController extends BaseController
             $updatedata['CustomerName'] = $request::get('FirstName') . ' ' . $request::get('LastName');
             $updatedata['ShippingAddress'] = $request::get('Address');
             $updatedata['Comments'] = $request::get('Comments');
-            $updatedata['ShipMethod'] = $request::get('ShipMethod');
         }
 
 

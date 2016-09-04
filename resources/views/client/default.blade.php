@@ -26,7 +26,9 @@
                 $('.banner_slider').bxSlider({
                     minSlides: 1,
                     maxSlides: 1,
-                    auto: true
+                    auto: true,
+                    speed: 1000,
+                    pause: 6000
                 });
             }
 

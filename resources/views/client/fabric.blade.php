@@ -5,9 +5,8 @@
         <div class="fabric_banner">
             <div class="auto_content">
                 <div class="fabric_bannerDtail">
-                    <h1>Shirts</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet mi <br> sit amet venenatis
-                        iaculis</p>
+                    <h1>Choose your shirts</h1>
+                    <p>All the fabrics you'll ever need to look your best</p>
                 </div>
             </div>
         </div>
