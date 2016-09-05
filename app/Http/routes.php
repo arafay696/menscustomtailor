@@ -34,13 +34,14 @@ Route::get('about-us', 'Client\HomeController@aboutus');
 Route::get('/login', 'Client\UserController@index');
 Route::get('/logout', 'Client\UserController@logout');
 Route::get('profile', 'Client\UserController@profile');
-Route::get('order-history', 'Client\UserController@orderHistory');
 Route::get('newsletter', 'Client\UserController@newsletter');
 Route::get('change-password', 'Client\UserController@changePassword');
 Route::post('doLogin', 'Client\UserController@doLogin');
 Route::post('doRegister', 'Client\UserController@addUser');
 Route::post('doEditUser', 'Client\UserController@updateuser');
 Route::post('changePassword', 'Client\UserController@updatepassword');
+Route::get('order-history', 'Client\UserController@orderHistory');
+Route::get('order/detail/{id}', 'Client\UserController@orderDetail');
 
 //-------------- Cart
 Route::post('payment', array(

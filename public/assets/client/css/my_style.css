@@ -320,7 +320,7 @@
 .colours_pickers .tooltip {
     position: relative;
     display: inline-block;
-    //border-bottom: 1px dotted black;
+/ / border-bottom: 1 px dotted black;
 }
 
 .colours_pickers .tooltip .tooltiptext {
@@ -361,7 +361,7 @@
     visibility: hidden;
 }
 
-.colours_pickers ul li .tooltiptext{
+.colours_pickers ul li .tooltiptext {
     top: 91% !important;
 }
 
@@ -388,4 +388,17 @@
     color: #3c763d;
     background-color: #dff0d8;
     border-color: #d6e9c6;
+}
+
+.orderDetail, .orderDetailValues {
+    width: 50%;
+/ / border: 1 px solid #3e454c;
+    padding: 20px;
+    float: left;
+    text-align: center;
+}
+
+.orderDetail p, .orderDetailValues p {
+    padding: 12px;
+    border: 1px solid #3e454c;
 }

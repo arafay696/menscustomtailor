@@ -13,6 +13,8 @@ use PayPal\Api\Payment;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
+use PayPal\Api\Cost;
+use PayPal\Api\Invoice;
 use Session;
 use Redirect;
 use URL;
@@ -95,6 +97,9 @@ class PayPalController extends BaseController
             ->setPrice('20');*/
 
         $shipCharges = $request::get('ShippingHidden');
+
+        $item1discount = new Cost();
+        $item1discount->setPercent("3");
         // add item to list
         $item_list = new ItemList();
         $item_list->setItems($itemsArr);

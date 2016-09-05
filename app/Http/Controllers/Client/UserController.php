@@ -142,7 +142,78 @@ class UserController extends BaseController
         if (!Session::has('CustomerID')) {
             return Redirect::to('login?returnUrl=' . urlencode(URL::to('order-history')) . '');
         }
-        return view('client.orderhistory');
+
+        try {
+
+            $orders = DB::table('orders as o')
+                ->select('o.ID', 'o.Amount', 'o.DeliveryDate', 'o.Code')
+                ->join('customers as c', 'o.CustomerID', '=', 'c.ID')
+                ->join('orderstatus as os', 'o.Status', '=', 'os.ID')
+                ->where('c.ID', '=', Session::get('CustomerID'))
+                ->get();
+
+            $data = array(
+                'orders' => $orders
+            );
+
+            return view('client.orderhistory', $data);
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+        }
+
+    }
+
+    public function orderDetail($orderID)
+    {
+        if (!Session::has('CustomerID')) {
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('order-history')) . '');
+        }
+
+        try {
+
+            $orderDetail = DB::table('orders as o')
+                ->select('c.ID as CustomerID', 'o.ID as OrderID', 'o.DeliveryDate', 'o.OrderType', 'c.Name', 'c.Email', 'o.ShippingAddress', 'c.Phone', 'o.GOrderNo', 'o.PlacedFor', 'o.OrderDate', 'o.PromiseDate', 'o.Price', 'o.Price', 'o.Paid', 'os.Name as OrderStatus', 'o.StatusText')
+                ->join('customers as c', 'o.CustomerID', '=', 'c.ID')
+                ->join('orderstatus as os', 'o.Status', '=', 'os.ID')
+                ->where('o.ID', '=', $orderID)
+                ->where('c.ID', '=', Session::get('CustomerID'))
+                ->first();
+
+            $shirtDetail = DB::table('shirtdetail as sd')
+                ->select('sd.Qty','pr.Code', 'pr.Name', 'pr.Price', 'sd.FabricCode', 'sd.CollarStyle', 'sd.FrontStyle', 'sd.Monogram', 'sd.MonoPosition', 'sd.MonoColor', 'sd.MonoInitials')
+                ->join('products AS pr', 'sd.FabricCode', '=', 'pr.Code')
+                ->where('sd.OrderID', '=', $orderID)
+                ->get();
+
+            $data = array(
+                'orderDetail' => $orderDetail,
+                'shirtDetail' => $shirtDetail,
+                'OrderID' => $orderID
+            );
+
+            //dd($shirtDetail);
+            return view('client/orderDetail', $data);
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+        }
     }
 
     public function newsletter()
@@ -157,6 +228,8 @@ class UserController extends BaseController
 
     public function addUser(Request $request)
     {
+
+        $returnUrl = urlencode($request::get('returnUrl'));
 
         $user = array();
 
@@ -181,7 +254,7 @@ class UserController extends BaseController
             Session::flash('globalSuccessMsg', 'User Added.');
             Session::flash('alert-class', 'alert-success');
 
-            return redirect()->back();
+            return Redirect::to('login?returnUrl=' . $returnUrl . '');
         } catch (\Exception $e) {
             DB::rollback();
             if (env('Mode') == 'Development') {
