@@ -36,6 +36,9 @@ trait CommonFunction
     public function emptyCart()
     {
         Session::forget('CartData');
+        Session::forget('TotalAmountIS');
+        Session::forget('ShipCharges');
+        Session::forget('ProcessOrderId');
     }
 
     public function findInArrayByValue($findValue, $findColumn, $array)

@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Client;
 
 use DB;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends BaseController
 {

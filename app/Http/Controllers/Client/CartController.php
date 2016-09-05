@@ -146,7 +146,9 @@ class CartController extends BaseController
 
             // Get Price,Amount & Other Charges
             $OrderDetailItems = $request::except('_token');
-
+            $shippingCharges = $OrderDetailItems['ShippingHidden'];
+            Session::put('ShipCharges', 0);
+            Session::put('ShipCharges', $shippingCharges);
             /*
              * --- Save Order
              * */
@@ -288,6 +290,7 @@ class CartController extends BaseController
 
             // Save Order ID for future use
             Session::put('ProcessOrderId', $orderID);
+
             return Redirect::to('checkout');
         } catch (\Exception $e) {
             DB::rollback();
@@ -310,7 +313,8 @@ class CartController extends BaseController
         $CartData = $this->getCartData();
         //dd($CartData);
         $data = array(
-            'CartData' => $CartData
+            'CartData' => $CartData,
+            'ShipCharges' => Session::get('ShipCharges')
         );
         return view('client/checkout', $data);
     }

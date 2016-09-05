@@ -94,13 +94,20 @@ class PayPalController extends BaseController
             ->setQuantity(1)
             ->setPrice('20');*/
 
+        $shipCharges = $request::get('ShippingHidden');
         // add item to list
         $item_list = new ItemList();
         $item_list->setItems($itemsArr);
 
+        $details = new Details();
+        $details->setSubtotal($total)
+            ->setShipping($shipCharges);
+
+        $total = $total + $shipCharges;
         $amount = new Amount();
         $amount->setCurrency('USD')
-            ->setTotal($total);
+            ->setTotal($total)
+            ->setDetails($details);
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)

@@ -50,6 +50,8 @@
 
                     <form method="post" class="form" action="<?php echo URL::to('payment') ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        <input id="ShippingHidden" type="hidden" name="ShippingHidden"
+                               value="<?=$ShipCharges;?>">
                         <div class="login_register_outer borderBlack clearfix">
                             <div class="login_dtail">
                                 <h4>BILLING DETAILS</h4>
@@ -112,7 +114,8 @@
 
                                         <div class="artistProducer clearfix">
                                             <label class="select">
-                                                <input type="radio" name="ShipMethod" value="PayPal " checked="checked"> PayPal <img
+                                                <input type="radio" name="ShipMethod" value="PayPal " checked="checked">
+                                                PayPal <img
                                                         src="<?php echo URL::to('public/assets/client/images/paypal_img.png');?>"
                                                         alt="#"/>
                                             </label>
@@ -155,7 +158,7 @@
                                                     <?php
                                                     $pr = $item['Price'] * $item['Qty'];
                                                     $TotalPrice += $pr;
-                                                        ?>
+                                                    ?>
                                                     <?=number_format($pr, 2);?>
                                                 </strong>
                                             </li>
@@ -164,15 +167,15 @@
                                             ?>
                                             <li class="clearfix">
                                                 <h5>Cart Subtotal</h5>
-                                                <h6>$<?=number_format($TotalPrice,2);?></h6>
+                                                <h6>$<?=number_format($TotalPrice, 2);?></h6>
                                             </li>
                                             <li class="clearfix">
                                                 <p>Shipping</p>
-                                                <strong>Free Shipping</strong>
+                                                <strong>$<?=$ShipCharges;?></strong>
                                             </li>
                                             <li class="clearfix">
                                                 <h5>Order Total</h5>
-                                                <h6>$<?=number_format($TotalPrice,2);?></h6>
+                                                <h6>$<?=number_format($TotalPrice+$ShipCharges, 2);?></h6>
                                             </li>
                                         </ul>
                                     </div>
