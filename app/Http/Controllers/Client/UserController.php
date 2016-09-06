@@ -423,7 +423,7 @@ class UserController extends BaseController
             ->where("CustomerID", "=", Session::get('CustomerID'))
             ->first();
 
-        Session::put('currentCSize', $getSize);
+        //Session::put('currentCSize', $getSize);
         $data = array(
             'size' => $getSize,
             'customerID' => Session::get('CustomerID')
