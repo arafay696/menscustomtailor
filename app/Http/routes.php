@@ -42,6 +42,8 @@ Route::post('doEditUser', 'Client\UserController@updateuser');
 Route::post('changePassword', 'Client\UserController@updatepassword');
 Route::get('order-history', 'Client\UserController@orderHistory');
 Route::get('order/detail/{id}', 'Client\UserController@orderDetail');
+Route::get('measurements', 'Client\UserController@myMeasurements');
+Route::post('edit-size', 'Client\UserController@myMeasurementsEdit');
 
 //-------------- Cart
 Route::post('payment', array(

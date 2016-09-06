@@ -10,6 +10,7 @@
                         <ul class="clearfix">
                             <li><a href="<?php echo URL::to('profile');?>">ACCOUNT</a></li>
                             <li><a href="<?php echo URL::to('order-history');?>">ORDER AND REVIEW</a></li>
+                            <li><a href="<?php echo URL::to('measurements');?>">MY MEASUREMENTS</a></li>
                             <li><a href="<?php echo URL::to('newsletter');?>" class="secl_page">NEWSLETTER</a></li>
                         </ul>
                     </div>

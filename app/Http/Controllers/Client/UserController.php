@@ -150,6 +150,7 @@ class UserController extends BaseController
                 ->join('customers as c', 'o.CustomerID', '=', 'c.ID')
                 ->join('orderstatus as os', 'o.Status', '=', 'os.ID')
                 ->where('c.ID', '=', Session::get('CustomerID'))
+                ->orderBy('o.OrderDate', 'DESC')
                 ->get();
 
             $data = array(
@@ -189,11 +190,13 @@ class UserController extends BaseController
                 ->first();
 
             $shirtDetail = DB::table('shirtdetail as sd')
-                ->select('sd.Qty','pr.Code', 'pr.Name', 'pr.Price', 'sd.FabricCode', 'sd.CollarStyle', 'sd.FrontStyle', 'sd.Monogram', 'sd.MonoPosition', 'sd.MonoColor', 'sd.MonoInitials')
+                ->select('sd.Qty', 'pr.Code', 'pr.Name', 'pr.Price', 'sd.FabricCode', 'sd.CollarStyle', 'sd.FrontStyle', 'sd.Monogram', 'sd.MonoPosition', 'sd.MonoColor', 'sd.MonoInitials')
                 ->join('products AS pr', 'sd.FabricCode', '=', 'pr.Code')
                 ->where('sd.OrderID', '=', $orderID)
+                ->orderBy('sd.Dat', 'DESC')
                 ->get();
 
+            //dd($shirtDetail);
             $data = array(
                 'orderDetail' => $orderDetail,
                 'shirtDetail' => $shirtDetail,
@@ -409,5 +412,83 @@ class UserController extends BaseController
         }
     }
 
+    public function myMeasurements()
+    {
+        if (!Session::has('CustomerID')) {
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('order-history')) . '');
+        }
 
+        $getSize = DB::table('size')
+            ->select('*')
+            ->where("CustomerID", "=", Session::get('CustomerID'))
+            ->first();
+
+        Session::put('currentCSize', $getSize);
+        $data = array(
+            'size' => $getSize,
+            'customerID' => Session::get('CustomerID')
+        );
+        //dd($data);
+        return view('client/my_measurements', $data);
+    }
+
+    public function myMeasurementsEdit(Request $request)
+    {
+        $sizeDetail['SizeOption'] = '';
+        $sizeDetail['HeightInches'] = $request::get('HeightInches');
+        $sizeDetail['HeightFeet'] = $request::get('HeightFeet');
+        $sizeDetail['Weight'] = $request::get('Weight');
+        $sizeDetail['NeckHeight'] = $request::get('NeckHeight');
+        $sizeDetail['NeckSize'] = $request::get('NeckSize');
+        $sizeDetail['LeftSleeve'] = $request::get('SleeveLength');
+        $sizeDetail['RightSleeve'] = $request::get('SleeveLength');
+        $sizeDetail['Chest'] = $request::get('Chest');
+        $sizeDetail['Waist'] = $request::get('Waist');
+        $sizeDetail['Posture'] = $request::get('Posture');
+        $sizeDetail['ChestDescription'] = $request::get('ChestDescription');
+        $sizeDetail['BodyShape'] = $request::get('BodyShape');
+        $sizeDetail['BodyProportion'] = $request::get('BodyProportion');
+        $sizeDetail['Shoulder'] = $request::get('Shoulder');
+        $sizeDetail['Dat'] = date('Y-m-d H:i:s');
+        $sizeDetail['ShirtNeckSize'] = $request::get('NeckHeight');
+
+        // Check Already Size exist - Insert Or update
+        $userId = $request::get('customerID');
+        $getSize = DB::table('size')
+            ->select('ID', 'CustomerID')
+            ->where("CustomerID", "=", $userId)
+            ->first();
+
+        try {
+            DB::beginTransaction();
+            $msg = '';
+            if (count($getSize) <= 0 && !is_array($getSize)) {
+                $msg = 'Size Save :)';
+                $sizeID = DB::table('size')->insertGetId($sizeDetail);
+            } else {
+                $msg = 'Size updated :)';
+                $CustomerID = $getSize->CustomerID;
+                $sizeID = $getSize->ID;
+                DB::table('size')->where('CustomerID', $CustomerID)->update($sizeDetail);
+            }
+
+            DB::commit();
+            Session::flash('globalSuccessMsg', $msg);
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            DB::rollback();
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+
+        }
+    }
 }

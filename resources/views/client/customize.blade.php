@@ -1585,7 +1585,7 @@
                                                     </option>
                                                 </select>
                                                 <select style="margin-top: 4px;" name="ChestDescription">
-                                                    <option>Select Chect Description</option>
+                                                    <option>Select Chest Description</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['ChestDescription']) && Session::get('currentSize')['ChestDescription'] == "Slender") ? "selected='selected'" : "" ?> value="Slender">
                                                         Slender
                                                     </option>
