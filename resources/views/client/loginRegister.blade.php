@@ -18,7 +18,7 @@
                         <form action="<?=URL::to('/doLogin');?>" method="post">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <input type="hidden" name="returnUrl" value="<?=$returnUrl;?>">
-                            <div class="login_dtail">
+                            <div class="login_dtail" style="<?=(Session::has('registered')) ? 'width:100%' : '';?>">
                                 <h4>Returning customer? </h4>
 
                                 <p>If you have shopped with us before, please enter your details in the boxes below. If
@@ -41,33 +41,36 @@
                             </div>
                         </form>
 
-                        <div class="login_dtail fr_section">
-                            <h4>New User</h4>
+                        @if(!Session::has('registered'))
+                            <div class="login_dtail fr_section">
+                                <h4>New User</h4>
 
-                            <p>If you have shopped with us before, please enter your details in the boxes below. If
-                                you are a new customer please proceed to the Billing &amp; Shipping section.</p>
-                            <form action="<?=URL::to('/doRegister');?>" method="post">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                <input type="hidden" name="returnUrl" value="<?=$returnUrl;?>">
-                                <div class="login_form">
-                                    <ul>
-                                        <li><input name="Name" type="text" placeholder="Full Name"
-                                                   value="{{Request::old('Name')}}"/></li>
-                                        <li><input name="Email" type="email" placeholder="Email address *"
-                                                   value="{{Request::old('Email')}}"/></li>
-                                        <li><input name="Password" type="password" value="" placeholder="Password *"/>
-                                        </li>
-                                        <li><input name="ConfirmPassword" type="password" value=""
-                                                   placeholder="Retype Password *"/></li>
-                                    </ul>
-                                </div>
+                                <p>If you have shopped with us before, please enter your details in the boxes below. If
+                                    you are a new customer please proceed to the Billing &amp; Shipping section.</p>
+                                <form action="<?=URL::to('/doRegister');?>" method="post">
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                    <input type="hidden" name="returnUrl" value="<?=$returnUrl;?>">
+                                    <div class="login_form">
+                                        <ul>
+                                            <li><input name="Name" type="text" placeholder="Full Name"
+                                                       value="{{Request::old('Name')}}"/></li>
+                                            <li><input name="Email" type="email" placeholder="Email address *"
+                                                       value="{{Request::old('Email')}}"/></li>
+                                            <li><input name="Password" type="password" value=""
+                                                       placeholder="Password *"/>
+                                            </li>
+                                            <li><input name="ConfirmPassword" type="password" value=""
+                                                       placeholder="Retype Password *"/></li>
+                                        </ul>
+                                    </div>
 
 
-                                <div class="login_pasww clearfix">
-                                    <input type="submit" value="Register"/>
-                                </div>
-                            </form>
-                        </div>
+                                    <div class="login_pasww clearfix">
+                                        <input type="submit" value="Register"/>
+                                    </div>
+                                </form>
+                            </div>
+                        @endif
                     </div>
 
                 </div>

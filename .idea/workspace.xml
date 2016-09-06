@@ -4,6 +4,7 @@
     <list default="true" id="571f70f7-552c-4b0f-b83e-670013d94818" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/loginRegister.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/loginRegister.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/my_measurements.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/my_measurements.blade.php" />
     </list>
     <ignored path="mct.iws" />
@@ -25,97 +26,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="45" column="66" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="284" column="25" selection-start-line="284" selection-start-column="12" selection-end-line="284" selection-end-column="25" />
-              <folding>
-                <element signature="e#688#1140#0#PHP" expanded="false" />
-                <element signature="e#1146#1330#0#PHP" expanded="false" />
-                <element signature="e#1336#1652#0#PHP" expanded="false" />
-                <element signature="e#2394#7363#0#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="421" column="25" selection-start-line="421" selection-start-column="25" selection-end-line="421" selection-end-column="25" />
+            <state relative-caret-position="260">
+              <caret line="256" column="44" selection-start-line="256" selection-start-column="44" selection-end-line="256" selection-end-column="44" />
               <folding>
                 <element signature="e#475#3581#0#PHP" expanded="false" />
                 <element signature="e#3587#3960#0#PHP" expanded="false" />
                 <element signature="e#3966#4583#0#PHP" expanded="false" />
                 <element signature="e#7920#8002#0#PHP" expanded="false" />
                 <element signature="e#8008#8098#0#PHP" expanded="false" />
-                <element signature="e#8104#9619#0#PHP" expanded="false" />
-                <element signature="e#9625#11560#0#PHP" expanded="false" />
-                <element signature="e#11566#13425#0#PHP" expanded="false" />
-                <element signature="e#13431#14035#0#PHP" expanded="false" />
+                <element signature="e#9673#11608#0#PHP" expanded="false" />
+                <element signature="e#11614#13473#0#PHP" expanded="false" />
+                <element signature="e#13479#14083#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_measurements.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/my_measurements.blade.php">
+      <file leaf-file-name="loginRegister.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/client/loginRegister.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33854">
-              <caret line="1594" column="11" selection-start-line="1594" selection-start-column="11" selection-end-line="1594" selection-end-column="11" />
+            <state relative-caret-position="202">
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
               <folding>
-                <element signature="e#1803#3727#0#HTML" expanded="false" />
-                <element signature="e#130300#131276#0#HTML" expanded="false" />
+                <element signature="e#1006#1068#0#HTML" expanded="true" />
+                <element signature="e#2313#4222#0#HTML" expanded="false" />
+                <marker date="1473190498266" expanded="true" signature="1167:1368" ph="..." />
+                <marker date="1473190498266" expanded="true" signature="1467:1524" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/profile.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="28" column="85" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="85" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customize.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/customize.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="2322" column="57" selection-start-line="2310" selection-start-column="48" selection-end-line="2322" selection-end-column="57" />
-              <folding>
-                <element signature="e#38748#69663#0#HTML" expanded="false" />
-                <element signature="e#86411#150309#0#HTML" expanded="false" />
-                <element signature="e#155172#157833#0#HTML" expanded="false" />
-                <element signature="e#157882#161969#0#HTML" expanded="false" />
-                <element signature="e#162888#218702#0#HTML" expanded="false" />
-                <marker date="1473187573124" expanded="true" signature="298:312" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my_style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/client/css/my_style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="426" column="21" selection-start-line="426" selection-start-column="21" selection-end-line="426" selection-end-column="21" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -181,7 +121,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/CommonFunction.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/PayPalController.php" />
-        <option value="$PROJECT_DIR$/resources/views/client/loginRegister.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/orderhistory.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/profile.blade.php" />
@@ -192,6 +131,7 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/client/my_measurements.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/loginRegister.blade.php" />
       </list>
     </option>
   </component>
@@ -524,7 +464,7 @@
       <workItem from="1473008290335" duration="6752000" />
       <workItem from="1473016173852" duration="3564000" />
       <workItem from="1473095614309" duration="7442000" />
-      <workItem from="1473181832544" duration="7211000" />
+      <workItem from="1473181832544" duration="8152000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Console Logs">
       <created>1469903070985</created>
@@ -799,14 +739,21 @@
       <option name="project" value="LOCAL" />
       <updated>1473189482245</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Customer Measurement Size :)">
+      <created>1473189628313</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1473189628313</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218304000" />
+    <option name="totallyTimeSpent" value="219245000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -845,7 +792,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Integerating New template  changes + New Template html" />
     <MESSAGE value="Showing Current Size if saved." />
     <MESSAGE value="Add Responsive CSS + Working on size current&#10;" />
     <MESSAGE value="Current Size Done + User Profile/Change Password/User Update Done" />
@@ -870,7 +816,8 @@
     <MESSAGE value="Shipping Method - cart Done" />
     <MESSAGE value="Register Issue&#10;Order History&#10;Order Detail" />
     <MESSAGE value="Customer Measurement Size :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Customer Measurement Size :)" />
+    <MESSAGE value="Hide Register After User Registered" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hide Register After User Registered" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1120,13 +1067,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/loginRegister.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="50" column="95" selection-start-line="50" selection-start-column="95" selection-end-line="50" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/order/orderListing.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1263,29 +1203,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/my_measurements.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33854">
-          <caret line="1594" column="11" selection-start-line="1594" selection-start-column="11" selection-end-line="1594" selection-end-column="11" />
+        <state relative-caret-position="248">
+          <caret line="1550" column="76" selection-start-line="1550" selection-start-column="76" selection-end-line="1550" selection-end-column="76" />
           <folding>
             <element signature="e#1803#3727#0#HTML" expanded="false" />
-            <element signature="e#130300#131276#0#HTML" expanded="false" />
+            <element signature="e#130307#131283#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="421" column="25" selection-start-line="421" selection-start-column="25" selection-end-line="421" selection-end-column="25" />
+        <state relative-caret-position="260">
+          <caret line="256" column="44" selection-start-line="256" selection-start-column="44" selection-end-line="256" selection-end-column="44" />
           <folding>
             <element signature="e#475#3581#0#PHP" expanded="false" />
             <element signature="e#3587#3960#0#PHP" expanded="false" />
             <element signature="e#3966#4583#0#PHP" expanded="false" />
             <element signature="e#7920#8002#0#PHP" expanded="false" />
             <element signature="e#8008#8098#0#PHP" expanded="false" />
-            <element signature="e#8104#9619#0#PHP" expanded="false" />
-            <element signature="e#9625#11560#0#PHP" expanded="false" />
-            <element signature="e#11566#13425#0#PHP" expanded="false" />
-            <element signature="e#13431#14035#0#PHP" expanded="false" />
+            <element signature="e#9673#11608#0#PHP" expanded="false" />
+            <element signature="e#11614#13473#0#PHP" expanded="false" />
+            <element signature="e#13479#14083#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/loginRegister.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding>
+            <element signature="e#1006#1068#0#HTML" expanded="true" />
+            <element signature="e#2313#4222#0#HTML" expanded="false" />
+            <marker date="1473190498266" expanded="true" signature="1167:1368" ph="..." />
+            <marker date="1473190498266" expanded="true" signature="1467:1524" ph="..." />
           </folding>
         </state>
       </provider>

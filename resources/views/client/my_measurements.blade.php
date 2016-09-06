@@ -1548,7 +1548,7 @@
                                 <th>Posture:</th>
                                 <td>
                                     <select name="Posture">
-                                        <option selected="" value="">Posture</option>
+                                        <option selected="" value="">Select Posture</option>
                                         <option <?php echo (isset($size->Posture) && $size->Posture == "Flat") ? "selected='selected'" : "" ?> value="Flat">
                                             Flat
                                         </option>

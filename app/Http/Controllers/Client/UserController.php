@@ -254,6 +254,7 @@ class UserController extends BaseController
 
             DB::commit();
 
+            Session::flash('registered', 'ok');
             Session::flash('globalSuccessMsg', 'User Added.');
             Session::flash('alert-class', 'alert-success');
 
