@@ -85,8 +85,6 @@
                             <li><a href="<?php echo URL::to('/');?>">Home</a></li>
                             <li><a href="<?php echo URL::to('about-us');?>">About</a></li>
                             <li><a href="<?php echo URL::to('fabric');?>">Fabric</a></li>
-                            <li><a href="#">Style</a></li>
-                            <li><a href="#">Measurements</a></li>
                             <li><a href="<?php echo URL::to('contact-us');?>">Contact Us</a></li>
                         </ul>
                     </div>

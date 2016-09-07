@@ -2457,6 +2457,7 @@ body {
     -o-transition: all .5s;
     -webkit-transition: all .5s;
     float: right;
+    cursor: pointer;
 }
 
 .fixed_bottom button:hover {

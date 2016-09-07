@@ -187,7 +187,7 @@
 
                             </div>
                             <div class="fixed_bottom">
-                                <button tyle="submit">next</button>
+                                <button class="nextBtnCustomize disableNextToCustomize" tyle="submit">next</button>
                             </div>
                         </form>
                     </div>

@@ -14,9 +14,13 @@ $(document).ready(function (e) {
             url: baseUrl + "/fabric/customize",
             beforeSend: function () {
                 $('.savingCustomize').css('display', 'block');
+                $(this).addClass('disableNextPrev');
+                $(this).next().addClass('disableNextPrev');
             },
             success: function (result) {
                 //console.log(result);
+                $(this).removeClass('disableNextPrev');
+                $(this).next().removeClass('disableNextPrev');
                 $('.savingCustomize').css('display', 'none');
                 if (hasNext) {
                     $('.customize_slider .active-customize').addClass('in');
@@ -38,6 +42,7 @@ $(document).ready(function (e) {
 
     // Previous Section on Size/Measurement Page
     $('.previousSection').click(function () {
+
         if ($('.customize_slider .active-customize').prev().length > 0) {
             $('.customize_slider .active-customize').addClass('in');
             $('.customize_slider .in').animate({marginLeft: "1000px", opacity: 0}, 800, "linear", function () {
@@ -111,6 +116,18 @@ $(document).ready(function (e) {
     $('.selectFabric').click(function () {
         $(this).siblings('.check_quentity').find('label').addClass('active');
         $(this).siblings('.check_quentity').find('.chkFab').prop('checked', true);
+        if ($('[name="chooseFab[]"]:checked').length > 0) {
+            $('.nextBtnCustomize').removeClass('disableNextToCustomize');
+        }
+    });
+
+    //Un-select check
+    $('.chkFab').change(function () {
+        if ($('[name="chooseFab[]"]:checked').length > 0) {
+            $('.nextBtnCustomize').removeClass('disableNextToCustomize');
+        } else {
+            $('.nextBtnCustomize').addClass('disableNextToCustomize');
+        }
     });
 
     $('.sizeFitorNot').click(function () {
