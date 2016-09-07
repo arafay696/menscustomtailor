@@ -45,7 +45,16 @@
                                         </div>
                                         <div class="product_colmn_list">
                                             <label><?=$cartItem['ProductName'];?></label>
-                                            <p>lorem 1 + 3.5 ipswm, 25 ipswm </p>
+                                            <p>
+                                                <b style="display: inline-block;">Shirt Detail:</b>
+                                                <?= (isset($cartItem['collarType'])) ? $cartItem['collarType'].',' : '';?>
+                                                <?= (isset($cartItem['cuffStyle'])) ? $cartItem['cuffStyle'].','  : '';?>
+                                                <?= (isset($cartItem['frontStyle'])) ? $cartItem['frontStyle'].','  : '';?>
+                                                <?= (isset($cartItem['pocketStyle'])) ? $cartItem['pocketStyle'] : '';?>
+                                                <?php if((!isset($cartItem['collarType']) || $cartItem['collarType'] == '') && (!isset($cartItem['cuffStyle']) || $cartItem['cuffStyle'] == '') && (!isset($cartItem['frontStyle']) || $cartItem['frontStyle']== '') && (!isset($cartItem['pocketStyle']) || $cartItem['pocketStyle']== '')){
+                                                    echo 'Missing Detail';
+                                                } ?>
+                                            </p>
                                             <div class="diffrent_icon clearfix">
                                                 <a href="<?php echo URL::to('fabric/' . $cartItem['productID'] . '');?>">
                                                     Change Style
