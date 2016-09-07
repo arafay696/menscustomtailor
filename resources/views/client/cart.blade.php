@@ -31,6 +31,7 @@
                             <?php
                             $TotalPrice = 0;
                             $qty = 0;
+                            $shippingCharges = 0;
                             if(is_array($cart) && !empty($cart)) { ?>
                             <div class="cart_listing">
                                 <ul class="cartItems">
@@ -103,6 +104,7 @@
                             <div class="shopping_total clearfix">
                                 <a href="<?php echo URL::to('fabric');?>">Continue Shopping</a>
 
+                                <?php if(is_array($cart) && count($cart) > 0) { ?>
                                 <div class="subtotal_dtail">
                                     <ul>
                                         <li class="clearfix">
@@ -125,9 +127,11 @@
                                         <li class="clearfix">
                                             <span>Shipping</span>
                                             <strong id="ShippCharges"><?php
-                                                $shippingCharges = $USPSPriority[$qty - 1];
-                                                $TotalPrice = $TotalPrice + $shippingCharges;
-                                                echo $shippingCharges;
+                                                    if($qty > 0){
+                                                        $shippingCharges = $USPSPriority[$qty - 1];
+                                                        $TotalPrice = $TotalPrice + $shippingCharges;
+                                                        echo $shippingCharges;
+                                                    }
                                                 ?></strong>
                                         </li>
                                         <li class="clearfix">
@@ -144,9 +148,10 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
-
+                        <?php if(is_array($cart) && count($cart) > 0) { ?>
                         <div class="discount_gift_cards clearfix">
                             <div class="discount_gift">
                                 <ul>
@@ -172,6 +177,7 @@
                                 <input type="submit" value="Proceed to Checkout"/>
                             </div>
                         </div>
+                        <?php } ?>
                     </form>
                 </div>
             </div>

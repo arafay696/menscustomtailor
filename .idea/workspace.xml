@@ -24,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
@@ -39,13 +39,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cart.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cart.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/client/cart.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="53" column="266" selection-start-line="53" selection-start-column="266" selection-end-line="53" selection-end-column="266" />
+            <state relative-caret-position="319">
+              <caret line="179" column="34" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
               <folding>
-                <element signature="e#3084#3114#0#HTML" expanded="true" />
+                <element signature="e#2203#6556#0#HTML" expanded="false" />
+                <element signature="e#3134#3164#0#HTML" expanded="true" />
+                <element signature="e#7375#10535#0#HTML" expanded="false" />
+                <element signature="e#10744#12039#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -121,8 +124,8 @@
         <option value="$PROJECT_DIR$/resources/views/client/fabric.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/client/js/customize.js" />
         <option value="$PROJECT_DIR$/public/assets/client/css/style.css" />
-        <option value="$PROJECT_DIR$/resources/views/client/cart.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/cart.blade.php" />
       </list>
     </option>
   </component>
@@ -402,7 +405,7 @@
       <workItem from="1473016173852" duration="3564000" />
       <workItem from="1473095614309" duration="7442000" />
       <workItem from="1473181832544" duration="8522000" />
-      <workItem from="1473268904055" duration="3645000" />
+      <workItem from="1473268904055" duration="4096000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Console Logs">
       <created>1469903070985</created>
@@ -698,11 +701,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473271216434</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Cart Shirt Detail - Done">
+      <created>1473272794705</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1473272794705</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223260000" />
+    <option name="totallyTimeSpent" value="223711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -744,7 +754,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Add Responsive CSS + Working on size current&#10;" />
     <MESSAGE value="Current Size Done + User Profile/Change Password/User Update Done" />
     <MESSAGE value="Start on Order saving" />
     <MESSAGE value="Size Bug Fix &amp; Order Save" />
@@ -769,7 +778,8 @@
     <MESSAGE value="Customer Measurement Size :)" />
     <MESSAGE value="Hide Register After User Registered" />
     <MESSAGE value="Header menu &amp; disable Button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Header menu &amp; disable Button" />
+    <MESSAGE value="Cart Shirt Detail - Done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cart Shirt Detail - Done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1154,16 +1164,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/cart.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="53" column="266" selection-start-line="53" selection-start-column="266" selection-end-line="53" selection-end-column="266" />
-          <folding>
-            <element signature="e#3084#3114#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1173,6 +1173,19 @@
             <element signature="e#1146#1330#0#PHP" expanded="false" />
             <element signature="e#1336#1652#0#PHP" expanded="false" />
             <element signature="e#2394#7363#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/cart.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="179" column="34" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
+          <folding>
+            <element signature="e#2203#6556#0#HTML" expanded="false" />
+            <element signature="e#3134#3164#0#HTML" expanded="true" />
+            <element signature="e#7375#10535#0#HTML" expanded="false" />
+            <element signature="e#10744#12039#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
