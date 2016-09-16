@@ -83,6 +83,8 @@ class OrderController extends BaseController
                 'orderDetail' => $orderDetail,
                 'sizeDetail' => $sizeDetail,
                 'shirtDetail' => $shirtDetail,
+                'customerID' => $customerID,
+                'orderID' => $orderID,
             );
             return view('admin/order/orderDetail', $data);
         } catch (\Exception $e) {
@@ -102,6 +104,87 @@ class OrderController extends BaseController
     public function newOrderView()
     {
         return view('admin/order/new');
+    }
+
+    public function editStyle($shirtID)
+    {
+        // get Shirt Detail by Order ID
+        $shirtDetail = DB::table('shirtdetail')
+            ->select('*')
+            ->where('ID', '=', $shirtID)
+            ->first();
+
+        //dd($shirtDetail->CollarStyle);
+        $data = array(
+            'shirtID' => $shirtID,
+            'shirtDetail' => $shirtDetail
+        );
+
+        return view('admin/order/editStyle', $data);
+    }
+
+    public function editStylePost(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            $value = $request::except('shirtDetailID');
+
+            $shirtDetailItem = array();
+
+            $shirtDetailItem['FabricCode'] = $value['FabricCode'];
+            $shirtDetailItem['FabricColor'] = 'Black';
+            $shirtDetailItem['FabricContents'] = 'FabricContents';
+
+            $shirtDetailItem['FabricPrice'] = $value['FabricPrice'];
+            $shirtDetailItem['Total'] = $value['FabricPrice'];;
+            $shirtDetailItem['CollarStyle'] = (isset($value['CollarStyle'])) ? $value['CollarStyle'] : '';
+
+            $shirtDetailItem['CollarLength'] = (isset($value['CollarLength'])) ? $value['CollarLength'] : '';
+            $shirtDetailItem['CollarHeight'] = (isset($value['CollarHeight'])) ? $value['CollarHeight'] : '';
+            $shirtDetailItem['WhiteCollar'] = (isset($value['WhiteCollar'])) ? $value['WhiteCollar'] : 0;
+
+            $shirtDetailItem['CollarStays'] = (isset($value['CollarStays'])) ? $value['CollarStays'] : 0;
+            $shirtDetailItem['FrontStyle'] = (isset($value['FrontStyle'])) ? $value['FrontStyle'] : '';
+            $shirtDetailItem['BackStyle'] = (isset($value['BackStyle'])) ? $value['BackStyle'] : '';
+
+            $shirtDetailItem['CuffStyle'] = (isset($value['CuffStyle'])) ? $value['CuffStyle'] : '';
+            $shirtDetailItem['WhiteCuffs'] = (isset($value['WhiteCuffs'])) ? $value['WhiteCuffs'] : 0;
+            $shirtDetailItem['Monogram'] = (isset($value['Monogram'])) ? $value['Monogram'] : '';
+
+            $shirtDetailItem['MonoPosition'] = (isset($value['MonoPosition'])) ? $value['MonoPosition'] : '';
+            $shirtDetailItem['MonoColor'] = (isset($value['MonoColor'])) ? $value['MonoColor'] : '';
+            $shirtDetailItem['MonoInitials'] = (isset($value['MonoInitials'])) ? $value['MonoInitials'] : '';
+
+            $shirtDetailItem['PocketStyle'] = (isset($value['PocketStyle'])) ? $value['PocketStyle'] : '';
+            $shirtDetailItem['NumberOfPockets'] = (isset($value['NoOfPockets'])) ? $value['NoOfPockets'] : '';
+            $shirtDetailItem['Dat'] = date('Y-m-d H:i:s');
+
+            $shirtDetailItem['Fit'] = (isset($value['Fit'])) ? $value['Fit'] : '';
+            $shirtDetailItem['Label'] = (isset($value['Label'])) ? $value['Label'] : '';
+            $shirtDetailItem['Status'] = 1;
+
+            DB::table('shirtdetail')
+                ->where('ID', $request::get('shirtDetailID'))
+                ->update($shirtDetailItem);;
+            DB::commit();
+
+            Session::flash('globalSuccessMsg', 'Updated Successfully :)');
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            DB::rollback();
+            if (env('Mode') == 'Development') {
+                $error = $e->getMessage();
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+        }
     }
 
     public function addDiscountView()
@@ -508,5 +591,69 @@ class OrderController extends BaseController
             echo json_encode($data);
         }
 
+    }
+
+    public function myMeasurementsEdit(Request $request)
+    {
+        $sizeDetail['SizeOption'] = '';
+        $sizeDetail['HeightInches'] = $request::get('HeightInches');
+        $sizeDetail['HeightFeet'] = $request::get('HeightFeet');
+        $sizeDetail['Weight'] = $request::get('Weight');
+        $sizeDetail['NeckHeight'] = $request::get('NeckHeight');
+        $sizeDetail['NeckSize'] = $request::get('NeckSize');
+        $sizeDetail['LeftSleeve'] = $request::get('SleeveLength');
+        $sizeDetail['RightSleeve'] = $request::get('SleeveLength');
+        $sizeDetail['Chest'] = $request::get('Chest');
+        $sizeDetail['Waist'] = $request::get('Waist');
+        $sizeDetail['Posture'] = $request::get('Posture');
+        $sizeDetail['ChestDescription'] = $request::get('ChestDescription');
+        $sizeDetail['BodyShape'] = $request::get('BodyShape');
+        $sizeDetail['BodyProportion'] = $request::get('BodyProportion');
+        $sizeDetail['Shoulder'] = $request::get('Shoulder');
+        $sizeDetail['Dat'] = date('Y-m-d H:i:s');
+        $sizeDetail['ShirtNeckSize'] = $request::get('NeckHeight');
+        $sizeDetail['Yoke'] = $request::get('Yoke');
+        $sizeDetail['Tail'] = $request::get('Tail');
+        $sizeDetail['ShoulderLine'] = $request::get('ShoulderLine');
+        $sizeDetail['ArmType'] = $request::get('ArmType');
+
+        // Check Already Size exist - Insert Or update
+        $userId = $request::get('customerID');
+        $getSize = DB::table('size')
+            ->select('ID', 'CustomerID')
+            ->where("CustomerID", "=", $userId)
+            ->first();
+
+        try {
+            DB::beginTransaction();
+            $msg = '';
+            if (count($getSize) <= 0 && !is_array($getSize)) {
+                $msg = 'Size Save :)';
+                $sizeID = DB::table('size')->insertGetId($sizeDetail);
+            } else {
+                $msg = 'Size updated :)';
+                $CustomerID = $getSize->CustomerID;
+                $sizeID = $getSize->ID;
+                DB::table('size')->where('CustomerID', $CustomerID)->update($sizeDetail);
+            }
+
+            DB::commit();
+            Session::flash('globalSuccessMsg', $msg);
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            DB::rollback();
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+
+        }
     }
 }

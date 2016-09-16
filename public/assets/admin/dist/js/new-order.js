@@ -228,6 +228,38 @@ $(document).ready(function () {
             setTimeout(function () {
                 $('#' + msg).addClass('hide');
             }, 3000);
+        }, loadFabricCodeforEdit: function () {
+            var availableProducts = [];
+            $.ajax({
+                type: "GET",
+                url: baseUrl + "/admin/products",
+                beforeSend: function () {
+                    $('.savingCustomize').css('display', 'inline-block');
+                }, success: function (result) {
+                    var rs = JSON.parse(result);
+                    $('.savingCustomize').css('display', 'none');
+                    if (rs.status) {
+                        $.each(rs.products, function (key, value) {
+                            availableProducts.push({
+                                label: rs.products[key].Code,
+                                id: rs.products[key].ID,
+                                price: rs.products[key].Price
+                            });
+                        });
+                        $("#loadFabricCode").autocomplete({
+                            source: availableProducts,
+                            select: function (event, ui) {
+                                $('#InProductCode').text(ui.item.Code);
+                                $('#customerPrice').val(ui.item.price);
+                            }
+                        });
+                    } else {
+                        alert('Products not found');
+                    }
+                }, error: function () {
+                    alert('Error Occured');
+                }
+            });
         }
     };
 
@@ -248,4 +280,34 @@ $(document).ready(function () {
     $('#nextToInvoice').click(function () {
         NewOrder.nextToInvoice(this);
     });
+
+    // Load Fabric Code for Edit Order
+    if ($('#loadFabricCode').length > 0) {
+        NewOrder.loadFabricCodeforEdit();
+    }
+
+    //Init Monogram
+    $('select[name=Monogram]').change(function () {
+        if ($(this).val() == 'No Monogram') {
+            $('input[name=MonoInitials]').prop('disabled', true);
+            $('select[name=MonoColor]').prop('disabled', true);
+            $('select[name=MonoPosition]').prop('disabled', true);
+        } else {
+            $('input[name=MonoInitials]').prop('disabled', false);
+            $('select[name=MonoColor]').prop('disabled', false);
+            $('select[name=MonoPosition]').prop('disabled', false);
+        }
+
+    });
+
+    //Init Monogram
+    if ($('select[name=Monogram]').val() == 'No Monogram') {
+        $('input[name=MonoInitials]').prop('disabled', true);
+        $('select[name=MonoColor]').prop('disabled', true);
+        $('select[name=MonoPosition]').prop('disabled', true);
+    } else {
+        $('input[name=MonoInitials]').prop('disabled', false);
+        $('select[name=MonoColor]').prop('disabled', false);
+        $('select[name=MonoPosition]').prop('disabled', false);
+    }
 });

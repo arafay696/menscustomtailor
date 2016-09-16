@@ -20,7 +20,6 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th></th>
                                     <th>Order #</th>
                                     <th>Customer Name</th>
                                     <th>Order Placed</th>
@@ -30,16 +29,14 @@
                                     <th>Paid</th>
                                     <th>Payment Status</th>
                                     <th>Order Status</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php foreach ($orders as $order) { ?>
                                 <tr style="background-color: <?php echo ($order->StatusText == 'New Order') ? ($order->OrderType == 'Customer') ? '#ffdfbf' : '' : '#DFFFDF'; ?>">
-                                    <td class="center">
-
-                                    </td>
                                     <td class="center" style="text-decoration: underline;">
-                                        <a href="<?php echo URL::to('admin/order/'.$order->OrderID.'/'.$order->CustomerID.'') ?>">
+                                        <a href="<?php echo URL::to('admin/order/' . $order->OrderID . '/' . $order->CustomerID . '') ?>">
                                             <?=$order->GOrderNo;?>
                                         </a>
                                     </td>
@@ -56,16 +53,21 @@
                                         <?php echo date('d F Y h.i A', strtotime($order->PromiseDate));?>
                                     </td>
                                     <td class="center">
-                                        <?=number_format($order->Price,2);?>
+                                        <?=number_format($order->Price, 2);?>
                                     </td>
                                     <td class="center">
-                                        <?=number_format($order->Paid,2);?>
+                                        <?=number_format($order->Paid, 2);?>
                                     </td>
                                     <td class="center">
                                         <?=$order->OrderStatus;?>
                                     </td>
                                     <td class="center">
                                         <?=$order->StatusText;?>
+                                    </td>
+                                    <td class="center">
+                                        <a href="<?php echo URL::to('admin/order/' . $order->OrderID . '/' . $order->CustomerID . '') ?>">
+                                        <i class="fa fa-pencil"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php } ?>
