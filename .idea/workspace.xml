@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="571f70f7-552c-4b0f-b83e-670013d94818" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/admin/dist/js/new-order.js" afterPath="$PROJECT_DIR$/public/assets/admin/dist/js/new-order.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/order/orderDetail.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/order/orderDetail.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/order/orderListing.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/order/orderListing.blade.php" />
     </list>
     <ignored path="mct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrderController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="155" column="34" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
+            <state relative-caret-position="128">
+              <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding>
                 <element signature="e#7401#8874#0#PHP" expanded="false" />
                 <element signature="e#8880#9693#0#PHP" expanded="false" />
@@ -54,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editStyle.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="editStyle.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/order/editStyle.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+            <state relative-caret-position="101">
+              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
               <folding>
                 <element signature="e#2155#6850#0#HTML" expanded="false" />
                 <element signature="e#14806#15324#0#HTML" expanded="false" />
@@ -84,8 +79,8 @@
       <file leaf-file-name="orderDetail.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/order/orderDetail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="160" column="169" selection-start-line="160" selection-start-column="60" selection-end-line="160" selection-end-column="169" />
+            <state relative-caret-position="116">
+              <caret line="157" column="63" selection-start-line="157" selection-start-column="63" selection-end-line="157" selection-end-column="63" />
               <folding>
                 <element signature="e#7218#7242#0#HTML" expanded="true" />
                 <element signature="e#10666#14254#0#HTML" expanded="false" />
@@ -608,7 +603,7 @@
       <workItem from="1473273414139" duration="852000" />
       <workItem from="1473784459288" duration="240000" />
       <workItem from="1473926064009" duration="677000" />
-      <workItem from="1474044121099" duration="9620000" />
+      <workItem from="1474044121099" duration="9708000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Console Logs">
       <created>1469903070985</created>
@@ -925,15 +920,22 @@
       <option name="project" value="LOCAL" />
       <updated>1473274175113</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Order Edit">
+      <created>1474056686980</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1474056686980</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235140000" />
+    <option name="totallyTimeSpent" value="235228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18008785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1362,6 +1364,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding>
+            <element signature="e#7401#8874#0#PHP" expanded="false" />
+            <element signature="e#8880#9693#0#PHP" expanded="false" />
+            <element signature="e#9699#11102#0#PHP" expanded="false" />
+            <element signature="e#11108#11630#0#PHP" expanded="false" />
+            <element signature="e#11636#21192#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/admin/dist/js/new-order.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
@@ -1374,8 +1398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/order/orderDetail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="160" column="169" selection-start-line="160" selection-start-column="60" selection-end-line="160" selection-end-column="169" />
+        <state relative-caret-position="116">
+          <caret line="157" column="63" selection-start-line="157" selection-start-column="63" selection-end-line="157" selection-end-column="63" />
           <folding>
             <element signature="e#7218#7242#0#HTML" expanded="true" />
             <element signature="e#10666#14254#0#HTML" expanded="false" />
@@ -1390,35 +1414,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/order/editStyle.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+        <state relative-caret-position="101">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
           <folding>
             <element signature="e#2155#6850#0#HTML" expanded="false" />
             <element signature="e#14806#15324#0#HTML" expanded="false" />
             <element signature="e#19667#21449#0#HTML" expanded="false" />
             <element signature="e#22472#23960#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="155" column="34" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
-          <folding>
-            <element signature="e#7401#8874#0#PHP" expanded="false" />
-            <element signature="e#8880#9693#0#PHP" expanded="false" />
-            <element signature="e#9699#11102#0#PHP" expanded="false" />
-            <element signature="e#11108#11630#0#PHP" expanded="false" />
-            <element signature="e#11636#21192#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
