@@ -179,6 +179,10 @@ $(document).ready(function (e) {
 
     });
 
+    var colorCombo = [];
+    colorCombo['Blue'] = ['Royal Blue', 'Light Blue', 'Navy', 'French Blue'];
+    colorCombo['Gray'] = ['Light Gray'];
+    colorCombo['Red'] = ['Burgundy'];
     /* Fabric Page Filters Price Sort,Color && Pattern Type*/
     var filterProducts = {
         choosePattern: "element-item",
@@ -300,14 +304,27 @@ $(document).ready(function (e) {
     $('.colours_pickers li').click(function () {
         var val = $(this).find('span:last').text();
         if (!$(this).hasClass('selected')) {
+            var getCombo = (typeof colorCombo[val] !== typeof undefined) ? colorCombo[val] : [];
+            if (getCombo.length > 0) {
+                for (i = 0; i < getCombo.length; i++) {
+                    filterProducts.chooseColor.push(getCombo[i]);
+                }
+            }
             filterProducts.chooseColor.push(val);
             $(this).find('.fa').css('visibility', 'visible');
             $(this).addClass('selected');
         } else {
+            var getCombo = (typeof colorCombo[val] !== typeof undefined) ? colorCombo[val] : [];
+            if (getCombo.length > 0) {
+                for (i = 0; i < getCombo.length; i++) {
+                    filterProducts.removeByValue(filterProducts.chooseColor, getCombo[i]);
+                }
+            }
             filterProducts.removeByValue(filterProducts.chooseColor, val);
             $(this).find('.fa').css('visibility', 'hidden');
             $(this).removeClass('selected');
         }
+        console.log(filterProducts.chooseColor);
         filterProducts.filterExec();
     });
 

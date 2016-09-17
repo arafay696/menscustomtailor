@@ -28,7 +28,7 @@
                                             <span class="tooltiptext">Black</span>
                                         </li>
                                         <li class="colorFilter tooltip">
-                                            <span style="background:#444b5f;">&nbsp;</span>
+                                            <span style="background:blue;">&nbsp;</span>
                                             <i class="fa fa-check"></i>
                                             <span class="tooltiptext">Blue</span>
                                         </li>
@@ -68,7 +68,7 @@
                                             <span class="tooltiptext">Red</span>
                                         </li>
                                         <li class="colorFilter tooltip">
-                                            <span style="background:#8ea097;">&nbsp;</span>
+                                            <span style="background:green;">&nbsp;</span>
                                             <i class="fa fa-check"></i>
                                             <span class="tooltiptext">Green</span>
                                         </li>
