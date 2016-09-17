@@ -9,12 +9,14 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Http\Controllers\Client\CommonFunction;
 use App\Http\Controllers\Controller;
 
 
 class BaseController extends Controller
 {
 
+    use CommonFunction;
     public $errorMsg;
 
     public function __construct()

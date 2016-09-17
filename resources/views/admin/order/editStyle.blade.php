@@ -25,6 +25,8 @@
                                           name="formStyling">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                         <input type="hidden" name="shirtDetailID" value="<?=$shirtID;?>"/>
+                                        <input type="hidden" name="orderID" value="<?=$orderID;?>"/>
+                                        <input type="hidden" name="customerID" value="<?=$customerID;?>"/>
                                         <input id="InProductCode" type="hidden" name="productID"
                                                value="<?=$shirtDetail->FabricCode;?>"/>
                                         <div class="col-lg-6">
@@ -156,11 +158,9 @@
                                             <div class="form-group">
                                                 <label>Label</label>
                                                 <select class="form-control" name="Label">
-                                                    <option value="MCT Label">MCT Label</option>
-                                                    <option value="Customer Name Label">Customer
-                                                        Name Label
-                                                    </option>
-                                                    <option value="No Label">No Label</option>
+                                                    <?php foreach ($Label as $lbl) { ?>
+                                                    <option <?php echo ($shirtDetail->Label == $lbl) ? "selected=selected" : ""; ?> value="<?=$lbl;?>"><?=$lbl;?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -172,7 +172,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Fabric Price</label>
-                                                <input id="customerPrice" class="form-control" name="FabricPrice">
+                                                <input id="customerPrice" class="form-control" name="FabricPrice" value="<?=$shirtDetail->Price;?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Collar Length</label>
@@ -210,101 +210,61 @@
                                                 <label>Back Style</label>
                                                 <select class="form-control" size="1"
                                                         name="BackStyle">
-                                                    <option value="Two Pleats">Two Pleats</option>
-                                                    <option value="Inverted Pleat Back">Inverted
-                                                        Pleat Back
-                                                    </option>
-                                                    <option value="Box Pleat">Box Pleat</option>
-                                                    <option value="Box Pleat Back w. Locker Loop">
-                                                        Box Pleat
-                                                        Back
-                                                        w. Locker Loop
-                                                    </option>
-                                                    <option value="Smooth Back">Smooth Back</option>
-                                                    <option value="Yoke Back">Yoke Back</option>
-                                                    <option value="Split Yoke Regular Back">Split
-                                                        Yoke
-                                                        Regular
-                                                        Back
-                                                    </option>
-                                                    <option value="Split Yoke Smooth Back">Split
-                                                        Yoke Smooth
-                                                        Back
-                                                    </option>
+                                                    <?php foreach ($backStyle as $bs) { ?>
+                                                    <option <?php echo ($shirtDetail->BackStyle == $bs) ? "selected=selected" : ""; ?> value="<?=$bs;?>"><?=$bs;?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>No. Of Pockets</label>
-                                                <select class="form-control" size="1"
-                                                        name="NoOfPockets"
+                                                <select class="form-control" size="1" name="NoOfPockets"
                                                         id="NoOfPockets">
-                                                    <option value="0" selected="">No Pocket</option>
-                                                    <option value="1">Single pocket</option>
-                                                    <option value="2">Two pockets</option>
+                                                    <?php foreach ($NoOfPockets as $key => $np) { ?>
+                                                    <option <?php echo ($shirtDetail->NumberOfPockets == $key) ? "selected=selected" : ""; ?> value="<?=$key;?>"><?=$np;?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Monogram Color</label>
                                                 <select size="1" name="MonoColor"
                                                         class="form-control">
-                                                    <option value="We Pick">We Pick</option>
-                                                    <option value="Brown">Brown</option>
-                                                    <option value="Black">Black</option>
-                                                    <option value="Blue">Blue</option>
-                                                    <option value="Green">Green</option>
-                                                    <option value="Gray">Gray</option>
-                                                    <option value="Lavender">Lavender</option>
-                                                    <option value="Maroon">Maroon</option>
-                                                    <option value="Navy">Navy</option>
-                                                    <option value="Red">Red</option>
-                                                    <option value="Silver">Silver</option>
-                                                    <option value="Tan">Tan</option>
-                                                    <option value="Yellow">Yellow</option>
-                                                    <option value="Same As Fabric">Same As Fabric
-                                                    </option>
+                                                    <?php foreach ($MonoColor as $key => $mc) { ?>
+                                                    <option <?php echo ($shirtDetail->MonoColor == $mc) ? "selected=selected" : ""; ?> value="<?=$mc;?>"><?=$mc;?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Monogram Position</label>
                                                 <select class="form-control" size="1"
                                                         name="MonoPosition">
-                                                    <option value="Cuff">Cuff</option>
-                                                    <option value="Chest">Chest</option>
-                                                    <option value="Pocket">Pocket</option>
-                                                    <option value="Waist">Waist</option>
+                                                    <?php foreach ($MonoPosition as $key => $mp) { ?>
+                                                    <option <?php echo ($shirtDetail->MonoPosition == $mp) ? "selected=selected" : ""; ?> value="<?=$mp;?>"><?=$mp;?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Cuff Style</label>
-                                                <select class="form-control" size="1" name="CuffStyle"
-                                                        onchange="showanimation();">
-                                                    <option value="One Button Round">One Button Round</option>
-                                                    <option value="One Button Angled" selected="">One Button Angled
-                                                    </option>
-                                                    <option value="Two Button Round">Two Button Round</option>
-                                                    <option value="Two Button Angled">Two Button Angled</option>
-                                                    <option value="Two Button Square">Two Button Square</option>
-                                                    <option value="One Button Square">One Button Square</option>
-                                                    <option value="French Cuff Square">French Cuff Square</option>
-                                                    <option value="French Cuff Round">French Cuff Round</option>
-                                                    <option value="French Cuff Angled">French Cuff Angled</option>
-                                                    <option value="Convertible Cuff">Convertible Cuff</option>
-                                                    <option value="Italian Tab cuff">Italian Tab cuff</option>
+                                                <select class="form-control" size="1" name="CuffStyle">
+                                                    <?php foreach ($CuffStyle as $key => $cs) { ?>
+                                                    <option <?php echo ($shirtDetail->CuffStyle == $cs) ? "selected=selected" : ""; ?> value="<?=$cs;?>"><?=$cs;?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Advance Option</label>
                                                 <label class="checkbox-inline">
                                                     <input type="checkbox" class="form-control2" value="1"
-                                                           name="WhiteCuffs">White Cuff
+                                                           name="WhiteCuffs" <?php echo ($shirtDetail->WhiteCuffs == 1) ? "checked=checked" : ""; ?>>White
+                                                    Cuff
                                                 </label>
                                                 <label class="checkbox-inline">
                                                     <input type="checkbox" class="form-control2" value="1"
-                                                           name="WhiteCollar">White Collar
+                                                           name="WhiteCollar" <?php echo ($shirtDetail->WhiteCollar == 1) ? "checked=checked" : ""; ?>>White
+                                                    Collar
                                                 </label>
                                                 <label class="checkbox-inline">
-                                                    <input type="checkbox" class="form-control2"
-                                                           name="Fit">Make
+                                                    <input type="checkbox" class="form-control2" value="1"
+                                                           name="Fit" <?php echo ($shirtDetail->Fit == 1) ? "checked=checked" : ""; ?>>Make
                                                     this shirt fit
                                                 </label>
                                             </div>

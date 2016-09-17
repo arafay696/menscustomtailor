@@ -89,7 +89,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::post('/order/save', 'OrderController@saveSizeAndOrder');
     Route::post('/order/style/save', 'OrderController@saveStyle');
     Route::post('/order/editSize', 'OrderController@myMeasurementsEdit');
-    Route::get('/style/edit/{id}', 'OrderController@editStyle');
+    Route::get('/style/edit/{id}/{orderID}/{customerID}', 'OrderController@editStyle');
     Route::post('/shirt/edit', 'OrderController@editStylePost');
 
     // -------------------- Discount Code

@@ -106,18 +106,27 @@ class OrderController extends BaseController
         return view('admin/order/new');
     }
 
-    public function editStyle($shirtID)
+    public function editStyle($shirtID, $orderID, $customerID)
     {
         // get Shirt Detail by Order ID
-        $shirtDetail = DB::table('shirtdetail')
-            ->select('*')
-            ->where('ID', '=', $shirtID)
+        $shirtDetail = DB::table('shirtdetail as sd')
+            ->select('p.Price', 'sd.*')
+            ->join('products AS p', 'sd.FabricCode', '=', 'p.Code')
+            ->where('sd.ID', '=', $shirtID)
             ->first();
 
         //dd($shirtDetail->CollarStyle);
         $data = array(
             'shirtID' => $shirtID,
-            'shirtDetail' => $shirtDetail
+            'shirtDetail' => $shirtDetail,
+            'backStyle' => $this->getData('backStyle'),
+            'NoOfPockets' => $this->getData('NoOfPockets'),
+            'MonoColor' => $this->getData('MonoColor'),
+            'MonoPosition' => $this->getData('MonoPosition'),
+            'CuffStyle' => $this->getData('CuffStyle'),
+            'Label' => $this->getData('Label'),
+            'orderID' => $orderID,
+            'customerID' => $customerID,
         );
 
         return view('admin/order/editStyle', $data);
@@ -127,8 +136,48 @@ class OrderController extends BaseController
     {
         try {
             DB::beginTransaction();
+            // get Shirt Detail by Order ID
+            $shirtDetail = DB::table('shirtdetail as sd')
+                ->select('p.Price', 'sd.*')
+                ->join('products AS p', 'sd.FabricCode', '=', 'p.Code')
+                ->where('sd.ID', '=', $request::get('shirtDetailID'))
+                ->first();
 
             $value = $request::except('shirtDetailID');
+            $orderID = $request::get('orderID');
+            $fabricPrice = $request::get('FabricPrice');
+            $fabricOldPrice = $shirtDetail->Price;
+
+            $orderDetail = DB::table('orders as o')
+                ->select('*')
+                ->where('o.ID', '=', $orderID)
+                ->first();
+            $orderStatus = $orderDetail->Status;
+            $orderAmount = $orderDetail->Amount;
+            $orderPaid = $orderDetail->Paid;
+            if ($orderStatus == 1) {
+                $check = $orderAmount - $fabricOldPrice;
+                $newAmount = $check + $fabricPrice;
+                if ($orderAmount != $newAmount) {
+                    $order = array();
+                    $order['Status'] = 2;
+                    $order['Amount'] = $newAmount;
+                    $order['Paid'] = $newAmount - $orderPaid;
+                    DB::table('orders')
+                        ->where('ID', $orderID)
+                        ->update($order);
+                }
+            } else if ($orderStatus == 2) {
+                $order = array();
+                $check = ($orderAmount - $fabricOldPrice) + $fabricPrice;
+                $order['Amount'] = $check;
+                $order['Paid'] = $check - $orderPaid;
+                DB::table('orders')
+                    ->where('ID', $orderID)
+                    ->update($order);
+            }
+
+            $customerID = $request::get('customerID');
 
             $shirtDetailItem = array();
 
@@ -160,7 +209,7 @@ class OrderController extends BaseController
             $shirtDetailItem['NumberOfPockets'] = (isset($value['NoOfPockets'])) ? $value['NoOfPockets'] : '';
             $shirtDetailItem['Dat'] = date('Y-m-d H:i:s');
 
-            $shirtDetailItem['Fit'] = (isset($value['Fit'])) ? $value['Fit'] : '';
+            $shirtDetailItem['Fit'] = (isset($value['Fit'])) ? $value['Fit'] : 0;
             $shirtDetailItem['Label'] = (isset($value['Label'])) ? $value['Label'] : '';
             $shirtDetailItem['Status'] = 1;
 
@@ -171,7 +220,7 @@ class OrderController extends BaseController
 
             Session::flash('globalSuccessMsg', 'Updated Successfully :)');
             Session::flash('alert-class', 'alert-success');
-            return redirect()->back();
+            return Redirect::to('/admin/order/' . $orderID . '/' . $customerID);
         } catch (\Exception $e) {
             DB::rollback();
             if (env('Mode') == 'Development') {
