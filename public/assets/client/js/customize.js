@@ -47,11 +47,13 @@ $(document).ready(function (e) {
             //$(this).text('Design Each Shirt Differently');
             $(this).find('.fa').addClass('fa-check').removeClass('fa-times');
             $(this).addClass('makeAllSameActive').removeClass('makeAllSameInactive');
+            $('.swathces_images li').addClass('activeSwatchAllSame');
             $('#makeSame').val('yes');
         } else {
             //$(this).text('Make All Same');
             $(this).find('.fa').addClass('fa-times').removeClass('fa-check');
             $(this).addClass('makeAllSameInactive').removeClass('makeAllSameActive');
+            $('.swathces_images li').removeClass('activeSwatchAllSame');
             $('#makeSame').val('no');
         }
 
