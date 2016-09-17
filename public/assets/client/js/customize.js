@@ -18,7 +18,8 @@ $(document).ready(function (e) {
                 $(this).next().addClass('disableNextPrev');
             },
             success: function (result) {
-                //console.log(result);
+                result = JSON.parse(result);
+                //alert(result.message);
                 $(this).removeClass('disableNextPrev');
                 $(this).next().removeClass('disableNextPrev');
                 $('.savingCustomize').css('display', 'none');
@@ -40,6 +41,22 @@ $(document).ready(function (e) {
 
     });
 
+    // Make All Same Style
+    $('.makeAllSame').click(function () {
+        if ($(this).hasClass('makeAllSameInactive')) {
+            //$(this).text('Design Each Shirt Differently');
+            $(this).find('.fa').addClass('fa-check').removeClass('fa-times');
+            $(this).addClass('makeAllSameActive').removeClass('makeAllSameInactive');
+            $('#makeSame').val('yes');
+        } else {
+            //$(this).text('Make All Same');
+            $(this).find('.fa').addClass('fa-times').removeClass('fa-check');
+            $(this).addClass('makeAllSameInactive').removeClass('makeAllSameActive');
+            $('#makeSame').val('no');
+        }
+
+    });
+
     // Previous Section on Size/Measurement Page
     $('.previousSection').click(function () {
 
@@ -51,6 +68,18 @@ $(document).ready(function (e) {
                 $('.customize_slider .in').removeClass('active-customize');
                 $('.customize_slider .in').removeClass('in');
             });
+        }
+    });
+
+    // Change Front Style on Tuxedo
+    $('input[type=radio][name=shirtType]').change(function () {
+        if (this.value == 'Tuxedo') {
+            $('.frontTuxedo').removeClass('hide');
+            $('.frontDressCasual').addClass('hide');
+        }
+        else {
+            $('.frontTuxedo').addClass('hide');
+            $('.frontDressCasual').removeClass('hide');
         }
     });
 
@@ -226,6 +255,22 @@ $(document).ready(function (e) {
                 }
             }
             return arr;
+        }, resetFilter: function () {
+            filterProducts.choosePattern = "element-item";
+            filterProducts.chooseColor = [];
+            filterProducts.choosePriceSort = null;
+            filterProducts.passProducts = [];
+
+            $('#filterPattern').val('All');
+            $('#filterPattern').siblings('span').text('All');
+
+            $('#sortByPrice option[value="Default"]').prop('selected', true);
+            $('#sortByPrice').siblings('span').text('Price');
+
+            $('.colorFilter').find('.fa').css('visibility', 'hidden');
+            $('.colorFilter').removeClass('selected');
+
+            filterProducts.filterExec();
         }
     };
 
@@ -263,6 +308,20 @@ $(document).ready(function (e) {
         }
         filterProducts.filterExec();
     });
+
+    // Check Auto Filter - Tuxedo
+    if ($('#autoFilter').val().length > 0) {
+        filterProducts.chooseColor.push('White');
+        $('.whiteFilter').find('.fa').css('visibility', 'visible');
+        $('.whiteFilter').addClass('selected');
+        filterProducts.filterExec();
+    }
+
+    //reset Filter
+    $('#showAll').click(function () {
+        filterProducts.resetFilter();
+    });
+
     /* END: Fabric Page Filters Price Sort,Color && Pattern Type*/
 
     // ----------------------------Cart JS----------------------------//

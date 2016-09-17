@@ -19,8 +19,9 @@ use View;
 class FabricController extends BaseController
 {
 
-    public function index()
+    public function index(Request $request)
     {
+        $filter = $request::get('filter');
         try {
             $products = DB::table('Products AS pr')
                 ->select('pr.ID', 'pr.Name', 'pr.Price', 'img.Name as ImgName', 'img.ZoomImg', 'pd.RefID as PatternType')
@@ -53,9 +54,9 @@ class FabricController extends BaseController
                     $patternById[$product->ID] = $patterNameByID[$product->PatternType];
                 } else {
                     if (array_key_exists((int)$product->PatternType, $colorById)) {
-                        if(array_key_exists($product->ID,$productColor)){
-                            array_push($productColor[$product->ID],$colorById[$product->PatternType]);
-                        }else{
+                        if (array_key_exists($product->ID, $productColor)) {
+                            array_push($productColor[$product->ID], $colorById[$product->PatternType]);
+                        } else {
                             $productColor[$product->ID] = array($colorById[$product->PatternType]);
                         }
 
@@ -68,7 +69,8 @@ class FabricController extends BaseController
             $data = array(
                 'products' => $products,
                 'patternByID' => $patternById,
-                'productColor' => $productColor
+                'productColor' => $productColor,
+                'filter' => $filter,
             );
             return view('client.fabric', $data);
         } catch (\Exception $e) {
@@ -90,7 +92,7 @@ class FabricController extends BaseController
     public function validProduct($id)
     {
         $product = DB::table('Products AS pr')
-            ->select('pr.ID', 'pr.Name', 'pr.Price', 'img.Name as ImgName','pr.Code')
+            ->select('pr.ID', 'pr.Name', 'pr.Price', 'img.Name as ImgName', 'pr.Code')
             ->join('Images AS img', 'pr.ID', '=', 'img.RefID')
             ->where('pr.ID', '=', $id)
             ->where('img.ZoomImg', '=', 0)
@@ -109,7 +111,8 @@ class FabricController extends BaseController
         $productId = (int)$id;
         $sendData = array(
             'productID' => $productId,
-            'cartData' => $cartData
+            'cartData' => $cartData,
+            'NoOfPockets' => $this->getData('NoOfPockets')
         );
 
         return view('client.customize', $sendData);
@@ -192,7 +195,8 @@ class FabricController extends BaseController
 
         $sendData = array(
             'productID' => $choosen,
-            'cartData' => $this->getCartData()
+            'cartData' => $this->getCartData(),
+            'NoOfPockets' => $this->getData('NoOfPockets')
         );
         $itemSelected = $this->getCartData();
         //dd($itemSelected);
@@ -207,37 +211,58 @@ class FabricController extends BaseController
 
     public function setCustomizeValues(Request $request)
     {
+        if ($request::has('makeSame')) {
+            $makeSame = $request::get('makeSame');
+            Session::put('makeSame', $makeSame);
+        }
+
         $productId = (int)$request::get('productID');
         $product = $this->validProduct($productId);
+        $where = null;
         if (count($product) > 0) {
             $data = $this->getCartData();
             $findKey = $this->findInArrayByValue($productId, 'productID', $data);
             $getCount = count($data);
-            if ($getCount <= 0 && !is_array($data)) {
-                $data = array();
-                $data[0]['ProductImage'] = $product[0]->ImgName;
-                $data[0]['ProductName'] = $product[0]->Name;
-                $data[0]['Price'] = $product[0]->Price;
-                foreach ($request::except('_token') as $key => $value) {
-                    $data[0][$key] = ($key == 'productID') ? (int)$value : $value;
-                }
-            } else if (!is_int($findKey)) {
-                $data[$getCount] = array();
-                $data[$getCount]['ProductImage'] = $product[0]->ImgName;
-                $data[$getCount]['ProductName'] = $product[0]->Name;
-                $data[$getCount]['Price'] = $product[0]->Price;
-                foreach ($request::except('_token') as $key => $value) {
-                    $data[$getCount][$key] = ($key == 'productID') ? (int)$value : $value;
+            if (!Session::has('makeSame') || Session::get('makeSame') == 'no') {
+                if ($getCount <= 0 && !is_array($data)) {
+                    $where = 'in 1';
+                    $data = array();
+                    $data[0]['ProductImage'] = $product[0]->ImgName;
+                    $data[0]['ProductName'] = $product[0]->Name;
+                    $data[0]['Price'] = $product[0]->Price;
+                    foreach ($request::except('_token') as $key => $value) {
+                        $data[0][$key] = ($key == 'productID') ? (int)$value : $value;
+                    }
+                } else if (!is_int($findKey)) {
+                    $where = 'in 2';
+                    $data[$getCount] = array();
+                    $data[$getCount]['ProductImage'] = $product[0]->ImgName;
+                    $data[$getCount]['ProductName'] = $product[0]->Name;
+                    $data[$getCount]['Price'] = $product[0]->Price;
+                    foreach ($request::except('_token') as $key => $value) {
+                        $data[$getCount][$key] = ($key == 'productID') ? (int)$value : $value;
+                    }
+                } else {
+                    $where = 'in 3';
+                    foreach ($request::except('_token') as $key => $value) {
+                        $data[$findKey][$key] = ($key == 'productID') ? (int)$value : $value;
+                    }
                 }
             } else {
-                foreach ($request::except('_token') as $key => $value) {
-                    $data[$findKey][$key] = ($key == 'productID') ? (int)$value : $value;
+                $where = 'in 4';
+                for ($i = 0; $i < $getCount; $i++) {
+                    foreach ($request::except('_token') as $key => $value) {
+                        if ($key !== 'productID') {
+                            $data[$i][$key] = $value;
+                        }
+                    }
                 }
+
             }
             $this->setCartData('CartData', $data);
             echo json_encode(array(
                 'status' => true,
-                'message' => $this->getCartData(),
+                'message' => $where,
                 'total' => $getCount
             ));
         } else {

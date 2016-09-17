@@ -12,7 +12,8 @@
     ?>
 
     <div class="container">
-        <input type="hidden" id="openModalCondi" value="<?php echo (is_array(Session::get('currentSize')) && count(Session::get('currentSize')) > 0) ? 'open' : 'closed'; ?>">
+        <input type="hidden" id="openModalCondi"
+               value="<?php echo (is_array(Session::get('currentSize')) && count(Session::get('currentSize')) > 0) ? 'open' : 'closed'; ?>">
         <input type="hidden" id="setCanChangeSize" value="0">
         <div class="cart_container back_background">
             <div class="auto_content">
@@ -28,9 +29,14 @@
                     <div class="customize_page">
                         <ul class="customize_slider">
                             <li class="active-customize">
+                                <h2 class="stepHeading">Choose Shirt Type
+                                    <a class="makeAllSame makeAllSameInactive" href="javascript:void(0);" style="">
+                                        <i class="fa fa-times"></i> Make All Same</a>
+                                </h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                     <input type="hidden" name="productID" value="<?=$productID;?>"/>
+                                    <input id="makeSame" type="hidden" name="makeSame" value="no"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_item">
@@ -50,20 +56,6 @@
                                             </div>
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label><input type="radio" name="shirtType" value="Tuxedo">&nbsp;
-                                                    </label>
-                                                </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
-
-                                                <div class="customization_dropdown">
-                                                    <div class="customselect_customize">
-                                                        <span>Tuxedo</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="customization_item">
-                                                <div class="artistProducer clearfix">
                                                     <label><input type="radio" name="shirtType" value="Casual">&nbsp;
                                                     </label>
                                                 </div>
@@ -76,49 +68,131 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="customization_item">
+                                                <div class="artistProducer clearfix">
+                                                    <label><input type="radio" name="shirtType" value="Tuxedo">&nbsp;
+                                                    </label>
+                                                </div>
+                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                     alt="#"/>
+
+                                                <div class="customization_dropdown">
+                                                    <div class="customselect_customize">
+                                                        <span>Tuxedo</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div style="clear: both;">
-                                                <div class="customization_item">
-                                                    <div class="artistProducer clearfix">
-                                                        <label class="select"><input type="radio" name="frontStyle"
-                                                                                     value="Tab Front"
-                                                                                     checked="checked">&nbsp;
-                                                        </label>
-                                                    </div>
-                                                    <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                         alt="#"/>
+                                                <h2 class="stepHeading">Choose Your Front Style</h2>
+                                                <div class="frontDressCasual">
+                                                    <div class="customization_item">
+                                                        <div class="artistProducer clearfix">
+                                                            <label class="select"><input type="radio" name="frontStyle"
+                                                                                         value="Tab Front"
+                                                                                         checked="checked">&nbsp;
+                                                            </label>
+                                                        </div>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                             alt="#"/>
 
-                                                    <div class="customization_dropdown">
-                                                        <div class="customselect_customize">
-                                                            <span>Tab Front</span>
+                                                        <div class="customization_dropdown">
+                                                            <div class="customselect_customize">
+                                                                <span>Tab Front</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="customization_item">
+                                                        <div class="artistProducer clearfix">
+                                                            <label><input type="radio" name="frontStyle"
+                                                                          value="Fly Front">&nbsp;
+                                                            </label>
+                                                        </div>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                             alt="#"/>
+
+                                                        <div class="customization_dropdown">
+                                                            <div class="customselect_customize">
+                                                                <span>Fly Front</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="customization_item">
+                                                        <div class="artistProducer clearfix">
+                                                            <label><input type="radio" name="frontStyle"
+                                                                          value="Sport Front">&nbsp;
+                                                            </label>
+                                                        </div>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                             alt="#"/>
+
+                                                        <div class="customization_dropdown">
+                                                            <div class="customselect_customize">
+                                                                <span>Sport Front</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="customization_item">
-                                                    <div class="artistProducer clearfix">
-                                                        <label><input type="radio" name="frontStyle" value="Fly Front">&nbsp;
-                                                        </label>
-                                                    </div>
-                                                    <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                         alt="#"/>
+                                                <div class="frontTuxedo hide">
+                                                    <div class="customization_item">
+                                                        <div class="artistProducer clearfix">
+                                                            <label class="select"><input type="radio" name="frontStyle"
+                                                                                         value="Fly Front"
+                                                                                         checked="checked">&nbsp;
+                                                            </label>
+                                                        </div>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                             alt="#"/>
 
-                                                    <div class="customization_dropdown">
-                                                        <div class="customselect_customize">
-                                                            <span>Fly Front</span>
+                                                        <div class="customization_dropdown">
+                                                            <div class="customselect_customize">
+                                                                <span>Fly Front</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="customization_item">
-                                                    <div class="artistProducer clearfix">
-                                                        <label><input type="radio" name="frontStyle"
-                                                                      value="Sport Front">&nbsp;
-                                                        </label>
-                                                    </div>
-                                                    <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                         alt="#"/>
+                                                    <div class="customization_item">
+                                                        <div class="artistProducer clearfix">
+                                                            <label><input type="radio" name="frontStyle"
+                                                                          value="1/4 pleat with stud holes">&nbsp;
+                                                            </label>
+                                                        </div>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                             alt="#"/>
 
-                                                    <div class="customization_dropdown">
-                                                        <div class="customselect_customize">
-                                                            <span>Sport Front</span>
+                                                        <div class="customization_dropdown">
+                                                            <div class="customselect_customize">
+                                                                <span>1/4" pleat with stud holes</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="customization_item">
+                                                        <div class="artistProducer clearfix">
+                                                            <label><input type="radio" name="frontStyle"
+                                                                          value="1/2 pleat with stud holes">&nbsp;
+                                                            </label>
+                                                        </div>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                             alt="#"/>
+
+                                                        <div class="customization_dropdown">
+                                                            <div class="customselect_customize">
+                                                                <span>1/2" pleat with stud holes</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="customization_item">
+                                                        <div class="artistProducer clearfix">
+                                                            <label><input type="radio" name="frontStyle"
+                                                                          value="Plain Front">&nbsp;
+                                                            </label>
+                                                        </div>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                             alt="#"/>
+
+                                                        <div class="customization_dropdown">
+                                                            <div class="customselect_customize">
+                                                                <span>Plain Front</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -147,6 +221,7 @@
                                 </form>
                             </li>
                             <li>
+                                <h2 class="stepHeading">Choose Collar Type</h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                     <input type="hidden" name="productID" value="<?=$productID;?>"/>
@@ -226,14 +301,14 @@
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
                                                     <label><input type="radio" name="collarType"
-                                                                  value="Hide Button Down">&nbsp;</label>
+                                                                  value="Hidden Button Down">&nbsp;</label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
-                                                        <span>Hide Button Down</span>
+                                                        <span>Hidden Button Down</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -327,6 +402,7 @@
                                 </form>
                             </li>
                             <li>
+                                <h2 class="stepHeading">Choose Cuff Style</h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                     <input type="hidden" name="productID" value="<?=$productID;?>"/>
@@ -457,6 +533,7 @@
                                 </form>
                             </li>
                             <li>
+                                <h2 class="stepHeading">Choose Sleeve Style</h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
                                                                                                         name="productID"
@@ -795,6 +872,7 @@
                                 </form>
                             </li>
                             <li>
+                                <h2 class="stepHeading">Choose Pocket Style</h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
                                                                                                         name="productID"
@@ -874,14 +952,18 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
-                                                <input name="noOfPocket" type="number" value="1" min="1" max="2"
-                                                       maxlength="1"/>
+                                                <select size="1" name="noOfPocket">
+                                                    <?php foreach ($NoOfPockets as $key => $np) { ?>
+                                                    <option value="<?=$key;?>"><?=$np;?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </li>
                             <li>
+                                <h2 class="stepHeading">Choose Monogram Style</h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
                                                                                                         name="productID"
@@ -980,6 +1062,7 @@
                                 </form>
                             </li>
                             <li>
+                                <h2 class="stepHeading">Size Detail</h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
                                                                                                         name="productID"
@@ -1605,6 +1688,7 @@
                                 </form>
                             </li>
                             <li>
+                                <h2 class="stepHeading">Size Detail</h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
                                                                                                         name="productID"
@@ -1668,7 +1752,7 @@
                                                     </option>
                                                 </select>
                                                 <select name="HeightInches" size="1"
-                                                        style="display: inline-block; clear: none; margin-left: 2px; width: 49%;">
+                                                        style="display: inline-block; clear: none; margin-left: 2px; width: 49% !important;">
                                                     <option value="0" selected="">Height Inches</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['HeightInches']) && Session::get('currentSize')['HeightInches'] == "1") ? "selected='selected'" : "" ?> value="1">
                                                         1
@@ -2215,6 +2299,7 @@
                                 </form>
                             </li>
                             <li>
+                                <h2 class="stepHeading">Size Detail</h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/><input type="hidden"
                                                                                                         name="productID"
@@ -2327,6 +2412,7 @@
                                 </form>
                             </li>
                             <li>
+                                <h2 class="stepHeading">Choose Advance Options</h2>
                                 <form class="form" action="<?php echo URL::to('/fabric/customize') ?>">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                     <input type="hidden" name="productID" value="<?=$productID;?>"/>
@@ -2406,12 +2492,12 @@
                 <h2>Choose Option</h2>
                 <div style="margin-top:8px;padding-bottom: 0px;">
                     <p id="lastSizeFit" class="sizeFitorNot activeOption">
-                        <i class="fa fa-check" style="color:#FFFFFF;"></i>&nbsp;Last Size Fit
+                        <i class="fa fa-check" style="color:#FFFFFF;"></i>&nbsp;Last order fit fine
                     </p>
                 </div>
                 <div style="padding-bottom: 0px;">
                     <p id="Modify" class="sizeFitorNot">
-                        <i class="fa fa-check" style="color:#FFFFFF;"></i>&nbsp;Change Size
+                        <i class="fa fa-check" style="color:#FFFFFF;"></i>&nbsp;Adjust my measurement
                     </p>
                 </div>
             </div>
@@ -2452,7 +2538,7 @@
             }
         }
 
-        if($('#openModalCondi').val() == 'open'){
+        if ($('#openModalCondi').val() == 'open') {
             modal.style.display = "block";
         }
         // -------------------------- Modal JS End -------------------//

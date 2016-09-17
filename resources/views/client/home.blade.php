@@ -194,12 +194,12 @@
                                     </span>
                             </li>
                             <li>
-                                <a href="<?php echo URL::to('fabric');?>">
+                                <a href="<?php echo URL::to('fabric?filter=white');?>">
                                     <img src="<?php echo URL::to('resources/assets/images/Tuxedo.jpg');?>"
                                          alt="#"/>
                                 </a>
                                 <span>
-                                    	<a href="<?php echo URL::to('fabric');?>">
+                                    	<a href="<?php echo URL::to('fabric?filter=white');?>">
                                             Tuxedo Shirt
                                         </a>
                                     </span>

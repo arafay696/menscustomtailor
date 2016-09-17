@@ -14,7 +14,7 @@
         <div class="cart_container fabric_cont">
             <div class="auto_content">
                 <div class="cart_pageDtail">
-
+                    <input type="hidden" id="autoFilter" value="<?=$filter;?>">
                     <div class="our_woRks clearfix">
 
                         <div class="catigLeft_nav_out clearfix">
@@ -47,7 +47,7 @@
                                             <i class="fa fa-check"></i>
                                             <span class="tooltiptext">Pink</span>
                                         </li>
-                                        <li class="colorFilter tooltip">
+                                        <li class="colorFilter tooltip whiteFilter">
                                             <span style="background:#f5f5dc;">&nbsp;</span>
                                             <i class="fa fa-check"></i>
                                             <span class="tooltiptext">White</span>
@@ -78,7 +78,7 @@
                                 <div class="pattern_price clearfix">
                                     <div class="pattern_dropdown">
                                         <div class="customselect">
-                                            <span>Pattern</span>
+                                            <span>All</span>
                                             <select id="filterPattern">
                                                 <option value="All">All Pattern</option>
                                                 <option value="Solids">Solids</option>
@@ -104,8 +104,8 @@
 
                             <div class="catigLeft_nav_inn filter-button-group button-group js-radio-button-group clearfix">
                                 <ul>
-                                    <li>
-                                        <button class="button is-checked" data-filter="*">ALL</button>
+                                    <li id="showAll">
+                                        <button class="button is-checked" data-filter="*">SHOW ALL</button>
                                     </li>
                                     <li class="hide">
                                         <button class="button" data-filter=".metal">DRESS</button>
