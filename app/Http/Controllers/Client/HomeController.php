@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Client;
 
 use DB;
 use Illuminate\Support\Facades\Session;
+use Mail;
 
 class HomeController extends BaseController
 {

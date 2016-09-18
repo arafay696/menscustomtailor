@@ -23,6 +23,7 @@ use Config;
 use Log;
 use Input;
 use DB;
+use Mail;
 
 class PayPalController extends BaseController
 {
@@ -38,6 +39,8 @@ class PayPalController extends BaseController
 
     public function postGiftPayment(Request $request)
     {
+        Request::flash();
+
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
@@ -104,7 +107,7 @@ class PayPalController extends BaseController
             ->with('error', 'Unknown error occurred');
     }
 
-    public function getGiftPaymentStatus()
+    public function getGiftPaymentStatus(Request $request)
     {
         if (Request::has('PayerID')) {
             // Get the payment ID before session clear
@@ -132,6 +135,49 @@ class PayPalController extends BaseController
 
             if ($result->getState() == 'approved') { // payment made
 
+                $data = array();
+                $data['rec_name'] = $request::old('recName');
+                $data['rec_email'] = $request::old('recEmail');
+                $data['purchaser_name'] = $request::old('purName');
+                $data['purchaser_email'] = $request::old('purEmail');
+                $data['coupon_code'] = str_random(8);
+                $data['message'] = $request::old('purMsg');
+                $data['datetime'] = date('Y-m-d H:i:s');
+                $data['amount'] = $request::old('giftAmount');
+                $data['status'] = 1;
+
+                DB::table('giftcards')->insert($data);
+
+                // Send Email to Purchaser
+                $purchaserData = array(
+                    'Subject' => 'Gift Card Send',
+                    'name' => "Men's Custom Tailor",
+                    'code' => $data['coupon_code'],
+                    'email' => $data['purchaser_email'],
+                    'price' => $data['amount']
+                );
+
+                Mail::send('client.giftcardEmail', $purchaserData, function ($message) use ($purchaserData) {
+                    $message->subject($purchaserData['Subject'])
+                        ->to($purchaserData['email']);
+                });
+
+                // Send Email to Recipient
+                $recData = array(
+                    'Subject' => 'Gift Card Received',
+                    'name' => "Men's Custom Tailor",
+                    'code' => $data['coupon_code'],
+                    'from' => $data['purchaser_email'],
+                    'msg' => $data['message'],
+                    'email' =>$data['rec_email'],
+                    'price' => $data['amount']
+                );
+
+                Mail::send('client.giftcardEmailReceived', $recData, function ($message) use ($recData) {
+                    $message->subject($recData['Subject'])
+                        ->to($recData['email']);
+                });
+
                 Session::forget('ProcessOrderId');
                 Session::flash('globalSuccessMsg', 'Gift Card Successfully Paid. Check your email. :)');
                 Session::flash('alert-class', 'alert-success');
@@ -140,6 +186,8 @@ class PayPalController extends BaseController
             }
             return Redirect::route('original.route')
                 ->with('error', 'Payment failed');
+        } else {
+            return Redirect::to('gift-card');
         }
     }
 

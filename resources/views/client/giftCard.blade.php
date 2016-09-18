@@ -13,7 +13,7 @@
                             <h4>Select a value or enter an amount.</h4>
                             <div class="gift_amount">
                                 <h5>USD &dollar;</h5>
-                                <input id="giftAmount" type="number" name="amount" value="100">
+                                <input id="giftAmount" type="number" name="amount" value="100" required>
                                 <ul class="chooseAmount">
                                     <li id="25">&dollar;25</li>
                                     <li id="50">&dollar;50</li>
@@ -43,23 +43,27 @@
                                         <h3 style="font-weight: bold;margin: 7px 0;">To</h3>
                                         <ul>
                                             <li>
-                                                <label>Recipient Name</label>
-                                                <input id="recName" type="text" value=""/>
+                                                <label>* Recipient Name</label>
+                                                <input name="recName" id="recName" type="text" value="" required/>
                                             </li>
                                             <li>
-                                                <label>Recipient Email</label>
-                                                <input type="email" value=""/>
+                                                <label>* Recipient Email</label>
+                                                <input name="recEmail" type="email" value="" required/>
                                             </li>
                                         </ul>
                                         <h3 style="font-weight: bold;margin: 7px 0;">From</h3>
                                         <ul>
                                             <li>
-                                                <label>Purchaser Name</label>
-                                                <input id="purchaseName" type="text" value=""/>
+                                                <label>* Purchaser Name</label>
+                                                <input name="purName" id="purchaseName" type="text" value="" required/>
+                                            </li>
+                                            <li>
+                                                <label>* Purchaser Email</label>
+                                                <input name="purEmail" type="email" value="" required/>
                                             </li>
                                             <li>
                                                 <label>Message</label>
-                                                <textarea></textarea>
+                                                <textarea name="purMsg"></textarea>
                                             </li>
                                             <li><input id="nextToPayment" class="giftCardBtn" type="button"
                                                        value="Next"/></li>
