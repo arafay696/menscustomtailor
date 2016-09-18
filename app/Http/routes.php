@@ -57,6 +57,19 @@ Route::get('payment/status', array(
     'uses' => 'Client\PayPalController@getPaymentStatus',
 ));
 
+//-------------- Gift Card
+Route::post('gift/payment', array(
+    'as' => 'payment',
+    'uses' => 'Client\PayPalController@postGiftPayment',
+));
+
+// this is after make the Gift Card payment, PayPal redirect back to your site
+Route::get('gift/payment/status', array(
+    'as' => 'gift.status',
+    'uses' => 'Client\PayPalController@getGiftPaymentStatus',
+));
+
+Route::get('gift-card', 'Client\HomeController@giftCard');
 
 /*
 * -------------------- Admin Routes -------------------

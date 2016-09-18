@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571f70f7-552c-4b0f-b83e-670013d94818" name="Default" comment="Order Edit">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/client/giftCard.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/PayPalController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/PayPalController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/css/my_style.css" afterPath="$PROJECT_DIR$/public/assets/client/css/my_style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/client/js/customize.js" afterPath="$PROJECT_DIR$/public/assets/client/js/customize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/fabric.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/fabric.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/default.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/default.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/client/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/client/home.blade.php" />
     </list>
     <ignored path="mct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,23 +32,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="fabric.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/client/fabric.blade.php">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="70" column="73" selection-start-line="70" selection-start-column="73" selection-end-line="70" selection-end-column="73" />
+            <state relative-caret-position="135">
+              <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PayPalController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/PayPalController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
               <folding>
-                <element signature="e#1443#1467#0#HTML" expanded="true" />
+                <element signature="e#4579#8587#0#PHP" expanded="false" />
+                <element signature="e#5483#5975#0#PHP" expanded="false" />
+                <element signature="e#6032#6521#0#PHP" expanded="false" />
+                <element signature="e#8593#10755#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customize.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="default.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/client/default.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="183" column="29" selection-start-line="183" selection-start-column="29" selection-end-line="183" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="487">
+              <caret line="50" column="36" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="giftCard.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/client/giftCard.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="40" column="93" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="93" />
+              <folding>
+                <element signature="e#621#629#0#HTML" expanded="true" />
+                <element signature="e#837#845#0#HTML" expanded="true" />
+                <element signature="e#901#909#0#HTML" expanded="true" />
+                <element signature="e#981#989#0#HTML" expanded="true" />
+                <element signature="e#1047#1055#0#HTML" expanded="true" />
+                <element signature="e#1247#1255#0#HTML" expanded="true" />
+                <element signature="e#1260#1268#0#HTML" expanded="true" />
+                <element signature="e#1348#1367#0#HTML" expanded="true" />
+                <element signature="e#2498#2521#0#HTML" expanded="true" />
+                <element signature="e#2462#4156#0#HTML" expanded="false" />
+                <element signature="e#2567#2607#0#HTML" expanded="true" />
+                <element signature="e#3276#3316#0#HTML" expanded="true" />
+                <element signature="e#4274#4310#0#HTML" expanded="true" />
+                <element signature="e#4365#4390#0#HTML" expanded="true" />
+                <element signature="e#4470#4495#0#HTML" expanded="true" />
+                <element signature="e#4579#4604#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customize.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/client/js/customize.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="326" column="46" selection-start-line="326" selection-start-column="46" selection-end-line="326" selection-end-column="46" />
+            <state relative-caret-position="379">
+              <caret line="449" column="27" selection-start-line="449" selection-start-column="27" selection-end-line="449" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/client/css/my_style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="543" column="21" selection-start-line="543" selection-start-column="21" selection-end-line="543" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -67,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/admin/user/userListing.blade.php" />
         <option value="$USER_HOME$/Desktop/mine/style.css" />
         <option value="$PROJECT_DIR$/resources/views/client/final/about_us.html" />
         <option value="$PROJECT_DIR$/resources/views/client/final/profile.html" />
@@ -89,15 +166,12 @@
         <option value="$PROJECT_DIR$/resources/views/admin/customer/add.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/client/js/my_script.js" />
         <option value="$PROJECT_DIR$/resources/views/client/checkout.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/PayPalController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/orderhistory.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/newsletter.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/orderDetail.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/loginRegister.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/client/default.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/cart.blade.php" />
         <option value="$PROJECT_DIR$/app/Exceptions/Handler.php" />
@@ -107,17 +181,21 @@
         <option value="$PROJECT_DIR$/public/assets/admin/dist/js/new-order.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/BaseController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/CommonFunction.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/order/orderDetail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/order/editStyle.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" />
-        <option value="$PROJECT_DIR$/resources/views/client/home.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/client/css/style.css" />
         <option value="$PROJECT_DIR$/resources/views/client/customize.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" />
-        <option value="$PROJECT_DIR$/public/assets/client/css/my_style.css" />
         <option value="$PROJECT_DIR$/resources/views/client/fabric.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/default.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/home.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/client/css/my_style.css" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/giftCard.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/client/js/customize.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/PayPalController.php" />
       </list>
     </option>
   </component>
@@ -321,32 +399,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mct" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -358,26 +410,26 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../admin" />
-    <property name="SearchEverywhereHistoryKey" value="fa&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/fabric.blade.php&#10;style&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;my&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;cus&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/customize.blade.php&#10;sty&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;editS&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/order/editStyle.blade.php&#10;styl&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;Com&#9;FILE&#9;file://E:/wamp/www/mct/app/Http/Controllers/Client/CommonFunction.php&#10;order&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/new-order.js&#10;cust&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;OrderC&#9;FILE&#9;file://E:/wamp/www/mct/app/Http/Controllers/Admin/OrderController.php&#10;home&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/home.blade.php&#10;Handle&#9;null&#9;null&#10;cart&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/cart.blade.php&#10;fab&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/fabric.blade.php&#10;custo&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;pro&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/profile.blade.php&#10;mys&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;new&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/order/new.blade.php&#10;defaul&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/default.blade.php&#10;orderl&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/order/orderListing.blade.php&#10;orderh&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/orderhistory.blade.php&#10;loginR&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/loginRegister.blade.php&#10;check&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/checkout.blade.php&#10;def&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;cu&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;chec&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/checkout.blade.php&#10;my_sc&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/my_script.js&#10;style.&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;defa&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;custom&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;new-&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/new-order.js&#10;c&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/customize.blade.php&#10;defau&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;contactus&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/contactus.blade.php&#10;Cart&#9;FILE&#9;file://E:/wamp/www/mct/app/Http/Controllers/Client/CartController.php&#10;panels&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/pages/panels-wells.html&#10;jquery-ui&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/bower_components/flot/examples/shared/jquery-ui/jquery-ui.min.css&#10;m&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;my_&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/my_script.js&#10;Mer&#9;null&#9;null&#10;st&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;my_s&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;.js&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;sb&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;style.css&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;style.cs&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;my_st&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;sb-a&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;app.&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/js/app.js" />
+    <property name="SearchEverywhereHistoryKey" value="ch&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/checkout.blade.php&#10;Pay&#9;FILE&#9;file://E:/wamp/www/mct/app/Http/Controllers/Client/PayPalController.php&#10;sty&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;cus&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;my&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;fabric.&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/fabric.blade.php&#10;fa&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/fabric.blade.php&#10;style&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;editS&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/order/editStyle.blade.php&#10;styl&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;Com&#9;FILE&#9;file://E:/wamp/www/mct/app/Http/Controllers/Client/CommonFunction.php&#10;order&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/new-order.js&#10;cust&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;OrderC&#9;FILE&#9;file://E:/wamp/www/mct/app/Http/Controllers/Admin/OrderController.php&#10;home&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/home.blade.php&#10;Handle&#9;null&#9;null&#10;cart&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/cart.blade.php&#10;fab&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/fabric.blade.php&#10;custo&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;pro&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/profile.blade.php&#10;mys&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;new&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/order/new.blade.php&#10;defaul&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/default.blade.php&#10;orderl&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/admin/order/orderListing.blade.php&#10;orderh&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/orderhistory.blade.php&#10;loginR&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/loginRegister.blade.php&#10;check&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/checkout.blade.php&#10;def&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;cu&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;chec&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/checkout.blade.php&#10;my_sc&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/my_script.js&#10;style.&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;defa&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;custom&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;new-&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/js/new-order.js&#10;c&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/customize.blade.php&#10;defau&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/default.blade.php&#10;contactus&#9;FILE&#9;file://E:/wamp/www/mct/resources/views/client/contactus.blade.php&#10;Cart&#9;FILE&#9;file://E:/wamp/www/mct/app/Http/Controllers/Client/CartController.php&#10;panels&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/pages/panels-wells.html&#10;jquery-ui&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/bower_components/flot/examples/shared/jquery-ui/jquery-ui.min.css&#10;m&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;my_&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/my_script.js&#10;Mer&#9;null&#9;null&#10;st&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;my_s&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/my_style.css&#10;.js&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/js/customize.js&#10;sb&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/admin/dist/css/sb-admin-2.css&#10;style.css&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css&#10;style.cs&#9;FILE&#9;file://E:/wamp/www/mct/public/assets/client/css/style.css" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\wamp\www\mct\resources\views\client" />
+      <recent name="E:\wamp\www\mct\public\assets\client" />
+      <recent name="E:\wamp\www\mct\public\assets\client\css" />
+      <recent name="E:\wamp\www\mct\app\Http\Controllers\Client" />
+      <recent name="E:\wamp\www\mct\app\Http\Controllers\Admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\wamp\www\mct\resources\views\admin\customer" />
       <recent name="E:\wamp\www\mct\resources\views\admin\discount" />
       <recent name="E:\wamp\www\mct\resources\views\admin\order" />
       <recent name="E:\wamp\www\mct\app" />
       <recent name="E:\wamp\www\mct\resources\views\admin\user" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\wamp\www\mct\public\assets\client" />
-      <recent name="E:\wamp\www\mct\public\assets\client\css" />
-      <recent name="E:\wamp\www\mct\app\Http\Controllers\Client" />
-      <recent name="E:\wamp\www\mct\app\Http\Controllers\Admin" />
-      <recent name="D:\wamp\www\mct\resources\views\admin\user" />
     </key>
   </component>
   <component name="RunManager">
@@ -482,7 +534,8 @@
       <workItem from="1473784459288" duration="240000" />
       <workItem from="1473926064009" duration="677000" />
       <workItem from="1474044121099" duration="9708000" />
-      <workItem from="1474103359858" duration="15138000" />
+      <workItem from="1474103359858" duration="16075000" />
+      <workItem from="1474190533891" duration="8124000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Console Logs">
       <created>1469903070985</created>
@@ -810,10 +863,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250366000" />
+    <option name="totallyTimeSpent" value="259427000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -886,20 +939,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/admin/bower_components/flot/examples/shared/jquery-ui/jquery-ui.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/discount/generator.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -925,13 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-714">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/contactus.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="44" column="94" selection-start-line="44" selection-start-column="94" selection-end-line="44" selection-end-column="94" />
         </state>
       </provider>
     </entry>
@@ -977,24 +1009,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/checkout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="173" column="57" selection-start-line="173" selection-start-column="57" selection-end-line="173" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Cost.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="531">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/PayPalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1033,13 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/default.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="82" column="32" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/cart.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -1059,13 +1070,6 @@
         <state relative-caret-position="202">
           <caret line="586" column="13" selection-start-line="586" selection-start-column="13" selection-end-line="586" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1148,9 +1152,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4664">
           <caret line="251" column="27" selection-start-line="251" selection-start-column="27" selection-end-line="251" selection-end-column="27" />
-          <folding>
-            <element signature="e#2228#4232#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1176,20 +1177,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="1447" column="50" selection-start-line="1447" selection-start-column="50" selection-end-line="1447" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="196" column="80" selection-start-line="196" selection-start-column="80" selection-end-line="196" selection-end-column="80" />
-          <folding>
-            <marker date="1474131826625" expanded="true" signature="10000:10066" ph="..." />
-            <marker date="1474131826625" expanded="true" signature="10306:10367" ph="..." />
-            <marker date="1474131826625" expanded="true" signature="10612:10678" ph="..." />
-            <marker date="1474131826625" expanded="true" signature="12161:12235" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1197,7 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="224" column="57" selection-start-line="219" selection-start-column="48" selection-end-line="224" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,66 +1209,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/client/customize.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="23" column="76" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="76" />
-          <folding />
+        <state relative-caret-position="110">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/fabric.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="149" column="38" selection-start-line="149" selection-start-column="38" selection-end-line="149" selection-end-column="38" />
+          <folding>
+            <element signature="e#4378#4403#0#HTML" expanded="false" />
+            <element signature="e#4404#4410#1#HTML" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/FabricController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="215" column="24" selection-start-line="215" selection-start-column="24" selection-end-line="215" selection-end-column="24" />
+        <state relative-caret-position="264">
+          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/final/contact_us.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="207" column="75" selection-start-line="207" selection-start-column="75" selection-end-line="207" selection-end-column="75" />
+          <folding>
+            <marker date="1474193453203" expanded="true" signature="10000:10066" ph="..." />
+            <marker date="1474193453203" expanded="true" signature="10306:10367" ph="..." />
+            <marker date="1474193453203" expanded="true" signature="10620:10686" ph="..." />
+            <marker date="1474193453203" expanded="true" signature="12169:12243" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/default.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="183" column="29" selection-start-line="183" selection-start-column="29" selection-end-line="183" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/contactus.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/client/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="2511" column="0" selection-start-line="2511" selection-start-column="0" selection-end-line="2511" selection-end-column="0" />
+        <state relative-caret-position="3">
+          <caret line="2796" column="0" selection-start-line="2796" selection-start-column="0" selection-end-line="2805" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/client/css/my_style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="484" column="20" selection-start-line="484" selection-start-column="1" selection-end-line="484" selection-end-column="20" />
+        <state relative-caret-position="245">
+          <caret line="543" column="21" selection-start-line="543" selection-start-column="21" selection-end-line="543" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/customize.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="48" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="48" />
-          <folding>
-            <element signature="e#1358#1383#0#HTML" expanded="true" />
-            <element signature="e#2062#16416#0#HTML" expanded="false" />
-            <element signature="e#16596#30218#0#HTML" expanded="false" />
-            <marker date="1474136642426" expanded="true" signature="298:312" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/fabric.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="70" column="73" selection-start-line="70" selection-start-column="73" selection-end-line="70" selection-end-column="73" />
-          <folding>
-            <element signature="e#1443#1467#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="135">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/client/js/customize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="326" column="46" selection-start-line="326" selection-start-column="46" selection-end-line="326" selection-end-column="46" />
+        <state relative-caret-position="379">
+          <caret line="449" column="27" selection-start-line="449" selection-start-column="27" selection-end-line="449" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/checkout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="51" column="85" selection-start-line="50" selection-start-column="19" selection-end-line="51" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/giftCard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="40" column="93" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="93" />
+          <folding>
+            <element signature="e#621#629#0#HTML" expanded="true" />
+            <element signature="e#837#845#0#HTML" expanded="true" />
+            <element signature="e#901#909#0#HTML" expanded="true" />
+            <element signature="e#981#989#0#HTML" expanded="true" />
+            <element signature="e#1047#1055#0#HTML" expanded="true" />
+            <element signature="e#1247#1255#0#HTML" expanded="true" />
+            <element signature="e#1260#1268#0#HTML" expanded="true" />
+            <element signature="e#1348#1367#0#HTML" expanded="true" />
+            <element signature="e#2498#2521#0#HTML" expanded="true" />
+            <element signature="e#2462#4156#0#HTML" expanded="false" />
+            <element signature="e#2567#2607#0#HTML" expanded="true" />
+            <element signature="e#3276#3316#0#HTML" expanded="true" />
+            <element signature="e#4274#4310#0#HTML" expanded="true" />
+            <element signature="e#4365#4390#0#HTML" expanded="true" />
+            <element signature="e#4470#4495#0#HTML" expanded="true" />
+            <element signature="e#4579#4604#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/PayPalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+          <folding>
+            <element signature="e#4579#8587#0#PHP" expanded="false" />
+            <element signature="e#5483#5975#0#PHP" expanded="false" />
+            <element signature="e#6032#6521#0#PHP" expanded="false" />
+            <element signature="e#8593#10755#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -205,7 +205,7 @@
                                     </span>
                             </li>
                             <li>
-                                <a href="<?php echo URL::to('/');?>">
+                                <a href="<?php echo URL::to('gift-card');?>">
                                     <img src="<?php echo URL::to('public/assets/client/images/gift.jpg');?>"
                                          alt="#"/>
                                 </a>

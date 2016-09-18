@@ -45,4 +45,9 @@ class HomeController extends BaseController
     {
         return view('client.aboutus');
     }
+
+    public function giftCard()
+    {
+        return view('client.giftCard');
+    }
 }

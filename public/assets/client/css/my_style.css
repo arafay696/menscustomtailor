@@ -490,3 +490,147 @@
     -o-transform: scale(1);
     -webkit-transform: scale(1);
 }
+
+/* ------------ Tab Style Start -------------- */
+.giftCardTab ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Float the list items side by side */
+.giftCardTab ul.tab li {
+    float: left;
+    border: 1px solid #ddd;
+}
+
+/* Style the links inside the list items */
+.giftCardTab ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+.giftCardTab ul.tab li a:hover {
+    background-color: #ddd;
+}
+
+.giftCardTab ul li {
+    padding-bottom: 0px;
+}
+
+/* Create an active/current tablink class */
+.giftCardTab .active {
+    background-color: #000;
+    color: #fff !important;
+}
+
+.giftCardTab ul.tab li a:focus, .active {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Style the tab content */
+.giftCardTab .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+/ / border-top: none;
+}
+
+/* ------------ Tab Style End -------------- */
+.gift_amount input {
+    background: #FFFFFF;
+    padding: 1px 7px;
+    margin-left: 11px;
+    font-size: 20px;
+    width: 98px;
+    margin-right: 10px;
+    border: 1px solid #3e454c;
+}
+
+.gift_amount h5, .gift_amount input, .gift_amount ul {
+    float: left;
+}
+
+.gift_amount h5 {
+    font-weight: bold;
+    font-family: ralewaylight;
+    font-size: 24px;
+    float: left;
+}
+
+.gift_amount ul li {
+    border: 1px solid #3e454c;
+    padding: 4px;
+    margin: 0 6px;
+    float: left;
+}
+
+.gift_amount ul li:hover {
+    cursor: pointer;
+}
+
+.gift_amount .active {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+.gift_note {
+    width: 100%;
+    float: left;
+    padding: 18px;
+}
+
+.gift_note li {
+    list-style-type: circle;
+}
+
+.giftLEft {
+    border-right: 1px solid #ddd;
+    padding-right: 28px;
+}
+
+.giftCardBtn {
+    float: right;
+    width: 148px !important;
+    height: 36px;
+    border: 2px solid #262626;
+    background: #262626;
+    text-align: center;
+    line-height: 32px;
+    display: inline-block !important;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: 'ralewaylight';
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    overflow: hidden;
+}
+
+.giftCardBtn:hover {
+    background: none;
+    color: #262626;
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    cursor: pointer;
+}

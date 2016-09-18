@@ -329,7 +329,7 @@ $(document).ready(function (e) {
     });
 
     // Check Auto Filter - Tuxedo
-    if ($('#autoFilter').val().length > 0) {
+    if ($('#autoFilter').length > 0 && $('#autoFilter').val().length > 0) {
         filterProducts.chooseColor.push('White');
         $('.whiteFilter').find('.fa').css('visibility', 'visible');
         $('.whiteFilter').addClass('selected');
@@ -433,4 +433,26 @@ $(document).ready(function (e) {
         });
     });
     // ----------------------------Cart JS END----------------------------//
+
+    // ---------------------------Gift Card----------------------------//
+    $('.chooseAmount li').on("click", function () {
+        $('.chooseAmount li').removeClass('active');
+        $(this).addClass('active');
+        $('#giftAmount').val($(this).attr('id'));
+        $('#giftAmountSet').text($(this).attr('id'));
+        $('#giftAmountText').val($(this).attr('id'));
+    });
+
+    $('#nextToPayment').click(function () {
+        $('#recNameSet').text($('#recName').val());
+        $('#fromNameSet').text($('#purchaseName').val());
+        $('#giftAmountSet').text($('#giftAmount').val());
+        $('#giftAmountText').val($('#giftAmount').val());
+
+        $('.giftCardTab .tab li a').removeClass('active');
+        $('.giftCardTab .tabcontent').css('display', 'none');
+
+        $('#Paris').css('display', 'block');
+        $('#finishStep').addClass('active');
+    });
 });

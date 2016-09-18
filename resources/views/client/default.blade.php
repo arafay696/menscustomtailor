@@ -196,7 +196,7 @@
                     </div>
                     <div class="footer_links">
                         <ul>
-                            <li><a href="#">Gift Cards </a></li>
+                            <li><a href="<?php echo URL::to('gift-card');?>">Gift Cards </a></li>
                         </ul>
                     </div>
 

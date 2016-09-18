@@ -28,9 +28,10 @@ class FabricController extends BaseController
                 ->join('Images AS img', 'pr.ID', '=', 'img.RefID')
                 ->join('ProductDetails as pd', 'pd.ProductID', '=', 'pr.ID')
                 //->whereIn('pd.RefID', [614, 148, 616])
-                ->groupBy('pd.RefID')
+                //->groupBy('pd.RefID')
                 ->get();
 
+            //dd($products);
             $patternById = array();
             $patterNameByID = array(
                 148 => 'Stripes',
