@@ -24,7 +24,7 @@ class HomeController extends BaseController
             ->get();
 
         $reviews = DB::table('customer_reviews AS cr')
-            ->select('c.Name', 'cr.Review','c.UserImg')
+            ->select('c.Name', 'cr.Review', 'c.UserImg')
             ->join('customers as c', 'c.ID', '=', 'cr.CustomerID')
             ->get();
 
@@ -49,6 +49,22 @@ class HomeController extends BaseController
 
     public function giftCard()
     {
+        // Send Email to Recipient
+        /*$recData = array(
+            'Subject' => 'Gift Card Received',
+            'name' => "Men's Custom Tailor",
+            'code' => '123',
+            'from' => 'arafay696@gmail.com',
+            'msg' => 'arafay696@gmail.com',
+            'email' => 'arafay696@gmail.com',
+            'price' => 123
+        );
+
+        Mail::send('client.giftcardEmailReceived', $recData, function ($message) use ($recData) {
+            $message->subject($recData['Subject'])
+                ->to($recData['email']);
+        });*/
+
         return view('client.giftCard');
     }
 }
