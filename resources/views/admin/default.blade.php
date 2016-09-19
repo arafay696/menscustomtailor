@@ -338,6 +338,9 @@
                             <li>
                                 <a href="<?php echo URL::to('admin/orders');?>">Order List</a>
                             </li>
+                            <li>
+                                <a href="<?php echo URL::to('admin/gift-orders');?>">Gift Order List</a>
+                            </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>

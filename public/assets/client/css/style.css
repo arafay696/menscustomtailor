@@ -1413,7 +1413,7 @@ body {
     background: #fff;
 }
 
-.discount_gift ul li input[type='submit'] {
+.discount_gift ul li input[type='submit'],.discount_gift ul li input[type='button'] {
     width: 33%;
     height: 42px;
     border: 2px solid #262626;
@@ -1438,7 +1438,7 @@ body {
     float: right;
 }
 
-.discount_gift ul li input[type='submit']:hover {
+.discount_gift ul li input[type='submit']:hover,.discount_gift ul li input[type='button']:hover {
     background: none;
     color: #262626;
     transition: all .5s;

@@ -20,6 +20,7 @@
                     <!-- cart/save -->
                     <form method="post" class="form" action="<?php echo URL::to('cart/save') ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        <input type="hidden" id="setDiscountAmount" value="0"/>
                         <div class="cart_listing_outer">
                             <div class="cart_listing_head clearfix">
                                 <div class="empty_colmn">&nbsp;</div>
@@ -48,11 +49,11 @@
                                             <label><?=$cartItem['ProductName'];?></label>
                                             <p>
                                                 <b style="display: inline-block;">Shirt Detail:</b>
-                                                <?= (isset($cartItem['collarType'])) ? $cartItem['collarType'].',' : '';?>
-                                                <?= (isset($cartItem['cuffStyle'])) ? $cartItem['cuffStyle'].','  : '';?>
-                                                <?= (isset($cartItem['frontStyle'])) ? $cartItem['frontStyle'].','  : '';?>
+                                                <?= (isset($cartItem['collarType'])) ? $cartItem['collarType'] . ',' : '';?>
+                                                <?= (isset($cartItem['cuffStyle'])) ? $cartItem['cuffStyle'] . ',' : '';?>
+                                                <?= (isset($cartItem['frontStyle'])) ? $cartItem['frontStyle'] . ',' : '';?>
                                                 <?= (isset($cartItem['pocketStyle'])) ? $cartItem['pocketStyle'] : '';?>
-                                                <?php if((!isset($cartItem['collarType']) || $cartItem['collarType'] == '') && (!isset($cartItem['cuffStyle']) || $cartItem['cuffStyle'] == '') && (!isset($cartItem['frontStyle']) || $cartItem['frontStyle']== '') && (!isset($cartItem['pocketStyle']) || $cartItem['pocketStyle']== '')){
+                                                <?php if ((!isset($cartItem['collarType']) || $cartItem['collarType'] == '') && (!isset($cartItem['cuffStyle']) || $cartItem['cuffStyle'] == '') && (!isset($cartItem['frontStyle']) || $cartItem['frontStyle'] == '') && (!isset($cartItem['pocketStyle']) || $cartItem['pocketStyle'] == '')) {
                                                     echo 'Missing Detail';
                                                 } ?>
                                             </p>
@@ -112,6 +113,10 @@
                                             <strong id="SubTotal">$<?=number_format($TotalPrice, 2);?></strong>
                                         </li>
                                         <li class="clearfix">
+                                            <span>Discount</span>
+                                            <strong>-$<b id="DiscountAmount">0</b></strong>
+                                        </li>
+                                        <li class="clearfix">
                                             <span>Shipping Method</span>
                                             <div class="customselect">
                                                 <span style="border-right: none;">USPS Priority</span>
@@ -127,11 +132,11 @@
                                         <li class="clearfix">
                                             <span>Shipping</span>
                                             <strong id="ShippCharges"><?php
-                                                    if($qty > 0){
-                                                        $shippingCharges = $USPSPriority[$qty - 1];
-                                                        $TotalPrice = $TotalPrice + $shippingCharges;
-                                                        echo $shippingCharges;
-                                                    }
+                                                if ($qty > 0) {
+                                                    $shippingCharges = $USPSPriority[$qty - 1];
+                                                    $TotalPrice = $TotalPrice + $shippingCharges;
+                                                    echo $shippingCharges;
+                                                }
                                                 ?></strong>
                                         </li>
                                         <li class="clearfix">
@@ -142,7 +147,8 @@
                                                        value="<?=number_format($TotalPrice, 2);?>">
                                                 <input id="ShippingHidden" type="hidden" name="ShippingHidden"
                                                        value="<?=$shippingCharges;?>">
-                                                <input id="ShippingMethodHidden" type="hidden" name="ShippingMethodHidden"
+                                                <input id="ShippingMethodHidden" type="hidden"
+                                                       name="ShippingMethodHidden"
                                                        value="USPS Priority">
                                             </strong>
                                         </li>
@@ -154,20 +160,31 @@
                         <?php if(is_array($cart) && count($cart) > 0) { ?>
                         <div class="discount_gift_cards clearfix">
                             <div class="discount_gift">
+                                <div class="errorCoupon hide alert alert-warning fade in">
+                                    <strong>Alert!</strong> Coupon code invalid or already used.
+                                </div>
+                                <div class="SuccesCouponMsg hide alert alert-success fade in">
+                                    <strong>Yahoo!</strong> Coupon code applied.
+                                </div>
                                 <ul>
                                     <li>
                                         <label>Discount Code</label>
                                         <div class="discount_inputs clearfix">
-                                            <input type="text" value=""/>
-                                            <input type="submit" value="Apply Coupon"/>
+                                            <form method="post" name="coupong"
+                                                  action="<?=URL::to('verifyDiscountCoupon');?>">
+                                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                                <input id="discountCoupon" type="text" value=""/>
+                                                <input id="checkDiscountCoupon" type="button" value="Apply Coupon"/>
+                                            </form>
+
                                         </div>
                                     </li>
 
                                     <li>
                                         <label>Gift Card</label>
                                         <div class="discount_inputs clearfix">
-                                            <input type="text" value=""/>
-                                            <input type="submit" value="Add Gift Card"/>
+                                            <input id="giftCoupon" type="text" value=""/>
+                                            <input type="button" value="Add Gift Card"/>
                                         </div>
                                     </li>
                                 </ul>

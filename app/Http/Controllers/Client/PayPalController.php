@@ -157,10 +157,10 @@ class PayPalController extends BaseController
                     'price' => $data['amount']
                 );
 
-                /*Mail::send('client.giftcardEmail', $purchaserData, function ($message) use ($purchaserData) {
+                Mail::send('client.giftcardEmail', $purchaserData, function ($message) use ($purchaserData) {
                     $message->subject($purchaserData['Subject'])
                         ->to($purchaserData['email']);
-                });*/
+                });
 
                 // Send Email to Recipient
                 $recData = array(
@@ -173,10 +173,10 @@ class PayPalController extends BaseController
                     'price' => $data['amount']
                 );
 
-                /*Mail::send('client.giftcardEmailReceived', $recData, function ($message) use ($recData) {
+                Mail::send('client.giftcardEmailReceived', $recData, function ($message) use ($recData) {
                     $message->subject($recData['Subject'])
                         ->to($recData['email']);
-                });*/
+                });
 
                 Session::forget('ProcessOrderId');
                 Session::flash('globalSuccessMsg', 'Gift Card Successfully Paid. Check your email. :)');

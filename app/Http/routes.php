@@ -27,6 +27,8 @@ Route::get('cart/remove/{key}', 'Client\CartController@RemoveItem');
 Route::post('cart/save', 'Client\CartController@SaveData');
 Route::post('cart/update', 'Client\CartController@UpdateData');
 Route::get('checkout', 'Client\CartController@checkout');
+Route::post('verifyDiscountCoupon', 'Client\CartController@verifyDiscountCoupon');
+
 Route::get('contact-us', 'Client\HomeController@contactus');
 Route::get('about-us', 'Client\HomeController@aboutus');
 
@@ -95,6 +97,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/delete/image/{id}', 'ProductController@deleteImage');
 
     // ---------------- Orders
+    Route::get('/gift-orders', 'OrderController@giftOrders');
     Route::get('/orders', 'OrderController@orders');
     Route::get('/order/{orderID}/{customerID}', 'OrderController@orderDetail');
     Route::get('/order/new', 'OrderController@newOrderView');

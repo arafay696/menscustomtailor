@@ -52,6 +52,35 @@ class OrderController extends BaseController
         }
     }
 
+    public function giftOrders()
+    {
+        if (!Auth::check()) {
+            return Redirect::to('admin/auth/login');
+        }
+        try {
+
+            $orders = DB::table('giftcards')
+                ->select('*')
+                ->get();
+
+            $data = array(
+                'orders' => $orders
+            );
+            return view('admin/order/giftOrderListing', $data);
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+            if (env('Mode') == 'Development') {
+                $this->errorMsg = $error;
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            } else {
+                Session::flash('globalErrMsg', $this->errorMsg);
+                Session::flash('alert-class', 'alert-danger');
+            }
+            return redirect()->back();
+        }
+    }
+
     public function orderDetail($orderID, $customerID)
     {
         if (!Auth::check()) {

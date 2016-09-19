@@ -28,6 +28,31 @@ class CartController extends BaseController
         return view('client/cart', $data);
     }
 
+    public function verifyDiscountCoupon(Request $request)
+    {
+        $discountCoupon = $request::get('discountCoupon');
+
+        $discounts = DB::table('discountcode')
+            ->select('*')
+            ->where('DiscountCode', '=', $discountCoupon)
+            ->where('Status', '=', 1)
+            ->where('StartDate', '<=', date('Y-m-d H:i:s'))
+            ->where('EndDate', '>=', date('Y-m-d H:i:s'))
+            ->first();
+
+        if (count($discounts) > 0) {
+            echo json_encode(array(
+                'status' => true,
+                'data' => $discounts
+            ));
+        } else {
+            echo json_encode(array(
+                'status' => false,
+                'data' => $discounts
+            ));
+        }
+    }
+
     public function UpdateData(Request $request)
     {
         $getQty = $request::input('Qty');

@@ -379,9 +379,18 @@ $(document).ready(function (e) {
                 total += parseFloat($(this).find('.TotalProductPrice').text().trim().replace(',', ''));
             });
             $('#SubTotal').text(total.toFixed(2));
+
+            // apply discount
+            var getDiscount = parseFloat($('#DiscountAmount').text());
+            total = total - getDiscount;
+            $('#setDiscountAmount').val(getDiscount);
+
+            // apply shipment charges
             var getShipCharges = Cart.calShipCharges();
             $('#ShippCharges').text(getShipCharges);
             var TotalPlusShip = (total + getShipCharges).toFixed(2);
+
+            // set amount
             $('#TotalAmount').text(TotalPlusShip);
             $('#TotalAmountHidden').val(TotalPlusShip);
         }
@@ -432,6 +441,43 @@ $(document).ready(function (e) {
 
         });
     });
+
+    $('#checkDiscountCoupon').click(function () {
+        var code = $('#discountCoupon').val();
+        var token = $('#_token').val();
+
+        $.ajax({
+            type: "POST",
+            url: "" + baseUrl + "/verifyDiscountCoupon",
+            data: "discountCoupon=" + code + "&_token=" + token,
+            beforeSend: function () {
+                $('.updateCartSpin').removeClass('hide');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.response + 'error ' + ajaxOptions);
+            },
+            success: function (result) {
+                $('.updateCartSpin').addClass('hide');
+                result = JSON.parse(result);
+                console.log(result);
+                if (result.status) {
+                    $('.SuccesCouponMsg').removeClass('hide');
+                    $('.SuccesCouponMsg').removeAttr('style');
+                    $('.SuccesCouponMsg').delay(2000).fadeOut(function () {
+                        $('.SuccesCouponMsg').addClass('hide');
+                    });
+                } else {
+                    $('.errorCoupon').removeClass('hide');
+                    $('.errorCoupon').removeAttr('style');
+                    $('.errorCoupon').delay(2000).fadeOut(function () {
+                        $('.errorCoupon').addClass('hide');
+                    });
+                }
+            }
+
+        });
+    });
+
     // ----------------------------Cart JS END----------------------------//
 
     // ---------------------------Gift Card----------------------------//
