@@ -113,6 +113,8 @@ class UserController extends BaseController
         Session::forget('CustomerName');
         Session::forget('CustomerEmail');
         Session::forget('CustomerLogintime');
+        Session::forget('chooseFabs');
+        Session::forget('chooseQty');
         Session::flush();
         Auth::logout(); // log the user out of our application
         return Redirect::to('/login'); // redirect the user to the login screen

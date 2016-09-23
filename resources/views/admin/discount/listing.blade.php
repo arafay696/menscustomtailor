@@ -21,6 +21,7 @@
                                 <thead>
                                 <tr>
                                     <th>Code</th>
+                                    <th>Discount</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Description</th>
@@ -33,6 +34,9 @@
                                 <tr>
                                     <td class="center">
                                         <?=$discount->DiscountCode;?>
+                                    </td>
+                                    <td class="center">
+                                        <?=$discount->DiscountPercent;?>
                                     </td>
                                     <td class="center">
                                         <?php echo date('d F Y h:i A', strtotime($discount->StartDate));?>

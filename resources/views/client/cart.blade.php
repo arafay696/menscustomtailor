@@ -21,6 +21,7 @@
                     <form method="post" class="form" action="<?php echo URL::to('cart/save') ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <input type="hidden" id="setDiscountAmount" value="0"/>
+                        <input type="hidden" id="setGiftCardAmount" value="0"/>
                         <div class="cart_listing_outer">
                             <div class="cart_listing_head clearfix">
                                 <div class="empty_colmn">&nbsp;</div>
@@ -68,18 +69,18 @@
                                         </div>
                                         <div class="product_colmn_list price_colmn_list">
                                             <b>
-                                                $<span class="ActualPrice"><?=$cartItem['Price'];?></span>
+                                                $<span class="ActualPrice numberFont"><?=$cartItem['Price'];?></span>
                                             </b>
                                         </div>
                                         <div class="product_colmn_list q_colmn_list">
-                                            <input class="updateQty" type="number" value="<?=$cartItem['Qty'];?>"/>
+                                            <input class="updateQty numberFont" type="number" value="<?=$cartItem['Qty'];?>"/>
                                             <input name="ProductQty[]" type="hidden" value="<?=$cartItem['Qty'];?>"/>
                                         </div>
                                         <div class="product_colmn_list total_colmn_list">
                                             <h5>$<?php
                                                 $pr = $cartItem['Price'] * $cartItem['Qty'];
                                                 $TotalPrice += $pr;
-                                                ?><span class="TotalProductPrice">
+                                                ?><span class="TotalProductPrice numberFont">
                                                     <?=number_format($pr, 2);?>
                                                 </span>
                                             </h5>
@@ -110,11 +111,15 @@
                                     <ul>
                                         <li class="clearfix">
                                             <span>Subtotal</span>
-                                            <strong id="SubTotal">$<?=number_format($TotalPrice, 2);?></strong>
+                                            <strong class="numberFont" id="SubTotal">$<?=number_format($TotalPrice, 2);?></strong>
                                         </li>
-                                        <li class="clearfix">
+                                        <li class="clearfix hide showDiscountDetail">
                                             <span>Discount</span>
-                                            <strong>-$<b id="DiscountAmount">0</b></strong>
+                                            <strong class="numberFont">-$<b id="DiscountAmount">0</b></strong>
+                                        </li>
+                                        <li class="clearfix hide showGCardDetail">
+                                            <span>Gift Card</span>
+                                            <strong class="numberFont">-$<b id="GiftCardAmount">0</b></strong>
                                         </li>
                                         <li class="clearfix">
                                             <span>Shipping Method</span>
@@ -131,9 +136,9 @@
                                         </li>
                                         <li class="clearfix">
                                             <span>Shipping</span>
-                                            <strong id="ShippCharges"><?php
+                                            <strong class="numberFont" id="ShippCharges"><?php
                                                 if ($qty > 0) {
-                                                    $shippingCharges = $USPSPriority[$qty - 1];
+                                                    $shippingCharges = array_key_exists($qty - 1,$USPSPriority) ? $USPSPriority[$qty - 1] : end($USPSPriority);
                                                     $TotalPrice = $TotalPrice + $shippingCharges;
                                                     echo $shippingCharges;
                                                 }
@@ -141,7 +146,7 @@
                                         </li>
                                         <li class="clearfix">
                                             <span>TOTAL</span>
-                                            <strong>
+                                            <strong class="numberFont">
                                                 $<b id="TotalAmount"><?=number_format($TotalPrice, 2);?></b>
                                                 <input id="TotalAmountHidden" type="hidden" name="Amount"
                                                        value="<?=number_format($TotalPrice, 2);?>">
@@ -167,7 +172,7 @@
                                     <strong>Yahoo!</strong> Coupon code applied.
                                 </div>
                                 <ul>
-                                    <li>
+                                    <li class="applyDiscountHere">
                                         <label>Discount Code</label>
                                         <div class="discount_inputs clearfix">
                                             <form method="post" name="coupong"
@@ -175,16 +180,18 @@
                                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                                 <input id="discountCoupon" type="text" value=""/>
                                                 <input id="checkDiscountCoupon" type="button" value="Apply Coupon"/>
+                                                <i id="waitDCounpon" class="hide fa fa-spinner fa-spin fa-2x"></i>
                                             </form>
 
                                         </div>
                                     </li>
 
-                                    <li>
+                                    <li class="applyGCardHere">
                                         <label>Gift Card</label>
                                         <div class="discount_inputs clearfix">
                                             <input id="giftCoupon" type="text" value=""/>
-                                            <input type="button" value="Add Gift Card"/>
+                                            <input id="checkGiftCardCoupon" type="button" value="Add Gift Card"/>
+                                            <i id="waitGCounpon" class="hide fa fa-spinner fa-spin fa-2x"></i>
                                         </div>
                                     </li>
                                 </ul>

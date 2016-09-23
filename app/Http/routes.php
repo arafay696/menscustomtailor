@@ -28,6 +28,7 @@ Route::post('cart/save', 'Client\CartController@SaveData');
 Route::post('cart/update', 'Client\CartController@UpdateData');
 Route::get('checkout', 'Client\CartController@checkout');
 Route::post('verifyDiscountCoupon', 'Client\CartController@verifyDiscountCoupon');
+Route::post('verifyGiftCoupon', 'Client\CartController@verifyGiftCoupon');
 
 Route::get('contact-us', 'Client\HomeController@contactus');
 Route::get('about-us', 'Client\HomeController@aboutus');

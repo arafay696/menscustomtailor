@@ -345,6 +345,8 @@ $(document).ready(function (e) {
 
     // ----------------------------Cart JS----------------------------//
     var Cart = {
+        discountPercentage: 0,
+        giftAmount: 0,
         ShipMethod: "USPS Priority",
         USPSPriority: [9.50, 13.50, 16.50, 23.50, 29.50, 32.50, 35.50, 37.50, 39.50, 40.50, 55.50],
         USPSNextDay: [25, 35, 40, 65, 65, 65, 95],
@@ -374,6 +376,7 @@ $(document).ready(function (e) {
             var price = (qty * actualPrice).toFixed(2);
             $(e).closest('.q_colmn_list').siblings('.total_colmn_list').find('.TotalProductPrice').text(price);
         }, updateCart: function () {
+
             var total = 0;
             $('.cartItems li').each(function () {
                 total += parseFloat($(this).find('.TotalProductPrice').text().trim().replace(',', ''));
@@ -381,9 +384,17 @@ $(document).ready(function (e) {
             $('#SubTotal').text(total.toFixed(2));
 
             // apply discount
-            var getDiscount = parseFloat($('#DiscountAmount').text());
-            total = total - getDiscount;
-            $('#setDiscountAmount').val(getDiscount);
+            if(!$('.showDiscountDetail').hasClass('hide')){
+                var getDiscount = parseFloat($('#DiscountAmount').text());
+                total = total - getDiscount;
+            }
+
+
+            //apply gift card
+            if(!$('.showGCardDetail').hasClass('hide')) {
+                var giftCard = parseFloat($('#GiftCardAmount').text());
+                total = total - giftCard;
+            }
 
             // apply shipment charges
             var getShipCharges = Cart.calShipCharges();
@@ -393,6 +404,22 @@ $(document).ready(function (e) {
             // set amount
             $('#TotalAmount').text(TotalPlusShip);
             $('#TotalAmountHidden').val(TotalPlusShip);
+        },applyDiscount: function(){
+            var total = 0;
+            $('.cartItems li').each(function () {
+                total += parseFloat($(this).find('.TotalProductPrice').text().trim().replace(',', ''));
+            });
+            //alert(total);
+            var getDiscount = parseFloat($('#DiscountAmount').text());
+            var calcDiscunt = (total * Cart.discountPercentage) / 100;
+            $('#setDiscountAmount').val(calcDiscunt);
+            getDiscount = getDiscount + calcDiscunt;
+            $('#DiscountAmount').text(getDiscount.toFixed(2));
+            Cart.updateCart();
+        },applyGiftCard: function () {
+            $('#GiftCardAmount').text(Cart.giftAmount);
+            $('#setGiftCardAmount').val(Cart.giftAmount);
+            Cart.updateCart();
         }
     };
 
@@ -442,6 +469,7 @@ $(document).ready(function (e) {
         });
     });
 
+    // Apply Discount Coupon
     $('#checkDiscountCoupon').click(function () {
         var code = $('#discountCoupon').val();
         var token = $('#_token').val();
@@ -452,15 +480,64 @@ $(document).ready(function (e) {
             data: "discountCoupon=" + code + "&_token=" + token,
             beforeSend: function () {
                 $('.updateCartSpin').removeClass('hide');
+                $('#waitDCounpon').removeClass('hide');
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.response + 'error ' + ajaxOptions);
             },
             success: function (result) {
                 $('.updateCartSpin').addClass('hide');
+                $('#waitDCounpon').addClass('hide');
                 result = JSON.parse(result);
-                console.log(result);
                 if (result.status) {
+                    var discountPercentage = result.discount;
+                    $('.showDiscountDetail').removeClass('hide');
+                    Cart.discountPercentage = discountPercentage;
+                    Cart.applyDiscount();
+                    $('.applyGCardHere').addClass('hide');
+                    $('.SuccesCouponMsg').removeClass('hide');
+                    $('.SuccesCouponMsg').removeAttr('style');
+                    $('.SuccesCouponMsg').delay(2000).fadeOut(function () {
+                        $('.SuccesCouponMsg').addClass('hide');
+                    });
+                } else {
+                    $('.errorCoupon').removeClass('hide');
+                    $('.errorCoupon').removeAttr('style');
+                    $('.errorCoupon').delay(2000).fadeOut(function () {
+                        $('.errorCoupon').addClass('hide');
+                    });
+                }
+            }
+
+        });
+    });
+
+    // Apply Gift Card Here
+    $('#checkGiftCardCoupon').click(function () {
+        var code = $('#giftCoupon').val();
+        var token = $('#_token').val();
+
+        $.ajax({
+            type: "POST",
+            url: "" + baseUrl + "/verifyGiftCoupon",
+            data: "giftCoupon=" + code + "&_token=" + token,
+            beforeSend: function () {
+                $('.updateCartSpin').removeClass('hide');
+                $('#waitGCounpon').removeClass('hide');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.response + 'error ' + ajaxOptions);
+            },
+            success: function (result) {
+                $('.updateCartSpin').addClass('hide');
+                $('#waitGCounpon').addClass('hide');
+                result = JSON.parse(result);
+                if (result.status) {
+                    var discountPercentage = result.discount;
+                    $('.showGCardDetail').removeClass('hide');
+                    Cart.giftAmount = discountPercentage;
+                    Cart.applyGiftCard();
+                    $('.applyDiscountHere').addClass('hide');
                     $('.SuccesCouponMsg').removeClass('hide');
                     $('.SuccesCouponMsg').removeAttr('style');
                     $('.SuccesCouponMsg').delay(2000).fadeOut(function () {

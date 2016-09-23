@@ -43,12 +43,33 @@ class CartController extends BaseController
         if (count($discounts) > 0) {
             echo json_encode(array(
                 'status' => true,
-                'data' => $discounts
+                'discount' => $discounts->DiscountPercent
             ));
         } else {
             echo json_encode(array(
-                'status' => false,
-                'data' => $discounts
+                'status' => false
+            ));
+        }
+    }
+
+    public function verifyGiftCoupon(Request $request)
+    {
+        $discountCoupon = $request::get('giftCoupon');
+
+        $discounts = DB::table('giftcards')
+            ->select('*')
+            ->where('coupon_code', '=', $discountCoupon)
+            ->where('Status', '=', 1)
+            ->first();
+
+        if (count($discounts) > 0) {
+            echo json_encode(array(
+                'status' => true,
+                'discount' => $discounts->amount
+            ));
+        } else {
+            echo json_encode(array(
+                'status' => false
             ));
         }
     }
@@ -71,6 +92,10 @@ class CartController extends BaseController
         $data = $this->getCartData();
         unset($data[$key]);
         Session::put('CartData', $data);
+        if(count($this->getCartData()) <= 0){
+            Session::forget('chooseFabs');
+            Session::forget('chooseQty');
+        }
         return Redirect::back();
     }
 

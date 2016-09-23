@@ -280,6 +280,7 @@ class OrderController extends BaseController
 
         $discount['UserID'] = date('Y-m-d H:i:s');
         $discount['DiscountCode'] = $request::get('code');
+        $discount['DiscountPercent'] = $request::get('discountPercentage');
         $discount['Description'] = $request::get('description');
         $discount['StartDate'] = date('Y-m-d H:i:s', strtotime($request::get('startDate')));
         $discount['EndDate'] = date('Y-m-d H:i:s', strtotime($request::get('endDate')));

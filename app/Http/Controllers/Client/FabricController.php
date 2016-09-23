@@ -121,13 +121,29 @@ class FabricController extends BaseController
 
     public function customize(Request $request)
     {
-
-        if (!Session::has('CustomerID')) {
+        // check if not set then save in session
+        if (!Session::has('chooseFabs') || !Session::has('chooseQty')) {
+            //dd('here');
             Session::put('chooseFabs', $request::get('chooseFab'));
             Session::put('chooseQty', $request::all());
-            return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric/customize/new')) . '');
         }
-        $chooseFabs = array();
+
+        if(count(Session::get('chooseFabs')) <= 0){
+            Session::flash('globalErrMsg', "Please Choose at least one item.");
+            Session::flash('alert-class', 'alert-danger');
+            return Redirect::to('fabric');
+        }
+
+        // check if value added OR delete
+        if(count(Session::get('chooseFabs')) < count($request::get('chooseFab'))){
+            Session::put('chooseFabs', $request::get('chooseFab'));
+            Session::put('chooseQty', $request::all());
+        }
+
+        if (!Session::has('CustomerID')) {
+           return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric/customize/new')) . '');
+        }
+
         if (Request::isMethod('post')) {
             $chooseFabs = $request::get('chooseFab');
         } else {
@@ -153,46 +169,49 @@ class FabricController extends BaseController
         // Init Size if Size saved already End
 
         $choosen = 0;
-        foreach ($chooseFabs as $key => $value) {
+        if(count($chooseFabs) > 0){
+            foreach ($chooseFabs as $key => $value) {
 
-            $id = $value;
-            $productId = (int)$id;
-            if ($key <= 0) {
-                $choosen = $productId;
-            }
-            $product = $this->validProduct($productId);
-
-            if (count($product) > 0) {
-
-                $data = $this->getCartData();
-
-                $findKey = $this->findInArrayByValue($productId, 'productID', $data);
-
-                $getCount = count($data);
-
-                if ($getCount <= 0) {
-                    $data = array();
-                    $data[0]['ProductImage'] = $product[0]->ImgName;
-                    $data[0]['ProductName'] = $product[0]->Name;
-                    $data[0]['Price'] = $product[0]->Price;
-                    $data[0]['productID'] = $product[0]->ID;
-                    $data[0]['ProductCode'] = $product[0]->Code;
-                    $data[0]['Qty'] = Session::get('chooseQty')['Qty_' . $productId];
-
-                } else if (!is_int($findKey)) {
-                    $data[$getCount] = array();
-                    $data[$getCount]['ProductImage'] = $product[0]->ImgName;
-                    $data[$getCount]['ProductName'] = $product[0]->Name;
-                    $data[$getCount]['Price'] = $product[0]->Price;
-                    $data[$getCount]['productID'] = $product[0]->ID;
-                    $data[0]['ProductCode'] = $product[0]->Code;
-                    $data[$getCount]['Qty'] = Session::get('chooseQty')['Qty_' . $productId];
-                } else {
-
+                $id = $value;
+                $productId = (int)$id;
+                if ($key <= 0) {
+                    $choosen = $productId;
                 }
-                $this->setCartData('CartData', $data);
+                $product = $this->validProduct($productId);
+
+                if (count($product) > 0) {
+
+                    $data = $this->getCartData();
+
+                    $findKey = $this->findInArrayByValue($productId, 'productID', $data);
+
+                    $getCount = count($data);
+
+                    if ($getCount <= 0) {
+                        $data = array();
+                        $data[0]['ProductImage'] = $product[0]->ImgName;
+                        $data[0]['ProductName'] = $product[0]->Name;
+                        $data[0]['Price'] = $product[0]->Price;
+                        $data[0]['productID'] = $product[0]->ID;
+                        $data[0]['ProductCode'] = $product[0]->Code;
+                        $data[0]['Qty'] = Session::get('chooseQty')['Qty_' . $productId];
+
+                    } else if (!is_int($findKey)) {
+                        $data[$getCount] = array();
+                        $data[$getCount]['ProductImage'] = $product[0]->ImgName;
+                        $data[$getCount]['ProductName'] = $product[0]->Name;
+                        $data[$getCount]['Price'] = $product[0]->Price;
+                        $data[$getCount]['productID'] = $product[0]->ID;
+                        $data[0]['ProductCode'] = $product[0]->Code;
+                        $data[$getCount]['Qty'] = Session::get('chooseQty')['Qty_' . $productId];
+                    } else {
+
+                    }
+                    $this->setCartData('CartData', $data);
+                }
             }
         }
+
 
         $sendData = array(
             'productID' => $choosen,

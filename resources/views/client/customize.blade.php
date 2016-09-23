@@ -1,13 +1,15 @@
-@extends('client.default')
+﻿@extends('client.default')
 @section('content')
     <!-- Page Wrapper -->
     <?php
 
     $slectedItems = '<div class="swathces_images clearfix"><ul>';
+	if(count($cartData) > 0){
     foreach ($cartData as $item) {
         $class = ($productID == $item['productID']) ? 'active_swatch' : '';
         $slectedItems .= '<li style="display:block;"><a href="' . URL::to('fabric/' . $item['productID'] . '') . '"><span class="' . $class . '"><img alt="#" src="' . URL::to('resources/assets/images/' . $item['ProductImage']) . '"></span></a></li>';
     }
+	}
     $slectedItems .= '</ul></div>';
     ?>
 
@@ -45,8 +47,8 @@
                                                                                  value="Dress" checked="checked">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Dress_Shirt.jpg'); ?>"
+                                                     alt="Dress Shirt"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -59,8 +61,8 @@
                                                     <label><input type="radio" name="shirtType" value="Casual">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Casual_Shirt.jpg'); ?>"
+                                                     alt="Casual Shirt"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -73,8 +75,8 @@
                                                     <label><input type="radio" name="shirtType" value="Tuxedo">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Tuxedo_Shirt.jpg'); ?>"
+                                                     alt="Tuxedo Shirt"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -93,8 +95,8 @@
                                                                                          checked="checked">&nbsp;
                                                             </label>
                                                         </div>
-                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                             alt="#"/>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/Tab_Front.png'); ?>"
+                                                             alt="Tab Front"/>
 
                                                         <div class="customization_dropdown">
                                                             <div class="customselect_customize">
@@ -108,8 +110,8 @@
                                                                           value="Fly Front">&nbsp;
                                                             </label>
                                                         </div>
-                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                             alt="#"/>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/Fly_Front.png'); ?>"
+                                                             alt="Fly Front"/>
 
                                                         <div class="customization_dropdown">
                                                             <div class="customselect_customize">
@@ -123,8 +125,8 @@
                                                                           value="Sport Front">&nbsp;
                                                             </label>
                                                         </div>
-                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                             alt="#"/>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/Sport_Front.png'); ?>"
+                                                             alt="Sport Front"/>
 
                                                         <div class="customization_dropdown">
                                                             <div class="customselect_customize">
@@ -141,8 +143,8 @@
                                                                                          checked="checked">&nbsp;
                                                             </label>
                                                         </div>
-                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                             alt="#"/>
+                                                        <img src="<?php echo URL::to('public/assets/client/images/Fly_Front.png'); ?>"
+                                                             alt="Fly Front"/>
 
                                                         <div class="customization_dropdown">
                                                             <div class="customselect_customize">
@@ -233,8 +235,8 @@
                                                                                  value="Traditional Point"
                                                                                  checked="checked">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Traditional_Point.png'); ?>"
+                                                     alt="Traditional Point Collar"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -247,8 +249,8 @@
                                                     <label><input type="radio" name="collarType" value="Button Down">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Button_Down.png'); ?>"
+                                                     alt="Button Down Collar"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -261,8 +263,8 @@
                                                     <label><input type="radio" name="collarType" value="Narrow Point">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Narrow_Point.png'); ?>"
+                                                     alt="Narrow Point Collar"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -275,8 +277,8 @@
                                                     <label><input type="radio" name="collarType" value="Medium Spread">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Medium_Spread.png'); ?>"
+                                                     alt="Medium Spread"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -289,8 +291,8 @@
                                                     <label><input type="radio" name="collarType" value="Wide Spread">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Wide_Spread.png'); ?>"
+                                                     alt="Wide_Spread"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -303,8 +305,8 @@
                                                     <label><input type="radio" name="collarType"
                                                                   value="Hidden Button Down">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Hidden_Button_Down.png'); ?>"
+                                                     alt="Hidden Button Down"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -317,8 +319,8 @@
                                                     <label><input type="radio" name="collarType" value="Tab Collar">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Tab_Collar.png'); ?>"
+                                                     alt="Tab Collar"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -331,8 +333,8 @@
                                                     <label><input type="radio" name="collarType" value="Curve Point">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Curve_Point.png'); ?>"
+                                                     alt="Curve Point"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -345,8 +347,8 @@
                                                     <label><input type="radio" name="collarType"
                                                                   value="Traditional Band Collar">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Traditional_Band.png'); ?>"
+                                                     alt="Traditional Band Collar"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -415,8 +417,8 @@
                                                                                  checked="checked">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/One_Button_Cuff.png'); ?>"
+                                                     alt="One Button Cuff"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -429,8 +431,8 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Round French Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Round_French_Cuff.png'); ?>"
+                                                     alt="Round French Cuff"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -443,8 +445,8 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Square French Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Square_French_Cuff.png'); ?>"
+                                                     alt="Square French Cuff"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -457,8 +459,8 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Convertible Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Convertible_Cuff.png'); ?>"
+                                                     alt="Convertible Cuff"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -471,8 +473,8 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Angled One Button Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Angled_One_Button_Cuff.png'); ?>"
+                                                     alt="Angled One Button Cuff"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
@@ -482,15 +484,15 @@
                                             </div>
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label><input type="radio" name="cuffStyle" value="Two Button Cuff">&nbsp;
+                                                    <label><input type="radio" name="cuffStyle" value="Double Angled One Button Cuff">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/2_Angled_One_Button_Cuff.png'); ?>"
+                                                     alt="Double Angled One Button Cuff"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
-                                                        <span>Two Button Cuff</span>
+                                                        <span>Double Angled One Button</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -499,8 +501,8 @@
                                                     <label><input type="radio" name="cuffStyle"
                                                                   value="Angled French Cuff">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/two_button_barrel.png'); ?>"
-                                                     alt="#"/>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Angled_French_Cuff.png'); ?>"
+                                                     alt="Angled French Cuff"/>
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">

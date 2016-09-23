@@ -28,6 +28,13 @@
                                         <label>Dicount Code</label>
                                         <input class="form-control" type="text" name="code">
                                     </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Discount Percentage</label>
+                                            <input type="number" class="form-control" name="discountPercentage">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Status</label>
                                         <select class="form-control" name="status">
@@ -38,6 +45,7 @@
                                                 Inactive
                                             </option>
                                         </select>
+                                    </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">

@@ -30,7 +30,7 @@
                                 <ul class="tab">
                                     <li><a id="defaultClick" href="#" class="tablinks active"
                                            onclick="openCity(event, 'London')">EMAIL</a></li>
-                                    <li><a id="finishStep" href="#" class="tablinks" onclick="openCity(event, 'Paris')">Finish</a>
+                                    <li><a id="finishStep" href="#" class="tablinks" onclick="openCity(event, 'Paris')">Preview</a>
                                     </li>
                                     <li class="hide"><a href="#" class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</a>
                                     </li>
