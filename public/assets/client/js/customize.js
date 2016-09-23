@@ -415,10 +415,12 @@ $(document).ready(function (e) {
             $('#setDiscountAmount').val(calcDiscunt);
             getDiscount = getDiscount + calcDiscunt;
             $('#DiscountAmount').text(getDiscount.toFixed(2));
+            $('#offerType').val('Discount');
             Cart.updateCart();
         },applyGiftCard: function () {
             $('#GiftCardAmount').text(Cart.giftAmount);
             $('#setGiftCardAmount').val(Cart.giftAmount);
+            $('#offerType').val('Gift');
             Cart.updateCart();
         }
     };

@@ -20,6 +20,7 @@
                     <!-- cart/save -->
                     <form method="post" class="form" action="<?php echo URL::to('cart/save') ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        <input type="hidden" id="offerType" value=""/>
                         <input type="hidden" id="setDiscountAmount" value="0"/>
                         <input type="hidden" id="setGiftCardAmount" value="0"/>
                         <div class="cart_listing_outer">

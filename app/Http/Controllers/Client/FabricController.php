@@ -202,7 +202,7 @@ class FabricController extends BaseController
                         $data[$getCount]['ProductName'] = $product[0]->Name;
                         $data[$getCount]['Price'] = $product[0]->Price;
                         $data[$getCount]['productID'] = $product[0]->ID;
-                        $data[0]['ProductCode'] = $product[0]->Code;
+                        $data[$getCount]['ProductCode'] = $product[0]->Code;
                         $data[$getCount]['Qty'] = Session::get('chooseQty')['Qty_' . $productId];
                     } else {
 

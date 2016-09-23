@@ -884,8 +884,23 @@
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
                                                     <label class="select">
+                                                        <input type="radio" name="pocketStyle" value="No Pocket" checked="checked">&nbsp;
+                                                    </label>
+                                                </div>
+                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                     alt="#"/>
+
+                                                <div class="customization_dropdown">
+                                                    <div class="customselect_customize">
+                                                        <span>No Pocket</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="customization_item">
+                                                <div class="artistProducer clearfix">
+                                                    <label>
                                                         <input type="radio" name="pocketStyle" value="Regular Pocket"
-                                                               checked="checked">&nbsp;
+                                                               >&nbsp;
                                                     </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
@@ -911,21 +926,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="customization_item">
-                                                <div class="artistProducer clearfix">
-                                                    <label>
-                                                        <input type="radio" name="pocketStyle" value="No Pocket">&nbsp;
-                                                    </label>
-                                                </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
-                                                     alt="#"/>
 
-                                                <div class="customization_dropdown">
-                                                    <div class="customselect_customize">
-                                                        <span>No Pocket</span>
-                                                    </div>
-                                                </div>
-                                            </div>
 
                                         </div>
                                         <div class="customize_rightSection">
@@ -947,7 +948,7 @@
                                                     tie-knot.</p>
                                             </div>
 
-                                            <div class="neck_dtail selectPocketNo">
+                                            <div class="neck_dtail selectPocketNo" style="display:none;">
                                                 <label>No. Of Pocket:</label>
 
                                                 <p>The neck measurement is taken around the neck with the
@@ -2452,13 +2453,12 @@
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
                                                 <div style="padding-bottom: 0px;" class="servicesTerm whiteCollar">
-                                                    <label class="active"><input name="whiteCollar" type="checkbox"
-                                                                                 value="1" checked></label>
+                                                    <label><input name="whiteCollar" type="checkbox"
+                                                                                 value="1"></label>
                                                     <p>White Collar</p>
                                                 </div>
                                                 <div style="padding-bottom: 0px;" class="servicesTerm whiteCuff">
-                                                    <label class="active"><input name="whiteCuff" type="checkbox"
-                                                                                 value="1" checked></label>
+                                                    <label><input name="whiteCuff" type="checkbox" value="1"></label>
                                                     <p>White Cuff</p>
                                                 </div>
                                                 <select style="margin-top: 4px;" name="shirtTailType">
