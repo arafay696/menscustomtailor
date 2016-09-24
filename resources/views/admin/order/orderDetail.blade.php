@@ -13,8 +13,8 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Order Detail - <?= (isset($orderDetail->GOrderNo)) ?
-                                $orderDetail->GOrderNo
+                        Order Detail - <?= (isset($orderDetail->OrderID)) ?
+                                $orderDetail->OrderID
                                 : '';
                         ?>
                     </div>
@@ -119,10 +119,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Order Detail - <?= (isset($orderDetail->GOrderNo)) ?
-                                $orderDetail->GOrderNo
-                                : '';
-                        ?>
+                        Order Detail
                     </div>
 
                     <div class="panel-body">

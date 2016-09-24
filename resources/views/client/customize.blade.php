@@ -383,9 +383,13 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
-                                                <input name="NeckSize" type="text"
-                                                       value="<?php echo (isset(Session::get('currentSize')['NeckSize']) && Session::get('currentSize')['NeckSize'] != "") ? Session::get('currentSize')['NeckSize'] : ""; ?>"
-                                                       placeholder="Neck size in/ cm"/>
+                                                <h3 class="detailHeading1">Neck Size Inches</h3>
+                                                <select size="1" name="NeckSize">
+                                                    <?php foreach ($NeckSize as $key => $np) { ?>
+                                                    <option <?php echo (isset(Session::get('currentSize')['NeckSize'])) && Session::get('currentSize')['NeckSize'] == $np ? "selected=selected" : ""; ?> value="<?=$np;?>"><?=$np;?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                <h3 class="detailHeading2">Select Neck Height</h3>
                                                 <select style="margin-top: 4px;" name="NeckHeight">
                                                     <option>Select Neck Height</option>
                                                     <option value="Short" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Short") ? "selected='selected'" : "" ?>>
@@ -601,6 +605,7 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
+                                                <h3 class="detailHeading1">Select Sleeve Length</h3>
                                                 <select title="Sleeve Length" name="sleeveLength">
                                                     <option value="">Select Sleeve Length</option>
                                                     <option value="24" <?php echo (isset(Session::get('currentSize')['LeftSleeve']) && Session::get('currentSize')['LeftSleeve'] == "24") ? "selected='selected'" : "" ?>>
@@ -955,6 +960,7 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
+                                                <h3 class="detailHeading1">Select No. Of Pocket</h3>
                                                 <select size="1" name="noOfPocket">
                                                     <?php foreach ($NoOfPockets as $key => $np) { ?>
                                                     <option value="<?=$key;?>"><?=$np;?></option>
@@ -1045,14 +1051,17 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
+                                                <h3 class="detailHeading1">Monogram Initials</h3>
                                                 <input name="monogramIntials" type="text" maxlength="3" value=""
-                                                       placeholder="Monogram Intials"/>
+                                                       placeholder="Monogram Initials"/>
+                                                <h3 class="detailHeading2">Monogram Color</h3>
                                                 <select style="margin-top: 4px;" name="monogramColor">
                                                     <option selected="" value="">Select Monogram Color</option>
                                                     <option>Black</option>
                                                     <option>Brown</option>
                                                     <option>White</option>
                                                 </select>
+                                                <h3 class="detailHeading2">Monogram Location</h3>
                                                 <select style="margin-top: 4px;" name="monogramLocation">
                                                     <option selected="" value="">Select Monogram Location</option>
                                                     <option>Cuff</option>
@@ -1103,6 +1112,7 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
+                                                <h3 class="detailHeading1">Select Chest Size</h3>
                                                 <select name="Chest">
                                                     <option>Select Chest Size</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['Chest']) && Session::get('currentSize')['Chest'] == "30") ? "selected='selected'" : "" ?> value="30">
@@ -1670,6 +1680,7 @@
                                                         76 3/4
                                                     </option>
                                                 </select>
+                                                <h3 class="detailHeading2">Select Chest Description</h3>
                                                 <select style="margin-top: 4px;" name="ChestDescription">
                                                     <option>Select Chest Description</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['ChestDescription']) && Session::get('currentSize')['ChestDescription'] == "Slender") ? "selected='selected'" : "" ?> value="Slender">
@@ -1729,6 +1740,7 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
+                                                <h3 style="width:190px;float:left;" class="detailHeading1">Select Height Feet</h3>
                                                 <select style="display: inline-block; clear: none; width: 50%; float: left;"
                                                         name="HeightFeet">
                                                     <option selected="">Height Feet</option>
@@ -1754,6 +1766,7 @@
                                                         9
                                                     </option>
                                                 </select>
+                                                <h3 class="detailHeading2">Select Height Inches</h3>
                                                 <select name="HeightInches" size="1"
                                                         style="display: inline-block; clear: none; margin-left: 2px; width: 49% !important;">
                                                     <option value="0" selected="">Height Inches</option>
@@ -1791,6 +1804,7 @@
                                                         11
                                                     </option>
                                                 </select>
+                                                <h3 class="detailHeading2">Select Weight</h3>
                                                 <select style="margin-top: 4px;" title="Weight" size="1" name="Weight">
                                                     <option value="">Select Weight</option>
                                                     <?php
@@ -1801,6 +1815,7 @@
                                                     </option>
                                                     <?php } ?>
                                                 </select>
+                                                <h3 class="detailHeading2">Select Waist</h3>
                                                 <select style="margin-top: 4px;" title="Waist" size="1" name="Waist">
                                                     <option value="">Select Waist</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['Waist']) && Session::get('currentSize')['Waist'] == "24") ? "selected='selected'" : "" ?> value="24">
@@ -2340,6 +2355,7 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
+                                                <h3 class="detailHeading1">Select Posture</h3>
                                                 <select name="Posture">
                                                     <option selected="" value="">Posture</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['Posture']) && Session::get('currentSize')['Posture'] == "Flat") ? "selected='selected'" : "" ?> value="Flat">
@@ -2355,6 +2371,7 @@
                                                         Stout
                                                     </option>
                                                 </select>
+                                                <h3 class="detailHeading2">Select Arm Type</h3>
                                                 <select name="ArmType" style="margin-top: 4px;">
                                                     <option selected="" value="">Select Arm Type</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['ArmType']) && Session::get('currentSize')['ArmType'] == "Slender") ? "selected='selected'" : "" ?> value="Slender">
@@ -2370,6 +2387,7 @@
                                                         Heavy
                                                     </option>
                                                 </select>
+                                                <h3 class="detailHeading2">Select Body Shape</h3>
                                                 <select style="margin-top: 4px;" title="Weight" size="1"
                                                         name="BodyShape">
                                                     <option selected="" value="">Select Body Shape</option>
@@ -2383,6 +2401,7 @@
                                                         Portly
                                                     </option>
                                                 </select>
+                                                <h3 class="detailHeading2">Select Body Proportion</h3>
                                                 <select style="margin-top: 4px;" title="Waist" size="1"
                                                         name="BodyProportion">
                                                     <option selected="" value="">Select Body proportion</option>
@@ -2396,6 +2415,7 @@
                                                         Long Torso / Short Legs
                                                     </option>
                                                 </select>
+                                                <h3 class="detailHeading2">Select Shoulder Type</h3>
                                                 <select style="margin-top: 4px;" title="Waist" size="1"
                                                         name="Shoulder">
                                                     <option selected="" value="">Select Shoulder Type</option>
@@ -2461,8 +2481,9 @@
                                                     <label><input name="whiteCuff" type="checkbox" value="1"></label>
                                                     <p>White Cuff</p>
                                                 </div>
+                                                <h3 class="detailHeading2">Select Fit Type</h3>
                                                 <select style="margin-top: 4px;" name="shirtTailType">
-                                                    <option selected="" value="">Shirt Tail Type</option>
+                                                    <option selected="" value="">Select Fit Type</option>
                                                     <option value="Full Cut">Full Cut</option>
                                                     <option value="Traditional Cut">Traditional Cut</option>
                                                     <option value="Trim Fit">Trim Fit</option>

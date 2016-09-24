@@ -37,7 +37,7 @@
                                 <tr style="background-color: <?php echo ($order->StatusText == 'New Order') ? ($order->OrderType == 'Customer') ? '#ffdfbf' : '' : '#DFFFDF'; ?>">
                                     <td class="center" style="text-decoration: underline;">
                                         <a href="<?php echo URL::to('admin/order/' . $order->OrderID . '/' . $order->CustomerID . '') ?>">
-                                            <?=$order->GOrderNo;?>
+                                            <?=$order->OrderID;?>
                                         </a>
                                     </td>
                                     <td class="center">

@@ -87,6 +87,21 @@ trait CommonFunction
             ),
             'Label' => array(
                 'MCT Label', 'Customer Name Label', 'No Label'
+            ),
+            'NeckSize' => array(
+                "12","12 &frac14;","12 &frac12;","12 &frac34;",
+                "13","13 &frac14;","13 &frac12;","13 &frac34;",
+                "14","14 &frac14;","14 &frac12;","14 &frac34;",
+                "15","15 &frac14;","15 &frac12;","15 &frac34;",
+                "16","16 &frac14;","16 &frac12;","16 &frac34;",
+                "17","17 &frac14;","17 &frac12;","17 &frac34;",
+                "18","18 &frac14;","18 &frac12;","18 &frac34;",
+                "19","19 &frac14;","19 &frac12;","19 &frac34;",
+                "20","20 &frac14;","20 &frac12;","20 &frac34;",
+                "21","21 &frac14;","21 &frac12;","21 &frac34;",
+                "22","22 &frac14;","22 &frac12;","22 &frac34;",
+                "23","23 &frac14;","23 &frac12;","23 &frac34;",
+                "24","24 &frac14;","24 &frac12;","24 &frac34;",
             )
         );
 

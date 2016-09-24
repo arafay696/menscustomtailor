@@ -86,6 +86,7 @@ class OrderController extends BaseController
         if (!Auth::check()) {
             return Redirect::to('admin/auth/login');
         }
+
         try {
 
             $orderDetail = DB::table('orders as o')

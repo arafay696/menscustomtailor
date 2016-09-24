@@ -216,7 +216,8 @@ class FabricController extends BaseController
         $sendData = array(
             'productID' => $choosen,
             'cartData' => $this->getCartData(),
-            'NoOfPockets' => $this->getData('NoOfPockets')
+            'NoOfPockets' => $this->getData('NoOfPockets'),
+            'NeckSize' => $this->getData('NeckSize'),
         );
         $itemSelected = $this->getCartData();
         //dd($itemSelected);
