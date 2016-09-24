@@ -21,8 +21,17 @@
                             <div class="login_dtail" style="<?=(Session::has('registered')) ? 'width:100%' : '';?>">
                                 <h4>Returning customer? </h4>
 
+                                @if(!Session::has('registered'))
                                 <p>If you have shopped with us before, please enter your details in the boxes below. If
                                     you are a new customer please proceed to the Billing &amp; Shipping section.</p>
+                                @endif
+
+                                @if(Session::has('registered'))
+                                <p>Thank you for registering with Men's Custom Tailor, you can now login and
+                                continue with your custom clothing experience.</p>
+                                @endif
+
+
 
                                 <div class="login_form">
                                     <ul>
@@ -35,7 +44,7 @@
 
 
                                 <div class="login_pasww clearfix">
-                                    <input type="submit" value="Login"/>
+                                    <input type="submit" value="<?= (!Session::has('registered')) ? 'Login' : 'Continue'; ?>"/>
                                     <a href="#">Lost your password?</a>
                                 </div>
                             </div>

@@ -361,10 +361,18 @@ class CartController extends BaseController
     public function checkout()
     {
         $CartData = $this->getCartData();
+        $userId = Session::get('CustomerID');
+        // Get Customer Detail
+        $getUserDetail = DB::table('customers')
+            ->select('*')
+            ->where("ID", "=", $userId)
+            ->first();
+
         //dd($CartData);
         $data = array(
             'CartData' => $CartData,
-            'ShipCharges' => Session::get('ShipCharges')
+            'ShipCharges' => Session::get('ShipCharges'),
+            'Customer' => $getUserDetail
         );
         return view('client/checkout', $data);
     }

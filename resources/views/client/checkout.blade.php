@@ -61,27 +61,33 @@
                                         <li class="clearfix">
                                             <div class="custom_chkout_input">
                                                 <label>FIRST NAME *</label>
-                                                <input name="FirstName" type="text" value="" placeholder=""/>
+                                                <input name="FirstName" type="text" value="<?=$Customer->Name;?>" placeholder=""/>
                                             </div>
                                             <div class="custom_chkout_input">
                                                 <label>LAST NAME *</label>
-                                                <input name="LastName" type="text" value="" placeholder=""/>
+                                                <input name="LastName" type="text" value="<?=$Customer->Name;?>" placeholder=""/>
                                             </div>
                                         </li>
                                         <li class="clearfix">
                                             <div class="custom_chkout_input">
                                                 <label>EMAIL ADDRESS *</label>
-                                                <input name="Email" type="email" value="" placeholder=""/>
+                                                <input name="Email" type="email" value="<?=$Customer->Email;?>" placeholder=""/>
                                             </div>
                                             <div class="custom_chkout_input">
                                                 <label>PHONE *</label>
-                                                <input name="Phone" type="text" value="" placeholder=""/>
+                                                <input name="Phone" type="text" value="<?=$Customer->Phone;?>" placeholder=""/>
                                             </div>
                                         </li>
                                         <li class="clearfix single_list">
                                             <div class="custom_chkout_input">
                                                 <label>ADDRESS * *</label>
-                                                <input name="Address" type="text" value="" placeholder=""/>
+                                                <input name="Address" type="text" value="<?=$Customer->Address;?>" placeholder=""/>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix single_list">
+                                            <div class="custom_chkout_input">
+                                                <label>Country *</label>
+                                                <input name="Country" type="text" value="<?=$Customer->Country;?>" placeholder=""/>
                                             </div>
                                         </li>
 
@@ -153,7 +159,7 @@
                                             ?>
                                             <li class="clearfix">
                                                 <p><?=$item['ProductName'];?>(<?=$item['Qty'];?>)</p>
-                                                <strong>
+                                                <strong class="numberFont">
                                                     $
                                                     <?php
                                                     $pr = $item['Price'] * $item['Qty'];
@@ -167,15 +173,15 @@
                                             ?>
                                             <li class="clearfix">
                                                 <h5>Cart Subtotal</h5>
-                                                <h6>$<?=number_format($TotalPrice, 2);?></h6>
+                                                <h6 class="numberFont">$<?=number_format($TotalPrice, 2);?></h6>
                                             </li>
                                             <li class="clearfix">
                                                 <p>Shipping</p>
-                                                <strong>$<?=$ShipCharges;?></strong>
+                                                <strong class="numberFont">$<?=$ShipCharges;?></strong>
                                             </li>
                                             <li class="clearfix">
                                                 <h5>Order Total</h5>
-                                                <h6>$<?=number_format($TotalPrice+$ShipCharges, 2);?></h6>
+                                                <h6 class="numberFont">$<?=number_format($TotalPrice+$ShipCharges, 2);?></h6>
                                             </li>
                                         </ul>
                                     </div>
