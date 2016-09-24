@@ -6,6 +6,11 @@ $(document).ready(function (e) {
         if ($(this).hasClass('customselectPriceSort')) {
             menuVal = "Price";
         }
+
+        if ($(this).hasClass('cs')) {
+            var idIs = $(this).attr('id');
+            menuVal = $('#'+idIs + " option:selected").text();
+        }
         $(this).parent().find('span').text(menuVal);
         return false
     });
@@ -16,6 +21,7 @@ $(document).ready(function (e) {
         $(this).parent().find('span').text(menuVal);
         return false
     })
+
 
     $(".cart_div a").click(function () {
         $(".mobile_cart_section").slideToggle();

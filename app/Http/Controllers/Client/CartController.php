@@ -197,8 +197,17 @@ class CartController extends BaseController
             // Get Price,Amount & Other Charges
             $OrderDetailItems = $request::except('_token');
             $shippingCharges = $OrderDetailItems['ShippingHidden'];
+
             Session::put('ShipCharges', 0);
             Session::put('ShipCharges', $shippingCharges);
+
+            // Check discount
+            $getDiscountType  = $request::get('offerType');
+            $discount = (!empty($getDiscountType) && $getDiscountType != "") ? $request::get('setDiscountAmount') : 0;
+
+            Session::put('DiscountType', $getDiscountType);
+            Session::put('Discount', $discount);
+
             /*
              * --- Save Order
              * */
@@ -211,7 +220,7 @@ class CartController extends BaseController
             $orderDetail['Price'] = $OrderDetailItems['Amount'];
             $orderDetail['OtherItem'] = '';
             $orderDetail['SalesTax'] = 0;
-            $orderDetail['Discount'] = 0;
+            $orderDetail['Discount'] = $discount;
             $orderDetail['Shiping'] = $OrderDetailItems['ShippingHidden'];
             $orderDetail['Deal'] = '';
             $orderDetail['Mono'] = 0;
@@ -227,7 +236,7 @@ class CartController extends BaseController
             $orderDetail['Sleeve'] = '';
             $orderDetail['Tail'] = '';
             $orderDetail['DiffCollar'] = ($this->checkOption($data, 'whiteCollar')) ? 5 : 0;
-            $orderDetail['Amount'] = $OrderDetailItems['Amount'] + $OrderDetailItems['ShippingHidden'];
+            $orderDetail['Amount'] = $OrderDetailItems['Amount'] + $OrderDetailItems['ShippingHidden'] + $discount;
             $orderDetail['Paid'] = 0;
             $orderDetail['TransferTo'] = $CustomerName;
             $orderDetail['Status'] = 2;
@@ -368,11 +377,21 @@ class CartController extends BaseController
             ->where("ID", "=", $userId)
             ->first();
 
+        $DiscountType = Session::get('DiscountType');
+        $Discount = Session::get('Discount');
+        $goToPaypal = true;
+        $getTotal = $this->getTotal();
+        if($getTotal <= $Discount){
+            $goToPaypal = true;
+        }else{
+            $goToPaypal = false;
+        }
+
         //dd($CartData);
         $data = array(
             'CartData' => $CartData,
             'ShipCharges' => Session::get('ShipCharges'),
-            'Customer' => $getUserDetail
+            'Customer' => $getUserDetail,
         );
         return view('client/checkout', $data);
     }

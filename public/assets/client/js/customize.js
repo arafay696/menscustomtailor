@@ -48,12 +48,14 @@ $(document).ready(function (e) {
             $(this).find('.fa').addClass('fa-check').removeClass('fa-times');
             $(this).addClass('makeAllSameActive').removeClass('makeAllSameInactive');
             $('.swathces_images li').addClass('activeSwatchAllSame');
+            $('.active_swatch').addClass('dummy').removeClass('active_swatch');
             $('#makeSame').val('yes');
         } else {
             //$(this).text('Make All Same');
             $(this).find('.fa').addClass('fa-times').removeClass('fa-check');
             $(this).addClass('makeAllSameInactive').removeClass('makeAllSameActive');
             $('.swathces_images li').removeClass('activeSwatchAllSame');
+            $('.dummy').addClass('active_swatch').removeClass('dummy');
             $('#makeSame').val('no');
         }
 
@@ -419,7 +421,7 @@ $(document).ready(function (e) {
             Cart.updateCart();
         },applyGiftCard: function () {
             $('#GiftCardAmount').text(Cart.giftAmount);
-            $('#setGiftCardAmount').val(Cart.giftAmount);
+            $('#setDiscountAmount').val(Cart.giftAmount);
             $('#offerType').val('Gift');
             Cart.updateCart();
         }
@@ -438,6 +440,20 @@ $(document).ready(function (e) {
         Cart.ShipMethod = $(this).val();
         $('#ShippingMethodHidden').val($(this).val());
         Cart.updateCart();
+    });
+
+    // Change Country in Cart
+    $('#slctCountry').change(function (e) {
+        var cntry = $(this).val();
+        if(cntry == 'US'){
+            $('#ShipMethod option[value="USPS Priority"]').prop('disabled',false);
+            $('#ShipMethod option[value="USPS Next Day"]').prop('disabled',false);
+            $('#ShipMethod option[value="International Global Priority"]').prop('disabled',true);
+        }else{
+            $('#ShipMethod option[value="USPS Priority"]').prop('disabled',true);
+            $('#ShipMethod option[value="USPS Next Day"]').prop('disabled',true);
+            $('#ShipMethod option[value="International Global Priority"]').prop('disabled',false);
+        }
     });
 
     $('.updateCart').click(function () {

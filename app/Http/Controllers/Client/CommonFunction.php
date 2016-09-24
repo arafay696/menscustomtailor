@@ -41,6 +41,18 @@ trait CommonFunction
         Session::forget('ProcessOrderId');
     }
 
+    public function getTotal(){
+        $data = $this->getCartData();
+        $total = 0;
+        foreach ($data as $key => $rs) {
+            if ($rs['Price'] > 0) {
+                $total += ($rs['Price'] * $rs['Qty']);
+            }
+        }
+
+        return $total;
+    }
+
     public function findInArrayByValue($findValue, $findColumn, $array)
     {
         if (count($array) > 0) {
