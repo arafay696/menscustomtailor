@@ -48,10 +48,13 @@
                         </div>
                     </div>
 
-                    <form method="post" class="form" action="<?php echo URL::to('payment') ?>">
+                    <form method="post" class="form" action="<?php echo URL::to(($goToPaypal) ? 'payment' : 'finish') ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <input id="ShippingHidden" type="hidden" name="ShippingHidden"
                                value="<?=$ShipCharges;?>">
+                        <input type="hidden" name="offerType" id="offerType" value="<?=$discountType;?>"/>
+                        <input type="hidden" name="setDiscountAmount" value="<?=$discountAmount;?>"/>
+
                         <div class="login_register_outer borderBlack clearfix">
                             <div class="login_dtail">
                                 <h4>BILLING DETAILS</h4>
@@ -105,6 +108,7 @@
                                         <textarea name="Comments"></textarea>
                                     </div>
 
+                                    <?php if($goToPaypal){ ?>
                                     <h4>payment</h4>
                                     <div class="check_oyr_paypal">
                                         <div class="hide artistProducer clearfix">
@@ -118,6 +122,7 @@
                                             </div>
                                         </div>
 
+
                                         <div class="artistProducer clearfix">
                                             <label class="select">
                                                 <input type="radio" name="ShipMethod" value="PayPal " checked="checked">
@@ -126,11 +131,16 @@
                                                         alt="#"/>
                                             </label>
                                         </div>
+
                                     </div>
+                                    <?php } ?>
 
 
                                     <div class="placeOrder">
-                                        <button type="submit">Place order</button>
+                                        <button type="submit">
+                                           <?php echo ($goToPaypal) ?
+                                                    'Place order' : 'Finish'; ?>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -175,13 +185,17 @@
                                                 <h5>Cart Subtotal</h5>
                                                 <h6 class="numberFont">$<?=number_format($TotalPrice, 2);?></h6>
                                             </li>
+                                            <li class="<?= ($showDiscountField) ? '' : 'hide';?>">
+                                                <h5><?=$discountType;?></h5>
+                                                <h6 class="numberFont">-$<?=number_format($discountAmount, 2);?></h6>
+                                            </li>
                                             <li class="clearfix">
                                                 <p>Shipping</p>
                                                 <strong class="numberFont">$<?=$ShipCharges;?></strong>
                                             </li>
                                             <li class="clearfix">
                                                 <h5>Order Total</h5>
-                                                <h6 class="numberFont">$<?=number_format($TotalPrice+$ShipCharges, 2);?></h6>
+                                                <h6 class="numberFont">$<?=number_format(($TotalPrice-$discountAmount)+$ShipCharges, 2);?></h6>
                                             </li>
                                         </ul>
                                     </div>

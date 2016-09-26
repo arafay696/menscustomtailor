@@ -59,7 +59,7 @@ class CartController extends BaseController
         $discounts = DB::table('giftcards')
             ->select('*')
             ->where('coupon_code', '=', $discountCoupon)
-            ->where('Status', '=', 1)
+            ->where('status', '=', 1)
             ->first();
 
         if (count($discounts) > 0) {
@@ -207,6 +207,7 @@ class CartController extends BaseController
 
             Session::put('DiscountType', $getDiscountType);
             Session::put('Discount', $discount);
+            Session::put('CouponCode', $request::get('setCoupon'));
 
             /*
              * --- Save Order
@@ -379,19 +380,26 @@ class CartController extends BaseController
 
         $DiscountType = Session::get('DiscountType');
         $Discount = Session::get('Discount');
+
         $goToPaypal = true;
         $getTotal = $this->getTotal();
-        if($getTotal <= $Discount){
-            $goToPaypal = true;
-        }else{
+        if($Discount >= $getTotal){
             $goToPaypal = false;
+        }else{
+            $goToPaypal = true;
         }
 
-        //dd($CartData);
+        $showDiscountField = ($DiscountType != "") ? true : false;
+
+        //dd($goToPaypal);
         $data = array(
             'CartData' => $CartData,
             'ShipCharges' => Session::get('ShipCharges'),
             'Customer' => $getUserDetail,
+            'goToPaypal' => $goToPaypal,
+            'showDiscountField' => $showDiscountField,
+            'discountAmount' => $Discount,
+            'discountType' =>($DiscountType == 'Discount') ? 'Discount' : 'Gift Card Discount'
         );
         return view('client/checkout', $data);
     }

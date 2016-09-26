@@ -22,6 +22,7 @@
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <input type="hidden" name="offerType" id="offerType" value=""/>
                         <input type="hidden" name="setDiscountAmount" id="setDiscountAmount" value="0"/>
+                        <input type="hidden" name="setCoupon" id="setCoupon" value=""/>
                         <div class="cart_listing_outer">
                             <div class="cart_listing_head clearfix">
                                 <div class="empty_colmn">&nbsp;</div>

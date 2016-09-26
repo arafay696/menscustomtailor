@@ -191,6 +191,59 @@ class PayPalController extends BaseController
         }
     }
 
+    public function finish(Request $request){
+        $orderID = Session::get('ProcessOrderId');
+        DB::setFetchMode(\PDO::FETCH_ASSOC);
+        $getOrder = DB::table('orders')->where('ID', $orderID)
+            ->get();
+        DB::setFetchMode(\PDO::FETCH_CLASS);
+
+        $updatedata = array();
+        foreach ($getOrder as $data) {
+            $updatedata = $data;
+            $updatedata['CustomerName'] = $request::get('FirstName') . ' ' . $request::get('LastName');
+            $updatedata['ShippingAddress'] = $request::get('Address');
+            $updatedata['Comments'] = $request::get('Comments');
+            $updatedata['Status'] = 1;
+            $updatedata['Paid'] = Session::get('TotalAmountIS');
+        }
+
+
+        DB::table('orders')
+            ->where('ID', $orderID)
+            ->update($updatedata);
+
+        $DiscountType = Session::get('DiscountType');
+        $coupon = Session::get('CouponCode');
+        //echo $DiscountType . $coupon; exit;
+        if($DiscountType == 'Gift'){
+            $giftcards = DB::table('giftcards')
+                ->select('*')
+                ->where('coupon_code', '=', $coupon)
+                ->where('status', '=', 1)
+                ->first();
+
+            $usedAmount = 0;
+            $updateGdata = array();
+            if($this->getTotal() <= $giftcards->amount){
+                $usedAmount = $giftcards->amount - $this->getTotal();
+                $updateGdata['status'] = 1;
+            }else{
+                $usedAmount = 0;
+                $updateGdata['status'] = 2;
+            }
+            $updateGdata['amount'] = $usedAmount;
+            DB::table('giftcards')
+                ->where('coupon_code', $coupon)
+                ->update($updateGdata);
+        }
+
+        $this->emptyCart();
+        Session::flash('globalSuccessMsg', 'Order Successfull :) Thank you for your order.');
+        Session::flash('alert-class', 'alert-success');
+        return Redirect::to('/');
+
+    }
     public function postPayment(Request $request)
     {
         $orderID = Session::get('ProcessOrderId');
@@ -232,7 +285,8 @@ class PayPalController extends BaseController
             }
         }
 
-        Session::put('TotalAmountIS', $total);
+        $total -= (float)$request::get('setDiscountAmount');
+
         /*$item_1 = new Item();
         $item_1->setName('Item 1')// item name
         ->setCurrency('USD')
@@ -251,17 +305,40 @@ class PayPalController extends BaseController
             ->setQuantity(1)
             ->setPrice('20');*/
 
+        if(!empty($request::get('offerType'))){
+            //dd($request::get('setDiscountAmount'));
+            $ds = new Item();
+            $ds->setName('Discount')
+                ->setCurrency('USD')
+                ->setQuantity(1)
+                ->setPrice('-'.$request::get('setDiscountAmount').''); // unit price
+            array_push($itemsArr, $ds);
+        }
+
+        //dd($itemsArr);
         $shipCharges = $request::get('ShippingHidden');
+
+        /*$item_2 = new Item();
+        $item_2->setName('Discount')
+            ->setCurrency('USD')
+            ->setQuantity(1)
+            ->setPrice('-5'); // unit price
+        array_push($itemsArr, $item_2);*/
 
         // add item to list
         $item_list = new ItemList();
         $item_list->setItems($itemsArr);
+
 
         $details = new Details();
         $details->setSubtotal($total)
             ->setShipping($shipCharges);
 
         $total = $total + $shipCharges;
+
+        Session::put('TotalAmountIS', $total);
+        //dd($this->getTotal()+$shipCharges-2);
+        //dd($total);
         $amount = new Amount();
         $amount->setCurrency('USD')
             ->setTotal($total)
@@ -345,7 +422,6 @@ class PayPalController extends BaseController
             exit; // DEBUG RESULT, remove it later*/
 
             if ($result->getState() == 'approved') { // payment made
-                $this->emptyCart();
 
                 // Change Status to Paid if Payment Complete
                 $updatedata = array();
@@ -355,7 +431,32 @@ class PayPalController extends BaseController
                     ->where('ID', Session::get('ProcessOrderId'))
                     ->update($updatedata);
 
-                Session::forget('ProcessOrderId');
+                $DiscountType = Session::get('DiscountType');
+                $coupon = Session::get('CouponCode');
+                //echo $DiscountType . $coupon; exit;
+                if($DiscountType == 'Gift'){
+                    $giftcards = DB::table('giftcards')
+                        ->select('*')
+                        ->where('coupon_code', '=', $coupon)
+                        ->where('status', '=', 1)
+                        ->first();
+
+                    $usedAmount = 0;
+                    $updateGdata = array();
+                    if($this->getTotal() <= $giftcards->amount){
+                        $usedAmount = $giftcards->amount - $this->getTotal();
+                        $updateGdata['status'] = 1;
+                    }else{
+                        $usedAmount = 0;
+                        $updateGdata['status'] = 2;
+                    }
+                    $updateGdata['amount'] = $usedAmount;
+                    DB::table('giftcards')
+                        ->where('coupon_code', $coupon)
+                        ->update($updateGdata);
+                }
+
+                $this->emptyCart();
                 Session::flash('globalSuccessMsg', 'Order Successfull :) Thank you for your order.');
                 Session::flash('alert-class', 'alert-success');
                 return Redirect::to('/');

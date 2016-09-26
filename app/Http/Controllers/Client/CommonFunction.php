@@ -39,6 +39,9 @@ trait CommonFunction
         Session::forget('TotalAmountIS');
         Session::forget('ShipCharges');
         Session::forget('ProcessOrderId');
+        Session::forget('DiscountType');
+        Session::forget('Discount');
+        Session::forget('CouponCode');
     }
 
     public function getTotal(){

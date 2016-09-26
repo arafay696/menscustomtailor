@@ -32,6 +32,7 @@ class OrderController extends BaseController
                 ->select('c.ID as CustomerID', 'o.ID as OrderID', 'o.OrderType', 'c.Name', 'o.GOrderNo', 'o.PlacedFor', 'o.OrderDate', 'o.PromiseDate', 'o.Price', 'o.Price', 'o.Paid', 'os.Name as OrderStatus', 'o.StatusText')
                 ->join('customers as c', 'o.CustomerID', '=', 'c.ID')
                 ->join('orderstatus as os', 'o.Status', '=', 'os.ID')
+                ->orderBy('o.OrderDate','DESC')
                 ->get();
 
             $data = array(

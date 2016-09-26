@@ -54,6 +54,9 @@ Route::post('payment', array(
     'uses' => 'Client\PayPalController@postPayment',
 ));
 
+Route::post('finish', 'Client\PayPalController@finish');
+
+
 // this is after make the payment, PayPal redirect back to your site
 Route::get('payment/status', array(
     'as' => 'payment.status',

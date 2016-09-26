@@ -491,7 +491,7 @@ $(document).ready(function (e) {
     $('#checkDiscountCoupon').click(function () {
         var code = $('#discountCoupon').val();
         var token = $('#_token').val();
-
+        $('#setCoupon').val(code);
         $.ajax({
             type: "POST",
             url: "" + baseUrl + "/verifyDiscountCoupon",
@@ -534,7 +534,7 @@ $(document).ready(function (e) {
     $('#checkGiftCardCoupon').click(function () {
         var code = $('#giftCoupon').val();
         var token = $('#_token').val();
-
+        $('#setCoupon').val(code);
         $.ajax({
             type: "POST",
             url: "" + baseUrl + "/verifyGiftCoupon",
