@@ -103,6 +103,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // ---------------- Orders
     Route::get('/gift-orders', 'OrderController@giftOrders');
     Route::get('/orders', 'OrderController@orders');
+    Route::get('/orderList', 'OrderController@orders');
     Route::get('/order/{orderID}/{customerID}', 'OrderController@orderDetail');
     Route::get('/order/new', 'OrderController@newOrderView');
     Route::get('/customer/size/{id}', 'OrderController@getSizeByCID');
