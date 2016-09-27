@@ -113,7 +113,8 @@ class FabricController extends BaseController
         $sendData = array(
             'productID' => $productId,
             'cartData' => $cartData,
-            'NoOfPockets' => $this->getData('NoOfPockets')
+            'NoOfPockets' => $this->getData('NoOfPockets'),
+            'NeckSize' => $this->getData('NeckSize')
         );
 
         return view('client.customize', $sendData);
