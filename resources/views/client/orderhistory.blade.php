@@ -56,7 +56,7 @@
                                         <h5><?php echo date('d F Y', strtotime($order->DeliveryDate));?></h5>
                                     </div>
                                     <div class="bttnz_two">
-                                        <a style="display: none !important;" href="javascript:void(0)"> Return Order</a>
+                                        <a href="<?php echo URL::to('pdf');?>"> PDF</a>
                                         <a style="display: none !important;" href="javascript:void(0)">Re Order</a>
                                         <a href="<?= URL::to('order/detail/'.$order->ID.'');?>">Detail</a>
                                     </div>

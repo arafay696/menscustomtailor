@@ -23,7 +23,7 @@
                     <div class="cart_head clearfix customize_setting">
                         <h3>CUSTOMIZE Your Shirts <i class="fa fa-spinner fa-spin savingCustomize"
                                                      style="display:none;"></i></h3>
-                        <div class="actions">
+                        <div class="actions_customize actions clearfix">
                             <a class="nextSection" href="javascript:void(0);" style="margin-right: 2px">Next</a>
                             <a class="previousSection" href="javascript:void(0);" style="">Previous</a>
                         </div>
@@ -391,7 +391,6 @@
                                                 </select>
                                                 <h3 class="detailHeading2">Select Neck Height</h3>
                                                 <select style="margin-top: 4px;" name="NeckHeight">
-                                                    <option>Select Neck Height</option>
                                                     <option value="Short" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Short") ? "selected='selected'" : "" ?>>
                                                         Short
                                                     </option>
@@ -607,7 +606,6 @@
                                                     some extra room.</p>
                                                 <h3 class="detailHeading1">Select Sleeve Length</h3>
                                                 <select title="Sleeve Length" name="sleeveLength">
-                                                    <option value="">Select Sleeve Length</option>
                                                     <option value="24" <?php echo (isset(Session::get('currentSize')['LeftSleeve']) && Session::get('currentSize')['LeftSleeve'] == "24") ? "selected='selected'" : "" ?>>
                                                         24
                                                     </option>
@@ -1056,14 +1054,12 @@
                                                        placeholder="Monogram Initials"/>
                                                 <h3 class="detailHeading2">Monogram Color</h3>
                                                 <select style="margin-top: 4px;" name="monogramColor">
-                                                    <option selected="" value="">Select Monogram Color</option>
                                                     <option>Black</option>
                                                     <option>Brown</option>
                                                     <option>White</option>
                                                 </select>
                                                 <h3 class="detailHeading2">Monogram Location</h3>
                                                 <select style="margin-top: 4px;" name="monogramLocation">
-                                                    <option selected="" value="">Select Monogram Location</option>
                                                     <option>Cuff</option>
                                                     <option>Chest</option>
                                                     <option>Pocket</option>
@@ -1114,7 +1110,6 @@
                                                     some extra room.</p>
                                                 <h3 class="detailHeading1">Select Chest Size</h3>
                                                 <select name="Chest">
-                                                    <option>Select Chest Size</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['Chest']) && Session::get('currentSize')['Chest'] == "30") ? "selected='selected'" : "" ?> value="30">
                                                         30
                                                     </option>
@@ -1682,7 +1677,6 @@
                                                 </select>
                                                 <h3 class="detailHeading2">Select Chest Description</h3>
                                                 <select style="margin-top: 4px;" name="ChestDescription">
-                                                    <option>Select Chest Description</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['ChestDescription']) && Session::get('currentSize')['ChestDescription'] == "Slender") ? "selected='selected'" : "" ?> value="Slender">
                                                         Slender
                                                     </option>
@@ -1743,7 +1737,6 @@
                                                 <h3 style="width:190px;float:left;" class="detailHeading1">Select Height Feet</h3>
                                                 <select style="display: inline-block; clear: none; width: 50%; float: left;"
                                                         name="HeightFeet">
-                                                    <option selected="">Height Feet</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['HeightFeet']) && Session::get('currentSize')['HeightFeet'] == "3") ? "selected='selected'" : "" ?> value="3">
                                                         3
                                                     </option>
@@ -1769,7 +1762,6 @@
                                                 <h3 class="detailHeading2">Select Height Inches</h3>
                                                 <select name="HeightInches" size="1"
                                                         style="display: inline-block; clear: none; margin-left: 2px; width: 49% !important;">
-                                                    <option value="0" selected="">Height Inches</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['HeightInches']) && Session::get('currentSize')['HeightInches'] == "1") ? "selected='selected'" : "" ?> value="1">
                                                         1
                                                     </option>
@@ -1806,7 +1798,6 @@
                                                 </select>
                                                 <h3 class="detailHeading2">Select Weight</h3>
                                                 <select style="margin-top: 4px;" title="Weight" size="1" name="Weight">
-                                                    <option value="">Select Weight</option>
                                                     <?php
                                                     for($i = 90;$i <= 450;$i++) {
                                                     ?>
@@ -1817,7 +1808,6 @@
                                                 </select>
                                                 <h3 class="detailHeading2">Select Waist</h3>
                                                 <select style="margin-top: 4px;" title="Waist" size="1" name="Waist">
-                                                    <option value="">Select Waist</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['Waist']) && Session::get('currentSize')['Waist'] == "24") ? "selected='selected'" : "" ?> value="24">
                                                         24
                                                     </option>
@@ -2357,7 +2347,6 @@
                                                     some extra room.</p>
                                                 <h3 class="detailHeading1">Select Posture</h3>
                                                 <select name="Posture">
-                                                    <option selected="" value="">Posture</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['Posture']) && Session::get('currentSize')['Posture'] == "Flat") ? "selected='selected'" : "" ?> value="Flat">
                                                         Flat
                                                     </option>
@@ -2373,7 +2362,6 @@
                                                 </select>
                                                 <h3 class="detailHeading2">Select Arm Type</h3>
                                                 <select name="ArmType" style="margin-top: 4px;">
-                                                    <option selected="" value="">Select Arm Type</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['ArmType']) && Session::get('currentSize')['ArmType'] == "Slender") ? "selected='selected'" : "" ?> value="Slender">
                                                         Slender
                                                     </option>
@@ -2390,7 +2378,6 @@
                                                 <h3 class="detailHeading2">Select Body Shape</h3>
                                                 <select style="margin-top: 4px;" title="Weight" size="1"
                                                         name="BodyShape">
-                                                    <option selected="" value="">Select Body Shape</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['BodyShape']) && Session::get('currentSize')['BodyShape'] == "Average") ? "selected='selected'" : "" ?> value="Average">
                                                         Average
                                                     </option>
@@ -2404,7 +2391,6 @@
                                                 <h3 class="detailHeading2">Select Body Proportion</h3>
                                                 <select style="margin-top: 4px;" title="Waist" size="1"
                                                         name="BodyProportion">
-                                                    <option selected="" value="">Select Body proportion</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['BodyProportion']) && Session::get('currentSize')['BodyProportion'] == "Evenly Proportioned") ? "selected='selected'" : "" ?> value="Evenly Proportioned">
                                                         Evenly Proportioned
                                                     </option>
@@ -2418,7 +2404,6 @@
                                                 <h3 class="detailHeading2">Select Shoulder Type</h3>
                                                 <select style="margin-top: 4px;" title="Waist" size="1"
                                                         name="Shoulder">
-                                                    <option selected="" value="">Select Shoulder Type</option>
                                                     <option <?php echo (isset(Session::get('currentSize')['Shoulder']) && Session::get('currentSize')['Shoulder'] == "Sloping") ? "selected='selected'" : "" ?> value="Sloping">
                                                         Sloping
                                                     </option>
@@ -2483,7 +2468,6 @@
                                                 </div>
                                                 <h3 class="detailHeading2">Select Fit Type</h3>
                                                 <select style="margin-top: 4px;" name="shirtTailType">
-                                                    <option selected="" value="">Select Fit Type</option>
                                                     <option value="Full Cut">Full Cut</option>
                                                     <option value="Traditional Cut">Traditional Cut</option>
                                                     <option value="Trim Fit">Trim Fit</option>
@@ -2500,7 +2484,11 @@
                 </div>
             </div>
         </div>
-        <button id="myBtn" class="hide">Open Modal</button>
+
+    </div>
+    <div class="responsive_next_prev actions clearfix">
+        <a class="nextSection" href="javascript:void(0);" style="margin-right: 2px">Next</a>
+        <a class="previousSection" href="javascript:void(0);" style="">Previous</a>
     </div>
     <!-- The Modal -->
     <div id="myModal" class="modal">

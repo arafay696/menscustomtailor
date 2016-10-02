@@ -494,4 +494,8 @@ class UserController extends BaseController
 
         }
     }
+
+    public function saveToPDF(){
+        echo 'Pending.......';
+    }
 }

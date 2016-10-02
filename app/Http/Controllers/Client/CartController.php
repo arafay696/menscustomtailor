@@ -208,7 +208,7 @@ class CartController extends BaseController
             Session::put('DiscountType', $getDiscountType);
             Session::put('Discount', $discount);
             Session::put('CouponCode', $request::get('setCoupon'));
-
+            Session::put('TotalAmountIS', $OrderDetailItems['Amount'] + $OrderDetailItems['ShippingHidden'] + $discount);
             /*
              * --- Save Order
              * */
@@ -379,6 +379,7 @@ class CartController extends BaseController
             ->first();
 
         $DiscountType = Session::get('DiscountType');
+        //dd($DiscountType);
         $Discount = Session::get('Discount');
 
         $goToPaypal = true;
@@ -390,8 +391,9 @@ class CartController extends BaseController
         }
 
         $showDiscountField = ($DiscountType != "") ? true : false;
-
-        //dd($goToPaypal);
+        //$DiscountType = 'Gift';
+        $DiscountType = ($DiscountType !== "" && $DiscountType !== 'Discount') ? 'Gift Card Discount' : $DiscountType;
+        //dd($DiscountType);
         $data = array(
             'CartData' => $CartData,
             'ShipCharges' => Session::get('ShipCharges'),
@@ -399,7 +401,7 @@ class CartController extends BaseController
             'goToPaypal' => $goToPaypal,
             'showDiscountField' => $showDiscountField,
             'discountAmount' => $Discount,
-            'discountType' =>($DiscountType == 'Discount') ? 'Discount' : 'Gift Card Discount'
+            'discountType' => $DiscountType
         );
         return view('client/checkout', $data);
     }

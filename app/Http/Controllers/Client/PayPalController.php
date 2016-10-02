@@ -305,7 +305,7 @@ class PayPalController extends BaseController
             ->setQuantity(1)
             ->setPrice('20');*/
 
-        if(!empty($request::get('offerType'))){
+        if(!empty($request::get('offerType')) || $request::get('offerType') !== ""){
             //dd($request::get('setDiscountAmount'));
             $ds = new Item();
             $ds->setName('Discount')
@@ -336,7 +336,6 @@ class PayPalController extends BaseController
 
         $total = $total + $shipCharges;
 
-        Session::put('TotalAmountIS', $total);
         //dd($this->getTotal()+$shipCharges-2);
         //dd($total);
         $amount = new Amount();

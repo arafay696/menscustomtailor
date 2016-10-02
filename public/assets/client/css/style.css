@@ -1,7 +1,4 @@
-charset
-
-"utf-8"
-;
+@charset "utf-8";
 /* CSS Document */
 
 @font-face {
@@ -74,10 +71,10 @@ charset
 * {
     margin: 0px;
     padding: 0px;
-    -webkit-user-select: none;
+    /*-webkit-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
-    -webkit-user-select: none;
+    -webkit-user-select: none;*/
 }
 
 ul li {
@@ -1125,7 +1122,7 @@ body {
     float: left;
 }
 
-.cart_head a {
+.cart_head a,.responsive_next_prev a {
     width: 144px;
     height: 44px;
     border: 2px solid #eb9229;
@@ -1150,7 +1147,7 @@ body {
     float: right;
 }
 
-.cart_head a:hover {
+.cart_head a:hover,.responsive_next_prev-ds a:hover {
     background: none;
     color: #eb9229;
     transition: all .5s;
@@ -1639,6 +1636,50 @@ body {
     font-size: 24px;
     font-family: 'ralewaylight';
 }
+
+/*------- Fabric Banner Below Start */
+.fabric_banner_below {
+    //background: url(../images/readMore_list_bg.png) top center no-repeat;
+    background-color: rgba(238, 238, 238, 0.5);
+    width: 100%;
+    overflow: hidden;
+    padding: 15px;
+    background-size: cover;
+    clear: both;
+}
+
+.fabric_banner_below .fabric_bannerDtail {
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.fabric_banner_below .fabric_bannerDtail h1 {
+    color: #000000;
+    font-size: 35px;
+    font-family: 'ralewaylight';
+    text-transform: uppercase;
+    padding-bottom: 18px;
+    background: url(../images/border_double2.png) bottom center repeat-x;
+}
+
+.fabric_banner_below .fabric_bannerDtail ul li {
+    margin-top: 5px;
+    width: 33%;
+    float: left; padding: 0 2% 2%;
+}
+
+.fabric_banner_below .fabric_bannerDtail h2 {
+    margin: 8px 0;
+    //padding-bottom: 18px;
+    //background: url(../images/border_double2.png) bottom center repeat-x;
+}
+
+.fabric_banner_below .fabric_bannerDtail p {
+    color: #000000;
+    font-size: 19px;
+    font-family: 'ralewaylight';
+}
+/*------- Fabric Banner Below End */
 
 .cart_container.fabric_cont {
     background: #fff;

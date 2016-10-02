@@ -48,6 +48,9 @@ Route::get('order/detail/{id}', 'Client\UserController@orderDetail');
 Route::get('measurements', 'Client\UserController@myMeasurements');
 Route::post('edit-size', 'Client\UserController@myMeasurementsEdit');
 
+/*------------- Save To PDF */
+Route::get('pdf', 'Client\UserController@saveToPDF');
+
 //-------------- Cart
 Route::post('payment', array(
     'as' => 'payment',

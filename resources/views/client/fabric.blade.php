@@ -10,8 +10,85 @@
                 </div>
             </div>
         </div>
+        <div class="fabric_banner_below">
+            <div class="auto_content">
+                <div class="fabric_bannerDtail">
+                    <h1>WHICH ARE THE COLORS THAT FLATTER YOUR SKIN TONE ?</h1>
+                    <ul>
+                        <li>
+                            <h2>Light Skin Tone</h2>
+                            <p>Generally found in
 
-        <div class="cart_container fabric_cont">
+                                Caucasians, the colours that
+
+                                work for the light skin tone are
+
+                                blue, green, pink, purple and
+
+                                blue. Go for pastels and
+
+                                darker shades like dark blue
+
+                                or dark red. They work really
+
+                                well for you. Keep Black and
+
+                                white to a minimum use.
+
+                                Silver compliments your skin
+
+                                tone very well so accessorize
+
+                                with silver.</p>
+                        </li>
+                        <li>
+                            <h2>Medium Skin Tone</h2>
+                            <p>These are generally Asians,
+
+                                Mediterranean’s, people of
+
+                                mixed race and the Latinos.
+
+                                Earth tones work very well.
+
+                                Go for brown, tan, Khaki,
+
+                                green, orange, yellow along
+
+                                with grey, navy blue,
+
+                                creamand black. Avoid pastel
+
+                                shades and bright white.
+
+                                Accessories with gold.</p>
+                        </li>
+                        <li>
+                            <h2>Dark Skin Tone</h2>
+                            <p>People with a dark skin tone
+
+                                can really carry off shades like
+
+                                white, khaki, dark purple,
+
+                                plum, grey, red, light blue,
+
+                                orange and pink. Colours to
+
+                                avoid are dark brown and light
+
+                                green. Gold compliments your
+
+                                skin tone very well so
+
+                                accessorize with gold.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart_container fabric_cont" style="clear: both;">
             <div class="auto_content">
                 <div class="cart_pageDtail">
                     <input type="hidden" id="autoFilter" value="<?=$filter;?>">
