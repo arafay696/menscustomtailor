@@ -224,6 +224,8 @@
                                             src="<?php echo URL::to('public/assets/client/images/insta_icon.png');?>"
                                             alt="#"/></a></li>
                         </ul>
+                        {{--<button id="testIt">GN</button>
+                        <button id="testIt2">PDF</button>--}}
                     </div>
                 </div>
             </div>
@@ -235,7 +237,11 @@
     </div>
 
 </div>
+<img id="setImage" src="" />
+<script type="text/javascript" src="<?php echo URL::to('public/assets/client/jsPDF/dist/jspdf.min.js');?>"></script>
+
 <script type="text/javascript" src="<?php echo URL::to('public/assets/client/js/isotope-docs.min.js');?>"></script>
+<script type="text/javascript" src="<?php echo URL::to('public/assets/client/js/html2canvas.js');?>"></script>
 <script type="text/javascript" src="<?php echo URL::to('public/assets/client/js/customize.js');?>"></script>
 </body>
 </html>

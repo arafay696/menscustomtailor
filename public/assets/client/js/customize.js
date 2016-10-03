@@ -596,4 +596,26 @@ $(document).ready(function (e) {
         $('#Paris').css('display', 'block');
         $('#finishStep').addClass('active');
     });
+
+    $('#testIt').click(function () {
+        html2canvas(document.body, {
+            onrendered: function(canvas) {
+                var canvasImg = canvas.toDataURL("image/jpg");
+                console.log(canvasImg);
+                $('#setImage').prop('src',canvasImg);
+            }
+        });
+    });
+
+    $('#testIt2').click(function () {
+        var imgData = $('#setImage').attr('src');
+        var doc = new jsPDF();
+
+        doc.setFontSize(40);
+        doc.text(35, 25, "Paranyan loves jsPDF");
+        doc.addImage(imgData, 'JPEG', 15, 40, 180, 160);
+        doc.save('sample-file.pdf');
+    });
+
+
 });
