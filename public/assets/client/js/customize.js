@@ -386,14 +386,14 @@ $(document).ready(function (e) {
             $('#SubTotal').text(total.toFixed(2));
 
             // apply discount
-            if(!$('.showDiscountDetail').hasClass('hide')){
+            if (!$('.showDiscountDetail').hasClass('hide')) {
                 var getDiscount = parseFloat($('#DiscountAmount').text());
                 total = total - getDiscount;
             }
 
 
             //apply gift card
-            if(!$('.showGCardDetail').hasClass('hide')) {
+            if (!$('.showGCardDetail').hasClass('hide')) {
                 var giftCard = parseFloat($('#GiftCardAmount').text());
                 total = total - giftCard;
             }
@@ -406,7 +406,7 @@ $(document).ready(function (e) {
             // set amount
             $('#TotalAmount').text(TotalPlusShip);
             $('#TotalAmountHidden').val(TotalPlusShip);
-        },applyDiscount: function(){
+        }, applyDiscount: function () {
             var total = 0;
             $('.cartItems li').each(function () {
                 total += parseFloat($(this).find('.TotalProductPrice').text().trim().replace(',', ''));
@@ -419,7 +419,7 @@ $(document).ready(function (e) {
             $('#DiscountAmount').text(getDiscount.toFixed(2));
             $('#offerType').val('Discount');
             Cart.updateCart();
-        },applyGiftCard: function () {
+        }, applyGiftCard: function () {
             $('#GiftCardAmount').text(Cart.giftAmount);
             $('#setDiscountAmount').val(Cart.giftAmount);
             $('#offerType').val('Gift');
@@ -445,14 +445,14 @@ $(document).ready(function (e) {
     // Change Country in Cart
     $('#slctCountry').change(function (e) {
         var cntry = $(this).val();
-        if(cntry == 'US'){
-            $('#ShipMethod option[value="USPS Priority"]').prop('disabled',false);
-            $('#ShipMethod option[value="USPS Next Day"]').prop('disabled',false);
-            $('#ShipMethod option[value="International Global Priority"]').prop('disabled',true);
-        }else{
-            $('#ShipMethod option[value="USPS Priority"]').prop('disabled',true);
-            $('#ShipMethod option[value="USPS Next Day"]').prop('disabled',true);
-            $('#ShipMethod option[value="International Global Priority"]').prop('disabled',false);
+        if (cntry == 'US') {
+            $('#ShipMethod option[value="USPS Priority"]').prop('disabled', false);
+            $('#ShipMethod option[value="USPS Next Day"]').prop('disabled', false);
+            $('#ShipMethod option[value="International Global Priority"]').prop('disabled', true);
+        } else {
+            $('#ShipMethod option[value="USPS Priority"]').prop('disabled', true);
+            $('#ShipMethod option[value="USPS Next Day"]').prop('disabled', true);
+            $('#ShipMethod option[value="International Global Priority"]').prop('disabled', false);
         }
     });
 
@@ -599,10 +599,10 @@ $(document).ready(function (e) {
 
     $('#testIt').click(function () {
         html2canvas(document.body, {
-            onrendered: function(canvas) {
+            onrendered: function (canvas) {
                 var canvasImg = canvas.toDataURL("image/jpg");
                 console.log(canvasImg);
-                $('#setImage').prop('src',canvasImg);
+                $('#setImage').prop('src', canvasImg);
             }
         });
     });
@@ -615,6 +615,80 @@ $(document).ready(function (e) {
         doc.text(35, 25, "Paranyan loves jsPDF");
         doc.addImage(imgData, 'JPEG', 15, 40, 180, 160);
         doc.save('sample-file.pdf');
+    });
+
+    $('.generatePdf').click(function () {
+        var id = $(this).attr('id');
+        $(this).siblings('.updateCartSpin').addClass('dummy');
+        $.ajax({
+            context:this,
+            type: "GET",
+            url: "" + baseUrl + "/generate-invoice/" + id,
+            beforeSend: function () {
+                $('.dummy').removeClass('hide');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.response + 'error ' + ajaxOptions);
+            },
+            success: function (result) {
+
+                result = JSON.parse(result);
+                var html = '';
+                if (result.status) {
+                    var subTotal = 0;
+                    var discount = 0;
+                    var total = 0;
+                    var shipping = 0;
+                    $.each(result.data, function (value, key) {
+                        var fabricPrice = parseFloat(result.data[value]['FabricPrice']).toFixed(2);
+                        var fabricTotal = parseFloat(result.data[value]['FabricPrice'] * result.data[value]['Qty']).toFixed(2);
+                        discount = parseFloat(result.data[value]['Discount']);
+                        shipping = parseFloat(result.data[value]['Shiping']);
+                        subTotal += parseFloat(fabricTotal);
+                        html += '<li class="clearfix"><div class="shirt_colmn_list">' +
+                            '<img src="resources/assets/images/' + result.data[value]['Image'] + '" alt="#"/></div>' +
+                            '<div class="product_colmn_list">' +
+                            '<label>' + result.data[value]['Name'] + '</label></div>' +
+                            '<div class="product_colmn_list price_colmn_list">' +
+                            '<b>$' + fabricPrice + '</b></div>' +
+                            '<div class="product_colmn_list q_colmn_list">' +
+                            '<input type="number" value="' + result.data[value]['Qty'] + '"/></div>' +
+                            '<div class="product_colmn_list total_colmn_list">' +
+                            '<h5>$' + fabricTotal + '</h5></div></li>';
+
+                    });
+                    total = parseFloat((subTotal + shipping) - discount);
+                    $('#setSubTotal').text(subTotal.toFixed(2));
+                    $('#setDiscount').text(discount.toFixed(2));
+                    $('#setShipping').text(shipping.toFixed(2));
+                    $('#setTotal').text(total.toFixed(2));
+                    $('#appendElements').append(html);
+                    var divHeight = $('#pdfInvoice').height();
+                    var divWidth = $('#pdfInvoice').width();
+                    var ratio = divHeight / divWidth;
+                    html2canvas($('#pdfInvoice'), {
+                        onrendered: function (canvas) {
+                            $('.dummy').addClass('hide');
+                            $('.dummy').removeClass('dummy');
+                            var canvasImg = canvas.toDataURL("image/jpg");
+                            //$('#SetImage').prop('src', canvasImg);
+                            var imgData = canvasImg;
+                            var doc = new jsPDF();
+                            var width = doc.internal.pageSize.width;
+                            var height = doc.internal.pageSize.height;
+                            height = ratio * width;
+                            var alias = Math.random().toString(35);
+                            doc.addImage(imgData, 'JPEG', 10, 10, width-20, height);
+                            doc.save('sample-123.pdf');
+                        }
+                    });
+                } else {
+                    $('.dummy').addClass('hide');
+                    $('.dummy').removeClass('dummy');
+                }
+            }
+
+        });
     });
 
 

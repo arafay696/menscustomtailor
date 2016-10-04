@@ -56,7 +56,8 @@
                                         <h5><?php echo date('d F Y', strtotime($order->DeliveryDate));?></h5>
                                     </div>
                                     <div class="bttnz_two">
-                                        <a href="<?php echo URL::to('pdf');?>"> PDF</a>
+                                        <i class="updateCartSpin hide fa fa-spinner fa-spin"></i>
+                                        <a id="<?=$order->ID;?>" class="generatePdf" href="javascript:void(0);"> PDF</a>
                                         <a style="display: none !important;" href="javascript:void(0)">Re Order</a>
                                         <a href="<?= URL::to('order/detail/'.$order->ID.'');?>">Detail</a>
                                     </div>
@@ -71,6 +72,50 @@
 
                     </div>
                 </div>
+
+                <!--Invoice PDF-->
+                <div style="opacity:0;" id="pdfInvoice" class="cart_pageDtail">
+                    <div class="cart_listing_outer">
+                        <div class="cart_listing_head clearfix">
+                            <div class="empty_colmn">&nbsp;</div>
+                            <div class="product_colmn"><h5>PRODUCT</h5></div>
+                            <div class="product_colmn price_colmn"><h5>Price</h5></div>
+                            <div class="product_colmn q_colmn"><h5>Quantity</h5></div>
+                            <div class="product_colmn total_colmn"><h5>Total</h5></div>
+                        </div>
+
+                        <div class="cart_listing">
+                            <ul id="appendElements">
+
+                            </ul>
+                        </div>
+
+                        <div class="shopping_total clearfix">
+
+                            <div class="subtotal_dtail">
+                                <ul>
+                                    <li class="clearfix">
+                                        <span>Subtotal</span>
+                                        <strong>$<b id="setSubTotal"750></b></strong>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span>Discount</span>
+                                        <strong>$<b id="setDiscount">0</b></strong>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span>Shipping</span>
+                                        <strong>$<b id="setShipping"></b></strong>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span>TOTAL</span>
+                                        <strong>$<b id="setTotal"></b></strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

@@ -498,4 +498,26 @@ class UserController extends BaseController
     public function saveToPDF(){
         echo 'Pending.......';
     }
+
+    public function generateInvoice($orderID){
+        $getDetail = DB::table('orders AS o')
+            ->select('o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty','sd.FabricPrice', 'o.Amount as Total', 'o.Discount','o.Shiping')
+            ->join("shirtdetail AS sd","o.ID","=","sd.OrderID")
+            ->join("products AS p","sd.FabricCode","=","p.Code")
+            ->join("images as i","p.ID","=","i.RefID")
+            ->where("o.ID", "=", $orderID)
+            ->groupBy("i.RefID")
+            ->get();
+        if(count($getDetail) > 0){
+            echo json_encode(array(
+               'status' => true,
+                'data' => $getDetail
+            ));
+        }else{
+            echo json_encode(array(
+                'status' => false,
+                'data' => 'No Detail found'
+            ));
+        }
+    }
 }
