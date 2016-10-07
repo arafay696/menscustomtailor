@@ -683,7 +683,8 @@ $(document).ready(function (e) {
                             doc.setFontSize(30);
                             //doc.text(35, 25, "Men's Custom Tailor - Invoice " + OrderID);
                             doc.addImage(imgData, 'JPEG', 5, 5, width-20, height);
-                            doc.save('sample-123.pdf');
+                            doc.save('mct-invoice.pdf');
+                            $('#appendElements').empty();
                         }
                     });
                 } else {

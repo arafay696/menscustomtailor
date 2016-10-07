@@ -79,7 +79,7 @@
                         <span style="width:60%;float: left;">
                             <img style="float: left;" src="<?= URL::to('public/assets/client/images/header_logo.png');?>">
                         </span>
-                            <h2 style="width: 9%;float: right;">Order # <b id="setOrderID"></b></h2>
+                            <h2 style="width: 10%;float: right;">Order # <b id="setOrderID"></b></h2>
                     </div>
                     <div class="cart_listing_outer">
                         <div class="cart_listing_head clearfix">
