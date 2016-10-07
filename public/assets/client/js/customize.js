@@ -634,12 +634,14 @@ $(document).ready(function (e) {
 
                 result = JSON.parse(result);
                 var html = '';
+                var orderID = '';
                 if (result.status) {
                     var subTotal = 0;
                     var discount = 0;
                     var total = 0;
                     var shipping = 0;
                     $.each(result.data, function (value, key) {
+                        OrderID = result.data[value]['OrderID'];
                         var fabricPrice = parseFloat(result.data[value]['FabricPrice']).toFixed(2);
                         var fabricTotal = parseFloat(result.data[value]['FabricPrice'] * result.data[value]['Qty']).toFixed(2);
                         discount = parseFloat(result.data[value]['Discount']);
@@ -662,6 +664,7 @@ $(document).ready(function (e) {
                     $('#setDiscount').text(discount.toFixed(2));
                     $('#setShipping').text(shipping.toFixed(2));
                     $('#setTotal').text(total.toFixed(2));
+                    $('#setOrderID').text(OrderID);
                     $('#appendElements').append(html);
                     var divHeight = $('#pdfInvoice').height();
                     var divWidth = $('#pdfInvoice').width();
@@ -677,8 +680,9 @@ $(document).ready(function (e) {
                             var width = doc.internal.pageSize.width;
                             var height = doc.internal.pageSize.height;
                             height = ratio * width;
-                            var alias = Math.random().toString(35);
-                            doc.addImage(imgData, 'JPEG', 10, 10, width-20, height);
+                            doc.setFontSize(30);
+                            //doc.text(35, 25, "Men's Custom Tailor - Invoice " + OrderID);
+                            doc.addImage(imgData, 'JPEG', 5, 5, width-20, height);
                             doc.save('sample-123.pdf');
                         }
                     });

@@ -1456,7 +1456,7 @@ body {
 .proceed_checkout {
     width: 320px;
     float: right;
-    padding-top: 90px;
+    padding-top: 0px;
 }
 
 .proceed_checkout input[type='submit'] {

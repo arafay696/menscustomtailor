@@ -4,12 +4,12 @@
     <?php
 
     $slectedItems = '<div class="swathces_images clearfix"><ul>';
-	if(count($cartData) > 0){
-    foreach ($cartData as $item) {
-        $class = ($productID == $item['productID']) ? 'active_swatch' : '';
-        $slectedItems .= '<li style="display:block;"><a href="' . URL::to('fabric/' . $item['productID'] . '') . '"><span class="' . $class . '"><img alt="#" src="' . URL::to('resources/assets/images/' . $item['ProductImage']) . '"></span></a></li>';
+    if (count($cartData) > 0) {
+        foreach ($cartData as $item) {
+            $class = ($productID == $item['productID']) ? 'active_swatch' : '';
+            $slectedItems .= '<li style="display:block;"><a href="' . URL::to('fabric/' . $item['productID'] . '') . '"><span class="' . $class . '"><img alt="#" src="' . URL::to('resources/assets/images/' . $item['ProductImage']) . '"></span></a></li>';
+        }
     }
-	}
     $slectedItems .= '</ul></div>';
     ?>
 
@@ -391,11 +391,11 @@
                                                 </select>
                                                 <h3 class="detailHeading2">Select Neck Height</h3>
                                                 <select style="margin-top: 4px;" name="NeckHeight">
-                                                    <option value="Short" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Short") ? "selected='selected'" : "" ?>>
-                                                        Short
-                                                    </option>
                                                     <option value="Average" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Average") ? "selected='selected'" : "" ?>>
                                                         Average
+                                                    </option>
+                                                    <option value="Short" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Short") ? "selected='selected'" : "" ?>>
+                                                        Short
                                                     </option>
                                                     <option value="Long" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Long") ? "selected='selected'" : "" ?>>
                                                         Long
@@ -487,7 +487,8 @@
                                             </div>
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
-                                                    <label><input type="radio" name="cuffStyle" value="Double Angled One Button Cuff">&nbsp;
+                                                    <label><input type="radio" name="cuffStyle"
+                                                                  value="Double Angled One Button Cuff">&nbsp;
                                                     </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/2_Angled_One_Button_Cuff.png'); ?>"
@@ -887,7 +888,8 @@
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
                                                     <label class="select">
-                                                        <input type="radio" name="pocketStyle" value="No Pocket" checked="checked">&nbsp;
+                                                        <input type="radio" name="pocketStyle" value="No Pocket"
+                                                               checked="checked">&nbsp;
                                                     </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
@@ -903,7 +905,7 @@
                                                 <div class="artistProducer clearfix">
                                                     <label>
                                                         <input type="radio" name="pocketStyle" value="Regular Pocket"
-                                                               >&nbsp;
+                                                        >&nbsp;
                                                     </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
@@ -996,7 +998,7 @@
                                             <div class="customization_item">
                                                 <div class="artistProducer clearfix">
                                                     <label><input type="radio" name="monogramStyle"
-                                                                  value="Block Letter" checked="checked">&nbsp;
+                                                                  value="Block Letter">&nbsp;
                                                     </label>
                                                 </div>
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
@@ -1054,9 +1056,19 @@
                                                        placeholder="Monogram Initials"/>
                                                 <h3 class="detailHeading2">Monogram Color</h3>
                                                 <select style="margin-top: 4px;" name="monogramColor">
-                                                    <option>Black</option>
-                                                    <option>Brown</option>
-                                                    <option>White</option>
+                                                    <option value="We Pick">Choose</option>
+                                                    <option value="Brown">Brown</option>
+                                                    <option value="Black">Black</option>
+                                                    <option value="Blue">Blue</option>
+                                                    <option value="Green">Green</option>
+                                                    <option value="Gray">Gray</option>
+                                                    <option value="Lavender">Lavender</option>
+                                                    <option value="Maroon">Maroon</option>
+                                                    <option value="Navy">Navy</option>
+                                                    <option value="Red">Red</option>
+                                                    <option value="Silver">Silver</option>
+                                                    <option value="Tan">Tan</option>
+                                                    <option value="Yellow">Yellow</option>
                                                 </select>
                                                 <h3 class="detailHeading2">Monogram Location</h3>
                                                 <select style="margin-top: 4px;" name="monogramLocation">
@@ -1734,7 +1746,8 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
-                                                <h3 style="width:190px;float:left;" class="detailHeading1">Select Height Feet</h3>
+                                                <h3 style="width:190px;float:left;" class="detailHeading1">Select Height
+                                                    Feet</h3>
                                                 <select style="display: inline-block; clear: none; width: 50%; float: left;"
                                                         name="HeightFeet">
                                                     <option <?php echo (isset(Session::get('currentSize')['HeightFeet']) && Session::get('currentSize')['HeightFeet'] == "3") ? "selected='selected'" : "" ?> value="3">
@@ -2459,7 +2472,7 @@
                                                     some extra room.</p>
                                                 <div style="padding-bottom: 0px;" class="servicesTerm whiteCollar">
                                                     <label><input name="whiteCollar" type="checkbox"
-                                                                                 value="1"></label>
+                                                                  value="1"></label>
                                                     <p>White Collar</p>
                                                 </div>
                                                 <div style="padding-bottom: 0px;" class="servicesTerm whiteCuff">

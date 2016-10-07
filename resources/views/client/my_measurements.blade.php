@@ -113,23 +113,6 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Neck Height:</th>
-                                <td>
-                                    <select name="NeckHeight">
-                                        <option>Select Neck Height</option>
-                                        <option value="Short" <?php echo (isset($size->NeckHeight) && $size->NeckHeight == "Short") ? "selected='selected'" : "" ?>>
-                                            Short
-                                        </option>
-                                        <option value="Average" <?php echo (isset($size->NeckHeight) && $size->NeckHeight == "Average") ? "selected='selected'" : "" ?>>
-                                            Average
-                                        </option>
-                                        <option value="Long" <?php echo (isset($size->NeckHeight) && $size->NeckHeight == "Long") ? "selected='selected'" : "" ?>>
-                                            Long
-                                        </option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
                                 <th>Sleeve Length:</th>
                                 <td>
                                     <select title="Sleeve Length" name="SleeveLength">
@@ -405,16 +388,10 @@
                                 <th>Neck Size:</th>
                                 <td>
                                     <select name="NeckHeight">
-                                        <option>Select Neck Height</option>
-                                        <option value="Short" <?php echo (isset($size->NeckHeight) && $size->NeckHeight == "Short") ? "selected='selected'" : "" ?>>
-                                            Short
-                                        </option>
-                                        <option value="Average" <?php echo (isset($size->NeckHeight) && $size->NeckHeight == "Average") ? "selected='selected'" : "" ?>>
-                                            Average
-                                        </option>
-                                        <option value="Long" <?php echo (isset($size->NeckHeight) && $size->NeckHeight == "Long") ? "selected='selected'" : "" ?>>
-                                            Long
-                                        </option>
+                                        <option>Select Neck Size</option>
+                                        <?php foreach ($NeckSize as $key => $np) { ?>
+                                        <option <?php echo ($size->NeckHeight == $np) ? "selected=selected" : ""; ?> value="<?=$np;?>"><?=$np;?></option>
+                                        <?php } ?>
                                     </select>
                                 </td>
                             </tr>

@@ -148,7 +148,7 @@ class UserController extends BaseController
         try {
 
             $orders = DB::table('orders as o')
-                ->select('o.ID', 'o.Amount', 'o.DeliveryDate', 'o.Code')
+                ->select('o.ID', 'o.Amount', 'o.OrderDate', 'o.Code')
                 ->join('customers as c', 'o.CustomerID', '=', 'c.ID')
                 ->join('orderstatus as os', 'o.Status', '=', 'os.ID')
                 ->where('c.ID', '=', Session::get('CustomerID'))
@@ -429,9 +429,10 @@ class UserController extends BaseController
         //Session::put('currentCSize', $getSize);
         $data = array(
             'size' => $getSize,
-            'customerID' => Session::get('CustomerID')
+            'customerID' => Session::get('CustomerID'),
+            'NeckSize' => $this->getData('NeckSize')
         );
-        //dd($data);
+        //dd($getSize->NeckHeight);
         return view('client/my_measurements', $data);
     }
 
@@ -501,7 +502,7 @@ class UserController extends BaseController
 
     public function generateInvoice($orderID){
         $getDetail = DB::table('orders AS o')
-            ->select('o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty','sd.FabricPrice', 'o.Amount as Total', 'o.Discount','o.Shiping')
+            ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty','sd.FabricPrice', 'o.Amount as Total', 'o.Discount','o.Shiping')
             ->join("shirtdetail AS sd","o.ID","=","sd.OrderID")
             ->join("products AS p","sd.FabricCode","=","p.Code")
             ->join("images as i","p.ID","=","i.RefID")

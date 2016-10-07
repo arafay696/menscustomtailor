@@ -22,7 +22,7 @@
                             <div class="empty_colmn"><h5>Order #</h5></div>
                             <div class="product_colmn"><h5>Order Status</h5></div>
                             <div class="product_colmn total_colmn"><h5>Total</h5></div>
-                            <div class="product_colmn price_colmn"><h5>Delivered on</h5></div>
+                            <div class="product_colmn price_colmn"><h5>Order Date</h5></div>
                             <div class="product_colmn price_colmn">&nbsp;</div>
 
                         </div>
@@ -38,8 +38,8 @@
                                         <img class="hide"
                                              src="<?php echo URL::to('public/assets/client/images/list_shirt_img.png');?>"
                                              alt="#"/>
-                                        <a href="<?= URL::to('order/detail/'.$order->ID.'');?>">
-                                        <?=$order->Code;?>
+                                        <a href="<?= URL::to('order/detail/' . $order->ID . '');?>">
+                                            <?=$order->Code;?>
                                         </a>
                                     </div>
                                     <div class="product_colmn_list hide">
@@ -50,16 +50,16 @@
                                         <label>Thank you for your business. We have received your order.</label>
                                     </div>
                                     <div class="product_colmn_list price_colmn_list">
-                                        <b>$<?=number_format($order->Amount,2);?></b>
+                                        <b>$<?=number_format($order->Amount, 2);?></b>
                                     </div>
                                     <div class="product_colmn_list orderId">
-                                        <h5><?php echo date('d F Y', strtotime($order->DeliveryDate));?></h5>
+                                        <h5><?php echo date('d F Y', strtotime($order->OrderDate));?></h5>
                                     </div>
                                     <div class="bttnz_two">
                                         <i class="updateCartSpin hide fa fa-spinner fa-spin"></i>
                                         <a id="<?=$order->ID;?>" class="generatePdf" href="javascript:void(0);"> PDF</a>
                                         <a style="display: none !important;" href="javascript:void(0)">Re Order</a>
-                                        <a href="<?= URL::to('order/detail/'.$order->ID.'');?>">Detail</a>
+                                        <a href="<?= URL::to('order/detail/' . $order->ID . '');?>">Detail</a>
                                     </div>
                                 </li>
                                 <?php
@@ -75,6 +75,12 @@
 
                 <!--Invoice PDF-->
                 <div style="opacity:0;" id="pdfInvoice" class="cart_pageDtail">
+                    <div style="width: 100%;clear: both;overflow: hidden;margin-bottom: 10px;">
+                        <span style="width:60%;float: left;">
+                            <img style="float: left;" src="<?= URL::to('public/assets/client/images/header_logo.png');?>">
+                        </span>
+                            <h2 style="width: 9%;float: right;">Order # <b id="setOrderID"></b></h2>
+                    </div>
                     <div class="cart_listing_outer">
                         <div class="cart_listing_head clearfix">
                             <div class="empty_colmn">&nbsp;</div>
@@ -96,7 +102,7 @@
                                 <ul>
                                     <li class="clearfix">
                                         <span>Subtotal</span>
-                                        <strong>$<b id="setSubTotal"750></b></strong>
+                                        <strong>$<b id="setSubTotal" 750></b></strong>
                                     </li>
                                     <li class="clearfix">
                                         <span>Discount</span>

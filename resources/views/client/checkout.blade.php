@@ -48,7 +48,8 @@
                         </div>
                     </div>
 
-                    <form method="post" class="form" action="<?php echo URL::to(($goToPaypal) ? 'payment' : 'finish') ?>">
+                    <form method="post" class="form"
+                          action="<?php echo URL::to(($goToPaypal) ? 'payment' : 'finish') ?>">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <input id="ShippingHidden" type="hidden" name="ShippingHidden"
                                value="<?=$ShipCharges;?>">
@@ -64,33 +65,39 @@
                                         <li class="clearfix">
                                             <div class="custom_chkout_input">
                                                 <label>FIRST NAME *</label>
-                                                <input name="FirstName" type="text" value="<?=$Customer->Name;?>" placeholder=""/>
+                                                <input name="FirstName" type="text" value="<?=$Customer->Name;?>"
+                                                       placeholder=""/>
                                             </div>
                                             <div class="custom_chkout_input">
                                                 <label>LAST NAME *</label>
-                                                <input name="LastName" type="text" value="<?=$Customer->Name;?>" placeholder=""/>
+                                                <input name="LastName" type="text" value="<?=$Customer->Name;?>"
+                                                       placeholder=""/>
                                             </div>
                                         </li>
                                         <li class="clearfix">
                                             <div class="custom_chkout_input">
                                                 <label>EMAIL ADDRESS *</label>
-                                                <input name="Email" type="email" value="<?=$Customer->Email;?>" placeholder=""/>
+                                                <input name="Email" type="email" value="<?=$Customer->Email;?>"
+                                                       placeholder=""/>
                                             </div>
                                             <div class="custom_chkout_input">
                                                 <label>PHONE *</label>
-                                                <input name="Phone" type="text" value="<?=$Customer->Phone;?>" placeholder=""/>
+                                                <input name="Phone" type="text" value="<?=$Customer->Phone;?>"
+                                                       placeholder=""/>
                                             </div>
                                         </li>
                                         <li class="clearfix single_list">
                                             <div class="custom_chkout_input">
                                                 <label>ADDRESS * *</label>
-                                                <input name="Address" type="text" value="<?=$Customer->Address;?>" placeholder=""/>
+                                                <input name="Address" type="text" value="<?=$Customer->Address;?>"
+                                                       placeholder=""/>
                                             </div>
                                         </li>
                                         <li class="clearfix single_list">
                                             <div class="custom_chkout_input">
                                                 <label>Country *</label>
-                                                <input name="Country" type="text" value="<?=$Customer->Country;?>" placeholder=""/>
+                                                <input name="Country" type="text" value="<?=$Customer->Country;?>"
+                                                       placeholder=""/>
                                             </div>
                                         </li>
 
@@ -108,40 +115,7 @@
                                         <textarea name="Comments"></textarea>
                                     </div>
 
-                                    <?php if($goToPaypal){ ?>
-                                    <h4>payment</h4>
-                                    <div class="check_oyr_paypal">
-                                        <div class="hide artistProducer clearfix">
-                                            <label><input type="radio" name="producer"> Cheque Payment</label>
 
-                                            <div class="paypal_txt">
-                                                <p>Please send your cheque to Store Name, Store Street, Store Town,
-                                                    Store
-                                                    State / County, Store Postcode. </p>
-                                                <i>&nbsp;</i>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="artistProducer clearfix">
-                                            <label class="select">
-                                                <input type="radio" name="ShipMethod" value="PayPal " checked="checked">
-                                                PayPal <img
-                                                        src="<?php echo URL::to('public/assets/client/images/paypal_img.png');?>"
-                                                        alt="#"/>
-                                            </label>
-                                        </div>
-
-                                    </div>
-                                    <?php } ?>
-
-
-                                    <div class="placeOrder">
-                                        <button type="submit">
-                                           <?php echo ($goToPaypal) ?
-                                                    'Place order' : 'Finish'; ?>
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
 
@@ -195,9 +169,49 @@
                                             </li>
                                             <li class="clearfix">
                                                 <h5>Order Total</h5>
-                                                <h6 class="numberFont">$<?=number_format(($TotalPrice-$discountAmount)+$ShipCharges, 2);?></h6>
+                                                <h6 class="numberFont">
+                                                    $<?=number_format(($TotalPrice - $discountAmount) + $ShipCharges, 2);?></h6>
                                             </li>
                                         </ul>
+                                    </div>
+
+                                    <div style="clear: both;margin-top: 5px;">
+                                        <?php if($goToPaypal){ ?>
+                                        <br/>
+                                        <br/>
+                                        <h4>payment</h4>
+                                        <div class="check_oyr_paypal">
+                                            <div class="hide artistProducer clearfix">
+                                                <label><input type="radio" name="producer"> Cheque Payment</label>
+
+                                                <div class="paypal_txt">
+                                                    <p>Please send your cheque to Store Name, Store Street, Store Town,
+                                                        Store
+                                                        State / County, Store Postcode. </p>
+                                                    <i>&nbsp;</i>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="artistProducer clearfix">
+                                                <label class="select">
+                                                    <input type="radio" name="ShipMethod" value="PayPal "
+                                                           checked="checked">
+                                                    PayPal <img
+                                                            src="<?php echo URL::to('public/assets/client/images/paypal_img.png');?>"
+                                                            alt="#"/>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <?php } ?>
+
+
+                                        <div class="placeOrder">
+                                            <button type="submit">
+                                                <?php echo ($goToPaypal) ? 'Place order' : 'Finish'; ?>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
 
