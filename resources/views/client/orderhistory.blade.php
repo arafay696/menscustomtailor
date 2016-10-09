@@ -81,6 +81,34 @@
                         </span>
                             <h2 style="width: 10%;float: right;">Order # <b id="setOrderID"></b></h2>
                     </div>
+                    <div class="customerDetailInvoice">
+                        <table>
+                            <tr>
+                                <th>Customer Name</th>
+                                <td><?=$user->Name;?></td>
+                            </tr>
+                            <tr>
+                                <th>Address</th>
+                                <td><?=$user->Address;?></td>
+                            </tr>
+                            <tr>
+                                <th>City</th>
+                                <td class="specialClass"><?=$user->City;?></td>
+                            </tr>
+                            <tr>
+                                <th>State</th>
+                                <td><?=$user->Country;?></td>
+                            </tr>
+                            <tr>
+                                <th>Phone</th>
+                                <td><?=$user->Phone;?></td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td><?=$user->Email;?></td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="cart_listing_outer">
                         <div class="cart_listing_head clearfix">
                             <div class="empty_colmn">&nbsp;</div>

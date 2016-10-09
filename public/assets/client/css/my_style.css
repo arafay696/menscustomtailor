@@ -655,3 +655,28 @@
     float: right !important;
 
 }
+.customerDetailInvoice,.customerDetailInvoice table{
+    width:100%;
+}
+
+.customerDetailInvoice table th {
+    width: 10%;
+    background: #EEEEEE;
+    text-align: left;
+    padding-left: 20px;
+}
+.customerDetailInvoice .specialClass {
+    width: 35% !important;
+}
+.customerDetailInvoice table tr td{
+    width: 40%;
+}
+.customerDetailInvoice table {
+    padding-bottom: 4px;
+}
+.customerDetailInvoice table td{
+    padding: 10px;
+}
+.customerDetailInvoice tr td {
+    border: 1px solid #ccc;
+}

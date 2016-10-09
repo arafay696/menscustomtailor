@@ -443,11 +443,12 @@ body {
 }
 
 .banner_heading h3 {
-    color: #000;
+    color: #fff;
     font-size: 60px;
     text-transform: uppercase;
     font-family: 'ralewaylight';
     padding-bottom: 45px;
+    font-weight: bold;
 }
 
 .banner_heading h3 p {
@@ -1678,6 +1679,7 @@ body {
     color: #000000;
     font-size: 19px;
     font-family: 'ralewaylight';
+    text-align: left;
 }
 /*------- Fabric Banner Below End */
 

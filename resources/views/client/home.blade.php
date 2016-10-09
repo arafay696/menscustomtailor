@@ -72,7 +72,7 @@
                 <div class="men_tailor_listDtail clearfix">
                     <ul>
                         <li>
-                            <img src="<?php echo URL::to('public/assets/client/images/list_img2.png');?>" alt="#"/>
+                            <img src="<?php echo URL::to('public/assets/client/images/ad-3.png');?>" alt="#"/>
 
                             <div class="overley_div_list">
                                 <div class="list_inn_dtail">
@@ -207,10 +207,10 @@
                             <li>
                                 <a href="<?php echo URL::to('gift-card');?>">
                                     <img src="<?php echo URL::to('public/assets/client/images/gift.jpg');?>"
-                                         alt="#"/>
+                                         alt="Mens custom tailor gift card"/>
                                 </a>
                                 <span>
-                                    	<a href="<?php echo URL::to('/');?>">
+                                    	<a href="<?php echo URL::to('gift-card');?>">
                                             Gift Certificate
                                         </a>
                                     </span>

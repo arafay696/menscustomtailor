@@ -143,7 +143,7 @@
                                                                                          checked="checked">&nbsp;
                                                             </label>
                                                         </div>
-                                                        <img src="<?php echo URL::to('public/assets/client/images/Fly_Front.png'); ?>"
+                                                        <img src="<?php echo URL::to('public/assets/client/images/Tux_Fly_Front.png'); ?>"
                                                              alt="Fly Front"/>
 
                                                         <div class="customization_dropdown">
@@ -158,7 +158,7 @@
                                                                           value="1/4 pleat with stud holes">&nbsp;
                                                             </label>
                                                         </div>
-                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                        <img src="<?php echo URL::to('public/assets/client/images/1-4-pleat.png'); ?>"
                                                              alt="#"/>
 
                                                         <div class="customization_dropdown">
@@ -173,7 +173,7 @@
                                                                           value="1/2 pleat with stud holes">&nbsp;
                                                             </label>
                                                         </div>
-                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                        <img src="<?php echo URL::to('public/assets/client/images/1-2-pleat.png'); ?>"
                                                              alt="#"/>
 
                                                         <div class="customization_dropdown">
@@ -188,7 +188,7 @@
                                                                           value="Plain Front">&nbsp;
                                                             </label>
                                                         </div>
-                                                        <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                        <img src="<?php echo URL::to('public/assets/client/images/tux5.png'); ?>"
                                                              alt="#"/>
 
                                                         <div class="customization_dropdown">
@@ -553,7 +553,7 @@
                                                                checked="checked">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/Full_Sleeve.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -569,7 +569,7 @@
                                                                value="Plain Short Sleeve">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/short-sleeve.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -892,7 +892,7 @@
                                                                checked="checked">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/No-Pocket.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -908,7 +908,7 @@
                                                         >&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/Regular_Pocket.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -922,7 +922,7 @@
                                                     <label><input type="radio" name="pocketStyle"
                                                                   value="Round Corned Pocket">&nbsp;</label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/Round_Corned_Pocket.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -960,7 +960,7 @@
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
                                                     some extra room.</p>
-                                                <h3 class="detailHeading1">Select No. Of Pocket</h3>
+                                                <h3 class="detailHeading1">Select No. Of Pockets</h3>
                                                 <select size="1" name="noOfPocket">
                                                     <?php foreach ($NoOfPockets as $key => $np) { ?>
                                                     <option value="<?=$key;?>"><?=$np;?></option>
@@ -986,7 +986,7 @@
                                                                checked="checked">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/No_monogram.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -1001,7 +1001,7 @@
                                                                   value="Block Letter">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/Block_letters.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">
@@ -1015,7 +1015,7 @@
                                                     <label><input type="radio" name="monogramStyle" value="Script">&nbsp;
                                                     </label>
                                                 </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/script_monogram.png'); ?>"
                                                      alt="#"/>
 
                                                 <div class="customization_dropdown">

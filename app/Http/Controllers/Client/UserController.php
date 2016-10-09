@@ -155,8 +155,14 @@ class UserController extends BaseController
                 ->orderBy('o.OrderDate', 'DESC')
                 ->get();
 
+            $getUser = DB::table('customers')
+                ->select('Name','Email','Phone','City','Country','Address')
+                ->where("ID", "=", Session::get('CustomerID'))
+                ->first();
+
             $data = array(
-                'orders' => $orders
+                'orders' => $orders,
+                'user' => $getUser
             );
 
             return view('client.orderhistory', $data);
@@ -496,10 +502,6 @@ class UserController extends BaseController
         }
     }
 
-    public function saveToPDF(){
-        echo 'Pending.......';
-    }
-
     public function generateInvoice($orderID){
         $getDetail = DB::table('orders AS o')
             ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty','sd.FabricPrice', 'o.Amount as Total', 'o.Discount','o.Shiping')
@@ -509,6 +511,7 @@ class UserController extends BaseController
             ->where("o.ID", "=", $orderID)
             ->groupBy("i.RefID")
             ->get();
+
         if(count($getDetail) > 0){
             echo json_encode(array(
                'status' => true,
