@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="bttnz_two">
                                         <i class="updateCartSpin hide fa fa-spinner fa-spin"></i>
-                                        <a id="<?=$order->ID;?>" class="generatePdf" href="javascript:void(0);"> PDF</a>
+                                        <a id="<?=$order->ID;?>" class="generatePdf" href="javascript:void(0);"> Print PDF</a>
                                         <a style="display: none !important;" href="javascript:void(0)">Re Order</a>
                                         <a href="<?= URL::to('order/detail/' . $order->ID . '');?>">Detail</a>
                                     </div>

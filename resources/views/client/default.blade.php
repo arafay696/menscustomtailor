@@ -86,6 +86,9 @@
                             <li><a href="<?php echo URL::to('about-us');?>">About</a></li>
                             <li><a href="<?php echo URL::to('fabric');?>">Fabric</a></li>
                             <li><a href="<?php echo URL::to('contact-us');?>">Contact Us</a></li>
+                            <li class="showOnMobile"><a href="<?php echo URL::to('profile');?>">Account </a></li>
+                            <li class="showOnMobile"><a href="<?php echo URL::to('order-history');?>">Order History</a></li>
+                            <li class="showOnMobile"><a href="<?php echo URL::to('cart');?>">Shopping Cart</a></li>
                         </ul>
                     </div>
                     <a href="javascript:void(0)" class="menuIcon">&nbsp;</a>

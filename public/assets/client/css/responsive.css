@@ -911,4 +911,26 @@
         display: block;
     }
 
+    .hideOnMobile{
+        display: none !important;
+    }
+
+    .best_shirt_text h3 {
+        font-size: 30px;
+    }
+    .best_shirt_text p{
+        font-size: 15px;
+    }
+    .showOnMobile {
+        display: block;
+    }
+    .footer {
+        display: none;
+    }
+    .fabric_bannerDtail h1 {
+        font-size: 35px;
+    }
+    .fabric_banner_below {
+        display: none;
+    }
 }

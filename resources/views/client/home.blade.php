@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <li class="hideOnMobile">
                             <img src="<?php echo URL::to('public/assets/client/images/list_img1.png');?>" alt="#"/>
 
                             <div class="overley_div_list">
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <li class="hideOnMobile">
                             <img src="<?php echo URL::to('public/assets/client/images/list_img2.png');?>" alt="#"/>
 
                             <div class="overley_div_list">

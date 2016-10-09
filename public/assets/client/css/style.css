@@ -3314,12 +3314,6 @@ body {
 .numberFont {
     font-family: monospace !important;
 }
-
-
-
-
-
-
-
-
-
+.showOnMobile {
+    display: none;
+}
