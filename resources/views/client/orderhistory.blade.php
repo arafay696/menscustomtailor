@@ -76,11 +76,13 @@
                 <!--Invoice PDF-->
                 <div style="opacity:0;" id="pdfInvoice" class="cart_pageDtail">
                     <div style="width: 100%;clear: both;overflow: hidden;margin-bottom: 10px;">
-                        <span style="width:60%;float: left;">
+                        <span style="width:45%;float: left;">
                             <img style="float: left;" src="<?= URL::to('public/assets/client/images/header_logo.png');?>">
                         </span>
+                        <h1 style="width: 10%;float: left;">Invoice</h1>
                             <h2 style="width: 10%;float: right;">Order # <b id="setOrderID"></b></h2>
                     </div>
+
                     <div class="customerDetailInvoice">
                         <table>
                             <tr>

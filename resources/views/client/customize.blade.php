@@ -41,7 +41,7 @@
                                     <input id="makeSame" type="hidden" name="makeSame" value="no"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
-                                            <div class="customization_item">
+                                            <div class="customization_item addBorder">
                                                 <div class="artistProducer clearfix">
                                                     <label class="select"><input type="radio" name="shirtType"
                                                                                  value="Dress" checked="checked">&nbsp;
@@ -56,7 +56,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="customization_item">
+                                            <div class="customization_item addBorder">
                                                 <div class="artistProducer clearfix">
                                                     <label><input type="radio" name="shirtType" value="Casual">&nbsp;
                                                     </label>
@@ -70,7 +70,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="customization_item">
+                                            <div class="customization_item addBorder">
                                                 <div class="artistProducer clearfix">
                                                     <label><input type="radio" name="shirtType" value="Tuxedo">&nbsp;
                                                     </label>
@@ -1772,7 +1772,7 @@
                                                         9
                                                     </option>
                                                 </select>
-                                                <h3 class="detailHeading2">Select Height Inches</h3>
+                                                <h3 class="detailHeading2 responsiveWidth">Select Height Inches</h3>
                                                 <select name="HeightInches" size="1"
                                                         style="display: inline-block; clear: none; margin-left: 2px; width: 49% !important;">
                                                     <option <?php echo (isset(Session::get('currentSize')['HeightInches']) && Session::get('currentSize')['HeightInches'] == "1") ? "selected='selected'" : "" ?> value="1">

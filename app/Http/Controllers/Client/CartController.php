@@ -378,6 +378,7 @@ class CartController extends BaseController
             ->where("ID", "=", $userId)
             ->first();
 
+        $customerName = (!empty($getUserDetail->Name)) ? explode(" ",$getUserDetail->Name) : "";
         $DiscountType = Session::get('DiscountType');
         //dd($DiscountType);
         $Discount = Session::get('Discount');
@@ -398,6 +399,7 @@ class CartController extends BaseController
             'CartData' => $CartData,
             'ShipCharges' => Session::get('ShipCharges'),
             'Customer' => $getUserDetail,
+            'CustomerName' => $customerName,
             'goToPaypal' => $goToPaypal,
             'showDiscountField' => $showDiscountField,
             'discountAmount' => $Discount,

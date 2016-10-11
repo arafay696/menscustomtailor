@@ -3,6 +3,7 @@ $(document).ready(function (e) {
 
     // Save data in Session - Style/Size Page
     $('.nextSection').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         var hasNext = false;
         if ($('.customize_slider .active-customize').next().length > 0) {
             hasNext = true;
@@ -63,7 +64,7 @@ $(document).ready(function (e) {
 
     // Previous Section on Size/Measurement Page
     $('.previousSection').click(function () {
-
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         if ($('.customize_slider .active-customize').prev().length > 0) {
             $('.customize_slider .active-customize').addClass('in');
             $('.customize_slider .in').animate({marginLeft: "1000px", opacity: 0}, 800, "linear", function () {
@@ -352,7 +353,8 @@ $(document).ready(function (e) {
         ShipMethod: "USPS Priority",
         USPSPriority: [9.50, 13.50, 16.50, 23.50, 29.50, 32.50, 35.50, 37.50, 39.50, 40.50, 55.50],
         USPSNextDay: [25, 35, 40, 65, 65, 65, 95],
-        International: [25, 38, 45, 45, 45, 75, 75, 75, 150],
+        //International: [25, 38, 45, 45, 45, 75, 75, 75, 150],
+        International: [],
         calShipCharges: function () {
             var getQty = 0;
             var charges = 0;
@@ -364,7 +366,7 @@ $(document).ready(function (e) {
             } else if (Cart.ShipMethod == "USPS Next Day") {
                 charges = (typeof Cart.USPSNextDay[getQty - 1] !== typeof undefined) ? Cart.USPSNextDay[getQty - 1] : 95;
             } else {
-                charges = (typeof Cart.International[getQty - 1] !== typeof undefined) ? Cart.International[getQty - 1] : 150;
+                charges = (typeof Cart.International[getQty - 1] !== typeof undefined) ? Cart.International[getQty - 1] : 125;
             }
             //alert('Is ' + Cart.ShipMethod + ' Charges' + charges);
             $('#ShippingHidden').val();

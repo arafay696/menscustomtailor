@@ -81,6 +81,7 @@
 
     .popular_choices_list ul li span a {
         font-size: 14px;
+        line-height: 1px;
     }
 
     .popular_choices_list ul li {
@@ -932,5 +933,12 @@
     }
     .fabric_banner_below {
         display: none;
+    }
+    .addBorder {
+        border: 1px solid #9d9d9d;
+        padding: 4px;
+    }
+    .responsiveWidth {
+        width: 160px !important;
     }
 }

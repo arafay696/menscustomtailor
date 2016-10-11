@@ -65,12 +65,12 @@
                                         <li class="clearfix">
                                             <div class="custom_chkout_input">
                                                 <label>FIRST NAME *</label>
-                                                <input name="FirstName" type="text" value="<?=$Customer->Name;?>"
+                                                <input name="FirstName" type="text" value="<?=isset($CustomerName[0]) ? $CustomerName[0] : '';?>"
                                                        placeholder=""/>
                                             </div>
                                             <div class="custom_chkout_input">
                                                 <label>LAST NAME *</label>
-                                                <input name="LastName" type="text" value="<?=$Customer->Name;?>"
+                                                <input name="LastName" type="text" value="<?=isset($CustomerName[1]) ? $CustomerName[1] : '';?>"
                                                        placeholder=""/>
                                             </div>
                                         </li>
