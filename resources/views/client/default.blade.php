@@ -240,7 +240,6 @@
     </div>
 
 </div>
-<img id="setImage" src="" />
 <script type="text/javascript" src="<?php echo URL::to('public/assets/client/jsPDF/dist/jspdf.min.js');?>"></script>
 
 <script type="text/javascript" src="<?php echo URL::to('public/assets/client/js/isotope-docs.min.js');?>"></script>
