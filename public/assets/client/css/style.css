@@ -1363,6 +1363,10 @@ body {
     border-right: 1px solid #a6a6a5;
     float: left;
 }
+.subtotal_dtail ul li .customselect span {
+    overflow: hidden;
+    line-height: 26px;
+}
 
 .subtotal_dtail ul li strong {
     width: 55%;

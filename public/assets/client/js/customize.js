@@ -448,14 +448,23 @@ $(document).ready(function (e) {
     $('#slctCountry').change(function (e) {
         var cntry = $(this).val();
         if (cntry == 'US') {
+            $('#ShipMethod option[value="USPS Priority"]').prop('selected', 'selected');
             $('#ShipMethod option[value="USPS Priority"]').prop('disabled', false);
             $('#ShipMethod option[value="USPS Next Day"]').prop('disabled', false);
             $('#ShipMethod option[value="International Global Priority"]').prop('disabled', true);
+            $('#ShippingMethodHidden').val("USPS Priority");
+            $('#setShipMethodCntry').text("USPS Priority");
+            Cart.ShipMethod = "USPS Priority";
         } else {
             $('#ShipMethod option[value="USPS Priority"]').prop('disabled', true);
             $('#ShipMethod option[value="USPS Next Day"]').prop('disabled', true);
             $('#ShipMethod option[value="International Global Priority"]').prop('disabled', false);
+            $('#ShipMethod option[value="International Global Priority"]').prop('selected', 'selected');
+            $('#ShippingMethodHidden').val("International Global Priority");
+            $('#setShipMethodCntry').text("International Global Priority");
+            Cart.ShipMethod = "International Global Priority";
         }
+        Cart.updateCart();
     });
 
     $('.updateCart').click(function () {

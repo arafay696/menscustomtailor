@@ -382,7 +382,7 @@
                                         <li class="clearfix">
                                             <span>Shipping Method</span>
                                             <div class="customselect">
-                                                <span style="border-right: none;">USPS Priority</span>
+                                                <span id="setShipMethodCntry" style="border-right: none;">USPS Priority</span>
                                                 <select id="ShipMethod" size="1" name="ShipMethod">
                                                     <option value="USPS Priority">USPS Priority</option>
                                                     <option value="USPS Next Day">USPS Next Day</option>
