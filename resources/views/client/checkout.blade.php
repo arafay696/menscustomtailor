@@ -88,8 +88,15 @@
                                         </li>
                                         <li class="clearfix single_list">
                                             <div class="custom_chkout_input">
-                                                <label>ADDRESS * *</label>
+                                                <label>ADDRESS *</label>
                                                 <input name="Address" type="text" value="<?=$Customer->Address;?>"
+                                                       placeholder=""/>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix single_list">
+                                            <div class="custom_chkout_input">
+                                                <label>City *</label>
+                                                <input name="City" type="text" value="<?=$Customer->City;?>"
                                                        placeholder=""/>
                                             </div>
                                         </li>
@@ -100,7 +107,20 @@
                                                        placeholder=""/>
                                             </div>
                                         </li>
-
+                                        <li class="clearfix single_list">
+                                            <div class="custom_chkout_input">
+                                                <label>State *</label>
+                                                <input name="State" type="text" value="<?=$Customer->State;?>"
+                                                       placeholder=""/>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix single_list">
+                                            <div class="custom_chkout_input">
+                                                <label>Zip Code *</label>
+                                                <input name="ZipCode" type="text" value="<?=$Customer->ZipCode;?>"
+                                                       placeholder=""/>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
 
@@ -121,7 +141,7 @@
 
 
                             <div class="login_dtail fr_section">
-                                <h4>YOUR ORDER</h4>
+                                <h4>YOUR ORDER - <?=$orderID;?></h4>
 
                                 <div class="my_orderDtail_outr clearfix">
 

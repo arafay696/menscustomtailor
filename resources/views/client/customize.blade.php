@@ -202,21 +202,11 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
+                                                <p>When it comes to fronts, leaving plackets aside, most shirts feature a plain front without any additional elements other than chest pockets. While classic dress shirts may feature a chest pocket for functional aspects, we would advise leaving other options to more casual alternatives; two chest pockets should be kept strictly for relaxed alternatives such as safari, military or western shirts.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -359,21 +349,11 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
+                                                <p>We believe in having a mix of collar styles. From deep cutaways to classic points and everything in between, we've got a style that works for any occasion you can imagine. Other sites might suggest that you should get a collar that counter-balances your face - e.g., if you have a longer face, you should wear spread collars, or if you have a rounder face, you should wear a point collar. We think this is bogus. You should enjoy a collar that matches your own personal style, and not worry about following someone else's rules for what they feel might look good on you. The most important thing is to have a shirt that fits, everything else is personal preference..</p>
                                             </div>
 
                                             <div class="neck_dtail canChangeSize">
@@ -517,21 +497,11 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
+                                                <p>Dress shirt cuffs remind us of what makes menswear so unique: it's all in the details. Most dress shirt cuffs are pretty classic: a barrel cuff with a squared edge and two buttons - which helps determine the snugness you want in around your wrist. Otherwise, a dress shirt cuff is usually defined by the shape of the cuff enclosure. We use a variety of cuff styles: from a subtle rounded edge to a barrel cuff, to a more unique two button scalloped variety. That said, our most popular cuff style is the Convertible Cuff.</p>
                                             </div>
 
                                         </div>
@@ -581,7 +551,7 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
@@ -936,7 +906,7 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
@@ -1027,7 +997,7 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
@@ -1096,7 +1066,7 @@
 
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
@@ -1722,7 +1692,7 @@
 
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
@@ -2334,7 +2304,7 @@
 
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
@@ -2446,7 +2416,7 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
@@ -2531,6 +2501,7 @@
         </div>
 
     </div>
+    <button id="myBtn" class="hide"></button>
     <script>
         /*
          * --------- Modal JS
@@ -2565,6 +2536,7 @@
         if ($('#openModalCondi').val() == 'open') {
             modal.style.display = "block";
         }
+
         // -------------------------- Modal JS End -------------------//
     </script>
     <!-- Page Wrapper -->

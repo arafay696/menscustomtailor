@@ -213,6 +213,29 @@ class PayPalController extends BaseController
             ->where('ID', $orderID)
             ->update($updatedata);
 
+        // Update User Info
+        DB::setFetchMode(\PDO::FETCH_ASSOC);
+        $getUser = DB::table('customers')->where('ID', Session::get('CustomerID'))
+            ->get();
+        DB::setFetchMode(\PDO::FETCH_CLASS);
+
+        $updateUserdata = array();
+        foreach ($getUser as $data) {
+            $updateUserdata = $data;
+            $updateUserdata['Phone'] = $request::get('Phone');
+            $updateUserdata['City'] = $request::get('City');
+            $updateUserdata['Country'] = $request::get('Country');
+            $updateUserdata['Address'] = $request::get('Address');
+            $updateUserdata['State'] = $request::get('State');
+            $updateUserdata['ZipCode'] = $request::get('ZipCode');
+        }
+
+
+        DB::table('customers')
+            ->where('ID', Session::get('CustomerID'))
+            ->update($updateUserdata);
+        // Update User Info End
+
         $DiscountType = Session::get('DiscountType');
         $coupon = Session::get('CouponCode');
         //echo $DiscountType . $coupon; exit;
@@ -265,6 +288,28 @@ class PayPalController extends BaseController
             ->where('ID', $orderID)
             ->update($updatedata);
 
+        // Update User Info
+        DB::setFetchMode(\PDO::FETCH_ASSOC);
+        $getUser = DB::table('customers')->where('ID', Session::get('CustomerID'))
+            ->get();
+        DB::setFetchMode(\PDO::FETCH_CLASS);
+
+        $updateUserdata = array();
+        foreach ($getUser as $data) {
+            $updateUserdata = $data;
+            $updateUserdata['Phone'] = $request::get('Phone');
+            $updateUserdata['City'] = $request::get('City');
+            $updateUserdata['Country'] = $request::get('Country');
+            $updateUserdata['Address'] = $request::get('Address');
+            $updateUserdata['State'] = $request::get('State');
+            $updateUserdata['ZipCode'] = $request::get('ZipCode');
+        }
+
+
+        DB::table('customers')
+            ->where('ID', Session::get('CustomerID'))
+            ->update($updateUserdata);
+        // Update User Info End
 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');

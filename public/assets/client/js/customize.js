@@ -680,11 +680,14 @@ $(document).ready(function (e) {
                     var divHeight = $('#pdfInvoice').height();
                     var divWidth = $('#pdfInvoice').width();
                     var ratio = divHeight / divWidth;
+                    $('#pdfInvoice').css('opacity',1);
                     html2canvas($('#pdfInvoice'), {
                         onrendered: function (canvas) {
                             $('.dummy').addClass('hide');
                             $('.dummy').removeClass('dummy');
+
                             var canvasImg = canvas.toDataURL("image/jpg");
+                            //console.log(canvasImg);
                             //$('#SetImage').prop('src', canvasImg);
                             var imgData = canvasImg;
                             var doc = new jsPDF();
@@ -695,6 +698,7 @@ $(document).ready(function (e) {
                             //doc.text(35, 25, "Men's Custom Tailor - Invoice " + OrderID);
                             doc.addImage(imgData, 'JPEG', 5, 5, width-20, height);
                             doc.save('mct-invoice.pdf');
+                            $('#pdfInvoice').css('opacity',0);
                             $('#appendElements').empty();
                         }
                     });

@@ -50,13 +50,13 @@ class HomeController extends BaseController
     public function giftCard()
     {
         // Send Email to Recipient
-        /*$recData = array(
+       /* $recData = array(
             'Subject' => 'Gift Card Received',
             'name' => "Men's Custom Tailor",
             'code' => '123',
-            'from' => 'arafay696@gmail.com',
+            'from' => 'info.menscustomtailor@gmail.com',
             'msg' => 'arafay696@gmail.com',
-            'email' => 'arafay696@gmail.com',
+            'email' => 'info.menscustomtailor@gmail.com',
             'price' => 123
         );
 

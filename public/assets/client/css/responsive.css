@@ -455,6 +455,11 @@
         width: 100%;
     }
 
+    .popular_choices_list ul li a img {
+	margin-left: 50px;
+	width: 70%;
+    }
+    
     .people_says_sectionDtail {
         padding: 65px 10px 100px;
     }
@@ -672,7 +677,21 @@
         width: 100%;
         float: none;
     }
-
+    .customization_item img{
+        width: 70%;
+	margin-left: 40px;
+        
+    }
+    .artistProducer label.select {
+	background: url(../images/radiocheck.png) no-repeat left center;
+	margin-left: 50px;
+    }
+    
+    .artistProducer label {
+    
+	background: url(../images/radiouncheck.png) no-repeat left center;
+	margin-left: 50px;    
+    }
     .customize_rightSection {
         width: 100%;
         float: none;
@@ -860,11 +879,12 @@
     .modal-content {
         width: 90%
     }
-
+        
     .cart_container.back_background .cart_head h3 {
         width: 100% !important;
         float: none !important;
-        margin-bottom: 20px;
+        margin-bottom: -51px;
+	font-size: 25px; 
     }
 
     .customize_setting .actions {

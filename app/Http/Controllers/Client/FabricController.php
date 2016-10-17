@@ -104,9 +104,27 @@ class FabricController extends BaseController
 
     public function customizebyID($id)
     {
+        if (!Session::has('CustomerID')) {
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric')) . '');
+        }
+
         $cartData = $this->getCartData();
         if (count($cartData) <= 0) {
             return Redirect::to('fabric');
+        }
+
+        // Init Size if Size saved already
+        $userId = Session::get('CustomerID');
+        DB::setFetchMode(\Pdo::FETCH_ASSOC);
+        $getSize = DB::table('size')
+            ->select('*')
+            ->where("CustomerID", "=", $userId)
+            ->first();
+        DB::setFetchMode(\Pdo::FETCH_CLASS);
+        if (count($getSize) > 0) {
+            Session::put('currentSize', $getSize);
+        } else {
+            Session::put('currentSize', false);
         }
 
         $productId = (int)$id;
@@ -117,11 +135,17 @@ class FabricController extends BaseController
             'NeckSize' => $this->getData('NeckSize')
         );
 
+        //echo (isset(Session::get('currentSize')['NeckSize'])) && Session::get('currentSize')['NeckSize'] == "12 1/4" ? "selected=selected" : "";
+        //dd(Session::get('currentSize'));
         return view('client.customize', $sendData);
     }
 
     public function customize(Request $request)
     {
+        if (!Session::has('CustomerID')) {
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric')) . '');
+        }
+
         // check if not set then save in session
         if (!Session::has('chooseFabs') || !Session::has('chooseQty')) {
             //dd('here');

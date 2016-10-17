@@ -79,7 +79,7 @@
                         <span style="width:45%;float: left;">
                             <img style="float: left;" src="<?= URL::to('public/assets/client/images/header_logo.png');?>">
                         </span>
-                        <h1 style="width: 10%;float: left;">Invoice</h1>
+                        <h1 style="width: 10%;float: left;font-weight: bold;">Invoice</h1>
                             <h2 style="width: 10%;float: right;">Order # <b id="setOrderID"></b></h2>
                     </div>
 
@@ -151,6 +151,7 @@
                         </div>
                     </div>
                 </div>
+                <img class="hide" id="SetImage" />
 
             </div>
         </div>

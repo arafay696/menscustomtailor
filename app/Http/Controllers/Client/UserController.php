@@ -128,7 +128,7 @@ class UserController extends BaseController
 
         DB::setFetchMode(\PDO::FETCH_ASSOC);
         $getUser = DB::table('customers')
-            ->select('Email', 'Name', 'City', 'Country', 'Phone', 'Company', 'Gender', 'Address', 'UserImg')
+            ->select('Email', 'Name', 'City', 'Country','State','ZipCode', 'Phone', 'Company', 'Gender', 'Address', 'UserImg')
             ->where('ID', Session::get('CustomerID'))
             ->first();
         DB::setFetchMode(\PDO::FETCH_CLASS);
@@ -152,6 +152,7 @@ class UserController extends BaseController
                 ->join('customers as c', 'o.CustomerID', '=', 'c.ID')
                 ->join('orderstatus as os', 'o.Status', '=', 'os.ID')
                 ->where('c.ID', '=', Session::get('CustomerID'))
+                ->where('o.Status', '=', 1)
                 ->orderBy('o.OrderDate', 'DESC')
                 ->get();
 
@@ -310,6 +311,8 @@ class UserController extends BaseController
             $updatedata['Country'] = Request::get('Country');
             $updatedata['Gender'] = Request::get('Gender');
             $updatedata['Company'] = Request::get('Company');
+            $updatedata['State'] = Request::get('State');
+            $updatedata['ZipCode'] = Request::get('ZipCode');
 
             if (Request::hasFile('UserImg')) {
                 $updatedata['UserImg'] = $fileName;
@@ -449,7 +452,7 @@ class UserController extends BaseController
         $sizeDetail['HeightFeet'] = $request::get('HeightFeet');
         $sizeDetail['Weight'] = $request::get('Weight');
         $sizeDetail['NeckHeight'] = $request::get('NeckHeight');
-        $sizeDetail['NeckSize'] = $request::get('NeckSize');
+        $sizeDetail['NeckSize'] = $request::get('NeckHeight');
         $sizeDetail['LeftSleeve'] = $request::get('SleeveLength');
         $sizeDetail['RightSleeve'] = $request::get('SleeveLength');
         $sizeDetail['Chest'] = $request::get('Chest');

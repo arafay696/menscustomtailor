@@ -139,7 +139,7 @@ class CartController extends BaseController
                     $sizeDetail['HeightInches'] = (isset($value['HeightInches'])) ? $value['HeightInches'] : '';
                     $sizeDetail['HeightFeet'] = (isset($value['HeightFeet'])) ? $value['HeightFeet'] : '';
                     $sizeDetail['Weight'] = (isset($value['Weight'])) ? $value['Weight'] : '';
-                    $sizeDetail['NeckHeight'] = (isset($value['NeckHeight'])) ? $value['NeckHeight'] : '';
+                    $sizeDetail['NeckHeight'] = (isset($value['NeckSize'])) ? $value['NeckSize'] : '';
                     $sizeDetail['NeckSize'] = (isset($value['NeckSize'])) ? $value['NeckSize'] : '';
                     $sizeDetail['LeftSleeve'] = (isset($value['sleeveLength'])) ? $value['sleeveLength'] : '';
                     $sizeDetail['RightSleeve'] = (isset($value['sleeveLength'])) ? $value['sleeveLength'] : '';
@@ -390,6 +390,7 @@ class CartController extends BaseController
         }else{
             $goToPaypal = true;
         }
+        $orderID = Session::get('ProcessOrderId');
 
         $showDiscountField = ($DiscountType != "") ? true : false;
         //$DiscountType = 'Gift';
@@ -403,7 +404,8 @@ class CartController extends BaseController
             'goToPaypal' => $goToPaypal,
             'showDiscountField' => $showDiscountField,
             'discountAmount' => $Discount,
-            'discountType' => $DiscountType
+            'discountType' => $DiscountType,
+            'orderID' => $orderID,
         );
         return view('client/checkout', $data);
     }

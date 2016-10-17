@@ -71,6 +71,14 @@
                                         <input name="Country" type="text" value="{{$Country}}"/>
                                     </li>
                                     <li>
+                                        <label>State</label>
+                                        <input name="State" type="text" value="{{$State}}"/>
+                                    </li>
+                                    <li>
+                                        <label>Zip Code</label>
+                                        <input name="ZipCode" type="text" value="{{$ZipCode}}"/>
+                                    </li>
+                                    <li>
                                         <label>Change Profile Photo</label>
                                         <br>
                                         <input name="UserImg" type="file" accept="image/*"/>

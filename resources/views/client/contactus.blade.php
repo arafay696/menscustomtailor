@@ -35,16 +35,14 @@
                             </div>
 
                             <div class="contact_info">
-                                <h4>Contact Informations</h4>
-                                <p>Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</p>
+                                <h4>Contact Information</h4>
+                                <p>Welcome to Men's Custom Tailor. Our office hours are Mon-Fri 9am - 5pm EST..</p>
 
                                 <ul>
-                                    <li><b>Address :</b>3379, Peachtree Rd Atlanta, GA 30326</li>
+                                    <li><b>Address :</b>2523 Ferndale Ln. Snellville, GA 30078</li>
                                     <li><b>E-mail :</b> <a href="#"> info@menscustomtailor.com</a></li>
                                     <li><b>Phone :</b> Telephone (678) 740-3530</li>
-                                    <li><b>Fax : </b> +1 111-888-0001</li>
+                                    
                                 </ul>
                             </div>
                         </div>
