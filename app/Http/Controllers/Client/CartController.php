@@ -92,7 +92,7 @@ class CartController extends BaseController
         $data = $this->getCartData();
         unset($data[$key]);
         Session::put('CartData', $data);
-        if(count($this->getCartData()) <= 0){
+        if (count($this->getCartData()) <= 0) {
             Session::forget('chooseFabs');
             Session::forget('chooseQty');
         }
@@ -131,67 +131,68 @@ class CartController extends BaseController
                 ->first();
 
             // Save Size
-            if (count($data) > 0) {
-                $sizeDetail = array();
-                $sizeDetail['CustomerID'] = $userId;
-                foreach ($data as $value) {
-                    $sizeDetail['SizeOption'] = (isset($value['SizeOption'])) ? $value['SizeOption'] : '';
-                    $sizeDetail['HeightInches'] = (isset($value['HeightInches'])) ? $value['HeightInches'] : '';
-                    $sizeDetail['HeightFeet'] = (isset($value['HeightFeet'])) ? $value['HeightFeet'] : '';
-                    $sizeDetail['Weight'] = (isset($value['Weight'])) ? $value['Weight'] : '';
-                    $sizeDetail['NeckHeight'] = (isset($value['NeckSize'])) ? $value['NeckSize'] : '';
-                    $sizeDetail['NeckSize'] = (isset($value['NeckSize'])) ? $value['NeckSize'] : '';
-                    $sizeDetail['LeftSleeve'] = (isset($value['sleeveLength'])) ? $value['sleeveLength'] : '';
-                    $sizeDetail['RightSleeve'] = (isset($value['sleeveLength'])) ? $value['sleeveLength'] : '';
-                    $sizeDetail['Chest'] = (isset($value['Chest'])) ? $value['Chest'] : '';
-                    $sizeDetail['Waist'] = (isset($value['Waist'])) ? $value['Waist'] : '';
-                    $sizeDetail['Hips'] = (isset($value['Hips'])) ? $value['Hips'] : '';
-                    $sizeDetail['Yoke'] = (isset($value['Yoke'])) ? $value['Yoke'] : '';
-                    $sizeDetail['Tail'] = (isset($value['Tail'])) ? $value['Tail'] : '';
-                    $sizeDetail['LeftCuff'] = (isset($value['LeftCuff'])) ? $value['LeftCuff'] : '';
-                    $sizeDetail['RightCuff'] = (isset($value['RightCuff'])) ? $value['RightCuff'] : '';
-                    $sizeDetail['FittingOption'] = (isset($value['FittingOption'])) ? $value['FittingOption'] : '';
-                    $sizeDetail['Posture'] = (isset($value['Posture'])) ? $value['Posture'] : '';
-                    $sizeDetail['ChestDescription'] = (isset($value['ChestDescription'])) ? $value['ChestDescription'] : '';
-                    $sizeDetail['ArmType'] = (isset($value['ArmType'])) ? $value['ArmType'] : '';
-                    $sizeDetail['BodyShape'] = (isset($value['BodyShape'])) ? $value['BodyShape'] : '';
-                    $sizeDetail['BodyProportion'] = (isset($value['BodyProportion'])) ? $value['BodyProportion'] : '';
-                    $sizeDetail['ShoulderLine'] = (isset($value['ShoulderLine'])) ? $value['ShoulderLine'] : '';
-                    $sizeDetail['Shoulder'] = (isset($value['Shoulder'])) ? $value['Shoulder'] : '';
-                    $sizeDetail['ExtraShirtTail'] = (isset($value['ExtraShirtTail'])) ? $value['ExtraShirtTail'] : '';
-                    $sizeDetail['ShorterShirtTail'] = (isset($value['ShorterShirtTail'])) ? $value['ShorterShirtTail'] : '';
-                    $sizeDetail['FitAroundChestShoulder'] = (isset($value['FitAroundChestShoulder'])) ? $value['FitAroundChestShoulder'] : '';
-                    $sizeDetail['FitAroundWaist'] = (isset($value['FitAroundWaist'])) ? $value['FitAroundWaist'] : '';
-                    $sizeDetail['CoatSize'] = (isset($value['CoatSize'])) ? $value['CoatSize'] : '';
-                    $sizeDetail['PantSize'] = (isset($value['PantSize'])) ? $value['PantSize'] : '';
-                    $sizeDetail['Inseam'] = (isset($value['Inseam'])) ? $value['Inseam'] : '';
-                    $sizeDetail['Status'] = 'A';
-                    $sizeDetail['Comments'] = (isset($value['Comments'])) ? $value['Comments'] : '';
-                    $sizeDetail['Dat'] = date('Y-m-d H:i:s');
-                    $sizeDetail['CoatLength'] = (isset($value['CoatLength'])) ? $value['CoatLength'] : '';
-                    $sizeDetail['Confirm'] = (isset($value['Confirm'])) ? $value['Confirm'] : '';
-                    $sizeDetail['SleeveFullnessInBicep'] = (isset($value['SleeveFullnessInBicep'])) ? $value['SleeveFullnessInBicep'] : '';
-                    $sizeDetail['ArmHole'] = (isset($value['ArmHole'])) ? $value['ArmHole'] : '';
-                    $sizeDetail['RaiseCollar'] = (isset($value['RaiseCollar'])) ? '' : '';
-                    $sizeDetail['SleeveFullnessIntoCuff'] = (isset($value['SleeveFullnessIntoCuff'])) ? '' : '';
-                    $sizeDetail['BackDart'] = (isset($value['BackDart'])) ? $value['BackDart'] : '';
-                    $sizeDetail['ScoopFrontNeck'] = (isset($value['ScoopFrontNeck'])) ? $value['ScoopFrontNeck'] : '';
-                    $sizeDetail['SalesPerson'] = (isset($value['SalesPerson'])) ? $value['SalesPerson'] : '';
-                    $sizeDetail['DecideOn'] = (isset($value['DecideOn'])) ? $value['DecideOn'] : '';
-                    $sizeDetail['ShirtNeckSize'] = (isset($value['NeckSize'])) ? $value['NeckSize'] : '';
-                    $sizeDetail['ShirtLength'] = (isset($value['ShirtLength'])) ? $value['ShirtLength'] : '';
-                    $sizeDetail['MidSection'] = (isset($value['MidSection'])) ? $value['MidSection'] : '';
-                    $sizeDetail['BiggestChallenge'] = (isset($value['BiggestChallenge'])) ? $value['BiggestChallenge'] : '';
-                }
+            $sizeDetail = array();
+            $sizeDetail['CustomerID'] = $userId;
+            foreach ($data as $value) {
+                $sizeDetail['SizeOption'] = (isset($value['SizeOption'])) ? $value['SizeOption'] : '';
+                $sizeDetail['HeightInches'] = (isset($value['HeightInches'])) ? $value['HeightInches'] : '';
+                $sizeDetail['HeightFeet'] = (isset($value['HeightFeet'])) ? $value['HeightFeet'] : '';
+                $sizeDetail['Weight'] = (isset($value['Weight'])) ? $value['Weight'] : '';
+                $sizeDetail['NeckHeight'] = (isset($value['NeckSize'])) ? $value['NeckSize'] : '';
+                $sizeDetail['NeckSize'] = (isset($value['NeckSize'])) ? $value['NeckSize'] : '';
+                $sizeDetail['LeftSleeve'] = (isset($value['sleeveLength'])) ? $value['sleeveLength'] : '';
+                $sizeDetail['RightSleeve'] = (isset($value['sleeveLength'])) ? $value['sleeveLength'] : '';
+                $sizeDetail['Chest'] = (isset($value['Chest'])) ? $value['Chest'] : '';
+                $sizeDetail['Waist'] = (isset($value['Waist'])) ? $value['Waist'] : '';
+                $sizeDetail['Hips'] = (isset($value['Hips'])) ? $value['Hips'] : '';
+                $sizeDetail['Yoke'] = (isset($value['Yoke'])) ? $value['Yoke'] : '';
+                $sizeDetail['Tail'] = (isset($value['Tail'])) ? $value['Tail'] : '';
+                $sizeDetail['LeftCuff'] = (isset($value['LeftCuff'])) ? $value['LeftCuff'] : '';
+                $sizeDetail['RightCuff'] = (isset($value['RightCuff'])) ? $value['RightCuff'] : '';
+                $sizeDetail['FittingOption'] = (isset($value['FittingOption'])) ? $value['FittingOption'] : '';
+                $sizeDetail['Posture'] = (isset($value['Posture'])) ? $value['Posture'] : '';
+                $sizeDetail['ChestDescription'] = (isset($value['ChestDescription'])) ? $value['ChestDescription'] : '';
+                $sizeDetail['ArmType'] = (isset($value['ArmType'])) ? $value['ArmType'] : '';
+                $sizeDetail['BodyShape'] = (isset($value['BodyShape'])) ? $value['BodyShape'] : '';
+                $sizeDetail['BodyProportion'] = (isset($value['BodyProportion'])) ? $value['BodyProportion'] : '';
+                $sizeDetail['ShoulderLine'] = (isset($value['ShoulderLine'])) ? $value['ShoulderLine'] : '';
+                $sizeDetail['Shoulder'] = (isset($value['Shoulder'])) ? $value['Shoulder'] : '';
+                $sizeDetail['ExtraShirtTail'] = (isset($value['ExtraShirtTail'])) ? $value['ExtraShirtTail'] : '';
+                $sizeDetail['ShorterShirtTail'] = (isset($value['ShorterShirtTail'])) ? $value['ShorterShirtTail'] : '';
+                $sizeDetail['FitAroundChestShoulder'] = (isset($value['FitAroundChestShoulder'])) ? $value['FitAroundChestShoulder'] : '';
+                $sizeDetail['FitAroundWaist'] = (isset($value['FitAroundWaist'])) ? $value['FitAroundWaist'] : '';
+                $sizeDetail['CoatSize'] = (isset($value['CoatSize'])) ? $value['CoatSize'] : '';
+                $sizeDetail['PantSize'] = (isset($value['PantSize'])) ? $value['PantSize'] : '';
+                $sizeDetail['Inseam'] = (isset($value['Inseam'])) ? $value['Inseam'] : '';
+                $sizeDetail['Status'] = 'A';
+                $sizeDetail['Comments'] = (isset($value['Comments'])) ? $value['Comments'] : '';
+                $sizeDetail['Dat'] = date('Y-m-d H:i:s');
+                $sizeDetail['CoatLength'] = (isset($value['CoatLength'])) ? $value['CoatLength'] : '';
+                $sizeDetail['Confirm'] = (isset($value['Confirm'])) ? $value['Confirm'] : '';
+                $sizeDetail['SleeveFullnessInBicep'] = (isset($value['SleeveFullnessInBicep'])) ? $value['SleeveFullnessInBicep'] : '';
+                $sizeDetail['ArmHole'] = (isset($value['ArmHole'])) ? $value['ArmHole'] : '';
+                $sizeDetail['RaiseCollar'] = (isset($value['RaiseCollar'])) ? '' : '';
+                $sizeDetail['SleeveFullnessIntoCuff'] = (isset($value['SleeveFullnessIntoCuff'])) ? '' : '';
+                $sizeDetail['BackDart'] = (isset($value['BackDart'])) ? $value['BackDart'] : '';
+                $sizeDetail['ScoopFrontNeck'] = (isset($value['ScoopFrontNeck'])) ? $value['ScoopFrontNeck'] : '';
+                $sizeDetail['SalesPerson'] = (isset($value['SalesPerson'])) ? $value['SalesPerson'] : '';
+                $sizeDetail['DecideOn'] = (isset($value['DecideOn'])) ? $value['DecideOn'] : '';
+                $sizeDetail['ShirtNeckSize'] = (isset($value['NeckSize'])) ? $value['NeckSize'] : '';
+                $sizeDetail['ShirtLength'] = (isset($value['ShirtLength'])) ? $value['ShirtLength'] : '';
+                $sizeDetail['MidSection'] = (isset($value['MidSection'])) ? $value['MidSection'] : '';
+                $sizeDetail['BiggestChallenge'] = (isset($value['BiggestChallenge'])) ? $value['BiggestChallenge'] : '';
             }
 
 
             if (count($getSize) <= 0 && !is_array($getSize)) {
                 $sizeID = DB::table('size')->insertGetId($sizeDetail);
             } else {
-                $CustomerID = $getSize->CustomerID;
-                $sizeID = $getSize->ID;
-                DB::table('size')->where('CustomerID', $CustomerID)->update($sizeDetail);
+                $updateSizeOrNot = Session::get('isUpdateSize');
+                if ($updateSizeOrNot) {
+                    $CustomerID = $getSize->CustomerID;
+                    $sizeID = $getSize->ID;
+                    DB::table('size')->where('CustomerID', $userId)->update($sizeDetail);
+                }
             }
 
             // Get Price,Amount & Other Charges
@@ -202,7 +203,7 @@ class CartController extends BaseController
             Session::put('ShipCharges', $shippingCharges);
 
             // Check discount
-            $getDiscountType  = $request::get('offerType');
+            $getDiscountType = $request::get('offerType');
             $discount = (!empty($getDiscountType) && $getDiscountType != "") ? $request::get('setDiscountAmount') : 0;
 
             Session::put('DiscountType', $getDiscountType);
@@ -378,16 +379,16 @@ class CartController extends BaseController
             ->where("ID", "=", $userId)
             ->first();
 
-        $customerName = (!empty($getUserDetail->Name)) ? explode(" ",$getUserDetail->Name) : "";
+        $customerName = (!empty($getUserDetail->Name)) ? explode(" ", $getUserDetail->Name) : "";
         $DiscountType = Session::get('DiscountType');
         //dd($DiscountType);
         $Discount = Session::get('Discount');
 
         $goToPaypal = true;
         $getTotal = $this->getTotal();
-        if($Discount >= $getTotal){
+        if ($Discount >= $getTotal) {
             $goToPaypal = false;
-        }else{
+        } else {
             $goToPaypal = true;
         }
         $orderID = Session::get('ProcessOrderId');

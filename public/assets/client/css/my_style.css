@@ -680,3 +680,8 @@
 .customerDetailInvoice tr td {
     border: 1px solid #ccc;
 }
+#loadingSize {
+    margin-left: 77px;
+    color: black;
+    margin-top: 7px;
+}

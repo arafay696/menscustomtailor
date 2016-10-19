@@ -27,6 +27,7 @@ Route::get('cart/remove/{key}', 'Client\CartController@RemoveItem');
 Route::post('cart/save', 'Client\CartController@SaveData');
 Route::post('cart/update', 'Client\CartController@UpdateData');
 Route::get('checkout', 'Client\CartController@checkout');
+Route::post('loadsize/magic', 'Client\FabricController@LoadSizeMagic');
 Route::post('verifyDiscountCoupon', 'Client\CartController@verifyDiscountCoupon');
 Route::post('verifyGiftCoupon', 'Client\CartController@verifyGiftCoupon');
 

@@ -2496,7 +2496,9 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <i id="loadingSize" class="hide fa fa-spinner fa-spin fa-2x"></i>
                 <a class="continueStyling" style="float:right;">Done</a>
+                <input id="loadingSizeToken" type="hidden" name="_token" value="{{csrf_token()}}"/>
             </div>
         </div>
 

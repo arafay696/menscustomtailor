@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Client;
 
 use DB;
+use League\Flysystem\Exception;
 use Redirect;
 use Request;
 use Session;
@@ -153,20 +154,20 @@ class FabricController extends BaseController
             Session::put('chooseQty', $request::all());
         }
 
-        if(count(Session::get('chooseFabs')) <= 0){
+        if (count(Session::get('chooseFabs')) <= 0) {
             Session::flash('globalErrMsg', "Please Choose at least one item.");
             Session::flash('alert-class', 'alert-danger');
             return Redirect::to('fabric');
         }
 
         // check if value added OR delete
-        if(count(Session::get('chooseFabs')) < count($request::get('chooseFab'))){
+        if (count(Session::get('chooseFabs')) < count($request::get('chooseFab'))) {
             Session::put('chooseFabs', $request::get('chooseFab'));
             Session::put('chooseQty', $request::all());
         }
 
         if (!Session::has('CustomerID')) {
-           return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric/customize/new')) . '');
+            return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric/customize/new')) . '');
         }
 
         if (Request::isMethod('post')) {
@@ -194,7 +195,7 @@ class FabricController extends BaseController
         // Init Size if Size saved already End
 
         $choosen = 0;
-        if(count($chooseFabs) > 0){
+        if (count($chooseFabs) > 0) {
             foreach ($chooseFabs as $key => $value) {
 
                 $id = $value;
@@ -317,5 +318,41 @@ class FabricController extends BaseController
                 'message' => 'Product not exist'
             ));
         }
+    }
+
+    public function LoadSizeMagic(Request $request)
+    {
+        try {
+            $loadSizeOrNot = ($request::get('choosenOption') == 'Yes') ? true : false;
+            if (!$loadSizeOrNot) {
+                Session::put('isUpdateSize', false);
+            } else {
+                Session::put('isUpdateSize', true);
+                $data = $this->getCartData();
+                if (count($data) > 0) {
+                    $getCurrentSize = Session::get('currentSize');
+                    if ($getCurrentSize) {
+                        //$getCurrentSize = json_decode(json_encode($getCurrentSize), true);
+                        for ($i = 0; $i < count($data); $i++) {
+                            foreach ($getCurrentSize as $key => $value) {
+                                $data[$i][$key] = $value;
+                            }
+                        }
+                        $this->setCartData('CartData', $data);
+                    }
+                }
+            }
+
+            echo json_encode(array(
+                'status' => true,
+                'data' => $this->getCartData()
+            ));
+        } catch (\Exception $e) {
+            echo json_encode(array(
+                'status' => false,
+                'message' => $e->getMessage()
+            ));
+        }
+
     }
 }

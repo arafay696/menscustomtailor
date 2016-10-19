@@ -175,10 +175,27 @@ $(document).ready(function (e) {
     });
 
     $('.continueStyling').click(function () {
-        $('#myModal').css('display', 'none');
+
         if ($('#setCanChangeSize').val() == 0) {
             $('.canChangeSize select,.canChangeSize input').attr('disabled', 'disabled');
         }
+        var token = $('#loadingSizeToken').val();
+        var option = ($('#setCanChangeSize').val() === '1') ? 'Yes' : 'No';
+        $.ajax({
+            type: "POST",
+            data: "choosenOption=" + option + "&_token=" + token,
+            url: baseUrl + "/loadsize/magic",
+            beforeSend: function () {
+                $('#loadingSize').removeClass('hide');
+            },
+            success: function (result) {
+                result = JSON.parse(result);
+                $('#myModal').css('display', 'none');
+                $('#loadingSize').addClass('hide');
+            }, error: function () {
+                alert('Error Occured');
+            }
+        });
 
     });
 
