@@ -152,7 +152,7 @@ class UserController extends BaseController
                 ->join('customers as c', 'o.CustomerID', '=', 'c.ID')
                 ->join('orderstatus as os', 'o.Status', '=', 'os.ID')
                 ->where('c.ID', '=', Session::get('CustomerID'))
-                ->where('o.Status', '=', 1)
+                //->where('o.Status', '=', 1)
                 ->orderBy('o.OrderDate', 'DESC')
                 ->get();
 
