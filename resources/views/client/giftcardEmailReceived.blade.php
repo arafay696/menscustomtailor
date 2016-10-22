@@ -2,7 +2,7 @@
        border="0">
     <tbody>
     <tr>
-        <td style="height:30px;border-left:30px solid #fff;;border-right:30px solid #fff;"><font size="2" face="Arial">
+        <td style="height:30px;border-right:30px solid #fff;"><font size="2" face="Arial">
                 <br/>
 
                 <p class="margin10_5" style="font-weight:bold"><strong>{{ $name }}</strong></p>
@@ -10,6 +10,13 @@
                 <p class="margin10_5">{{ $Subject }}</p>
 
                 <p class="margin10_5">
+                    <img src="<?= URL::to('public/assets/client/images/gift-card-preview.jpg'); ?>" />
+                    <span style="position: relative; font-size: 18px; font-weight: bold; left: -280px; top: -220px;">
+                        {{$rec_name}}
+                    </span>
+                    <span style="position: relative; font-weight: bold; font-size: 34px; left: 211px; top: -132px;">
+                        ${{$price}}.00
+                    </span>
                     Gift Card received from {{ $from }} cost ${{ $price }}. Use following below code to avail your discount.
                 </p>
                 <p>

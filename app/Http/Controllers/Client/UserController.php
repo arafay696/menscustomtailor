@@ -535,4 +535,19 @@ class UserController extends BaseController
             ));
         }
     }
+
+    public function tt(){
+        $recData = array(
+            'Subject' => 'Gift Card Received',
+            'name' => "Men's Custom Tailor",
+            'code' => '123213',
+            'from' => 'arafay@gmail.com',
+            'msg' => 'heelo',
+            'rec_name' =>'arafafafa',
+            'email' =>'arafafafa',
+            'price' => 200
+        );
+
+        return view('client.giftcardEmailReceived',$recData);
+    }
 }

@@ -3,7 +3,7 @@
     <!-- Page Wrapper -->
     <?php
 
-    $slectedItems = '<div class="swathces_images clearfix"><ul>';
+    $slectedItems = '<div class="swathces_images hideOnMobile clearfix"><ul>';
     if (count($cartData) > 0) {
         foreach ($cartData as $item) {
             $class = ($productID == $item['productID']) ? 'active_swatch' : '';
@@ -11,6 +11,15 @@
         }
     }
     $slectedItems .= '</ul></div>';
+
+    $slectedItemsMbl = '<div style="margin-top: 44px" class="swathces_images showOnMobile clearfix"><ul>';
+    if (count($cartData) > 0) {
+        foreach ($cartData as $item) {
+            $class = ($productID == $item['productID']) ? 'active_swatch' : '';
+            $slectedItemsMbl .= '<li style="display:block;"><a href="' . URL::to('fabric/' . $item['productID'] . '') . '"><span class="' . $class . '"><img alt="#" src="' . URL::to('resources/assets/images/' . $item['ProductImage']) . '"></span></a></li>';
+        }
+    }
+    $slectedItemsMbl .= '</ul></div>';
     ?>
 
     <div class="container">
@@ -21,13 +30,15 @@
             <div class="auto_content">
                 <div class="cart_pageDtail">
                     <div class="cart_head clearfix customize_setting">
-                        <h3>CUSTOMIZE Your Shirts <i class="fa fa-spinner fa-spin savingCustomize"
-                                                     style="display:none;"></i></h3>
+                        <h3>CUSTOMIZE Your Shirts
+                            <i class="fa fa-spinner fa-spin savingCustomize" style="display:none;"></i>
+                        </h3>
                         <div class="actions_customize actions clearfix">
                             <a class="nextSection" href="javascript:void(0);" style="margin-right: 2px">Next</a>
                             <a class="previousSection" href="javascript:void(0);" style="">Previous</a>
                         </div>
                     </div>
+                    <?=$slectedItemsMbl;?>
                     <div class="customize_page">
                         <ul class="customize_slider">
                             <li class="active-customize">

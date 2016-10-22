@@ -169,6 +169,7 @@ class PayPalController extends BaseController
                     'code' => $data['coupon_code'],
                     'from' => $data['purchaser_email'],
                     'msg' => $data['message'],
+                    'rec_name' =>$data['rec_name'],
                     'email' =>$data['rec_email'],
                     'price' => $data['amount']
                 );

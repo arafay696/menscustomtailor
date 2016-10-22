@@ -2,7 +2,7 @@
        border="0">
     <tbody>
     <tr>
-        <td style="height:30px;border-left:30px solid #fff;;border-right:30px solid #fff;"><font size="2" face="Arial">
+        <td style="height:30px;border-right:30px solid #fff;"><font size="2" face="Arial">
                 <br/>
 
                 <p class="margin10_5" style="font-weight:bold"><strong>{{ $name }}</strong></p>

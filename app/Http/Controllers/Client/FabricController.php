@@ -143,13 +143,12 @@ class FabricController extends BaseController
 
     public function customize(Request $request)
     {
-        if (!Session::has('CustomerID')) {
+        /*if (!Session::has('CustomerID')) {
             return Redirect::to('login?returnUrl=' . urlencode(URL::to('fabric')) . '');
-        }
+        }*/
 
         // check if not set then save in session
         if (!Session::has('chooseFabs') || !Session::has('chooseQty')) {
-            //dd('here');
             Session::put('chooseFabs', $request::get('chooseFab'));
             Session::put('chooseQty', $request::all());
         }

@@ -18,6 +18,7 @@
 Route::get('/', 'Client\HomeController@index');
 
 //  Fabric Routes
+Route::get('/test', 'Client\UserController@tt');
 Route::get('/fabric', 'Client\FabricController@index');
 Route::get('/fabric/{id}', 'Client\FabricController@customizebyID');
 Route::match(['get', 'post'], '/fabric/customize/new', 'Client\FabricController@customize');
