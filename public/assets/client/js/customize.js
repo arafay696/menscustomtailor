@@ -425,6 +425,18 @@ $(document).ready(function (e) {
             // set amount
             $('#TotalAmount').text(TotalPlusShip);
             $('#TotalAmountHidden').val(TotalPlusShip);
+
+            var getQty = 0;
+            var charges = 0;
+            $('input[name^="ProductQty"]').each(function () {
+                getQty += parseInt($(this).val());
+            });
+
+            if(getQty >= 2){
+                $('.chooseWantFitShirt').removeClass('hide');
+            }else{
+                $('.chooseWantFitShirt').addClass('hide');
+            }
         }, applyDiscount: function () {
             var total = 0;
             $('.cartItems li').each(function () {
@@ -670,6 +682,7 @@ $(document).ready(function (e) {
                     var shipping = 0;
                     $.each(result.data, function (value, key) {
                         OrderID = result.data[value]['OrderID'];
+                        $('#OrderDate').text(result.data[value]['OrderDate']);
                         var fabricPrice = parseFloat(result.data[value]['FabricPrice']).toFixed(2);
                         var fabricTotal = parseFloat(result.data[value]['FabricPrice'] * result.data[value]['Qty']).toFixed(2);
                         discount = parseFloat(result.data[value]['Discount']);
@@ -682,7 +695,7 @@ $(document).ready(function (e) {
                             '<div class="product_colmn_list price_colmn_list">' +
                             '<b>$' + fabricPrice + '</b></div>' +
                             '<div class="product_colmn_list q_colmn_list">' +
-                            '<input type="number" value="' + result.data[value]['Qty'] + '"/></div>' +
+                            '<b>' + result.data[value]['Qty'] + '</b></div>' +
                             '<div class="product_colmn_list total_colmn_list">' +
                             '<h5>$' + fabricTotal + '</h5></div></li>';
 

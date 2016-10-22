@@ -685,3 +685,69 @@
     color: black;
     margin-top: 7px;
 }
+.companyDetail,.otherDetail {
+    width: 100%;
+    clear:both;
+    overflow: hidden;
+}
+
+.companyDetail p{
+    float: left;
+    font-size: 17px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    width: 33%;
+}
+
+.companyDetail p strong,.otherDetail strong,#fitStyleDetail li b {
+    font-weight: bold;
+}
+
+.otherDetail .billTo,.otherDetail .shipTo {
+    width: 50%;
+    float: left;
+    padding: 5px;
+}
+.otherDetail {
+    border: 1px solid #ddd;
+}
+
+.otherDetail h3 {
+    background: #EEEEEE;
+    padding: 5px 5px 5px 8px;
+}
+.shipTo ul {
+    width: 100%;
+}
+.billTo {
+    border-right: 1px solid #ddd;
+}
+
+.shipTo ul li {
+    font-size: 16px;
+    padding: 5px;
+    width: 50%;
+    float: left;
+}
+#fitStyleDetail {
+    margin-top: 25px;
+}
+#fitStyleDetail  li {
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 8px;
+}
+#fitStyleDetail li b {
+    margin: 5px 0;
+    border-bottom: 1px solid #3e454c;
+    padding-bottom: 1px;
+}
+#fitStyleDetail li b,#fitStyleDetail li p{
+    font-size: 16px !important;
+}
+#fitStyleDetail li p {
+    margin-top: 5px;
+}

@@ -188,9 +188,9 @@ class CartController extends BaseController
                 $sizeID = DB::table('size')->insertGetId($sizeDetail);
             } else {
                 $updateSizeOrNot = Session::get('isUpdateSize');
+                $sizeID = $getSize->ID;
                 if ($updateSizeOrNot) {
                     $CustomerID = $getSize->CustomerID;
-                    $sizeID = $getSize->ID;
                     DB::table('size')->where('CustomerID', $userId)->update($sizeDetail);
                 }
             }
@@ -277,7 +277,13 @@ class CartController extends BaseController
              * */
             $total = 0;
             $shirtDetail = array();
-            foreach ($data as $value) {
+
+            foreach ($data as $key => $value) {
+                $wantFitShirt = '';
+                if($key <= 0){
+                    $wantFitShirt = $request::get('wantFitShirt');
+                }
+
                 $total += $value['Price'];
                 $shirtDetailItem = array();
                 $shirtDetailItem['OrderID'] = $orderID;
@@ -319,7 +325,7 @@ class CartController extends BaseController
                 $shirtDetailItem['Deal'] = (isset($value['Deal'])) ? $value['Deal'] : '';
                 $shirtDetailItem['StyleComments'] = (isset($value['StyleComments'])) ? $value['StyleComments'] : '';
                 $shirtDetailItem['Dat'] = date('Y-m-d H:i:s');
-                $shirtDetailItem['Fit'] = (isset($value['Fit'])) ? $value['Fit'] : '';
+                $shirtDetailItem['Fit'] = $wantFitShirt;
                 $shirtDetailItem['FedEx'] = (isset($value['FedEx'])) ? $value['FedEx'] : '';
                 $shirtDetailItem['TransferToLevel1'] = (isset($value['TransferToLevel1'])) ? $value['TransferToLevel1'] : '';
                 $shirtDetailItem['TransferDate1'] = (isset($value['TransferDate1'])) ? $value['TransferDate1'] : '';

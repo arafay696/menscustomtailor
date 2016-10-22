@@ -2410,8 +2410,29 @@
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
                                             <div class="customization_itemz_outer">
-                                                <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/Fit.jpg'); ?>"
                                                      alt="#"/>
+                                                <ul id="fitStyleDetail">
+                                                    <li style="display: block;">
+                                                        <b>CLASSIC FIT</b>
+                                                        <p>
+                                                            A generous fit, cut full through the chest, waist and armholes.
+                                                        </p>
+                                                    </li>
+                                                    <li style="display: block;">
+                                                        <b>
+                                                            TRADITIONAL FIT</b>
+                                                        <p>
+                                                            A relaxed fit, cut slightly closer at the side. For a more tapered fit, try the Tailored Fit.
+                                                        </p>
+                                                    </li>
+                                                    <li style="display: block;">
+                                                        <b>TRIM FIT</b>
+                                                        <p>
+                                                            A slim fit, ideal for a lean frame. If you’re wider through the shoulders, try the athletic Fit.
+                                                        </p>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="customize_rightSection">

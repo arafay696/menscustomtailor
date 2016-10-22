@@ -75,15 +75,70 @@
 
                 <!--Invoice PDF-->
                 <div style="opacity:0;" id="pdfInvoice" class="cart_pageDtail">
-                    <div style="width: 100%;clear: both;overflow: hidden;margin-bottom: 10px;">
+                    <div style="width: 100%; clear: both; overflow: hidden; margin-bottom: 10px; padding: 0px 11px 7px; border-bottom: 2px solid rgb(221, 221, 221);">
                         <span style="width:45%;float: left;">
                             <img style="float: left;" src="<?= URL::to('public/assets/client/images/header_logo.png');?>">
                         </span>
                         <h1 style="width: 10%;float: left;font-weight: bold;">Invoice</h1>
-                            <h2 style="width: 10%;float: right;">Order # <b id="setOrderID"></b></h2>
                     </div>
-
-                    <div class="customerDetailInvoice">
+                    <div class="companyDetail" style="padding-bottom: 7px;border-bottom: 2px solid #eee;overflow: hidden">
+                        <p>
+                            Men's Custom Tailor
+                            <br />
+                            2523 Ferndale Ln. Snellville, GA 30078
+                        </p>
+                        <p>
+                            <strong>Phone: </strong> (678) 740-3530
+                            <br />
+                            <strong>Email: </strong> info@menscustomtailor.com
+                            <br />
+                        </p>
+                        <p style="text-align: right">
+                            <strong>Order No. <b id="setOrderID"></b></strong>
+                            <br />
+                            <strong>Order Date: </strong> <span id="OrderDate"></span>
+                        </p>
+                    </div>
+                    <div class="companyDetail">
+                        <p></p>
+                        <p>
+                            <strong>Customer Contact: </strong> <?=$user->Name;?>
+                            <br />
+                            <strong>Email: </strong> <?=$user->Email;?>
+                        </p>
+                        <p style="text-align: right">
+                        <strong>Phone: </strong>  <?=$user->Phone;?>
+                        </p>
+                    </div>
+                    <div class="otherDetail">
+                        <div class="billTo">
+                            <h3>Bill To:</h3>
+                            <br />
+                            <strong><?=$user->Name;?></strong>
+                            <br />
+                            <?=$user->Address;?>
+                        </div>
+                        <div class="shipTo">
+                            <h3>Ship To:</h3>
+                            <br />
+                            <ul>
+                                <li>
+                                    <strong>Neck Size: </strong> &nbsp;&nbsp; <?=$size->NeckSize;?>
+                                </li>
+                                <li>
+                                    <strong>Chest Size: </strong> &nbsp;&nbsp; <?=$size->Chest;?>
+                                </li>
+                                <li>
+                                    <strong>Sleeve Length: </strong> &nbsp;&nbsp; <?=$size->LeftSleeve;?>
+                                </li>
+                                <li>
+                                    <strong>Waist: </strong> &nbsp;&nbsp;  <?=$size->Waist;?>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="customerDetailInvoice hide">
                         <table>
                             <tr>
                                 <th>Customer Name</th>

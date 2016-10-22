@@ -430,6 +430,16 @@
                                     <strong>Yahoo!</strong> Coupon code applied.
                                 </div>
                                 <ul>
+                                    <li class="chooseWantFitShirt <?=($qty >= 2) ? '' : 'hide'; ?>">
+                                        <label>
+                                            <input name="wantFitShirt" value="" type="radio" checked="checked">
+                                            I don't want fit shirt
+                                        </label>
+                                        <label>
+                                            <input name="wantFitShirt" type="radio" value="fit">
+                                             I want fit shirt
+                                        </label>
+                                    </li>
                                     <li class="applyDiscountHere">
                                         <label>Discount Code</label>
                                         <div class="discount_inputs clearfix">

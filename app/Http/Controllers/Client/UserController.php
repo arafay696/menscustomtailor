@@ -161,9 +161,15 @@ class UserController extends BaseController
                 ->where("ID", "=", Session::get('CustomerID'))
                 ->first();
 
+            $getSize = DB::table('size')
+                ->select('*')
+                ->where("CustomerID", "=", Session::get('CustomerID'))
+                ->first();
+
             $data = array(
                 'orders' => $orders,
-                'user' => $getUser
+                'user' => $getUser,
+                'size' => $getSize
             );
 
             return view('client.orderhistory', $data);
@@ -507,7 +513,9 @@ class UserController extends BaseController
 
     public function generateInvoice($orderID){
         $getDetail = DB::table('orders AS o')
-            ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty','sd.FabricPrice', 'o.Amount as Total', 'o.Discount','o.Shiping')
+            ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty',
+                'sd.FabricPrice', 'o.Amount as Total', 'o.Discount',
+                'o.Shiping',DB::raw('DATE_FORMAT(o.OrderDate,"%d/%m/%Y") as OrderDate'))
             ->join("shirtdetail AS sd","o.ID","=","sd.OrderID")
             ->join("products AS p","sd.FabricCode","=","p.Code")
             ->join("images as i","p.ID","=","i.RefID")

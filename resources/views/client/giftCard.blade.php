@@ -71,10 +71,14 @@
                                     </div>
 
                                     <div id="Paris" class="tabcontent">
-                                        <h3 style="width: 100%;font-size: 18px;">To:
-                                            <span style="font-weight: bold" id="recNameSet"></span> from
-                                            <span style="font-weight: bold" id="fromNameSet"></span> Amount:
-                                            <span style="font-weight: bold" id="giftAmountSet">100</span>.
+                                        <h3 style="width: 100%;font-size: 18px;padding-left: 67px;">
+                                            <img src="<?= URL::to('public/assets/client/images/gift-card-preview.jpg'); ?>" />
+                                            <span style="font-weight: bold; position: relative; top: -255px; left: 155px;" id="recNameSet">
+
+                                            </span>
+                                            <span style="font-weight: bold; position: relative; font-size: 43px; left: 53px; top: -129px;">
+                                                $<span id="giftAmountSet">100</span>
+                                            </span>.
 
                                             <br/>
                                             <br/>
