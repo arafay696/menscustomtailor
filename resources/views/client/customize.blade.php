@@ -214,10 +214,15 @@
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
                                             <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
                                                      alt="#"/>
 
-                                                <p>When it comes to fronts, leaving plackets aside, most shirts feature a plain front without any additional elements other than chest pockets. While classic dress shirts may feature a chest pocket for functional aspects, we would advise leaving other options to more casual alternatives; two chest pockets should be kept strictly for relaxed alternatives such as safari, military or western shirts.</p>
+                                                <p>When it comes to fronts, leaving plackets aside, most shirts feature
+                                                    a plain front without any additional elements other than chest
+                                                    pockets. While classic dress shirts may feature a chest pocket for
+                                                    functional aspects, we would advise leaving other options to more
+                                                    casual alternatives; two chest pockets should be kept strictly for
+                                                    relaxed alternatives such as safari, military or western shirts.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -360,20 +365,15 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>We believe in having a mix of collar styles. From deep cutaways to classic points and everything in between, we've got a style that works for any occasion you can imagine. Other sites might suggest that you should get a collar that counter-balances your face - e.g., if you have a longer face, you should wear spread collars, or if you have a rounder face, you should wear a point collar. We think this is bogus. You should enjoy a collar that matches your own personal style, and not worry about following someone else's rules for what they feel might look good on you. The most important thing is to have a shirt that fits, everything else is personal preference..</p>
-                                            </div>
 
                                             <div class="neck_dtail canChangeSize">
-                                                <label>Neck Detail:</label>
+                                                <label>Neck:</label>
 
-                                                <p>The neck measurement is taken around the neck with the
-                                                    tape resting on your shoulders. You should put one finger
-                                                    between the tape and the neck if you want to allow for
-                                                    some extra room.</p>
+                                                <p>Place two fingers between the tape measure and the neck as the
+                                                    pictures show, and make sure you can move the tape easily. Do not
+                                                    tighten the tape measure. Make sure that the tape is at the base of
+                                                    the neck where the neck and shoulders meet or at the height where
+                                                    the collar would be if you were wearing a shirt.</p>
                                                 <h3 class="detailHeading1">Neck Size Inches</h3>
                                                 <select size="1" name="NeckSize">
                                                     <?php foreach ($NeckSize as $key => $np) { ?>
@@ -392,6 +392,21 @@
                                                         Long
                                                     </option>
                                                 </select>
+                                            </div>
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                                     alt="#"/>
+
+                                                <p>We believe in having a mix of collar styles. From deep cutaways to
+                                                    classic points and everything in between, we've got a style that
+                                                    works for any occasion you can imagine. Other sites might suggest
+                                                    that you should get a collar that counter-balances your face - e.g.,
+                                                    if you have a longer face, you should wear spread collars, or if you
+                                                    have a rounder face, you should wear a point collar. We think this
+                                                    is bogus. You should enjoy a collar that matches your own personal
+                                                    style, and not worry about following someone else's rules for what
+                                                    they feel might look good on you. The most important thing is to
+                                                    have a shirt that fits, everything else is personal preference..</p>
                                             </div>
                                         </div>
                                     </div>
@@ -509,10 +524,18 @@
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
                                             <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
                                                      alt="#"/>
 
-                                                <p>Dress shirt cuffs remind us of what makes menswear so unique: it's all in the details. Most dress shirt cuffs are pretty classic: a barrel cuff with a squared edge and two buttons - which helps determine the snugness you want in around your wrist. Otherwise, a dress shirt cuff is usually defined by the shape of the cuff enclosure. We use a variety of cuff styles: from a subtle rounded edge to a barrel cuff, to a more unique two button scalloped variety. That said, our most popular cuff style is the Convertible Cuff.</p>
+                                                <p>Dress shirt cuffs remind us of what makes menswear so unique: it's
+                                                    all in the details. Most dress shirt cuffs are pretty classic: a
+                                                    barrel cuff with a squared edge and two buttons - which helps
+                                                    determine the snugness you want in around your wrist. Otherwise, a
+                                                    dress shirt cuff is usually defined by the shape of the cuff
+                                                    enclosure. We use a variety of cuff styles: from a subtle rounded
+                                                    edge to a barrel cuff, to a more unique two button scalloped
+                                                    variety. That said, our most popular cuff style is the Convertible
+                                                    Cuff.</p>
                                             </div>
 
                                         </div>
@@ -562,30 +585,13 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
-                                            </div>
 
                                             <div class="neck_dtail canChangeSize">
-                                                <label>Neck Detail:</label>
+                                                <label>Arm:</label>
 
-                                                <p>The neck measurement is taken around the neck with the
-                                                    tape resting on your shoulders. You should put one finger
-                                                    between the tape and the neck if you want to allow for
-                                                    some extra room.</p>
+                                                <p>Place your hand on your hip, with your arm bent at 90 degrees. Then
+                                                    have someone measure the distance from the center back of your neck
+                                                    (along your shoulder and elbow) all the way to your wrist. </p>
                                                 <h3 class="detailHeading1">Select Sleeve Length</h3>
                                                 <select title="Sleeve Length" name="sleeveLength">
                                                     <option value="24" <?php echo (isset(Session::get('currentSize')['LeftSleeve']) && Session::get('currentSize')['LeftSleeve'] == "24") ? "selected='selected'" : "" ?>>
@@ -854,6 +860,24 @@
                                                     </option>
                                                 </select>
                                             </div>
+
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                                     alt="#"/>
+
+                                                <p>The Medium Collar is the most
+                                                    popular and versatile option as it
+                                                    complements most face shapes
+                                                    and tie-knots. Spread is also
+                                                    well-liked and flattering on most
+                                                    people. View the gallery below
+                                                    for recommendations on which
+                                                    of our fashionable collars will
+                                                    best compliment your face
+                                                    shape and preference of
+                                                    tie-knot.</p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </form>
@@ -918,7 +942,7 @@
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
                                             <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
                                                      alt="#"/>
 
                                                 <p>The Medium Collar is the most
@@ -1009,7 +1033,7 @@
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
                                             <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
                                                      alt="#"/>
 
                                                 <p>The Medium Collar is the most
@@ -1077,30 +1101,15 @@
 
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
-                                            </div>
 
                                             <div class="neck_dtail canChangeSize">
-                                                <label>Neck:</label>
+                                                <label>Chest:</label>
 
-                                                <p>The neck measurement is taken around the neck with the
-                                                    tape resting on your shoulders. You should put one finger
-                                                    between the tape and the neck if you want to allow for
-                                                    some extra room.</p>
+                                                <p>Stand up straight, relax and take deep breath with hands down at your
+                                                    side. The chest measurement should be taken around the chest under
+                                                    the armpits. Make sure the tape is parallel and you can move the
+                                                    tape easily. Do not tighten the tape measure. Avoid having thick
+                                                    clothes on when measuring.</p>
                                                 <h3 class="detailHeading1">Select Chest Size</h3>
                                                 <select name="Chest">
                                                     <option <?php echo (isset(Session::get('currentSize')['Chest']) && Session::get('currentSize')['Chest'] == "30") ? "selected='selected'" : "" ?> value="30">
@@ -1684,6 +1693,24 @@
                                                     </option>
                                                 </select>
                                             </div>
+
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                                     alt="#"/>
+
+                                                <p>The Medium Collar is the most
+                                                    popular and versatile option as it
+                                                    complements most face shapes
+                                                    and tie-knots. Spread is also
+                                                    well-liked and flattering on most
+                                                    people. View the gallery below
+                                                    for recommendations on which
+                                                    of our fashionable collars will
+                                                    best compliment your face
+                                                    shape and preference of
+                                                    tie-knot.</p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </form>
@@ -1703,32 +1730,25 @@
 
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
-                                            </div>
 
                                             <div class="neck_dtail canChangeSize">
-                                                <label>Neck:</label>
+                                                <label>Waist:</label>
 
-                                                <p>The neck measurement is taken around the neck with the
-                                                    tape resting on your shoulders. You should put one finger
-                                                    between the tape and the neck if you want to allow for
-                                                    some extra room.</p>
-                                                <h3 style="width:190px;float:left;" class="detailHeading1">Select Height
-                                                    Feet</h3>
+                                                <p>Stand up in a relaxed posture, do not hold your breath or hold your
+                                                    stomach in. If you do not have beer belly, the waist measurement
+                                                    should be taken around the waist at the narrowest point. If you have
+                                                    beer belly, you should measure the widest point. Make sure you can
+                                                    move the tape easily. Do not tighten the tape measure. </p>
+                                                <br/>
+                                                <label>Hip</label>
+                                                <p>Take out all of the stuff in the front and back pockets your trouser.
+                                                    The hip measurement should be taken around the hips at the widest
+                                                    point. Stand up in a relaxed posture, and keep the tape parallel. Do
+                                                    not tighten the tape measure. Make sure you can move the tape
+                                                    easily. </p>
+                                                <h3 style="width:190px;float:left;" class="detailHeading1">
+                                                    Select Height Feet
+                                                </h3>
                                                 <select style="display: inline-block; clear: none; width: 50%; float: left;"
                                                         name="HeightFeet">
                                                     <option <?php echo (isset(Session::get('currentSize')['HeightFeet']) && Session::get('currentSize')['HeightFeet'] == "3") ? "selected='selected'" : "" ?> value="3">
@@ -2296,6 +2316,24 @@
                                                     </option>
                                                 </select>
                                             </div>
+
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                                     alt="#"/>
+
+                                                <p>The Medium Collar is the most
+                                                    popular and versatile option as it
+                                                    complements most face shapes
+                                                    and tie-knots. Spread is also
+                                                    well-liked and flattering on most
+                                                    people. View the gallery below
+                                                    for recommendations on which
+                                                    of our fashionable collars will
+                                                    best compliment your face
+                                                    shape and preference of
+                                                    tie-knot.</p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </form>
@@ -2315,30 +2353,13 @@
 
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
-                                            </div>
 
                                             <div class="neck_dtail canChangeSize">
-                                                <label>Neck:</label>
+                                                <label>Arm:</label>
 
-                                                <p>The neck measurement is taken around the neck with the
-                                                    tape resting on your shoulders. You should put one finger
-                                                    between the tape and the neck if you want to allow for
-                                                    some extra room.</p>
+                                                <p>Place your hand on your hip, with your arm bent at 90 degrees. Then
+                                                    have someone measure the distance from the center back of your neck
+                                                    (along your shoulder and elbow) all the way to your wrist.</p>
                                                 <h3 class="detailHeading1">Select Posture</h3>
                                                 <select name="Posture">
                                                     <option <?php echo (isset(Session::get('currentSize')['Posture']) && Session::get('currentSize')['Posture'] == "Flat") ? "selected='selected'" : "" ?> value="Flat">
@@ -2409,6 +2430,24 @@
                                                     </option>
                                                 </select>
                                             </div>
+
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                                     alt="#"/>
+
+                                                <p>The Medium Collar is the most
+                                                    popular and versatile option as it
+                                                    complements most face shapes
+                                                    and tie-knots. Spread is also
+                                                    well-liked and flattering on most
+                                                    people. View the gallery below
+                                                    for recommendations on which
+                                                    of our fashionable collars will
+                                                    best compliment your face
+                                                    shape and preference of
+                                                    tie-knot.</p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </form>
@@ -2427,20 +2466,23 @@
                                                     <li style="display: block;">
                                                         <b>CLASSIC FIT</b>
                                                         <p>
-                                                            A generous fit, cut full through the chest, waist and armholes.
+                                                            A generous fit, cut full through the chest, waist and
+                                                            armholes.
                                                         </p>
                                                     </li>
                                                     <li style="display: block;">
                                                         <b>
                                                             TRADITIONAL FIT</b>
                                                         <p>
-                                                            A relaxed fit, cut slightly closer at the side. For a more tapered fit, try the Tailored Fit.
+                                                            A relaxed fit, cut slightly closer at the side. For a more
+                                                            tapered fit, try the Tailored Fit.
                                                         </p>
                                                     </li>
                                                     <li style="display: block;">
                                                         <b>TRIM FIT</b>
                                                         <p>
-                                                            A slim fit, ideal for a lean frame. If you’re wider through the shoulders, try the athletic Fit.
+                                                            A slim fit, ideal for a lean frame. If you’re wider through
+                                                            the shoulders, try the athletic Fit.
                                                         </p>
                                                     </li>
                                                 </ul>
@@ -2448,22 +2490,6 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
-                                            </div>
 
                                             <div class="neck_dtail">
                                                 <label>Other Customization:</label>
@@ -2488,6 +2514,24 @@
                                                     <option value="Trim Fit">Trim Fit</option>
                                                 </select>
                                             </div>
+
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                                     alt="#"/>
+
+                                                <p>The Medium Collar is the most
+                                                    popular and versatile option as it
+                                                    complements most face shapes
+                                                    and tie-knots. Spread is also
+                                                    well-liked and flattering on most
+                                                    people. View the gallery below
+                                                    for recommendations on which
+                                                    of our fashionable collars will
+                                                    best compliment your face
+                                                    shape and preference of
+                                                    tie-knot.</p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </form>

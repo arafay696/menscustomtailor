@@ -72,11 +72,11 @@
 
                                     <div id="Paris" class="tabcontent">
                                         <h3 style="width: 100%;font-size: 18px;padding-left: 67px;">
-                                            <img src="<?= URL::to('public/assets/client/images/gift-card-preview.jpg'); ?>" />
-                                            <span style="font-weight: bold; position: relative; top: -255px; left: 155px;" id="recNameSet">
+                                            <img id="GetGiftImg" src="<?= URL::to('public/assets/client/images/gift-card-preview.jpg'); ?>" />
+                                            <span style="font-weight: bold; position: absolute; top: -255px; left: 155px;" id="recNameSet">
 
                                             </span>
-                                            <span style="font-weight: bold; position: relative; font-size: 43px; left: 53px; top: -129px;">
+                                            <span id="setPlaceGiftAmount" style="font-weight: bold; position: absolute; font-size: 43px; left: 53px; top: -129px;">
                                                 $<span id="giftAmountSet">100</span>
                                             </span>.
 
@@ -125,6 +125,20 @@
                 }
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";
+
+                if($('#Paris').is(':visible')){
+                    var getOffset = $('#GetGiftImg').offset();
+                    $('#recNameSet').css({
+                        'top': getOffset.top + 25 + 'px',
+                        'left': getOffset.left + 157 + 'px'
+                    });
+
+                    $('#setPlaceGiftAmount').css({
+                        'top': getOffset.top + 131 + 'px',
+                        'left': getOffset.left + 195.5 + 'px'
+                    });
+
+                }
             }
 
         </script>

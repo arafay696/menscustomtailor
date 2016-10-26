@@ -3,7 +3,7 @@ $(document).ready(function (e) {
 
     // Save data in Session - Style/Size Page
     $('.nextSection').click(function () {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $("html, body").animate({scrollTop: 0}, "slow");
         var hasNext = false;
         if ($('.customize_slider .active-customize').next().length > 0) {
             hasNext = true;
@@ -64,7 +64,7 @@ $(document).ready(function (e) {
 
     // Previous Section on Size/Measurement Page
     $('.previousSection').click(function () {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $("html, body").animate({scrollTop: 0}, "slow");
         if ($('.customize_slider .active-customize').prev().length > 0) {
             $('.customize_slider .active-customize').addClass('in');
             $('.customize_slider .in').animate({marginLeft: "1000px", opacity: 0}, 800, "linear", function () {
@@ -432,9 +432,9 @@ $(document).ready(function (e) {
                 getQty += parseInt($(this).val());
             });
 
-            if(getQty >= 2){
+            if (getQty >= 2) {
                 $('.chooseWantFitShirt').removeClass('hide');
-            }else{
+            } else {
                 $('.chooseWantFitShirt').addClass('hide');
             }
         }, applyDiscount: function () {
@@ -635,13 +635,27 @@ $(document).ready(function (e) {
 
         $('#Paris').css('display', 'block');
         $('#finishStep').addClass('active');
+
+        if($('#Paris').is(':visible')){
+            var getOffset = $('#GetGiftImg').offset();
+            $('#recNameSet').css({
+                'top': getOffset.top + 25 + 'px',
+                'left': getOffset.left + 157 + 'px'
+            });
+
+            $('#setPlaceGiftAmount').css({
+                'top': getOffset.top + 131 + 'px',
+                'left': getOffset.left + 195.5 + 'px'
+            });
+
+
+        }
     });
 
     $('#testIt').click(function () {
         html2canvas(document.body, {
             onrendered: function (canvas) {
                 var canvasImg = canvas.toDataURL("image/jpg");
-                console.log(canvasImg);
                 $('#setImage').prop('src', canvasImg);
             }
         });
@@ -661,7 +675,7 @@ $(document).ready(function (e) {
         var id = $(this).attr('id');
         $(this).siblings('.updateCartSpin').addClass('dummy');
         $.ajax({
-            context:this,
+            context: this,
             type: "GET",
             url: "" + baseUrl + "/generate-invoice/" + id,
             beforeSend: function () {
@@ -710,7 +724,7 @@ $(document).ready(function (e) {
                     var divHeight = $('#pdfInvoice').height();
                     var divWidth = $('#pdfInvoice').width();
                     var ratio = divHeight / divWidth;
-                    $('#pdfInvoice').css('opacity',1);
+                    $('#pdfInvoice').css('opacity', 1);
                     html2canvas($('#pdfInvoice'), {
                         onrendered: function (canvas) {
                             $('.dummy').addClass('hide');
@@ -726,9 +740,9 @@ $(document).ready(function (e) {
                             height = ratio * width;
                             doc.setFontSize(30);
                             //doc.text(35, 25, "Men's Custom Tailor - Invoice " + OrderID);
-                            doc.addImage(imgData, 'JPEG', 5, 5, width-20, height);
+                            doc.addImage(imgData, 'JPEG', 5, 5, width - 20, height);
                             doc.save('mct-invoice.pdf');
-                            $('#pdfInvoice').css('opacity',0);
+                            $('#pdfInvoice').css('opacity', 0);
                             $('#appendElements').empty();
                         }
                     });
@@ -740,6 +754,7 @@ $(document).ready(function (e) {
 
         });
     });
+
 
 
 });

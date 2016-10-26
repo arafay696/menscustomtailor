@@ -85,22 +85,23 @@
                         <p>
                             Men's Custom Tailor
                             <br />
-                            2523 Ferndale Ln. Snellville, GA 30078
+                            2523 Ferndale Ln. <br /> Snellville, GA 30078
                         </p>
+                        <p></p>
+                        <p style="text-align: right">
+                            <strong>Order No. <b id="setOrderID"></b></strong>
+                            <br />
+                            <strong style="top: 26px; position: relative;">Order Date: </strong>
+                            <span style="top: 26px; position: relative;" id="OrderDate"></span>
+                        </p>
+                    </div>
+                    <div class="companyDetail">
                         <p>
                             <strong>Phone: </strong> (678) 740-3530
                             <br />
                             <strong>Email: </strong> info@menscustomtailor.com
                             <br />
                         </p>
-                        <p style="text-align: right">
-                            <strong>Order No. <b id="setOrderID"></b></strong>
-                            <br />
-                            <strong>Order Date: </strong> <span id="OrderDate"></span>
-                        </p>
-                    </div>
-                    <div class="companyDetail">
-                        <p></p>
                         <p>
                             <strong>Customer Contact: </strong> <?=$user->Name;?>
                             <br />

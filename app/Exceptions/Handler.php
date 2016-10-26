@@ -49,8 +49,8 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
         if ($e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
-            Session::flash('globalErrMsg','Sorry, the page you are looking for could not be found.');
-            Session::flash('alert-class', 'alert-danger');
+            /*Session::flash('globalErrMsg','Sorry, the page you are looking for could not be found.');
+            Session::flash('alert-class', 'alert-danger');*/
 
             $reviews = DB::table('customer_reviews AS cr')
                 ->select('c.Name', 'cr.Review','c.UserImg')
