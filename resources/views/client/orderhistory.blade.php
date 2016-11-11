@@ -207,7 +207,11 @@
                         </div>
                     </div>
                 </div>
-                <img class="hide" id="SetImage" />
+                <form method="post" name="coupong"
+                      action="<?=URL::to('verifyDiscountCoupon');?>">
+                    <input id="postToken" type="hidden" name="_token" value="{{csrf_token()}}"/>
+                </form>
+                <img class="hide-ds" id="SetImage" />
 
             </div>
         </div>

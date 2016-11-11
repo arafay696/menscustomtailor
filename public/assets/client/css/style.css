@@ -1962,7 +1962,12 @@ body {
     padding: 14px;
     margin-bottom: 15px;
 }
-
+.customize_rightSection_contentIm {
+    width: 100%;
+    background: #fbfbfb;
+    padding: 14px;
+    margin-bottom: 15px;
+}
 .customize_rightSection_content img {
     width: 122px;
     float: right;

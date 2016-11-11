@@ -82,7 +82,9 @@ Route::get('gift/payment/status', array(
 ));
 
 Route::get('gift-card', 'Client\HomeController@giftCard');
+Route::post('save/image', 'Client\HomeController@saveImage');
 
+Route::get('test-pdf', 'Client\HomeController@testPdf');
 /*
 * -------------------- Admin Routes -------------------
  * */

@@ -1,4 +1,4 @@
-@extends('client.default')
+﻿@extends('client.default')
 @section('content')
     <div class="container">
 
@@ -227,8 +227,7 @@
                                         <a class="selectFabric" href="javascript:void(0);">
                                             <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
                                                  alt="#"/>
-                                            <img src="<?php echo URL::to('public/assets/client/images/fabric_zoomImg.png');?>"
-                                                 alt="#" class="zoom_pic"/>
+                                            
                                             <img src="<?php echo URL::to('public/assets/client/images/new_img.png');?>"
                                                  alt="#" class="new_icon"/>
                                         </a>

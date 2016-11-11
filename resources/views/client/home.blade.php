@@ -29,7 +29,7 @@
                 <li>
                     <a href="<?php echo URL::to('fabric');?>">
                         <div class="banner_div">
-                        <span><img src="<?php echo URL::to('public/assets/client/images/slider_img.png');?>"
+                        <span><img src="<?php echo URL::to('public/assets/client/images/slider_img2.png');?>"
                                    alt="#"/></span>
 
                             <div class="banner_div_txt">
@@ -178,7 +178,7 @@
                                 </a>
                                 <span>
                                     	<a href="<?php echo URL::to('fabric');?>">
-                                            Dress Shirt
+                                            Customize Dress Shirts
                                         </a>
                                     </span>
                             </li>
@@ -189,7 +189,7 @@
                                 </a>
                                 <span>
                                     	<a href="<?php echo URL::to('fabric');?>">
-                                            Casual Shirt
+                                            Customize Casual Shirts
                                         </a>
                                     </span>
                             </li>
@@ -200,7 +200,7 @@
                                 </a>
                                 <span>
                                     	<a href="<?php echo URL::to('fabric?filter=white');?>">
-                                            Tuxedo Shirt
+                                            Customize Tuxedo Shirts
                                         </a>
                                     </span>
                             </li>
@@ -211,7 +211,7 @@
                                 </a>
                                 <span>
                                     	<a href="<?php echo URL::to('gift-card');?>">
-                                            Gift Certificate
+                                            Gift Certificates
                                         </a>
                                     </span>
                             </li>

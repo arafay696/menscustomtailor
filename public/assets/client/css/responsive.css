@@ -456,10 +456,10 @@
     }
 
     .popular_choices_list ul li a img {
-	margin-left: 50px;
-	width: 70%;
+        margin-left: 50px;
+        width: 70%;
     }
-    
+
     .people_says_sectionDtail {
         padding: 65px 10px 100px;
     }
@@ -654,7 +654,7 @@
 
     .subtotal_dtail ul li .customselect span {
         overflow: hidden;
-       line-height: 26px;
+        line-height: 26px;
         width: 90%;
     }
 
@@ -677,21 +677,24 @@
         width: 100%;
         float: none;
     }
-    .customization_item img{
+
+    .customization_item img {
         width: 70%;
-	margin-left: 40px;
-        
+        margin-left: 40px;
+
     }
+
     .artistProducer label.select {
-	background: url(../images/radiocheck.png) no-repeat left center;
-	margin-left: 50px;
+        background: url(../images/radiocheck.png) no-repeat left center;
+        margin-left: 50px;
     }
-    
+
     .artistProducer label {
-    
-	background: url(../images/radiouncheck.png) no-repeat left center;
-	margin-left: 50px;    
+
+        background: url(../images/radiouncheck.png) no-repeat left center;
+        margin-left: 50px;
     }
+
     .customize_rightSection {
         width: 100%;
         float: none;
@@ -879,12 +882,12 @@
     .modal-content {
         width: 90%
     }
-        
+
     .cart_container.back_background .cart_head h3 {
         width: 100% !important;
         float: none !important;
         margin-bottom: -51px;
-	font-size: 25px; 
+        font-size: 25px;
     }
 
     .customize_setting .actions {
@@ -932,33 +935,60 @@
         display: block;
     }
 
-    .hideOnMobile{
+    .hideOnMobile {
         display: none !important;
     }
 
     .best_shirt_text h3 {
         font-size: 30px;
     }
-    .best_shirt_text p{
+
+    .best_shirt_text p {
         font-size: 15px;
     }
+
     .showOnMobile {
         display: block;
     }
+
     .footer {
         display: none;
     }
+
     .fabric_bannerDtail h1 {
         font-size: 35px;
     }
+
     .fabric_banner_below {
         display: none;
     }
+
     .addBorder {
         border: 1px solid #9d9d9d;
         padding: 4px;
     }
+
     .responsiveWidth {
         width: 160px !important;
+    }
+
+    #Paris h3 {
+        padding-left: 0px;
+    }
+
+    #Paris h3 .secondSpan {
+        left: 29px;
+        top: -92px;
+        font-size: 28px;
+    }
+
+    #Paris h3 .firstSpan  {
+        left: 100px;
+        top: -162px;
+        font-size: 14px;
+    }
+    #Paris .text-box h4 {
+        margin-left: 35px;
+        margin-top: 11px;
     }
 }

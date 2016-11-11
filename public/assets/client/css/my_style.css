@@ -746,8 +746,94 @@
     padding-bottom: 1px;
 }
 #fitStyleDetail li b,#fitStyleDetail li p{
-    font-size: 16px !important;
+    font-size: 13px !important;
 }
 #fitStyleDetail li p {
     margin-top: 5px;
+}
+.leftSide {
+    float: left;
+    width: 55%;
+}
+.rightSide {
+    float: left;
+    width: 45%;
+}
+.leftSide select {
+    width: 100% !important;
+}
+.withoutImg p {
+    width: 100%;
+}
+.withoutText img {
+    width: 100%;
+}
+.secondScenario {
+    overflow: hidden;
+}
+#Paris h3 {
+    padding-left: 0px;
+}
+
+#Paris h3 .firstSpan,#Paris h3 .secondSpan{
+    position: relative;
+}
+
+#Paris h3 .secondSpan {
+    font-size: 36px;
+    left: 110px;
+    top: -127px;
+}
+
+#Paris h3 .firstSpan  {
+    font-size: 19px;
+    left: 157px;
+    top: -250px;
+}
+#Paris .containerBox {
+    position: relative;
+    display: inline-block;
+}
+#Paris .text-box {
+    position: absolute;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+#Paris .text-box h4 {
+     margin-top: 28px;
+ }
+#Paris .text-box:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+}
+#Paris .text-box-1 {
+    height: 100%;
+    margin-left: 35px;
+    margin-top: 22px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+#Paris .text-box-1 h4{
+    font-size: 40px;
+}
+#Paris .text-box-1:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#Paris h4 {
+    display: inline-block;
+    font-size: 20px; /*or whatever you want*/
+    color: #000;
+}
+#Paris img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }

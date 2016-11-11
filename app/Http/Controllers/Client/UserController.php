@@ -550,4 +550,26 @@ class UserController extends BaseController
 
         return view('client.giftcardEmailReceived',$recData);
     }
+
+    public function giftCard()
+    {
+        // Send Email to Recipient
+        /* $recData = array(
+             'Subject' => 'Gift Card Received',
+             'name' => "Men's Custom Tailor",
+             'code' => '123',
+             'from' => 'info.menscustomtailor@gmail.com',
+             'msg' => 'arafay696@gmail.com',
+             'email' => 'info.menscustomtailor@gmail.com',
+             'price' => 123
+         );
+
+         Mail::send('client.giftcardEmailReceived', $recData, function ($message) use ($recData) {
+             $message->subject($recData['Subject'])
+                 ->to($recData['email']);
+         });*/
+
+        //dd('Hello');
+        return view('client.giftCard');
+    }
 }

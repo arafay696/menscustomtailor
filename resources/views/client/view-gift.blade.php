@@ -74,7 +74,7 @@
                                     <div id="Paris" class="tabcontent">
                                         <div class="containerBox">
                                             <div class="text-box">
-                                                <h4 style="margin-top: 28px;" id="recNameSet">Abdul Rafay</h4>
+                                                <h4 id="recNameSet">Abdul Rafay</h4>
                                             </div>
                                             <div class="text-box-1">
                                                 <h4 style="">$<span id="giftAmountSet">100</span></h4>

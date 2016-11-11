@@ -214,7 +214,7 @@
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
                                             <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_full_img.png'); ?>"
                                                      alt="#"/>
 
                                                 <p>When it comes to fronts, leaving plackets aside, most shirts feature
@@ -358,7 +358,21 @@
 
                                                 <div class="customization_dropdown">
                                                     <div class="customselect_customize">
-                                                        <span>Traditional Band Collar/span>
+                                                        <span>Traditional Band Collar</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+											<div class="customization_item">
+                                                <div class="artistProducer clearfix">
+                                                    <label><input type="radio" name="collarType"
+                                                                  value="Wing Collar">&nbsp;</label>
+                                                </div>
+                                                <img src="<?php echo URL::to('public/assets/client/images/Wing.jpg'); ?>"
+                                                     alt="Wing CollarCollar"/>
+
+                                                <div class="customization_dropdown">
+                                                    <div class="customselect_customize">
+                                                        <span>Wing Collar</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -366,47 +380,39 @@
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
 
-                                            <div class="neck_dtail canChangeSize">
-                                                <label>Neck:</label>
-
+                                            <div class="neck_dtail canChangeSize secondScenario">
+                                                <div class="leftSide">
+                                                    <h3 class="detailHeading1">Neck Size Inches</h3>
+                                                    <select size="1" name="NeckSize">
+                                                        <?php foreach ($NeckSize as $key => $np) { ?>
+                                                        <option <?php echo (isset(Session::get('currentSize')['NeckSize'])) && Session::get('currentSize')['NeckSize'] == $np ? "selected=selected" : ""; ?> value="<?=$np;?>"><?=$np;?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                    <h3 class="detailHeading2">Select Neck Height</h3>
+                                                    <select style="margin-top: 4px;" name="NeckHeight">
+                                                        <option value="Average" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Average") ? "selected='selected'" : "" ?>>
+                                                            Average
+                                                        </option>
+                                                        <option value="Short" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Short") ? "selected='selected'" : "" ?>>
+                                                            Short
+                                                        </option>
+                                                        <option value="Long" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Long") ? "selected='selected'" : "" ?>>
+                                                            Long
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="rightSide">
+                                                    <img src="<?php echo URL::to('public/assets/client/images/Neck.png'); ?>"
+                                                         alt="#"/>
+                                                </div>
+                                            </div>
+                                            <div class="hideOnMobile customize_rightSection_content clearfix withoutImg">
                                                 <p>Place two fingers between the tape measure and the neck as the
                                                     pictures show, and make sure you can move the tape easily. Do not
                                                     tighten the tape measure. Make sure that the tape is at the base of
                                                     the neck where the neck and shoulders meet or at the height where
                                                     the collar would be if you were wearing a shirt.</p>
-                                                <h3 class="detailHeading1">Neck Size Inches</h3>
-                                                <select size="1" name="NeckSize">
-                                                    <?php foreach ($NeckSize as $key => $np) { ?>
-                                                    <option <?php echo (isset(Session::get('currentSize')['NeckSize'])) && Session::get('currentSize')['NeckSize'] == $np ? "selected=selected" : ""; ?> value="<?=$np;?>"><?=$np;?></option>
-                                                    <?php } ?>
-                                                </select>
-                                                <h3 class="detailHeading2">Select Neck Height</h3>
-                                                <select style="margin-top: 4px;" name="NeckHeight">
-                                                    <option value="Average" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Average") ? "selected='selected'" : "" ?>>
-                                                        Average
-                                                    </option>
-                                                    <option value="Short" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Short") ? "selected='selected'" : "" ?>>
-                                                        Short
-                                                    </option>
-                                                    <option value="Long" <?php echo (isset(Session::get('currentSize')['NeckHeight']) && Session::get('currentSize')['NeckHeight'] == "Long") ? "selected='selected'" : "" ?>>
-                                                        Long
-                                                    </option>
-                                                </select>
-                                            </div>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
-                                                     alt="#"/>
 
-                                                <p>We believe in having a mix of collar styles. From deep cutaways to
-                                                    classic points and everything in between, we've got a style that
-                                                    works for any occasion you can imagine. Other sites might suggest
-                                                    that you should get a collar that counter-balances your face - e.g.,
-                                                    if you have a longer face, you should wear spread collars, or if you
-                                                    have a rounder face, you should wear a point collar. We think this
-                                                    is bogus. You should enjoy a collar that matches your own personal
-                                                    style, and not worry about following someone else's rules for what
-                                                    they feel might look good on you. The most important thing is to
-                                                    have a shirt that fits, everything else is personal preference..</p>
                                             </div>
                                         </div>
                                     </div>
@@ -523,9 +529,12 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                            <div class="hideOnMobile customize_rightSection_contentIm clearfix withoutText">
+                                                <img src="<?php echo URL::to('public/assets/client/images/cuffs.jpg'); ?>"
                                                      alt="#"/>
+											</div>
+											<div class="hideOnMobile customize_rightSection_content clearfix withoutImg">
+                                                
 
                                                 <p>Dress shirt cuffs remind us of what makes menswear so unique: it's
                                                     all in the details. Most dress shirt cuffs are pretty classic: a
@@ -586,12 +595,8 @@
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
 
-                                            <div class="neck_dtail canChangeSize">
-                                                <label>Arm:</label>
-
-                                                <p>Place your hand on your hip, with your arm bent at 90 degrees. Then
-                                                    have someone measure the distance from the center back of your neck
-                                                    (along your shoulder and elbow) all the way to your wrist. </p>
+                                            <div class="neck_dtail canChangeSize secondScenario">
+                                                <div class="leftSide">
                                                 <h3 class="detailHeading1">Select Sleeve Length</h3>
                                                 <select title="Sleeve Length" name="sleeveLength">
                                                     <option value="24" <?php echo (isset(Session::get('currentSize')['LeftSleeve']) && Session::get('currentSize')['LeftSleeve'] == "24") ? "selected='selected'" : "" ?>>
@@ -859,23 +864,17 @@
                                                         45 3/4
                                                     </option>
                                                 </select>
+                                                </div>
+                                                <div class="rightSide">
+                                                    <img src="<?php echo URL::to('public/assets/client/images/Sleeve.png'); ?>"
+                                                         alt="#"/>
+                                                </div>
                                             </div>
 
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
+                                            <div class="hideOnMobile customize_rightSection_content clearfix withoutImg">
+                                                <p>Place your hand on your hip, with your arm bent at 90 degrees. Then
+                                                    have someone measure the distance from the center back of your neck
+                                                    (along your shoulder and elbow) all the way to your wrist. </p>
                                             </div>
 
                                         </div>
@@ -941,30 +940,17 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                            <div class="hideOnMobile customize_rightSection_contentIm clearfix withoutText">
+                                                <img src="<?php echo URL::to('public/assets/client/images/pockets.jpg'); ?>"
                                                      alt="#"/>
 
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
+                                                
                                             </div>
 
                                             <div class="neck_dtail selectPocketNo" style="display:none;">
                                                 <label>No. Of Pocket:</label>
 
-                                                <p>The neck measurement is taken around the neck with the
-                                                    tape resting on your shoulders. You should put one finger
-                                                    between the tape and the neck if you want to allow for
-                                                    some extra room.</p>
+                                                
                                                 <h3 class="detailHeading1">Select No. Of Pockets</h3>
                                                 <select size="1" name="noOfPocket">
                                                     <?php foreach ($NoOfPockets as $key => $np) { ?>
@@ -1032,30 +1018,17 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                            <div class="hideOnMobile customize_rightSection_contentIm clearfix withoutText">
+                                                <img src="<?php echo URL::to('public/assets/client/images/monograms.jpg'); ?>"
                                                      alt="#"/>
 
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
+                                                
                                             </div>
 
                                             <div class="neck_dtail monogramDescription">
                                                 <label>Monogram Detail:</label>
 
-                                                <p>The neck measurement is taken around the neck with the
-                                                    tape resting on your shoulders. You should put one finger
-                                                    between the tape and the neck if you want to allow for
-                                                    some extra room.</p>
+                                                
                                                 <h3 class="detailHeading1">Monogram Initials</h3>
                                                 <input name="monogramIntials" type="text" maxlength="3" value=""
                                                        placeholder="Monogram Initials"/>
@@ -1102,14 +1075,9 @@
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
 
-                                            <div class="neck_dtail canChangeSize">
-                                                <label>Chest:</label>
+                                            <div class="neck_dtail canChangeSize secondScenario">
+                                                <div class="leftSide">
 
-                                                <p>Stand up straight, relax and take deep breath with hands down at your
-                                                    side. The chest measurement should be taken around the chest under
-                                                    the armpits. Make sure the tape is parallel and you can move the
-                                                    tape easily. Do not tighten the tape measure. Avoid having thick
-                                                    clothes on when measuring.</p>
                                                 <h3 class="detailHeading1">Select Chest Size</h3>
                                                 <select name="Chest">
                                                     <option <?php echo (isset(Session::get('currentSize')['Chest']) && Session::get('currentSize')['Chest'] == "30") ? "selected='selected'" : "" ?> value="30">
@@ -1692,23 +1660,19 @@
                                                         Husky / Hefty
                                                     </option>
                                                 </select>
+                                                </div>
+                                                <div class="rightSide">
+                                                    <img src="<?php echo URL::to('public/assets/client/images/Chest.png'); ?>"
+                                                         alt="#"/>
+                                                </div>
                                             </div>
 
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
+                                            <div class="hideOnMobile customize_rightSection_content clearfix withoutImg">
+                                                <p>Stand up straight, relax and take deep breath with hands down at your
+                                                    side. The chest measurement should be taken around the chest under
+                                                    the armpits. Make sure the tape is parallel and you can move the
+                                                    tape easily. Do not tighten the tape measure. Avoid having thick
+                                                    clothes on when measuring.</p>
                                             </div>
 
                                         </div>
@@ -1732,20 +1696,7 @@
                                             <?=$slectedItems;?>
 
                                             <div class="neck_dtail canChangeSize">
-                                                <label>Waist:</label>
 
-                                                <p>Stand up in a relaxed posture, do not hold your breath or hold your
-                                                    stomach in. If you do not have beer belly, the waist measurement
-                                                    should be taken around the waist at the narrowest point. If you have
-                                                    beer belly, you should measure the widest point. Make sure you can
-                                                    move the tape easily. Do not tighten the tape measure. </p>
-                                                <br/>
-                                                <label>Hip</label>
-                                                <p>Take out all of the stuff in the front and back pockets your trouser.
-                                                    The hip measurement should be taken around the hips at the widest
-                                                    point. Stand up in a relaxed posture, and keep the tape parallel. Do
-                                                    not tighten the tape measure. Make sure you can move the tape
-                                                    easily. </p>
                                                 <h3 style="width:190px;float:left;" class="detailHeading1">
                                                     Select Height Feet
                                                 </h3>
@@ -2318,20 +2269,14 @@
                                             </div>
 
                                             <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                                <img src="<?php echo URL::to('public/assets/client/images/Waist.png'); ?>"
                                                      alt="#"/>
 
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
+                                                <p>Stand up in a relaxed posture, do not hold your breath or hold your
+                                                    stomach in. If you do not have beer belly, the waist measurement
+                                                    should be taken around the waist at the narrowest point. If you have
+                                                    beer belly, you should measure the widest point. Make sure you can
+                                                    move the tape easily. Do not tighten the tape measure. </p>
                                             </div>
 
                                         </div>
@@ -2354,12 +2299,8 @@
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
 
-                                            <div class="neck_dtail canChangeSize">
-                                                <label>Arm:</label>
-
-                                                <p>Place your hand on your hip, with your arm bent at 90 degrees. Then
-                                                    have someone measure the distance from the center back of your neck
-                                                    (along your shoulder and elbow) all the way to your wrist.</p>
+                                            <div class="neck_dtail canChangeSize secondScenario">
+                                                <div class="leftSide">
                                                 <h3 class="detailHeading1">Select Posture</h3>
                                                 <select name="Posture">
                                                     <option <?php echo (isset(Session::get('currentSize')['Posture']) && Session::get('currentSize')['Posture'] == "Flat") ? "selected='selected'" : "" ?> value="Flat">
@@ -2429,24 +2370,11 @@
                                                         Square
                                                     </option>
                                                 </select>
+                                                </div>
+                                                
                                             </div>
 
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
-                                            </div>
+                                            
 
                                         </div>
                                     </div>
@@ -2464,7 +2392,7 @@
                                                      alt="#"/>
                                                 <ul id="fitStyleDetail">
                                                     <li style="display: block;">
-                                                        <b>CLASSIC FIT</b>
+                                                        <b>FULL CUT</b>
                                                         <p>
                                                             A generous fit, cut full through the chest, waist and
                                                             armholes.
@@ -2494,19 +2422,7 @@
                                             <div class="neck_dtail">
                                                 <label>Other Customization:</label>
 
-                                                <p>The neck measurement is taken around the neck with the
-                                                    tape resting on your shoulders. You should put one finger
-                                                    between the tape and the neck if you want to allow for
-                                                    some extra room.</p>
-                                                <div style="padding-bottom: 0px;" class="servicesTerm whiteCollar">
-                                                    <label><input name="whiteCollar" type="checkbox"
-                                                                  value="1"></label>
-                                                    <p>White Collar</p>
-                                                </div>
-                                                <div style="padding-bottom: 0px;" class="servicesTerm whiteCuff">
-                                                    <label><input name="whiteCuff" type="checkbox" value="1"></label>
-                                                    <p>White Cuff</p>
-                                                </div>
+                                                
                                                 <h3 class="detailHeading2">Select Fit Type</h3>
                                                 <select style="margin-top: 4px;" name="shirtTailType">
                                                     <option value="Full Cut">Full Cut</option>
@@ -2514,23 +2430,20 @@
                                                     <option value="Trim Fit">Trim Fit</option>
                                                 </select>
                                             </div>
-
-                                            <div class="hideOnMobile customize_rightSection_content clearfix">
-                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
-                                                     alt="#"/>
-
-                                                <p>The Medium Collar is the most
-                                                    popular and versatile option as it
-                                                    complements most face shapes
-                                                    and tie-knots. Spread is also
-                                                    well-liked and flattering on most
-                                                    people. View the gallery below
-                                                    for recommendations on which
-                                                    of our fashionable collars will
-                                                    best compliment your face
-                                                    shape and preference of
-                                                    tie-knot.</p>
-                                            </div>
+												<div class="neck_dtail">
+												<label>Contrast Collar & Cuffs:</label>
+												</div>
+                                            <div style="padding-bottom: 3px;" class="servicesTerm whiteCollar">
+                                                    
+													<label><input name="whiteCollar" type="checkbox"
+                                                                  value="1"></label>
+                                                    <p>White Collar</p>
+                                                </div>
+                                                <div style="padding-bottom: 8px;" class="servicesTerm whiteCuff">
+                                                    <label><input name="whiteCuff" type="checkbox" value="1"></label>
+                                                    <p>White Cuff</p>
+                                                </div>
+											
 
                                         </div>
                                     </div>

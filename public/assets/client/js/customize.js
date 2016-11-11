@@ -636,7 +636,7 @@ $(document).ready(function (e) {
         $('#Paris').css('display', 'block');
         $('#finishStep').addClass('active');
 
-        if($('#Paris').is(':visible')){
+        if ($('#Paris').is(':visible')) {
             var getOffset = $('#GetGiftImg').offset();
             $('#recNameSet').css({
                 'top': getOffset.top + 25 + 'px',
@@ -730,8 +730,26 @@ $(document).ready(function (e) {
                             $('.dummy').addClass('hide');
                             $('.dummy').removeClass('dummy');
 
-                            var canvasImg = canvas.toDataURL("image/jpg");
-                            //console.log(canvasImg);
+                            var canvasImg = canvas.toDataURL({
+                                format: 'jpeg',
+                                quality: 1 // compression works now!
+                            });
+
+                            /*
+                             var imgdata = canvasImg.replace(/^data:image\/(png|jpg);base64,/, "");
+                            var token = $('#postToken').val();
+                            $.ajax({
+                                url: 'save/image',
+                                data: {
+                                    imgdata: imgdata,
+                                    _token: token
+                                },
+                                type: 'post',
+                                success: function (response) {
+                                    console.log(response);
+                                }
+                            });*/
+
                             //$('#SetImage').prop('src', canvasImg);
                             var imgData = canvasImg;
                             var doc = new jsPDF();
@@ -754,7 +772,6 @@ $(document).ready(function (e) {
 
         });
     });
-
 
 
 });
