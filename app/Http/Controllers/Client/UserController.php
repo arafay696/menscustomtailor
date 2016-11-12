@@ -18,6 +18,8 @@ use Redirect;
 use Validator;
 use Auth;
 use Input;
+use View;
+use App\Http\Controllers\Client\PdfWrapper as PDFF;
 
 class UserController extends BaseController
 {
@@ -511,6 +513,54 @@ class UserController extends BaseController
         }
     }
 
+    public function generateInvoicePlz($orderID){
+        $getDetail = DB::table('orders AS o')
+            ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty',
+                'sd.FabricPrice', 'o.Amount as Total', 'o.Discount',
+                'o.Shiping',DB::raw('DATE_FORMAT(o.OrderDate,"%d/%m/%Y") as OrderDate'))
+            ->join("shirtdetail AS sd","o.ID","=","sd.OrderID")
+            ->join("products AS p","sd.FabricCode","=","p.Code")
+            ->join("images as i","p.ID","=","i.RefID")
+            ->where("o.ID", "=", $orderID)
+            ->groupBy("i.RefID")
+            ->get();
+
+        $getUser = DB::table('customers')
+            ->select('Name', 'Email', 'Phone', 'City', 'Country', 'Address')
+            ->where("ID", "=", Session::get('CustomerID'))
+            ->first();
+
+        $getSize = DB::table('size')
+            ->select('*')
+            ->where("CustomerID", "=", Session::get('CustomerID'))
+            ->first();
+
+        $data = array(
+            'orders' => $getDetail,
+            'user' => $getUser,
+            'size' => $getSize
+        );
+
+        //return view('client.pdf-invoice', $data);
+        $pdf = new PDFF('utf-8');
+        $pdf->mirrorMargins(1);
+
+        //$header = \View::make('pdf.header')->render();
+        //$footer = \View::make('pdf.footer')->render();
+
+        $pdf->SetHTMLHeader('<h6></h6>', 'O');
+        $pdf->SetHTMLHeader('<h6></h6>', 'E');
+        $pdf->SetHTMLFooter('<h6></h6>', 'O');
+        $pdf->SetHTMLFooter('<h6></h6>', 'E');
+
+        $pdf->AddPage('P', 2, 2, 10, 10, 8, 2, 'A4');
+        $pdf->loadView('client.pdf-invoice', $data);
+
+        $name = 'MCT-';
+        $name .= (isset($getDetail[0]->OrderID)) ? $getDetail[0]->OrderID : '';
+        $name .= '.pdf';
+        return $pdf->download($name);
+    }
     public function generateInvoice($orderID){
         $getDetail = DB::table('orders AS o')
             ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty',
@@ -522,6 +572,41 @@ class UserController extends BaseController
             ->where("o.ID", "=", $orderID)
             ->groupBy("i.RefID")
             ->get();
+
+        $getUser = DB::table('customers')
+            ->select('Name', 'Email', 'Phone', 'City', 'Country', 'Address')
+            ->where("ID", "=", Session::get('CustomerID'))
+            ->first();
+
+        $getSize = DB::table('size')
+            ->select('*')
+            ->where("CustomerID", "=", Session::get('CustomerID'))
+            ->first();
+
+        $data = array(
+            'orders' => $getDetail,
+            'user' => $getUser,
+            'size' => $getSize
+        );
+
+        //return view('client.pdf-invoice', $data);
+        $pdf = new PDFF('utf-8');
+        $pdf->mirrorMargins(1);
+
+        //$header = \View::make('pdf.header')->render();
+        //$footer = \View::make('pdf.footer')->render();
+
+        $pdf->SetHTMLHeader('<h6></h6>', 'O');
+        $pdf->SetHTMLHeader('<h6></h6>', 'E');
+        $pdf->SetHTMLFooter('<h6></h6>', 'O');
+        $pdf->SetHTMLFooter('<h6></h6>', 'E');
+
+        $pdf->AddPage('P', 2, 2, 10, 10, 8, 2, 'A4');
+        $pdf->loadView('client.pdf-invoice', $data);
+
+        $pdf->download('test.pdf');
+
+
 
         if(count($getDetail) > 0){
             echo json_encode(array(

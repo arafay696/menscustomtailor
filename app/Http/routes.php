@@ -49,6 +49,7 @@ Route::get('order-history', 'Client\UserController@orderHistory');
 Route::get('order/detail/{id}', 'Client\UserController@orderDetail');
 Route::get('measurements', 'Client\UserController@myMeasurements');
 Route::get('generate-invoice/{id}', 'Client\UserController@generateInvoice');
+Route::get('generate-pdf/{id}', 'Client\UserController@generateInvoicePlz');
 Route::post('edit-size', 'Client\UserController@myMeasurementsEdit');
 
 /*------------- Save To PDF */

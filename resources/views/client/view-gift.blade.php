@@ -64,7 +64,7 @@
                                             </li>
                                             <li>
                                                 <label>Message</label>
-                                                <textarea name="purMsg"></textarea>
+                                                <textarea id="setMessageHere" name="purMsg"></textarea>
                                             </li>
                                             <li><input id="nextToPayment" class="giftCardBtn" type="button"
                                                        value="Next"/></li>
@@ -84,7 +84,7 @@
                                         </div>
                                         <br/>
                                         <br/>
-                                        Thank you.
+                                        <span id="setMessage"></span>
                                         <input id="nextToPayment" class="giftCardBtn" type="submit" value="Checkout"/>
                                     </div>
                                 </form>

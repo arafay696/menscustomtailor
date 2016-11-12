@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="bttnz_two">
                                         <i class="updateCartSpin hide fa fa-spinner fa-spin"></i>
-                                        <a id="<?=$order->ID;?>" class="generatePdf" href="javascript:void(0);"> Print PDF</a>
+                                        <a id="<?=$order->ID;?>" class="generatePdf2" href="<?= URL::to('generate-pdf/' . $order->ID); ?>"> Print PDF</a>
                                         <a style="display: none !important;" href="javascript:void(0)">Re Order</a>
                                         <a href="<?= URL::to('order/detail/' . $order->ID . '');?>">Detail</a>
                                     </div>
@@ -139,34 +139,6 @@
                         </div>
                     </div>
                     <br />
-                    <div class="customerDetailInvoice hide">
-                        <table>
-                            <tr>
-                                <th>Customer Name</th>
-                                <td><?=$user->Name;?></td>
-                            </tr>
-                            <tr>
-                                <th>Address</th>
-                                <td><?=$user->Address;?></td>
-                            </tr>
-                            <tr>
-                                <th>City</th>
-                                <td class="specialClass"><?=$user->City;?></td>
-                            </tr>
-                            <tr>
-                                <th>State</th>
-                                <td><?=$user->Country;?></td>
-                            </tr>
-                            <tr>
-                                <th>Phone</th>
-                                <td><?=$user->Phone;?></td>
-                            </tr>
-                            <tr>
-                                <th>Email</th>
-                                <td><?=$user->Email;?></td>
-                            </tr>
-                        </table>
-                    </div>
                     <div class="cart_listing_outer">
                         <div class="cart_listing_head clearfix">
                             <div class="empty_colmn">&nbsp;</div>

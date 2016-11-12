@@ -624,11 +624,12 @@ $(document).ready(function (e) {
         $('#giftAmountText').val($(this).attr('id'));
     });
 
-    $('#nextToPayment').click(function () {
+    $('#nextToPayment,#finishStep').click(function () {
         $('#recNameSet').text($('#recName').val());
         $('#fromNameSet').text($('#purchaseName').val());
         $('#giftAmountSet').text($('#giftAmount').val());
         $('#giftAmountText').val($('#giftAmount').val());
+        $('#setMessage').text($('#setMessageHere').val());
 
         $('.giftCardTab .tab li a').removeClass('active');
         $('.giftCardTab .tabcontent').css('display', 'none');

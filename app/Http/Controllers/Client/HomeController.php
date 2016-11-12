@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Session;
 use Mail;
 use Request;
 use App;
-use PDF;
 use View;
+use App\Http\Controllers\Client\PdfWrapper as PDFF;
 
 class HomeController extends BaseController
 {
@@ -95,17 +95,19 @@ class HomeController extends BaseController
 
     public function testPdf()
     {
-        $orders = DB::table('orders as o')
-            ->select('o.ID', 'o.Amount', 'o.OrderDate', 'o.Code')
-            ->join('customers as c', 'o.CustomerID', '=', 'c.ID')
-            ->join('orderstatus as os', 'o.Status', '=', 'os.ID')
-            ->where('c.ID', '=', Session::get('CustomerID'))
-            //->where('o.Status', '=', 1)
-            ->orderBy('o.OrderDate', 'DESC')
+        $getDetail = DB::table('orders AS o')
+            ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty',
+                'sd.FabricPrice', 'o.Amount as Total', 'o.Discount',
+                'o.Shiping',DB::raw('DATE_FORMAT(o.OrderDate,"%d/%m/%Y") as OrderDate'))
+            ->join("shirtdetail AS sd","o.ID","=","sd.OrderID")
+            ->join("products AS p","sd.FabricCode","=","p.Code")
+            ->join("images as i","p.ID","=","i.RefID")
+            ->where("o.ID", "=", 1)
+            ->groupBy("i.RefID")
             ->get();
 
         $getUser = DB::table('customers')
-            ->select('Name','Email','Phone','City','Country','Address')
+            ->select('Name', 'Email', 'Phone', 'City', 'Country', 'Address')
             ->where("ID", "=", Session::get('CustomerID'))
             ->first();
 
@@ -115,12 +117,30 @@ class HomeController extends BaseController
             ->first();
 
         $data = array(
-            'orders' => $orders,
+            'orders' => $getDetail,
             'user' => $getUser,
             'size' => $getSize
         );
-        //$pdf = PDF::loadView('client.pdf-invoice', $data);
-        //return $pdf->stream();
-        //return $pdf->download('te.pdf');
+
+        //return view('client.pdf-invoice', $data);
+        $pdf = new PDFF('utf-8');
+        $pdf->mirrorMargins(1);
+
+        //$header = \View::make('pdf.header')->render();
+        //$footer = \View::make('pdf.footer')->render();
+
+        $pdf->SetHTMLHeader('<h6></h6>', 'O');
+        $pdf->SetHTMLHeader('<h6></h6>', 'E');
+        $pdf->SetHTMLFooter('<h6></h6>', 'O');
+        $pdf->SetHTMLFooter('<h6></h6>', 'E');
+
+        $pdf->AddPage('P', 2, 2, 10, 10, 8, 2, 'A4');
+        $pdf->loadView('client.pdf-invoice', $data);
+
+
+        return $pdf->stream();
+
+        $pdf->download('test.pdf');
+
     }
 }
