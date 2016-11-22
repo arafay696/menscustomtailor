@@ -390,7 +390,7 @@
                                     <select name="NeckHeight">
                                         <option>Select Neck Size</option>
                                         <?php foreach ($NeckSize as $key => $np) { ?>
-                                        <option <?php echo ($size->NeckHeight == $np) ? "selected=selected" : ""; ?> value="<?=$np;?>"><?=$np;?></option>
+                                        <option <?php echo (isset($size->NeckHeight) && $size->NeckHeight == $np) ? "selected=selected" : ""; ?> value="<?=$np;?>"><?=$np;?></option>
                                         <?php } ?>
                                     </select>
                                 </td>

@@ -624,6 +624,19 @@ $(document).ready(function (e) {
         $('#giftAmountText').val($(this).attr('id'));
     });
 
+    $('#giftAmount').on("change", function () {
+        $('.chooseAmount li').removeClass('active');
+        var getVal = $(this).val();
+        if ($(this).val() < 25) {
+            $(this).val(25);
+        }
+        $('.chooseAmount li[id=' + getVal + ']').addClass('active');
+        $('#giftAmount').val($(this).val());
+        $('#giftAmountSet').text($(this).val());
+        $('#giftAmountText').val($(this).val());
+    });
+
+
     $('#nextToPayment,#finishStep').click(function () {
         $('#recNameSet').text($('#recName').val());
         $('#fromNameSet').text($('#purchaseName').val());
@@ -670,6 +683,10 @@ $(document).ready(function (e) {
         doc.text(35, 25, "Paranyan loves jsPDF");
         doc.addImage(imgData, 'JPEG', 15, 40, 180, 160);
         doc.save('sample-file.pdf');
+    });
+
+    $('.generatePdf2').click(function () {
+        $(this).siblings('.updateCartSpin').removeClass('hide');
     });
 
     $('.generatePdf').click(function () {
@@ -738,18 +755,18 @@ $(document).ready(function (e) {
 
                             /*
                              var imgdata = canvasImg.replace(/^data:image\/(png|jpg);base64,/, "");
-                            var token = $('#postToken').val();
-                            $.ajax({
-                                url: 'save/image',
-                                data: {
-                                    imgdata: imgdata,
-                                    _token: token
-                                },
-                                type: 'post',
-                                success: function (response) {
-                                    console.log(response);
-                                }
-                            });*/
+                             var token = $('#postToken').val();
+                             $.ajax({
+                             url: 'save/image',
+                             data: {
+                             imgdata: imgdata,
+                             _token: token
+                             },
+                             type: 'post',
+                             success: function (response) {
+                             console.log(response);
+                             }
+                             });*/
 
                             //$('#SetImage').prop('src', canvasImg);
                             var imgData = canvasImg;

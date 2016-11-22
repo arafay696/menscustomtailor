@@ -324,6 +324,7 @@ class UserController extends BaseController
 
             if (Request::hasFile('UserImg')) {
                 $updatedata['UserImg'] = $fileName;
+                Session::put('CustomerImg', $fileName);
             }
         }
 
@@ -517,7 +518,7 @@ class UserController extends BaseController
         $getDetail = DB::table('orders AS o')
             ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty',
                 'sd.FabricPrice', 'o.Amount as Total', 'o.Discount',
-                'o.Shiping',DB::raw('DATE_FORMAT(o.OrderDate,"%d/%m/%Y") as OrderDate'))
+                'o.Shiping',DB::raw('DATE_FORMAT(o.OrderDate,"%m/%d/%Y") as OrderDate'))
             ->join("shirtdetail AS sd","o.ID","=","sd.OrderID")
             ->join("products AS p","sd.FabricCode","=","p.Code")
             ->join("images as i","p.ID","=","i.RefID")
@@ -526,7 +527,7 @@ class UserController extends BaseController
             ->get();
 
         $getUser = DB::table('customers')
-            ->select('Name', 'Email', 'Phone', 'City', 'Country', 'Address')
+            ->select('Name', 'Email', 'Phone', 'City', 'Country', 'Address','State')
             ->where("ID", "=", Session::get('CustomerID'))
             ->first();
 
@@ -541,7 +542,7 @@ class UserController extends BaseController
             'size' => $getSize
         );
 
-        //return view('client.pdf-invoice', $data);
+        return view('client.pdf-invoice', $data);
         $pdf = new PDFF('utf-8');
         $pdf->mirrorMargins(1);
 

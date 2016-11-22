@@ -399,7 +399,7 @@
             <td>
                 <b class="shipToBg">Bill To:</b><br/>
                 <?=$user->Name;?><br/>
-                <?=$user->Address;?>
+                <?=$user->Address . ',' . $user->City . ' ' . $user->Country . ' ' . $user->State;?>
                 <br/>
             </td>
             <td class="shipToNew">
@@ -437,21 +437,24 @@
 
             <table>
                 <?php
-                $TotalPrice = 0;
+                $Discount = $Shipping = $TotalPrice = 0;
                 foreach ($orders as $rs) {
                 $pr = $rs->FabricPrice * $rs->Qty;
                 $TotalPrice += $pr;
+                $Shipping = $rs->Shiping;
+                $Discount = $rs->Discount;
                 ?>
                 <tr>
                     <td style="width:8%;">
-                        <img width="50" height="60" src="<?= URL::to('resources/assets/images/' . $rs->Image); ?>" alt="#"/>
+                        <img width="50" height="60" src="<?= URL::to('resources/assets/images/' . $rs->Image); ?>"
+                             alt="#"/>
                     </td>
                     <td style="text-align:left; padding-left:10px;">
                         <?=$rs->Name;?>
                     </td>
-                    <td class="mono" style="width:15%;"><?=number_format($rs->FabricPrice,2);?></td>
+                    <td class="mono" style="width:15%;"><?=number_format($rs->FabricPrice, 2);?></td>
                     <td style="width:15%;" class="mono"><?=$rs->Qty;?></td>
-                    <td style="width:15%;" class="mono"><?=number_format($rs->FabricPrice,2);?></td>
+                    <td style="width:15%;" class="mono"><?=number_format($rs->FabricPrice, 2);?></td>
                 </tr>
                 <?php } ?>
                 <tr>
@@ -462,8 +465,16 @@
 
                 <tr>
                     <td colspan="3"></td>
+                    <td>Shipping :</td>
+                    <td class="mono"><?=number_format($Shipping, 2);?></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
                     <td>Total :</td>
-                    <td class="mono"><?=number_format($TotalPrice, 2);?></td>
+                    <td class="mono"><?php
+                        $TotalPrice = (float)($TotalPrice + $Shipping) - $Discount;
+                        echo number_format($TotalPrice, 2);
+                        ?></td>
                 </tr>
             </table>
         </div>
@@ -472,7 +483,11 @@
             <table>
                 <tr>
                     <td style="width:15%;">USD</td>
-                    <td style="width:15%;" class="mono"><?=number_format($TotalPrice, 2);?></td>
+                    <td style="width:15%;" class="mono">
+                        <?php
+                        echo number_format($TotalPrice, 2);
+                        ?>
+                    </td>
                 </tr>
             </table>
         </div>
