@@ -1,5 +1,6 @@
-.idea
-bower_components
+/.idea
+/bower_components
+/public/assets/admin/bower_components
 /vendor
 /node_modules
 Homestead.yaml
