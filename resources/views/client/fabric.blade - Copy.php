@@ -1,19 +1,5 @@
-﻿@extends('client.default')
+@extends('client.default')
 @section('content')
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal imageZoomModal">
-
-        <!-- The Close Button -->
-        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-
-        <!-- Modal Content (The Image) -->
-        <img class="modal-content" id="img01">
-
-        <!-- Modal Caption (Image Text) -->
-        <div id="caption"></div>
-    </div>
-
     <div class="container">
 
         <div class="fabric_banner">
@@ -24,85 +10,8 @@
                 </div>
             </div>
         </div>
-        <div class="fabric_banner_below">
-            <div class="auto_content">
-                <div class="fabric_bannerDtail">
-                    <h1>WHICH ARE THE COLORS THAT BEST FLATTER YOUR SKIN TONE ?</h1>
-                    <ul>
-                        <li>
-                            <h2>Light Skin Tone</h2>
-                            <p>Generally found in
 
-                                Caucasians, the colours that
-
-                                work for the light skin tone are
-
-                                blue, green, pink, purple and
-
-                                blue. Go for pastels and
-
-                                darker shades like dark blue
-
-                                or dark red. They work really
-
-                                well for you. Keep Black and
-
-                                white to a minimum use.
-
-                                Silver compliments your skin
-
-                                tone very well so accessorize
-
-                                with silver.</p>
-                        </li>
-                        <li>
-                            <h2>Medium Skin Tone</h2>
-                            <p>These are generally Asians,
-
-                                Mediterranean’s, people of
-
-                                mixed race and the Latinos.
-
-                                Earth tones work very well.
-
-                                Go for brown, tan, Khaki,
-
-                                green, orange, yellow along
-
-                                with grey, navy blue,
-
-                                creamand black. Avoid pastel
-
-                                shades and bright white.
-
-                                Accessories with gold.</p>
-                        </li>
-                        <li>
-                            <h2>Dark Skin Tone</h2>
-                            <p>People with a dark skin tone
-
-                                can really carry off shades like
-
-                                white, khaki, dark purple,
-
-                                plum, grey, red, light blue,
-
-                                orange and pink. Colours to
-
-                                avoid are dark brown and light
-
-                                green. Gold compliments your
-
-                                skin tone very well so
-
-                                accessorize with gold.</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="cart_container fabric_cont" style="clear: both;">
+        <div class="cart_container fabric_cont">
             <div class="auto_content">
                 <div class="cart_pageDtail">
                     <input type="hidden" id="autoFilter" value="<?=$filter;?>">
@@ -167,17 +76,6 @@
                                 </div>
 
                                 <div class="pattern_price clearfix">
-                                    <div class="pattern_dropdown" style="width: 37%">
-                                        <div class="customselect">
-                                            <span class="allCatList">All Categories</span>
-                                            <select class="cs" id="filterCategory">
-                                                <option value="ALL" selected>All Categories</option>
-                                                <?php foreach($categories as $category){ ?>
-                                                     <option value="<?php echo $category->ID;?>"><?php echo $category->Name;?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
                                     <div class="pattern_dropdown">
                                         <div class="customselect">
                                             <span>All</span>
@@ -223,8 +121,7 @@
                         </div>
 
 
-                        <form class="fbricImages" name="form" method="post"
-                              action="<?php echo URL::to('fabric/customize/new');?>">
+                        <form name="form" method="post" action="<?php echo URL::to('fabric/customize/new');?>">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="popular_choices_list some_change clearfix">
                                 <ul class="productGallery grid1">
@@ -246,21 +143,15 @@
                                     if (array_key_exists($product->ID, $productColor)) {
                                         $colors = implode(",", $productColor[$product->ID]);
                                     }
-
-                                    $categories = "";
-                                    if (array_key_exists($product->ID, $categoryById)) {
-                                        $categories = implode(",", $categoryById[$product->ID]);
-                                    }
                                     ?>
                                     <li class="<?=$classByCat;?> element-item transition <?=$v;?>"
-                                        data-category-list="<?=$categories;?>"
                                         data-percentage="<?=$product->Price;?>"
                                         data-color="<?= $colors; ?>" data-category="<?=$v;?>">
                                         <a class="selectFabric" href="javascript:void(0);">
-                                            <img class="myImg"
-                                                 src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
+                                            <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
                                                  alt="#"/>
-
+                                            <img src="<?php echo URL::to('public/assets/client/images/fabric_zoomImg.png');?>"
+                                                 alt="#" class="zoom_pic"/>
                                             <img src="<?php echo URL::to('public/assets/client/images/new_img.png');?>"
                                                  alt="#" class="new_icon"/>
                                         </a>
@@ -306,22 +197,5 @@
             </div>
         </div>
 
-        <script>
-            $(document).ready(function () {
-                $('.myImg').click(function () {
-
-                    // Get the image and insert it inside the modal - use its "alt" text as a caption
-                    $('.imageZoomModal').css('display', 'block');
-                    $('#img01').attr('src', $(this).attr('src'));
-                    $('#caption').text($(this).attr('alr'));
-
-                });
-            });
-
-            $('.close').click(function () {
-                $('.imageZoomModal').css('display', 'none');
-            });
-
-        </script>
 
 @endsection

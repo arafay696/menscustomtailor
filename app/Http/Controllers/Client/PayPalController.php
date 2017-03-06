@@ -149,7 +149,7 @@ class PayPalController extends BaseController
                 DB::table('giftcards')->insert($data);
 
                 // Send Email to Purchaser
-                /*$purchaserData = array(
+                $purchaserData = array(
                     'Subject' => 'Gift Card Send',
                     'name' => "Men's Custom Tailor",
                     'code' => $data['coupon_code'],
@@ -160,7 +160,7 @@ class PayPalController extends BaseController
                 Mail::send('client.giftcardEmail', $purchaserData, function ($message) use ($purchaserData) {
                     $message->subject($purchaserData['Subject'])
                         ->to($purchaserData['email']);
-                });*/
+                });
 
                 // Send Email to Recipient
                 $recData = array(
@@ -173,11 +173,6 @@ class PayPalController extends BaseController
                     'email' =>$data['rec_email'],
                     'price' => $data['amount']
                 );
-
-                Mail::send('client.giftcardEmailReceived', $recData, function ($message) use ($recData) {
-                    $message->subject($recData['Subject'])
-                        ->to($recData['from']);
-                });
 
                 Mail::send('client.giftcardEmailReceived', $recData, function ($message) use ($recData) {
                     $message->subject($recData['Subject'])

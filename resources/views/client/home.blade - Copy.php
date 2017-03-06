@@ -1,4 +1,4 @@
-﻿@extends('client.default')
+@extends('client.default')
 @section('content')
     <!-- Page Wrapper -->
     <div class="container">
@@ -17,11 +17,6 @@
                                         <h3>The Perfect <br/>Custom Shirt
                                             <p>
                                                 <strong>You design it, you wear it, and you’ll love it.</strong>
-                                            </p>
-                                            <BR>
-
-                                            <p>
-                                                <strong>START your order</strong>
                                             </p>
                                         </h3>
                                     </div>
@@ -43,11 +38,6 @@
                                         <h3>Our easy proven <br/>
                                             <p>online system will help you design the <br/>perfect shirt, whatever your
                                                 needs.</p>
-                                            <BR>
-
-                                            <p>
-                                                <strong>START your order</strong>
-                                            </p>
                                         </h3>
                                     </div>
                                 </div>
@@ -85,16 +75,15 @@
                             <img src="<?php echo URL::to('public/assets/client/images/ad-3.png');?>" alt="#"/>
 
                             <div class="overley_div_list">
-                                <div class="list_inn_dtail"> 
+                                <div class="list_inn_dtail">
                                     <h3>Welcome to Men’s Custom Tailor</h3>
 
                                     <p>Excellent craftsmanship, premium quality, you create your own style.
                                         Our Collection is what was formerly known as Red Ribbon and defines
-                                        everything you would expect from the best custom made dress shirts ever sold on
-                                        the internet.
+                                        everything you would expect from the best custom made dress shirts ever sold on the internet.
                                     </p>
                                     <a class="hide" href="#">Read More</a>
-                               </div>
+                                </div>
                             </div>
                         </li>
                         <li class="hideOnMobile">
@@ -232,36 +221,6 @@
             </div>
         </div>
 
-        <div class="popular_choices">
-            <div class="auto_content">
-                <div class="popular_choices_dtail">
-                    <div class="popular_head">
-                        <label>Fabric choices</label>
-
-                        <p>
-                            PICK YOUR FASHION STATEMENT
-                        </p>
-                    </div>
-
-                    <div class="popular_choices_list clearfix">
-                        <ul class="product_slider">
-                            <?php
-                            if(is_array($products)){
-                            foreach($products as $key => $product) { ?>
-                            <li>
-                                <a href="<?php echo URL::to('fabric');?>">
-                                    <img src="<?php echo URL::to('resources/assets/images/' . $product->ImgName . '');?>"
-                                         alt="#"/>
-                                </a>
-                                
-                            </li>
-                            <?php } }?>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="people_says_section">
             <div class="auto_content">
@@ -270,8 +229,7 @@
                         <label>What People Says</label>
 
                         <p>
-                            With our money back guarantee we ensure that you will never again regret your purchase of a
-                            custom made dress
+                            With our money back guarantee we ensure that you will never again regret your purchase of a custom made dress
                             shirt.
                         </p>
                     </div>

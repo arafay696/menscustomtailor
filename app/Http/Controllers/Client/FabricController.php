@@ -22,6 +22,11 @@ class FabricController extends BaseController
 
     public function index(Request $request)
     {
+        $info = array(
+            'title' => "Fabric - Custom Dress Shirts - MEN'S CUSTOM TAILOR"
+        );
+        View::share('info', $info);
+
         $filter = $request::get('filter');
         try {
             $products = DB::table('Products AS pr')
@@ -30,6 +35,7 @@ class FabricController extends BaseController
                 ->join('ProductDetails as pd', 'pd.ProductID', '=', 'pr.ID')
                 //->whereIn('pd.RefID', [614, 148, 616])
                 //->groupBy('pd.RefID')
+                ->orderBy('pr.Dat', 'desc')
                 ->get();
 
             //dd($products);
@@ -49,7 +55,20 @@ class FabricController extends BaseController
                 $colorById[$color->ID] = $color->Name;
             }
 
-            //dd($colorById);
+            $allCategories = DB::table('ProductDetails')
+                ->select('*')
+                ->where('RefTable', 'Categories')
+                ->get();
+            $categoryById = array();
+            foreach ($allCategories as $rs) {
+                $categoryById[$rs->ProductID][] = $rs->RefID;
+            }
+
+            $categories = DB::table('Categories')
+                ->select('ID', 'Name')
+                ->where("ProductTypeID", "=", 6)
+                ->get();
+
             $productColor = array();
             foreach ($products as $product) {
                 if ($product->PatternType == 148 || $product->PatternType == 614 || $product->PatternType == 616) {
@@ -73,10 +92,12 @@ class FabricController extends BaseController
                 'patternByID' => $patternById,
                 'productColor' => $productColor,
                 'filter' => $filter,
+                'categories' => $categories,
+                'categoryById' => $categoryById
             );
             return view('client.fabric', $data);
         } catch (\Exception $e) {
-            $error = $e->getMessage();
+
             if (env('Mode') == 'Development') {
                 $this->errorMsg = $error;
                 Session::flash('globalErrMsg', $this->errorMsg);

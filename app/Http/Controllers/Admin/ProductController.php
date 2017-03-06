@@ -972,7 +972,6 @@ class ProductController extends BaseController
                 ->where("img.RefTable", "=", 'Products')
                 ->groupBy('pr.ID')
                 ->orderBy('ID', 'desc')
-                ->take(20)
                 ->get();
 
             $statusByID = $this->getAllStatus();

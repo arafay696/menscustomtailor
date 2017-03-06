@@ -35,6 +35,8 @@ Route::post('verifyGiftCoupon', 'Client\CartController@verifyGiftCoupon');
 Route::get('contact-us', 'Client\HomeController@contactus');
 Route::get('about-us', 'Client\HomeController@aboutus');
 
+Route::get('faqs', 'Client\HomeController@faqs');
+
 //  User Routes
 Route::get('/login', 'Client\UserController@index');
 Route::get('/logout', 'Client\UserController@logout');
@@ -51,6 +53,8 @@ Route::get('measurements', 'Client\UserController@myMeasurements');
 Route::get('generate-invoice/{id}', 'Client\UserController@generateInvoice');
 Route::get('generate-pdf/{id}', 'Client\UserController@generateInvoicePlz');
 Route::post('edit-size', 'Client\UserController@myMeasurementsEdit');
+Route::post('contact-us', 'Client\UserController@contactUs');
+
 
 /*------------- Save To PDF */
 Route::get('pdf', 'Client\UserController@saveToPDF');
@@ -150,4 +154,4 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/logout', 'UserController@logout');
 });
 
-
+	

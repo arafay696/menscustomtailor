@@ -36,7 +36,10 @@
         }
 
         table {
-            border: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+
+            border-spacing: 0;
             border-collapse: collapse;
 
         }
@@ -61,16 +64,6 @@
             font-size: 9pt;
             color: #000;
             font-weight: normal;
-        }
-		
-		table.nob {
-            border: none;
-        }
-		
-		td.nob {
-            border-right: none;
-            border-bottom: none;
-            
         }
 
         hr {
@@ -357,28 +350,32 @@
     <br/>
     <table class="heading" style="width:100%;">
         <tr>
-            <td rowspan="2" valign="top" style="width:80mm;">
+            <td style="width:80mm;">
                 <h2 class="heading">Men's Custom Tailor</h2>
                 <h2 class="heading">
                     2523 Ferndale Ln. <br/> Snellville, GA 30078
                 </h2>
             </td>
-            <td  class="nob" rowspan="1" valign="top" align="right">
-                
-                <table  class="nob" >
+            <td rowspan="2" valign="top" align="right" style="padding:3mm;">
+                <table>
                     <tr>
-                        <td  class="nob" width="80">Order No :</td>
-                        <td  class="nob" width="101">204</td>
+                        <td>Order No :</td>
+                        <td><?=(isset($orders[0]->OrderID)) ? $orders[0]->OrderID : '';?></td>
                     </tr>
                     <tr>
-                        <td  class="nob">Dated :</td>
-                        <td  class="nob">11/05/2016</td>
+                        <td>Dated :</td>
+                        <td><?=(isset($orders[0]->OrderDate)) ? $orders[0]->OrderDate : '';?></td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            
+            <td>
+                <b></b> <br/>
+                <br/>
+                <br/>
+                <br/>
+            </td>
         </tr>
     </table>
     <div class="companyDetail">
@@ -397,48 +394,30 @@
             <strong>Phone: </strong> <?=$user->Phone;?>
         </p>
     </div>
-    <table class="heading" style="border: 1px solid #ccc; width:100%;">
-        <tr style="background:#eee;">
-				<td style="width:50%; height:20%;"><b>Bill To</b></td>
-				<td style="width:50%; height:20%;"><b>Measurements</b></td>
-		</tr>
-		<tr>
-            <td class="shipToNew">
-               <table class="nob">
-                   <tr>
-                        <td class="nob"><strong><?=$user->Name;?></strong></td>
-                    </tr>
-                    <tr>
-                        <td class="nob"><strong><?=$user->Address;?></strong></td>
-                    </tr>
-                    <tr>
-                        <td class="nob"><strong><?=$user->City;?></strong></td>
-                    </tr>
-                    <tr>
-                        <td class="nob"><strong><?=$user->Country;?></strong></td>
-                    </tr>
-                    <tr>
-                        <td class="nob"><strong><?= $user->State;?></strong></td>
-                    </tr>
-                </table>
-            </td>
+    <table class="heading" style="width:100%;">
+        <tr>
             <td>
-				<table class="nob">
-					<tr>
-						<td class="nob"><strong>Neck Size: </strong></td><td style="text-align: right;"; class="nob"><?=$size->NeckSize;?></td>
-					</tr>
-					<tr>
-						<td class="nob"><strong>Chest Size: </strong></td><td class="nob"><?=$size->Chest;?></td>
-					</tr>
-					<tr>
-						<td class="nob"><strong>Sleeve Length: </strong></td><td class="nob"><?=$size->LeftSleeve;?></td>
-					</tr>
-					<tr>
-						<td class="nob"><strong>Waist: </strong></td><td class="nob"><?=$size->Waist;?></td>
-					</tr>
-				</table>			
-                
-                    
+                <b class="shipToBg">Bill To:</b><br/>
+                <?=$user->Name;?><br/>
+                <?=$user->Address;?>
+                <br/>
+            </td>
+            <td class="shipToNew">
+                <b class="shipToBg">Ship To:</b><br/>
+                <ul>
+                    <li>
+                        <strong>Neck Size: </strong> &nbsp;&nbsp; <?=$size->NeckSize;?>
+                    </li>
+                    <li>
+                        <strong>Chest Size: </strong> &nbsp;&nbsp; <?=$size->Chest;?>
+                    </li>
+                    <li>
+                        <strong>Sleeve Length: </strong> &nbsp;&nbsp; <?=$size->LeftSleeve;?>
+                    </li>
+                    <li>
+                        <strong>Waist: </strong> &nbsp;&nbsp; <?=$size->Waist;?>
+                    </li>
+                </ul>
             </td>
         </tr>
     </table>
@@ -448,62 +427,76 @@
         <div id="invoice_body">
             <table>
                 <tr style="background:#eee;">
-                    
-                    <td colspan="2"><b>PRODUCT</b></td>
+                    <td style="width:8%;"><b></b></td>
+                    <td><b>PRODUCT</b></td>
                     <td style="width:15%;"><b>Price</b></td>
                     <td style="width:15%;"><b>Quantity</b></td>
                     <td style="width:15%;"><b>Total</b></td>
                 </tr>
             </table>
 
-            <table class="nob">
+            <table>
                 <?php
-                $Discount = $Shipping = $TotalPrice = 0;
+                $TotalPrice = 0;
                 foreach ($orders as $rs) {
                 $pr = $rs->FabricPrice * $rs->Qty;
                 $TotalPrice += $pr;
-                $Shipping = $rs->Shiping;
-                $Discount = $rs->Discount;
                 ?>
                 <tr>
                     <td style="width:8%;">
-                        <img width="50" height="60" src="<?= URL::to('resources/assets/images/' . $rs->Image); ?>"
-                             alt="#"/>
+                        <img width="50" height="60" src="<?= URL::to('resources/assets/images/' . $rs->Image); ?>" alt="#"/>
                     </td>
                     <td style="text-align:left; padding-left:10px;">
                         <?=$rs->Name;?>
                     </td>
-                    <td class="mono" style="width:15%;"><?=number_format($rs->FabricPrice, 2);?></td>
+                    <td class="mono" style="width:15%;"><?=number_format($rs->FabricPrice,2);?></td>
                     <td style="width:15%;" class="mono"><?=$rs->Qty;?></td>
-                    <td style="width:15%;" class="mono"><?=number_format($rs->FabricPrice, 2);?></td>
+                    <td style="width:15%;" class="mono"><?=number_format($rs->FabricPrice,2);?></td>
                 </tr>
                 <?php } ?>
-                
-				</table>
-				<table style="border:none;"> 
-					<tr>
-						<td style="width:70%; border:none;"></td>
-						<td width=15% style="text-align:center; border:1px solid #ccc">Shipping:</td>
-						<td width=15% class="mono" style="border:1px solid #ccc"><?=number_format($Shipping, 2);?></td>
-					</tr>
-					<tr>
-						<td style="width:70%; border:none;"></td>
-						<td width=15% style="text-align:center; border:1px solid #ccc">Total:</td>
-						<td width=15% class="mono" style="border:1px solid #ccc"><?php
-							$TotalPrice = (float)($TotalPrice + $Shipping) - $Discount;
-							echo number_format($TotalPrice, 2);
-							?></td>
-					</tr>
-				</table>
+                <tr>
+                    <td colspan="3"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td colspan="3"></td>
+                    <td>Total :</td>
+                    <td class="mono"><?=number_format($TotalPrice, 2);?></td>
+                </tr>
+            </table>
         </div>
-        
+        <div id="invoice_total">
+            Total Amount :
+            <table>
+                <tr>
+                    <td style="width:15%;">USD</td>
+                    <td style="width:15%;" class="mono"><?=number_format($TotalPrice, 2);?></td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <hr/>
     </div>
 
     <br/>
 
 </div>
 
-
+<htmlpagefooter name="footer">
+    <hr/>
+    <div id="footer">
+        <table>
+            <tr>
+                <td></td>
+                <td>Men's Custom Tailor</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</htmlpagefooter>
+<sethtmlpagefooter name="footer" value="on"/>
 
 </body>
 </html>

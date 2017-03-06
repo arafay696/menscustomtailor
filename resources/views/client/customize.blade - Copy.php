@@ -362,20 +362,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-											<div class="customization_item">
-                                                <div class="artistProducer clearfix">
-                                                    <label><input type="radio" name="collarType"
-                                                                  value="Wing Collar">&nbsp;</label>
-                                                </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/Wing.jpg'); ?>"
-                                                     alt="Wing Collar"/>
-
-                                                <div class="customization_dropdown">
-                                                    <div class="customselect_customize">
-                                                        <span>Wing Collar/span>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
@@ -540,11 +526,6 @@
                                                     edge to a barrel cuff, to a more unique two button scalloped
                                                     variety. That said, our most popular cuff style is the Convertible
                                                     Cuff.</p>
-                                            </div>
-											<div class="hideOnMobile customize_rightSection_contentIm clearfix withoutText">
-                                                
-                                                <img src="<?php echo URL::to('public/assets/client/images/cuffs.jpg'); ?>"
-                                                         alt="#"/>
                                             </div>
 
                                         </div>
@@ -874,7 +855,7 @@
                                             <div class="hideOnMobile customize_rightSection_content clearfix withoutImg">
                                                 <p>Place your hand on your hip, with your arm bent at 90 degrees. Then
                                                     have someone measure the distance from the center back of your neck
-                                                    (along your shoulder and elbow) all the way to your wrist. </br></br>Note: If you don’t have access to a tape measure, you can use the sleeve length size of your best fitting shirt.</p>
+                                                    (along your shoulder and elbow) all the way to your wrist. </br></br>Note: If you don’t have access to a tape measure, you can use the neck size of your best fitting shirt.</p>
                                             </div>
 
                                         </div>
@@ -956,18 +937,14 @@
                                                     shape and preference of
                                                     tie-knot.</p>
                                             </div>-->
-											<div class="hideOnMobile customize_rightSection_contentIm clearfix withoutText">
-                                                
-                                                <img src="<?php echo URL::to('public/assets/client/images/pockets.jpg'); ?>"
-                                                         alt="#"/>
-                                            </div>
+
                                             <div class="neck_dtail selectPocketNo" style="display:none;">
                                                 <label>No. Of Pocket:</label>
 
-                                                <!-- <p>The neck measurement is taken around the neck with the
+                                                <p>The neck measurement is taken around the neck with the
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
-                                                    some extra room.</p> -->
+                                                    some extra room.</p>
                                                 <h3 class="detailHeading1">Select No. Of Pockets</h3>
                                                 <select size="1" name="noOfPocket">
                                                     <?php foreach ($NoOfPockets as $key => $np) { ?>
@@ -1051,11 +1028,7 @@
                                                     shape and preference of
                                                     tie-knot.</p>
                                             </div> -->
-											<div class="hideOnMobile customize_rightSection_contentIm clearfix withoutText">
-                                                
-                                                <img src="<?php echo URL::to('public/assets/client/images/monograms.jpg'); ?>"
-                                                         alt="#"/>
-                                            </div>
+
                                             <div class="neck_dtail monogramDescription">
                                                 <label>Monogram Detail:</label>
 
@@ -1101,7 +1074,7 @@
                                                                                                         value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
-                                            <img src="<?php echo URL::to('public/assets/client/images/slider_M1img.png'); ?>"
+                                            <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
                                                  alt="#"/>
                                         </div>
 
@@ -1721,7 +1694,7 @@
                                                                                                         value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
-                                            <img src="<?php echo URL::to('public/assets/client/images/slider_M1img.png'); ?>"
+                                            <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
                                                  alt="#"/>
                                         </div>
 
@@ -2325,7 +2298,7 @@
                                                                                                         value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
-                                            <img src="<?php echo URL::to('public/assets/client/images/slider_M1img.png'); ?>"
+                                            <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
                                                  alt="#"/>
                                         </div>
 
@@ -2425,7 +2398,7 @@
                                                      alt="#"/>
                                                 <ul id="fitStyleDetail">
                                                     <li style="display: block;">
-                                                        <b>FULL CUT</b>
+                                                        <b>CLASSIC FIT</b>
                                                         <p>
                                                             A generous fit, cut full through the chest, waist and
                                                             armholes.
@@ -2465,9 +2438,6 @@
                                                     <option value="Traditional Cut">Traditional Cut</option>
                                                     <option value="Trim Fit">Trim Fit</option>
                                                 </select>
-												</div>
-											<div class="neck_dtail">
-												<label>Contrast Collar & Cuffs:</label>
 												<div style="padding-bottom: 0px;" class="servicesTerm whiteCollar">
                                                     <label><input name="whiteCollar" type="checkbox"
                                                                   value="1"></label>

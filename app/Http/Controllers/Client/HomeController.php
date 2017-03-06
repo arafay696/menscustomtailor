@@ -45,6 +45,11 @@ class HomeController extends BaseController
     {
         return view('client.contactus');
     }
+	
+	public function faqs()
+    {
+        return view('client.faqs');
+    }
 
     public function aboutus()
     {
@@ -136,7 +141,7 @@ class HomeController extends BaseController
 
         $pdf->AddPage('P', 2, 2, 10, 10, 8, 2, 'A4');
         $pdf->loadView('client.pdf-invoice', $data);
-
+		return view('client.pdf-invoice',$data);	
 
         return $pdf->stream();
 

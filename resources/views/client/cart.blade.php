@@ -455,10 +455,10 @@
                                     </li>
 
                                     <li class="applyGCardHere">
-                                        <label>Gift Card</label>
+                                        <label>Gift Card Code</label>
                                         <div class="discount_inputs clearfix">
                                             <input id="giftCoupon" type="text" value=""/>
-                                            <input id="checkGiftCardCoupon" type="button" value="Add Gift Card"/>
+                                            <input id="checkGiftCardCoupon" type="button" value="Use Gift Card"/>
                                             <i id="waitGCounpon" class="hide fa fa-spinner fa-spin fa-2x"></i>
                                         </div>
                                     </li>

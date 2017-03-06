@@ -20,6 +20,7 @@ use Auth;
 use Input;
 use View;
 use App\Http\Controllers\Client\PdfWrapper as PDFF;
+use Mail;
 
 class UserController extends BaseController
 {
@@ -130,7 +131,7 @@ class UserController extends BaseController
 
         DB::setFetchMode(\PDO::FETCH_ASSOC);
         $getUser = DB::table('customers')
-            ->select('Email', 'Name', 'City', 'Country','State','ZipCode', 'Phone', 'Company', 'Gender', 'Address', 'UserImg')
+            ->select('Email', 'Name', 'City', 'Country', 'State', 'ZipCode', 'Phone', 'Company', 'Gender', 'Address', 'UserImg')
             ->where('ID', Session::get('CustomerID'))
             ->first();
         DB::setFetchMode(\PDO::FETCH_CLASS);
@@ -159,7 +160,7 @@ class UserController extends BaseController
                 ->get();
 
             $getUser = DB::table('customers')
-                ->select('Name','Email','Phone','City','Country','Address')
+                ->select('Name', 'Email', 'Phone', 'City', 'Country', 'Address')
                 ->where("ID", "=", Session::get('CustomerID'))
                 ->first();
 
@@ -514,20 +515,21 @@ class UserController extends BaseController
         }
     }
 
-    public function generateInvoicePlz($orderID){
+    public function generateInvoicePlz($orderID)
+    {
         $getDetail = DB::table('orders AS o')
-            ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty',
+            ->select('o.ID as OrderID', 'o.Price as SubTotal', 'i.Name as Image', 'o.ID', 'p.Name', 'sd.Qty',
                 'sd.FabricPrice', 'o.Amount as Total', 'o.Discount',
-                'o.Shiping',DB::raw('DATE_FORMAT(o.OrderDate,"%m/%d/%Y") as OrderDate'))
-            ->join("shirtdetail AS sd","o.ID","=","sd.OrderID")
-            ->join("products AS p","sd.FabricCode","=","p.Code")
-            ->join("images as i","p.ID","=","i.RefID")
+                'o.Shiping', DB::raw('DATE_FORMAT(o.OrderDate,"%m/%d/%Y") as OrderDate'))
+            ->join("shirtdetail AS sd", "o.ID", "=", "sd.OrderID")
+            ->join("products AS p", "sd.FabricCode", "=", "p.Code")
+            ->join("images as i", "p.ID", "=", "i.RefID")
             ->where("o.ID", "=", $orderID)
             ->groupBy("i.RefID")
             ->get();
 
         $getUser = DB::table('customers')
-            ->select('Name', 'Email', 'Phone', 'City', 'Country', 'Address','State')
+            ->select('Name', 'Email', 'Phone', 'City', 'Country', 'Address', 'State')
             ->where("ID", "=", Session::get('CustomerID'))
             ->first();
 
@@ -562,14 +564,16 @@ class UserController extends BaseController
         $name .= '.pdf';
         return $pdf->download($name);
     }
-    public function generateInvoice($orderID){
+
+    public function generateInvoice($orderID)
+    {
         $getDetail = DB::table('orders AS o')
-            ->select('o.ID as OrderID','o.Price as SubTotal','i.Name as Image','o.ID','p.Name', 'sd.Qty',
+            ->select('o.ID as OrderID', 'o.Price as SubTotal', 'i.Name as Image', 'o.ID', 'p.Name', 'sd.Qty',
                 'sd.FabricPrice', 'o.Amount as Total', 'o.Discount',
-                'o.Shiping',DB::raw('DATE_FORMAT(o.OrderDate,"%d/%m/%Y") as OrderDate'))
-            ->join("shirtdetail AS sd","o.ID","=","sd.OrderID")
-            ->join("products AS p","sd.FabricCode","=","p.Code")
-            ->join("images as i","p.ID","=","i.RefID")
+                'o.Shiping', DB::raw('DATE_FORMAT(o.OrderDate,"%d/%m/%Y") as OrderDate'))
+            ->join("shirtdetail AS sd", "o.ID", "=", "sd.OrderID")
+            ->join("products AS p", "sd.FabricCode", "=", "p.Code")
+            ->join("images as i", "p.ID", "=", "i.RefID")
             ->where("o.ID", "=", $orderID)
             ->groupBy("i.RefID")
             ->get();
@@ -608,13 +612,12 @@ class UserController extends BaseController
         $pdf->download('test.pdf');
 
 
-
-        if(count($getDetail) > 0){
+        if (count($getDetail) > 0) {
             echo json_encode(array(
-               'status' => true,
+                'status' => true,
                 'data' => $getDetail
             ));
-        }else{
+        } else {
             echo json_encode(array(
                 'status' => false,
                 'data' => 'No Detail found'
@@ -622,19 +625,20 @@ class UserController extends BaseController
         }
     }
 
-    public function tt(){
+    public function tt()
+    {
         $recData = array(
             'Subject' => 'Gift Card Received',
             'name' => "Men's Custom Tailor",
             'code' => '123213',
             'from' => 'arafay@gmail.com',
             'msg' => 'heelo',
-            'rec_name' =>'arafafafa',
-            'email' =>'arafafafa',
+            'rec_name' => 'arafafafa',
+            'email' => 'arafafafa',
             'price' => 200
         );
 
-        return view('client.giftcardEmailReceived',$recData);
+        return view('client.giftcardEmailReceived', $recData);
     }
 
     public function giftCard()
@@ -657,5 +661,25 @@ class UserController extends BaseController
 
         //dd('Hello');
         return view('client.giftCard');
+    }
+
+    public function contactUs(Request $request)
+    {
+        $name = $request::get('name');
+        $email = $request::get('email');
+        $message = $request::get('message');
+
+        $recData = array(
+            'name' => $name,
+            'email' => $email,
+            'bodyMessage' => $message
+        );
+
+        Mail::send('client.contact_us_email', $recData, function ($message) use ($recData) {
+            $message->subject('Contact Us')
+                ->to('cs@menscustomtailor.com');
+        });
+
+        return view('client.contactus');
     }
 }

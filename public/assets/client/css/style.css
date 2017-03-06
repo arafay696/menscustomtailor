@@ -552,7 +552,7 @@ body {
     left: 0px;
     top: 0px;
     padding: 12px 15px;
-    opacity: 0;;
+    opacity: 1;
     transition: all .5s;
     -moz-transition: all .5s;
     -ms-transition: all .5s;
@@ -566,18 +566,18 @@ body {
 
     /* This works in IE 8 & 9 too */
     /* ... but also 5, 6, 7 */
-    filter: alpha(opacity=0);
+    filter: alpha(opacity=1);
 
     /* Older than Firefox 0.9 */
-    -moz-opacity: 0;
+    -moz-opacity: 1;
 
     /* Safari 1.x (pre WebKit!) */
-    -khtml-opacity: 0;
+    -khtml-opacity: 1;
 
     /* Modern!
 	/* Firefox 0.9+, Safari 2?, Chrome any?
 	/* Opera 9+, IE 9+ */
-    opacity: 0;
+    opacity: 1;
 
 }
 
@@ -597,7 +597,7 @@ body {
 }
 
 .list_inn_dtail p {
-    font-size: 13px;
+    font-size: 15px;
     padding-bottom: 24px;
     font-family: 'ralewaylight';
     color: #000;
@@ -779,20 +779,23 @@ body {
     vertical-align: bottom;
     margin-right: 2%;
     margin-bottom: 2%;
-    width: 23.3%;
+    width: 23.0%;
     position: relative;
 }
-
+.product_slider li {
+    margin-right: 30px !important;
+}
 .popular_choices_list ul li a {
     display: block;
-    width: 100%;
+    width: 83%;
     margin-bottom: 10px;
     position: relative;
 }
 
 .popular_choices_list ul li a img {
     display: block;
-    width: 100%;
+	margin: auto;
+    width: 70%;
 }
 
 .popular_choices_list ul li a img.zoom_pic {
@@ -840,7 +843,7 @@ body {
 .popular_choices_list ul li span a {
     margin-bottom: 8px;
     color: #000;
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'latoregular';
     font-weight: normal;
 }
@@ -989,6 +992,7 @@ body {
 
 .footer_top {
     width: 100%;
+	background-color: #efa753;
 }
 
 .footer_top_dtail {
@@ -1363,9 +1367,9 @@ body {
     border-right: 1px solid #a6a6a5;
     float: left;
 }
-.subtotal_dtail ul li .customselect span {
+.subtotal_dtail ul li .customselect span,.allCatList {
     overflow: hidden;
-    line-height: 26px;
+    line-height: 26px !important;
 }
 
 .subtotal_dtail ul li strong {
@@ -1770,13 +1774,15 @@ body {
 }
 
 .pattern_price {
-    width: 190px;
+    //width: 190px;
+    width: 469px;
     float: right;
     margin-top: -10px;
 }
 
 .pattern_dropdown {
-    width: 53%;
+    //width: 53%;
+    width: 23%;
     float: left;
 }
 

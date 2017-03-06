@@ -25,5 +25,10 @@ class BaseController extends Controller
             'itemSelected' => $itemSelected
         );
         View::share('ShareData', $ShareData);
+
+        $info = array(
+            'title' => "Custom Dress Shirts - MEN'S CUSTOM TAILOR"
+        );
+        View::share('info', $info);
     }
 }

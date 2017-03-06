@@ -362,20 +362,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-											<div class="customization_item">
-                                                <div class="artistProducer clearfix">
-                                                    <label><input type="radio" name="collarType"
-                                                                  value="Wing Collar">&nbsp;</label>
-                                                </div>
-                                                <img src="<?php echo URL::to('public/assets/client/images/Wing.jpg'); ?>"
-                                                     alt="Wing Collar"/>
-
-                                                <div class="customization_dropdown">
-                                                    <div class="customselect_customize">
-                                                        <span>Wing Collar/span>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
@@ -411,7 +397,7 @@
                                                     pictures show, and make sure you can move the tape easily. Do not
                                                     tighten the tape measure. Make sure that the tape is at the base of
                                                     the neck where the neck and shoulders meet or at the height where
-                                                    the collar would be if you were wearing a shirt.</br></br>Note: If you don’t have access to a tape measure, you can use the neck size of your best fitting shirt. </p>
+                                                    the collar would be if you were wearing a shirt.</p>
 
                                             </div>
                                         </div>
@@ -529,8 +515,10 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <div class="hideOnMobile customize_rightSection_content clearfix withoutImg">
-                                                
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
+                                                <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
+                                                     alt="#"/>
+
                                                 <p>Dress shirt cuffs remind us of what makes menswear so unique: it's
                                                     all in the details. Most dress shirt cuffs are pretty classic: a
                                                     barrel cuff with a squared edge and two buttons - which helps
@@ -540,11 +528,6 @@
                                                     edge to a barrel cuff, to a more unique two button scalloped
                                                     variety. That said, our most popular cuff style is the Convertible
                                                     Cuff.</p>
-                                            </div>
-											<div class="hideOnMobile customize_rightSection_contentIm clearfix withoutText">
-                                                
-                                                <img src="<?php echo URL::to('public/assets/client/images/cuffs.jpg'); ?>"
-                                                         alt="#"/>
                                             </div>
 
                                         </div>
@@ -866,7 +849,7 @@
                                                 </select>
                                                 </div>
                                                 <div class="rightSide">
-                                                    <img src="<?php echo URL::to('public/assets/client/images/Sleeve.png'); ?>"
+                                                    <img src="<?php echo URL::to('public/assets/client/images/Neck.png'); ?>"
                                                          alt="#"/>
                                                 </div>
                                             </div>
@@ -874,7 +857,7 @@
                                             <div class="hideOnMobile customize_rightSection_content clearfix withoutImg">
                                                 <p>Place your hand on your hip, with your arm bent at 90 degrees. Then
                                                     have someone measure the distance from the center back of your neck
-                                                    (along your shoulder and elbow) all the way to your wrist. </br></br>Note: If you don’t have access to a tape measure, you can use the sleeve length size of your best fitting shirt.</p>
+                                                    (along your shoulder and elbow) all the way to your wrist. </p>
                                             </div>
 
                                         </div>
@@ -940,7 +923,7 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                            <!--<div class="hideOnMobile customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/colrr_img.png'); ?>"
                                                      alt="#"/>
 
@@ -955,19 +938,15 @@
                                                     best compliment your face
                                                     shape and preference of
                                                     tie-knot.</p>
-                                            </div>-->
-											<div class="hideOnMobile customize_rightSection_contentIm clearfix withoutText">
-                                                
-                                                <img src="<?php echo URL::to('public/assets/client/images/pockets.jpg'); ?>"
-                                                         alt="#"/>
                                             </div>
+
                                             <div class="neck_dtail selectPocketNo" style="display:none;">
                                                 <label>No. Of Pocket:</label>
 
-                                                <!-- <p>The neck measurement is taken around the neck with the
+                                                <p>The neck measurement is taken around the neck with the
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
-                                                    some extra room.</p> -->
+                                                    some extra room.</p>
                                                 <h3 class="detailHeading1">Select No. Of Pockets</h3>
                                                 <select size="1" name="noOfPocket">
                                                     <?php foreach ($NoOfPockets as $key => $np) { ?>
@@ -1035,7 +1014,7 @@
                                         </div>
                                         <div class="customize_rightSection">
                                             <?=$slectedItems;?>
-                                           <!-- <div class="hideOnMobile customize_rightSection_content clearfix">
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
                                                 <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
                                                      alt="#"/>
 
@@ -1050,12 +1029,8 @@
                                                     best compliment your face
                                                     shape and preference of
                                                     tie-knot.</p>
-                                            </div> -->
-											<div class="hideOnMobile customize_rightSection_contentIm clearfix withoutText">
-                                                
-                                                <img src="<?php echo URL::to('public/assets/client/images/monograms.jpg'); ?>"
-                                                         alt="#"/>
                                             </div>
+
                                             <div class="neck_dtail monogramDescription">
                                                 <label>Monogram Detail:</label>
 
@@ -1101,7 +1076,7 @@
                                                                                                         value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
-                                            <img src="<?php echo URL::to('public/assets/client/images/slider_M1img.png'); ?>"
+                                            <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
                                                  alt="#"/>
                                         </div>
 
@@ -1696,7 +1671,7 @@
                                                 </select>
                                                 </div>
                                                 <div class="rightSide">
-                                                    <img src="<?php echo URL::to('public/assets/client/images/Chest.png'); ?>"
+                                                    <img src="<?php echo URL::to('public/assets/client/images/Neck.png'); ?>"
                                                          alt="#"/>
                                                 </div>
                                             </div>
@@ -1706,7 +1681,7 @@
                                                     side. The chest measurement should be taken around the chest under
                                                     the armpits. Make sure the tape is parallel and you can move the
                                                     tape easily. Do not tighten the tape measure. Avoid having thick
-                                                    clothes on when measuring. </br></br> Note: If you don’t have access to a tape measure, you can use the chest size of your best fitting sport coat.</p>
+                                                    clothes on when measuring.</p>
                                             </div>
 
                                         </div>
@@ -1721,7 +1696,7 @@
                                                                                                         value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
-                                            <img src="<?php echo URL::to('public/assets/client/images/slider_M1img.png'); ?>"
+                                            <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
                                                  alt="#"/>
                                         </div>
 
@@ -2310,7 +2285,7 @@
                                                     stomach in. If you do not have beer belly, the waist measurement
                                                     should be taken around the waist at the narrowest point. If you have
                                                     beer belly, you should measure the widest point. Make sure you can
-                                                    move the tape easily. Do not tighten the tape measure. </br></br>Note: If you don’t have access to a tape measure, you can use the waist size of your best fitting trousers.</p>
+                                                    move the tape easily. Do not tighten the tape measure. </p>
                                             </div>
 
                                         </div>
@@ -2325,7 +2300,7 @@
                                                                                                         value="<?=$productID;?>"/>
                                     <div class="customization_outer clearfix">
                                         <div class="customization_itemz_outer">
-                                            <img src="<?php echo URL::to('public/assets/client/images/slider_M1img.png'); ?>"
+                                            <img src="<?php echo URL::to('public/assets/client/images/slider_img.png'); ?>"
                                                  alt="#"/>
                                         </div>
 
@@ -2405,10 +2380,27 @@
                                                     </option>
                                                 </select>
                                                 </div>
-                                                
+                                                <div class="rightSide">
+                                                    <img src="<?php echo URL::to('public/assets/client/images/Neck.png'); ?>"
+                                                         alt="#"/>
+                                                </div>
                                             </div>
 
-                                            
+                                            <div class="hideOnMobile customize_rightSection_content clearfix withoutImg">
+                                                
+                                                <p>The Medium Collar is the most
+                                                    popular and versatile option as it
+                                                    complements most face shapes
+                                                    and tie-knots. Spread is also
+                                                    well-liked and flattering on most
+                                                    people. View the gallery below
+                                                    for recommendations on which
+                                                    of our fashionable collars will
+                                                    best compliment your face
+                                                    shape and preference of
+                                                    tie-knot.</p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </form>
@@ -2425,7 +2417,7 @@
                                                      alt="#"/>
                                                 <ul id="fitStyleDetail">
                                                     <li style="display: block;">
-                                                        <b>FULL CUT</b>
+                                                        <b>CLASSIC FIT</b>
                                                         <p>
                                                             A generous fit, cut full through the chest, waist and
                                                             armholes.
@@ -2455,20 +2447,11 @@
                                             <div class="neck_dtail">
                                                 <label>Other Customization:</label>
 
-                                                <!-- <p>The neck measurement is taken around the neck with the
+                                                <p>The neck measurement is taken around the neck with the
                                                     tape resting on your shoulders. You should put one finger
                                                     between the tape and the neck if you want to allow for
-                                                    some extra room.</p> -->
-                                                <h3 class="detailHeading2">Select Fit Type</h3>
-                                                <select style="margin-top: 4px;" name="shirtTailType">
-                                                    <option value="Full Cut">Full Cut</option>
-                                                    <option value="Traditional Cut">Traditional Cut</option>
-                                                    <option value="Trim Fit">Trim Fit</option>
-                                                </select>
-												</div>
-											<div class="neck_dtail">
-												<label>Contrast Collar & Cuffs:</label>
-												<div style="padding-bottom: 0px;" class="servicesTerm whiteCollar">
+                                                    some extra room.</p>
+                                                <div style="padding-bottom: 0px;" class="servicesTerm whiteCollar">
                                                     <label><input name="whiteCollar" type="checkbox"
                                                                   value="1"></label>
                                                     <p>White Collar</p>
@@ -2477,10 +2460,31 @@
                                                     <label><input name="whiteCuff" type="checkbox" value="1"></label>
                                                     <p>White Cuff</p>
                                                 </div>
-                                                
+                                                <h3 class="detailHeading2">Select Fit Type</h3>
+                                                <select style="margin-top: 4px;" name="shirtTailType">
+                                                    <option value="Full Cut">Full Cut</option>
+                                                    <option value="Traditional Cut">Traditional Cut</option>
+                                                    <option value="Trim Fit">Trim Fit</option>
+                                                </select>
                                             </div>
 
-                                            
+                                            <div class="hideOnMobile customize_rightSection_content clearfix">
+                                                <img src="<?php echo URL::to('public/assets/client/images/measure.png'); ?>"
+                                                     alt="#"/>
+
+                                                <p>The Medium Collar is the most
+                                                    popular and versatile option as it
+                                                    complements most face shapes
+                                                    and tie-knots. Spread is also
+                                                    well-liked and flattering on most
+                                                    people. View the gallery below
+                                                    for recommendations on which
+                                                    of our fashionable collars will
+                                                    best compliment your face
+                                                    shape and preference of
+                                                    tie-knot.</p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </form>

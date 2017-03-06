@@ -209,12 +209,13 @@ $(document).ready(function (e) {
         chooseColor: [],
         choosePriceSort: null,
         passProducts: [],
+        category: 'ALL',
         filterExec: function () {
 
             // Reset Filters
             $('.productGallery li').removeClass('Show');
             $('.productGallery li').removeClass('Hide');
-            $('.productGallery li').removeClass('secondTestPass');
+            $('.productGallery li').removeClass('thirdTestPass');
 
             // Check Patterns if has, will passed First Test
             $('.productGallery li').each(function (key, value) {
@@ -245,6 +246,27 @@ $(document).ready(function (e) {
             // Remove First Test Check
             $('.productGallery .secondTestPass').removeClass('firstTestPass');
 
+            // If Category selected, and Pass Third Test
+            if (filterProducts.category !== 'ALL') {
+                //alert(filterProducts.category);
+                $('.productGallery .secondTestPass').each(function () {
+                    var getCategories = $(this).attr("data-category-list").split(",");
+                    var ele = $(this);
+                    var find = false;
+                    if (getCategories.indexOf(filterProducts.category) >= 0) {
+                        if (!find) {
+                            ele.addClass("thirdTestPass");
+                            find = true;
+                        }
+                    }
+                });
+            } else {
+                $('.productGallery .secondTestPass').addClass("thirdTestPass");
+            }
+
+            // Remove First Test Check
+            $('.productGallery .thirdTestPass').removeClass('secondTestPass');
+
             // Sort By Price, High to Low && Low to High
             if (filterProducts.choosePriceSort !== null) {
                 if (filterProducts.choosePriceSort == "LH") {
@@ -260,8 +282,9 @@ $(document).ready(function (e) {
                 }
             }
 
+
             // Do Fun - Add Show Class
-            $('.productGallery .secondTestPass').each(function () {
+            $('.productGallery .thirdTestPass').each(function () {
                 var getColors = $(this).addClass("Show");
             });
 
@@ -307,6 +330,14 @@ $(document).ready(function (e) {
         if (active !== 'All') {
             filterProducts.choosePattern = active;
         }
+        filterProducts.filterExec();
+    });
+
+    /* Filter by Category */
+    $('#filterCategory').change(function (e) {
+        var active = $(this).val();
+        filterProducts.category = active;
+
         filterProducts.filterExec();
     });
 
@@ -536,6 +567,7 @@ $(document).ready(function (e) {
             type: "POST",
             url: "" + baseUrl + "/verifyDiscountCoupon",
             data: "discountCoupon=" + code + "&_token=" + token,
+            context: this,
             beforeSend: function () {
                 $('.updateCartSpin').removeClass('hide');
                 $('#waitDCounpon').removeClass('hide');
@@ -548,6 +580,7 @@ $(document).ready(function (e) {
                 $('#waitDCounpon').addClass('hide');
                 result = JSON.parse(result);
                 if (result.status) {
+
                     var discountPercentage = result.discount;
                     $('.showDiscountDetail').removeClass('hide');
                     Cart.discountPercentage = discountPercentage;
@@ -558,6 +591,7 @@ $(document).ready(function (e) {
                     $('.SuccesCouponMsg').delay(2000).fadeOut(function () {
                         $('.SuccesCouponMsg').addClass('hide');
                     });
+                    $(this).addClass('disableNextPrev');
                 } else {
                     $('.errorCoupon').removeClass('hide');
                     $('.errorCoupon').removeAttr('style');
@@ -579,6 +613,7 @@ $(document).ready(function (e) {
             type: "POST",
             url: "" + baseUrl + "/verifyGiftCoupon",
             data: "giftCoupon=" + code + "&_token=" + token,
+            context: this,
             beforeSend: function () {
                 $('.updateCartSpin').removeClass('hide');
                 $('#waitGCounpon').removeClass('hide');
@@ -601,6 +636,7 @@ $(document).ready(function (e) {
                     $('.SuccesCouponMsg').delay(2000).fadeOut(function () {
                         $('.SuccesCouponMsg').addClass('hide');
                     });
+                    $(this).addClass('disableNextPrev');
                 } else {
                     $('.errorCoupon').removeClass('hide');
                     $('.errorCoupon').removeAttr('style');

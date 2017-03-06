@@ -22,8 +22,8 @@
                                 <h4>Returning customer? </h4>
 
                                 @if(!Session::has('registered'))
-                                <p>If you have shopped with us before, please enter your details in the boxes below. If
-                                    you are a new customer please proceed to the Billing &amp; Shipping section.</p>
+                                <p>If you have shopped with us before, please enter your login credentials to begin your order. If
+                                    you are a new customer please proceed to register as a new user.</p>
                                 @endif
 
                                 @if(Session::has('registered'))
@@ -54,8 +54,7 @@
                             <div class="login_dtail fr_section">
                                 <h4>New User</h4>
 
-                                <p>If you have shopped with us before, please enter your details in the boxes below. If
-                                    you are a new customer please proceed to the Billing &amp; Shipping section.</p>
+                                <p>If this is your first order, please complete this short registration form.</p>
                                 <form action="<?=URL::to('/doRegister');?>" method="post">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                     <input type="hidden" name="returnUrl" value="<?=$returnUrl;?>">
